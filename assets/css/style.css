@@ -6,7 +6,7 @@
 :root{
   --bg:#0a0f1d; --bg-2:#0e1527; --bg-3:#131c33; --bg-4:#1a2440;
   --line:rgba(150,180,230,.11); --line-2:rgba(150,180,230,.2); --line-3:rgba(150,180,230,.32);
-  --text:#e3e9f4; --dim:#a3aec4; --dimmer:#6f7a94;
+  --text:#e3e9f4; --dim:#a3aec4; --dimmer:#8792ac;
   --hud:#5ee6f2; --hud-2:#2bb8cc; --hud-a:rgba(94,230,242,.12); --hud-b:rgba(94,230,242,.28);
   --mag:#cf86f5; --signal:#ff7350;
   --g1:#9aa6bd; --g2:#62a6ff; --g3:#b688ff; --g4:#f2c46a; --g5:#ff9d45; --g6:#ff5874;
