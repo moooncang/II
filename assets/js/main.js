@@ -17,7 +17,7 @@
   /* ── 효과음: ElevenLabs로 만든 짧은 UI 소리. 첫 조작 뒤에만 울리고, 끄면 기억한다 ── */
   var sfx = (function () {
     var base = (d.currentScript && d.currentScript.src || '').replace(/js\/main\.js.*$/, 'sfx/');
-    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, reveal: .45 };
+    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, travel: .4, flip: .32, reveal: .45 };
     var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {};
     var on = true; try { on = localStorage.getItem('ileon-sfx') !== 'off'; } catch (e) {}
     var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -321,7 +321,7 @@
     $$('.thumbs button').forEach(function (b) {
       b.addEventListener('click', function () {
         $$('button', b.parentNode).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-        setFig(b.dataset.src, b.dataset.alt); sfx.play('select');
+        setFig(b.dataset.src, b.dataset.alt); sfx.play('flip');
         b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
       });
     });
@@ -356,7 +356,7 @@
       tinf.forEach(function (x) { x.hidden = x.dataset.r !== key; });
       var cb = tb.filter(function (b) { return b.dataset.r === key; })[0];
       if (cb && cb.parentNode.parentNode.scrollWidth > cb.parentNode.parentNode.clientWidth) cb.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
-      if (push) { history.replaceState(null, '', '#' + key); sfx.play('select'); }
+      if (push) { history.replaceState(null, '', '#' + key); sfx.play('travel', 120); }
     }
     tb.forEach(function (b) { b.addEventListener('click', function () { go2(b.dataset.r, true); }); });
     var inView = false;
