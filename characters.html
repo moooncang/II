@@ -8,185 +8,71 @@
 <meta property="og:title" content="인물 · FULL DIVE - ILEON">
 <meta property="og:description" content="다이브포드에 누우면 벨라트 대륙이 열린다. 죽어도 돌아오는 이방인이 되어, 당신이 한 일이 직업이 되는 세계. 일레온.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0a">
-<link rel="preload" href="assets/fonts/frak/unifrakturcook-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#07080a">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
-<body>
+<body class="select-page">
 <a class="skip" href="#main">본문으로</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="top">
-  <a class="brand" href="home.html" aria-label="일레온 홈"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-  <nav class="nav" id="nav" aria-label="주 메뉴">
-      <a href="world.html"><i>01</i>대륙</a>
-      <a href="characters.html" aria-current="page"><i>02</i>인물</a>
-      <a href="system.html"><i>03</i>체계</a>
-      <a href="reality.html"><i>04</i>현실</a>
-      <a href="start.html"><i>05</i>시작</a>
-  </nav>
-  <div class="clock" aria-label="현실 시각과 벨라트 시각">
-    <span><i>REAL</i><b data-clock="real">--:--</b></span>
-    <span class="bt"><i>BELAT</i><b data-clock="belat">--:--</b></span>
-  </div>
-  <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
+<header class="hud">
+  <a class="logo" href="home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
+  <nav class="tabs" aria-label="주 메뉴"><a href="world.html"><kbd class="key">1</kbd><span>대륙</span></a><a href="characters.html" aria-current="page"><kbd class="key">2</kbd><span>인물</span></a><a href="system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="start.html"><kbd class="key">5</kbd><span>시작</span></a></nav>
+  <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-bg" aria-hidden="true"></div>
+  <div class="menu-in">
+    <p class="lbl">MENU · 일시 정지</p>
+    <ol><li><a href="world.html" data-bg="images/bg-draft/147058076.webp"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="characters.html" data-bg="images/bg-draft/3469639875.webp" aria-current="page"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="system.html" data-bg="images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="reality.html" data-bg="images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="start.html" data-bg="images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li></ol>
+    <div class="menu-foot"><a href="home.html">타이틀 화면</a><a href="index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
+  </div>
+</div>
 <main id="main">
-<section class="phead">
-  <div class="phead-bg" data-par><img src="images/bg-draft/3469639875.webp" alt="주점" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high"></div>
-  <span class="phead-no" aria-hidden="true">02</span>
-  <div class="wrap">
-    <div class="phead-k" data-rv><span>02</span><span>CAST</span></div>
-    <h1 class="mega" data-rv style="--i:1">열다섯 사람</h1>
-    <p data-rv style="--i:2">이방인 다섯에겐 포드 밖의 삶이 있고, 원주민 열은 죽으면 그만이다. 누구랑든 다닐 수 있지만, 원주민은 망설인다. <q>넌 언젠가 안 돌아올 거잖아.</q></p>
-  </div>
-</section>
-<section class="sec">
-  <div class="wrap">
-    <div class="filters" role="tablist" aria-label="인물 거르기">
-      <button type="button" role="tab" aria-selected="true" data-f="all">전체 <small>15</small></button>
-      <button type="button" role="tab" aria-selected="false" data-f="player">이방인 <small>5</small></button>
-      <button type="button" role="tab" aria-selected="false" data-f="npc">원주민 <small>10</small></button>
-      <i class="pill" aria-hidden="true"></i>
+<section class="select" data-select>
+  <div class="sel-bg"><img src="images/sample/A.webp" alt="" width="1280" height="883" decoding="async" fetchpriority="high" data-sel-img></div><div class="shade"></div>
+  <div class="sel-roster pnl">
+    <div class="pnl-h"><span>캐릭터 선택</span><span>15</span></div>
+    <div class="pnl-b">
+      <div class="sel-f" role="tablist" aria-label="거르기">
+        <button type="button" role="tab" aria-selected="true" data-f="all">전체</button>
+        <button type="button" role="tab" aria-selected="false" data-f="player">이방인 5</button>
+        <button type="button" role="tab" aria-selected="false" data-f="npc">원주민 10</button>
+      </div>
+      <ol class="roster"><li class="ro-g" data-side="player">이방인 <small>5</small></li><li data-side="player"><a class="ro on" href="char/juliet.html" data-c='{&quot;slug&quot;: &quot;juliet&quot;, &quot;name&quot;: &quot;줄리엣&quot;, &quot;real&quot;: &quot;설지은&quot;, &quot;lv&quot;: 64, &quot;job&quot;: &quot;월광검사&quot;, &quot;grade&quot;: &quot;에픽&quot;, &quot;gk&quot;: &quot;g3&quot;, &quot;hook&quot;: &quot;히든직 없이, 정규 루트만으로 서버 1위.&quot;, &quot;role&quot;: &quot;랭킹 1위 · 파랑스 길드&quot;, &quot;side&quot;: &quot;player&quot;, &quot;img&quot;: &quot;images/sample/A.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/A.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>줄리엣</b><small>설지은</small></span><span class="ro-lv">Lv<b>64</b></span></a></li><li data-side="player"><a class="ro" href="char/ulsan.html" data-c='{&quot;slug&quot;: &quot;ulsan&quot;, &quot;name&quot;: &quot;울산강펀치&quot;, &quot;real&quot;: &quot;마커스 리드&quot;, &quot;lv&quot;: 41, &quot;job&quot;: &quot;암기사&quot;, &quot;grade&quot;: &quot;희귀&quot;, &quot;gk&quot;: &quot;g2&quot;, &quot;hook&quot;: &quot;접속 시간은 서버 최상위, 레벨은 41. 돈을 안 써서.&quot;, &quot;role&quot;: &quot;무소속 · 다크게이머&quot;, &quot;side&quot;: &quot;player&quot;, &quot;img&quot;: &quot;images/sample/B.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/B.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>울산강펀치</b><small>마커스 리드</small></span><span class="ro-lv">Lv<b>41</b></span></a></li><li data-side="player"><a class="ro" href="char/pinkyu.html" data-c='{&quot;slug&quot;: &quot;pinkyu&quot;, &quot;name&quot;: &quot;핑뀨꽁주&quot;, &quot;real&quot;: &quot;정세라&quot;, &quot;lv&quot;: 28, &quot;job&quot;: &quot;대장장이&quot;, &quot;grade&quot;: &quot;희귀&quot;, &quot;gk&quot;: &quot;g2&quot;, &quot;hook&quot;: &quot;Lv28에 벌써 2차 전직. 생산직은 레벨 말고 실적으로 심사받거든.&quot;, &quot;role&quot;: &quot;무소속 · 생산직 최상위&quot;, &quot;side&quot;: &quot;player&quot;, &quot;img&quot;: &quot;images/sample/C.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/C.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>핑뀨꽁주</b><small>정세라</small></span><span class="ro-lv">Lv<b>28</b></span></a></li><li data-side="player"><a class="ro" href="char/herimong.html" data-c='{&quot;slug&quot;: &quot;herimong&quot;, &quot;name&quot;: &quot;헤리몽&quot;, &quot;real&quot;: &quot;유하람&quot;, &quot;lv&quot;: 43, &quot;job&quot;: &quot;파호권사&quot;, &quot;grade&quot;: &quot;유니크&quot;, &quot;gk&quot;: &quot;g4&quot;, &quot;hook&quot;: &quot;방송 그림이 잘 나와서, 맨손으로 큰 짐승만 잡았다. 그게 직업이 됐다.&quot;, &quot;role&quot;: &quot;크래크 · 공략 방송인&quot;, &quot;side&quot;: &quot;player&quot;, &quot;img&quot;: &quot;images/sample/D.webp&quot;, &quot;hidden&quot;: true}'>
+          <span class="ro-img"><img src="images/sample/D.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>헤리몽</b><small>유하람</small></span><span class="ro-lv">Lv<b>43</b></span></a></li><li data-side="player"><a class="ro" href="char/mumyeong.html" data-c='{&quot;slug&quot;: &quot;mumyeong&quot;, &quot;name&quot;: &quot;무명&quot;, &quot;real&quot;: &quot;최나린&quot;, &quot;lv&quot;: 51, &quot;job&quot;: &quot;잔영귀&quot;, &quot;grade&quot;: &quot;전설&quot;, &quot;gk&quot;: &quot;g5&quot;, &quot;hook&quot;: &quot;잿빛 회랑에서 이방인을 거듭 쓰러뜨리는 동안, 단 한 번도 죽지 않았다.&quot;, &quot;role&quot;: &quot;랭킹 17위 · 현상수배&quot;, &quot;side&quot;: &quot;player&quot;, &quot;img&quot;: &quot;images/sample/E.webp&quot;, &quot;hidden&quot;: true}'>
+          <span class="ro-img"><img src="images/sample/E.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>무명</b><small>최나린</small></span><span class="ro-lv">Lv<b>51</b></span></a></li><li class="ro-g" data-side="npc">원주민 <small>10</small></li><li data-side="npc"><a class="ro" href="char/bernhardt.html" data-c='{&quot;slug&quot;: &quot;bernhardt&quot;, &quot;name&quot;: &quot;베른하르트 콜&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 71, &quot;job&quot;: &quot;카르시온 검술 교관&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;제자에게 레벨보다 먼저 묻는다. \&quot;몇 번 죽었나.\&quot;&quot;, &quot;role&quot;: &quot;카르시온 · 제국 근위 출신&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/F.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/F.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>베른하르트 콜</b><small>카르시온</small></span><span class="ro-lv">Lv<b>71</b></span></a></li><li data-side="npc"><a class="ro" href="char/isra.html" data-c='{&quot;slug&quot;: &quot;isra&quot;, &quot;name&quot;: &quot;이스라&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 66, &quot;job&quot;: &quot;잿빛 회랑 은거 술사&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;제국이 금서로 묶은 술식, 잿글. 그걸 가르칠 수 있는 단 한 사람.&quot;, &quot;role&quot;: &quot;잿빛 회랑 · 잿글 술식의 유일한 전수자&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/G.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/G.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>이스라</b><small>잿빛 회랑</small></span><span class="ro-lv">Lv<b>66</b></span></a></li><li data-side="npc"><a class="ro" href="char/rohan.html" data-c='{&quot;slug&quot;: &quot;rohan&quot;, &quot;name&quot;: &quot;로한 델리엇&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 22, &quot;job&quot;: &quot;리아텔 영주&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;약속한 보상은 언제나, 받고 보면 조금 적다.&quot;, &quot;role&quot;: &quot;리아텔 · 계승 다툼의 한 축&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/H.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/H.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>로한 델리엇</b><small>리아텔</small></span><span class="ro-lv">Lv<b>22</b></span></a></li><li data-side="npc"><a class="ro" href="char/garsi.html" data-c='{&quot;slug&quot;: &quot;garsi&quot;, &quot;name&quot;: &quot;가르시 렌&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 58, &quot;job&quot;: &quot;벨가스 용병단장&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;죽은 원주민 단원의 이름을, 하나도 빠짐없이 외운다.&quot;, &quot;role&quot;: &quot;카뎃트 · 벨가스 용병단&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/I.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/I.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>가르시 렌</b><small>카뎃트</small></span><span class="ro-lv">Lv<b>58</b></span></a></li><li data-side="npc"><a class="ro" href="char/torbin.html" data-c='{&quot;slug&quot;: &quot;torbin&quot;, &quot;name&quot;: &quot;토르빈&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 49, &quot;job&quot;: &quot;툴가르드 장인&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;무기를 대하는 태도로 사람을 본다.&quot;, &quot;role&quot;: &quot;툴가르드 · 드워프&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/J.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/J.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>토르빈</b><small>툴가르드</small></span><span class="ro-lv">Lv<b>49</b></span></a></li><li data-side="npc"><a class="ro" href="char/selia.html" data-c='{&quot;slug&quot;: &quot;selia&quot;, &quot;name&quot;: &quot;셀리아&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 17, &quot;job&quot;: &quot;카뎃트 정보상&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;공짜 정보는 없다. 미소와 함께, 값부터.&quot;, &quot;role&quot;: &quot;카뎃트 · 경매장 뒷골목&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/K.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/K.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>셀리아</b><small>카뎃트</small></span><span class="ro-lv">Lv<b>17</b></span></a></li><li data-side="npc"><a class="ro" href="char/yuan.html" data-c='{&quot;slug&quot;: &quot;yuan&quot;, &quot;name&quot;: &quot;유안&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 14, &quot;job&quot;: &quot;리아텔 견습 기사&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;이방인을 동경한다. 그 이유가 \&quot;죽어도 돌아와서\&quot;라는 건, 본인만 모른다.&quot;, &quot;role&quot;: &quot;리아텔 · 로한 델리엇 휘하&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/L.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/L.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>유안</b><small>리아텔</small></span><span class="ro-lv">Lv<b>14</b></span></a></li><li data-side="npc"><a class="ro" href="char/neia.html" data-c='{&quot;slug&quot;: &quot;neia&quot;, &quot;name&quot;: &quot;네이아&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 45, &quot;job&quot;: &quot;추방된 엘프&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;이방인에게 숲길을 알려 줬고, 숲은 그 책임을 그녀에게 물었다.&quot;, &quot;role&quot;: &quot;아엘린 · 왼팔의 낙인, 「길을 연 자」&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/M.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/M.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>네이아</b><small>아엘린</small></span><span class="ro-lv">Lv<b>45</b></span></a></li><li data-side="npc"><a class="ro" href="char/kasiel.html" data-c='{&quot;slug&quot;: &quot;kasiel&quot;, &quot;name&quot;: &quot;카시엘&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 88, &quot;job&quot;: &quot;칼데스 지휘관&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;이방인을 재앙이라 부른다. 증오가 아니라, 계산 끝에 나온 결론으로.&quot;, &quot;role&quot;: &quot;할라크족 · 칼데스&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/N.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/N.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>카시엘</b><small>할라크족</small></span><span class="ro-lv">Lv<b>88</b></span></a></li><li data-side="npc"><a class="ro" href="char/marta.html" data-c='{&quot;slug&quot;: &quot;marta&quot;, &quot;name&quot;: &quot;마르타&quot;, &quot;real&quot;: &quot;&quot;, &quot;lv&quot;: 6, &quot;job&quot;: &quot;카뎃트 여관 주인&quot;, &quot;grade&quot;: &quot;&quot;, &quot;gk&quot;: &quot;&quot;, &quot;hook&quot;: &quot;퀘스트도 없고 파는 것도 없다. 밥은 먹었냐고 물을 뿐.&quot;, &quot;role&quot;: &quot;카뎃트 · 여관&quot;, &quot;side&quot;: &quot;npc&quot;, &quot;img&quot;: &quot;images/sample/O.webp&quot;, &quot;hidden&quot;: false}'>
+          <span class="ro-img"><img src="images/sample/O.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="ro-nm"><b>마르타</b><small>카뎃트</small></span><span class="ro-lv">Lv<b>6</b></span></a></li></ol>
+      <p class="sel-note">원주민은 함께 다니길 망설인다. <q>넌 언젠가 안 돌아올 거잖아.</q></p>
     </div>
-    <div class="cards"><a class="card" href="char/juliet.html" data-side="player" data-rv style="--i:0">
-  <div class="ph duo"><img src="images/sample/A.webp" alt="줄리엣" width="1280" height="883" loading="lazy" decoding="async"><span class="badge">이방인</span><span class="lv">Lv<b>64</b></span></div>
-  <div class="cap">
-    <span class="code">A</span>
-    <b class="nm">줄리엣</b>
-    <small>설지은 · 월광검사 <span class="grade g3">에픽</span></small>
-    <p class="hook">히든직 없이, 정규 루트만으로 서버 1위.</p>
   </div>
-</a><a class="card" href="char/ulsan.html" data-side="player" data-rv style="--i:1">
-  <div class="ph duo"><img src="images/sample/B.webp" alt="울산강펀치" width="1280" height="883" loading="lazy" decoding="async"><span class="badge">이방인</span><span class="lv">Lv<b>41</b></span></div>
-  <div class="cap">
-    <span class="code">B</span>
-    <b class="nm">울산강펀치</b>
-    <small>마커스 리드 · 암기사 <span class="grade g2">희귀</span></small>
-    <p class="hook">접속 시간은 서버 최상위, 레벨은 41. 돈을 안 써서.</p>
-  </div>
-</a><a class="card" href="char/pinkyu.html" data-side="player" data-rv style="--i:2">
-  <div class="ph duo"><img src="images/sample/C.webp" alt="핑뀨꽁주" width="1280" height="883" loading="lazy" decoding="async"><span class="badge">이방인</span><span class="lv">Lv<b>28</b></span></div>
-  <div class="cap">
-    <span class="code">C</span>
-    <b class="nm">핑뀨꽁주</b>
-    <small>정세라 · 대장장이 <span class="grade g2">희귀</span></small>
-    <p class="hook">Lv28에 벌써 2차 전직. 생산직은 레벨 말고 실적으로 심사받거든.</p>
-  </div>
-</a><a class="card" href="char/herimong.html" data-side="player" data-rv style="--i:0">
-  <div class="ph duo"><img src="images/sample/D.webp" alt="헤리몽" width="1280" height="883" loading="lazy" decoding="async"><span class="badge">이방인</span><span class="lv">Lv<b>43</b></span></div>
-  <div class="cap">
-    <span class="code">D</span>
-    <b class="nm">헤리몽</b>
-    <small>유하람 · 파호권사 <span class="grade g4">유니크</span></small>
-    <p class="hook">방송 그림이 잘 나와서, 맨손으로 큰 짐승만 잡았다. 그게 직업이 됐다.</p>
-  </div>
-</a><a class="card" href="char/mumyeong.html" data-side="player" data-rv style="--i:1">
-  <div class="ph duo"><img src="images/sample/E.webp" alt="무명" width="1280" height="883" loading="lazy" decoding="async"><span class="badge">이방인</span><span class="lv">Lv<b>51</b></span></div>
-  <div class="cap">
-    <span class="code">E</span>
-    <b class="nm">무명</b>
-    <small>최나린 · 잔영귀 <span class="grade g5">전설</span></small>
-    <p class="hook">잿빛 회랑에서 이방인을 거듭 쓰러뜨리는 동안, 단 한 번도 죽지 않았다.</p>
-  </div>
-</a><a class="card" href="char/bernhardt.html" data-side="npc" data-rv style="--i:2">
-  <div class="ph duo"><img src="images/sample/F.webp" alt="베른하르트 콜" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>71</b></span></div>
-  <div class="cap">
-    <span class="code">F</span>
-    <b class="nm">베른하르트 콜</b>
-    <small>카르시온 · 카르시온 검술 교관 </small>
-    <p class="hook">제자에게 레벨보다 먼저 묻는다. &quot;몇 번 죽었나.&quot;</p>
-  </div>
-</a><a class="card" href="char/isra.html" data-side="npc" data-rv style="--i:0">
-  <div class="ph duo"><img src="images/sample/G.webp" alt="이스라" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>66</b></span></div>
-  <div class="cap">
-    <span class="code">G</span>
-    <b class="nm">이스라</b>
-    <small>잿빛 회랑 · 잿빛 회랑 은거 술사 </small>
-    <p class="hook">제국이 금서로 묶은 술식, 잿글. 그걸 가르칠 수 있는 단 한 사람.</p>
-  </div>
-</a><a class="card" href="char/rohan.html" data-side="npc" data-rv style="--i:1">
-  <div class="ph duo"><img src="images/sample/H.webp" alt="로한 델리엇" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>22</b></span></div>
-  <div class="cap">
-    <span class="code">H</span>
-    <b class="nm">로한 델리엇</b>
-    <small>리아텔 · 리아텔 영주 </small>
-    <p class="hook">약속한 보상은 언제나, 받고 보면 조금 적다.</p>
-  </div>
-</a><a class="card" href="char/garsi.html" data-side="npc" data-rv style="--i:2">
-  <div class="ph duo"><img src="images/sample/I.webp" alt="가르시 렌" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>58</b></span></div>
-  <div class="cap">
-    <span class="code">I</span>
-    <b class="nm">가르시 렌</b>
-    <small>카뎃트 · 벨가스 용병단장 </small>
-    <p class="hook">죽은 원주민 단원의 이름을, 하나도 빠짐없이 외운다.</p>
-  </div>
-</a><a class="card" href="char/torbin.html" data-side="npc" data-rv style="--i:0">
-  <div class="ph duo"><img src="images/sample/J.webp" alt="토르빈" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>49</b></span></div>
-  <div class="cap">
-    <span class="code">J</span>
-    <b class="nm">토르빈</b>
-    <small>툴가르드 · 툴가르드 장인 </small>
-    <p class="hook">무기를 대하는 태도로 사람을 본다.</p>
-  </div>
-</a><a class="card" href="char/selia.html" data-side="npc" data-rv style="--i:1">
-  <div class="ph duo"><img src="images/sample/K.webp" alt="셀리아" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>17</b></span></div>
-  <div class="cap">
-    <span class="code">K</span>
-    <b class="nm">셀리아</b>
-    <small>카뎃트 · 카뎃트 정보상 </small>
-    <p class="hook">공짜 정보는 없다. 미소와 함께, 값부터.</p>
-  </div>
-</a><a class="card" href="char/yuan.html" data-side="npc" data-rv style="--i:2">
-  <div class="ph duo"><img src="images/sample/L.webp" alt="유안" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>14</b></span></div>
-  <div class="cap">
-    <span class="code">L</span>
-    <b class="nm">유안</b>
-    <small>리아텔 · 리아텔 견습 기사 </small>
-    <p class="hook">이방인을 동경한다. 그 이유가 &quot;죽어도 돌아와서&quot;라는 건, 본인만 모른다.</p>
-  </div>
-</a><a class="card" href="char/neia.html" data-side="npc" data-rv style="--i:0">
-  <div class="ph duo"><img src="images/sample/M.webp" alt="네이아" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>45</b></span></div>
-  <div class="cap">
-    <span class="code">M</span>
-    <b class="nm">네이아</b>
-    <small>아엘린 · 추방된 엘프 </small>
-    <p class="hook">이방인에게 숲길을 알려 줬고, 숲은 그 책임을 그녀에게 물었다.</p>
-  </div>
-</a><a class="card" href="char/kasiel.html" data-side="npc" data-rv style="--i:1">
-  <div class="ph duo"><img src="images/sample/N.webp" alt="카시엘" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>88</b></span></div>
-  <div class="cap">
-    <span class="code">N</span>
-    <b class="nm">카시엘</b>
-    <small>할라크족 · 칼데스 지휘관 </small>
-    <p class="hook">이방인을 재앙이라 부른다. 증오가 아니라, 계산 끝에 나온 결론으로.</p>
-  </div>
-</a><a class="card" href="char/marta.html" data-side="npc" data-rv style="--i:2">
-  <div class="ph duo"><img src="images/sample/O.webp" alt="마르타" width="1280" height="883" loading="lazy" decoding="async"><span class="badge npc">원주민</span><span class="lv">Lv<b>6</b></span></div>
-  <div class="cap">
-    <span class="code">O</span>
-    <b class="nm">마르타</b>
-    <small>카뎃트 · 카뎃트 여관 주인 </small>
-    <p class="hook">퀘스트도 없고 파는 것도 없다. 밥은 먹었냐고 물을 뿐.</p>
-  </div>
-</a></div>
-  </div>
-</section>
-<section class="close">
-  <div class="close-bg" data-par><img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <span class="sysmsg" data-rv>다이브포드 연결 대기</span>
-    <h2 class="mega" data-rv style="--i:1"><span>대륙은 지금도</span><span class="acid">돌아가는 중.</span></h2>
-    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag><span>시작 모드 고르기</span><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></div>
+  <div class="sel-info" aria-live="polite">
+    <p class="sel-side"><span class="badge" data-f-side>이방인</span><span data-f-role>랭킹 1위 · 파랑스 길드</span></p>
+    <h1 class="ttl" data-f-name>줄리엣</h1>
+    <p class="sel-real" data-f-real>현실 · 설지은</p>
+    <p class="sel-hook" data-f-hook>히든직 없이, 정규 루트만으로 서버 1위.</p>
+    <div class="sel-stat"><span><i>LV</i><b data-f-lv>64</b></span><span><i>CLASS</i><b class="t" data-f-job>월광검사</b></span><span data-f-gradebox><i>GRADE</i><span data-f-grade><span class="grade g3">에픽</span></span></span></div>
+    <a class="btn" href="char/juliet.html" data-f-link><span>프로필 열기</span><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></a>
   </div>
 </section>
 </main>
 <footer class="foot">
-  <div class="foot-big" aria-hidden="true">Ileon</div>
-  <div class="wrap foot-row">
-    <a class="brand" href="home.html"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-    <nav aria-label="바닥글"><a href="world.html"><i>01</i>대륙</a><a href="characters.html"><i>02</i>인물</a><a href="system.html"><i>03</i>체계</a><a href="reality.html"><i>04</i>현실</a><a href="start.html"><i>05</i>시작</a></nav>
-    <span class="foot-sys">현실 <b data-clock="real">--:--</b> / 벨라트 <b data-clock="belat">--:--</b></span>
+  <div class="foot-in">
+    <a class="logo" href="home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
+    <p>로그아웃해도 대륙은 멈추지 않는다. <span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>

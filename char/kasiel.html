@@ -8,78 +8,56 @@
 <meta property="og:title" content="카시엘 · FULL DIVE - ILEON">
 <meta property="og:description" content="카시엘. 이방인을 재앙이라 부른다. 증오가 아니라, 계산 끝에 나온 결론으로.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0a">
-<link rel="preload" href="../assets/fonts/frak/unifrakturcook-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#07080a">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
-<body>
+<body class="prof-page">
 <a class="skip" href="#main">본문으로</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="top">
-  <a class="brand" href="../home.html" aria-label="일레온 홈"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-  <nav class="nav" id="nav" aria-label="주 메뉴">
-      <a href="../world.html"><i>01</i>대륙</a>
-      <a href="../characters.html" aria-current="page"><i>02</i>인물</a>
-      <a href="../system.html"><i>03</i>체계</a>
-      <a href="../reality.html"><i>04</i>현실</a>
-      <a href="../start.html"><i>05</i>시작</a>
-  </nav>
-  <div class="clock" aria-label="현실 시각과 벨라트 시각">
-    <span><i>REAL</i><b data-clock="real">--:--</b></span>
-    <span class="bt"><i>BELAT</i><b data-clock="belat">--:--</b></span>
-  </div>
-  <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
+<header class="hud">
+  <a class="logo" href="../home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
+  <nav class="tabs" aria-label="주 메뉴"><a href="../world.html"><kbd class="key">1</kbd><span>대륙</span></a><a href="../characters.html" aria-current="page"><kbd class="key">2</kbd><span>인물</span></a><a href="../system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="../reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="../start.html"><kbd class="key">5</kbd><span>시작</span></a></nav>
+  <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-bg" aria-hidden="true"></div>
+  <div class="menu-in">
+    <p class="lbl">MENU · 일시 정지</p>
+    <ol><li><a href="../world.html" data-bg="../images/bg-draft/147058076.webp"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="../characters.html" data-bg="../images/bg-draft/3469639875.webp" aria-current="page"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="../system.html" data-bg="../images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="../reality.html" data-bg="../images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="../start.html" data-bg="../images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li></ol>
+    <div class="menu-foot"><a href="../home.html">타이틀 화면</a><a href="../index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
+  </div>
+</div>
 <main id="main">
-<section class="chead is-npc">
-  <div class="chead-bg" data-tilt><img src="../images/sample/N.webp" alt="카시엘" width="1280" height="883" class="bgimg" decoding="async" fetchpriority="high"></div>
-  <span class="chead-code" aria-hidden="true">N</span>
-  <div class="wrap">
-    <a class="back" href="../characters.html" data-rv><svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 8h-12M7 3 2 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg> 인물 목록</a>
-    <div class="chead-k" data-rv><span class="badge npc">원주민</span><span>할라크족 · 칼데스</span></div>
-    <h1 class="mega" data-rv style="--i:1"><span class="gl " data-t="카시엘">카시엘</span></h1>
+<section class="prof">
+  <div class="prof-stage">
+    <div class="stage"><img src="../images/CS/N_1.webp" alt="카시엘" width="1280" height="828" class="fig" decoding="async" fetchpriority="high"></div>
+    <div class="exp">
+      <div class="exp-h"><span class="lbl">표정</span><span class="exp-k"><kbd class="key">←</kbd><kbd class="key">→</kbd></span></div>
+      <div class="thumbs" data-axis="game"><button type="button" aria-pressed="true" data-src="../images/CS/N_1.webp" data-alt="카시엘 첫등장"><img src="../images/CS/N_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_2.webp" data-alt="카시엘 평소"><img src="../images/CS/N_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_3.webp" data-alt="카시엘 기쁨"><img src="../images/CS/N_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_4.webp" data-alt="카시엘 슬픔"><img src="../images/CS/N_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_5.webp" data-alt="카시엘 당황"><img src="../images/CS/N_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_6.webp" data-alt="카시엘 매우당황"><img src="../images/CS/N_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_7.webp" data-alt="카시엘 부끄러움"><img src="../images/CS/N_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_8.webp" data-alt="카시엘 분노"><img src="../images/CS/N_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_9.webp" data-alt="카시엘 공격"><img src="../images/CS/N_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_10.webp" data-alt="카시엘 필살기"><img src="../images/CS/N_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>필살기</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_11.webp" data-alt="카시엘 절망"><img src="../images/CS/N_11.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>절망</span></button></div>
+    </div>
+  </div>
+  <div class="prof-info">
+    <nav class="prof-nav" aria-label="다른 인물">
+      <a href="../characters.html" class="back"><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2.5M7 3.5 2.5 8 7 12.5" stroke="currentColor" stroke-width="1.8"/></svg> 캐릭터 선택</a>
+      <span><a href="neia.html" data-prev><kbd class="key">Q</kbd> 네이아</a><a href="marta.html" data-next>마르타 <kbd class="key">E</kbd></a></span>
+    </nav>
+    <p class="sel-side"><span class="badge npc">원주민</span><span>할라크족 · 칼데스</span></p>
+    <h1 class="ttl">카시엘</h1>
     
-    <p class="hook" data-rv style="--i:2">이방인을 재앙이라 부른다. 증오가 아니라, 계산 끝에 나온 결론으로.</p>
-    <div class="chead-stat" data-rv style="--i:3"><span><i>LV</i><b>88</b></span><span><i>ROLE</i><b class="sm">칼데스 지휘관</b></span></div>
+    <p class="prof-hook">이방인을 재앙이라 부른다. 증오가 아니라, 계산 끝에 나온 결론으로.</p>
+    <dl class="stats"><div><dt>LV</dt><dd><b class="n">88</b></dd></div><div><dt>ROLE</dt><dd><b>칼데스 지휘관</b></dd></div><div><dt>AGE</dt><dd><b>남 · 318</b></dd></div></dl>
+    <div class="prose"><p>고대 흑룡의 피를 이은 장수 종족, 할라크족. 그 군세 칼데스를 이끌고 있고, 목적은 하나다. 이방인을 대륙에서 몰아내는 것.</p><p>죽어도 돌아오니 같은 봉인지를 매주 들쑤시고, 그럴수록 봉인은 얇아진다. 그가 보는 이방인은 그런 존재다. 숨긴 진실 같은 게 아니라, 대놓고 하는 말. 거짓말을 안 하고, 적에게도 약속을 지킨다. 말이 통하는 상대라서 더 물러서지 않는다.</p></div>
+    
+    <dl class="data looks"><div><dt>외형</dt><dd>긴 흑발, 검은 굽은 뿔, 금안, 금장식 검은 갑주, 짐승 해골 견갑, 붉은 망토</dd></div><div><dt>말투</dt><dd>격식 있는 고어체. 상대를 &quot;이방의 자&quot;라 부르다 인정하면 &quot;그대&quot;.</dd></div></dl>
   </div>
 </section>
-<section class="sec">
-  <div class="wrap cbody">
-    <div>
-      <div class="kick" data-rv><span class="no">01</span><span class="en">PROFILE</span><span class="ko">사람</span><i></i></div>
-      <div class="prose" data-rv><p>고대 흑룡의 피를 이은 장수 종족, 할라크족. 그 군세 칼데스를 이끌고 있고, 목적은 하나다. 이방인을 대륙에서 몰아내는 것.</p><p>죽어도 돌아오니 같은 봉인지를 매주 들쑤시고, 그럴수록 봉인은 얇아진다. 그가 보는 이방인은 그런 존재다. 숨긴 진실 같은 게 아니라, 대놓고 하는 말. 거짓말을 안 하고, 적에게도 약속을 지킨다. 말이 통하는 상대라서 더 물러서지 않는다.</p></div>
-      
-    </div>
-    <aside data-rv style="--i:1">
-      <dl class="data"><div><dt>레벨</dt><dd>Lv88</dd></div><div><dt>역할</dt><dd>칼데스 지휘관</dd></div><div><dt>소속</dt><dd>할라크족 · 칼데스</dd></div><div><dt>나이</dt><dd>남 · 318</dd></div></dl>
-      <div class="looks"><dl class="data"><div><dt>외형</dt><dd>긴 흑발, 검은 굽은 뿔, 금안, 금장식 검은 갑주, 짐승 해골 견갑, 붉은 망토</dd></div><div><dt>말투</dt><dd>격식 있는 고어체. 상대를 &quot;이방의 자&quot;라 부르다 인정하면 &quot;그대&quot;.</dd></div></dl></div>
-    </aside>
-  </div>
-</section>
-<section class="sec viewer-sec">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">02</span><span class="en">EXPRESSIONS</span><span class="ko">표정</span><i></i></div>
-    <div class="viewer">
-      <div class="stage"><img src="../images/CS/N_1.webp" alt="카시엘" width="1280" height="828" class="fig" loading="lazy" decoding="async"><span class="st-hud" aria-hidden="true"></span></div>
-      <div class="side">
-        <div class="thumbs" data-axis="game"><button type="button" aria-pressed="true" data-src="../images/CS/N_1.webp" data-alt="카시엘 첫등장"><img src="../images/CS/N_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span><i>01</i>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_2.webp" data-alt="카시엘 평소"><img src="../images/CS/N_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>02</i>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_3.webp" data-alt="카시엘 기쁨"><img src="../images/CS/N_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>03</i>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_4.webp" data-alt="카시엘 슬픔"><img src="../images/CS/N_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>04</i>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_5.webp" data-alt="카시엘 당황"><img src="../images/CS/N_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>05</i>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_6.webp" data-alt="카시엘 매우당황"><img src="../images/CS/N_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>06</i>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_7.webp" data-alt="카시엘 부끄러움"><img src="../images/CS/N_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>07</i>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_8.webp" data-alt="카시엘 분노"><img src="../images/CS/N_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>08</i>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_9.webp" data-alt="카시엘 공격"><img src="../images/CS/N_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>09</i>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_10.webp" data-alt="카시엘 필살기"><img src="../images/CS/N_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>10</i>필살기</span></button><button type="button" aria-pressed="false" data-src="../images/CS/N_11.webp" data-alt="카시엘 절망"><img src="../images/CS/N_11.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>11</i>절망</span></button></div>
-        <p class="hint">← → 키로도 넘어간다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<nav class="pn" aria-label="다른 인물">
-  <a href="neia.html"><span class="duo"><img src="../images/sample/M.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="pn-tx"><small><svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 8h-12M7 3 2 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg> 이전</small><b>네이아</b></span></a>
-  <a href="marta.html"><span class="duo"><img src="../images/sample/O.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="pn-tx"><small>다음 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></small><b>마르타</b></span></a>
-</nav>
 </main>
 <footer class="foot">
-  <div class="foot-big" aria-hidden="true">Ileon</div>
-  <div class="wrap foot-row">
-    <a class="brand" href="../home.html"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-    <nav aria-label="바닥글"><a href="../world.html"><i>01</i>대륙</a><a href="../characters.html"><i>02</i>인물</a><a href="../system.html"><i>03</i>체계</a><a href="../reality.html"><i>04</i>현실</a><a href="../start.html"><i>05</i>시작</a></nav>
-    <span class="foot-sys">현실 <b data-clock="real">--:--</b> / 벨라트 <b data-clock="belat">--:--</b></span>
+  <div class="foot-in">
+    <a class="logo" href="../home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
+    <nav aria-label="바닥글"><a href="../world.html">대륙</a><a href="../characters.html">인물</a><a href="../system.html">체계</a><a href="../reality.html">현실</a><a href="../start.html">시작</a></nav>
+    <p>로그아웃해도 대륙은 멈추지 않는다. <span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
 <script src="../assets/js/main.js"></script>

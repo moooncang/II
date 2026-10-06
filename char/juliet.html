@@ -8,78 +8,56 @@
 <meta property="og:title" content="줄리엣 · FULL DIVE - ILEON">
 <meta property="og:description" content="줄리엣. 히든직 없이, 정규 루트만으로 서버 1위.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0a">
-<link rel="preload" href="../assets/fonts/frak/unifrakturcook-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#07080a">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
-<body>
+<body class="prof-page">
 <a class="skip" href="#main">본문으로</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="top">
-  <a class="brand" href="../home.html" aria-label="일레온 홈"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-  <nav class="nav" id="nav" aria-label="주 메뉴">
-      <a href="../world.html"><i>01</i>대륙</a>
-      <a href="../characters.html" aria-current="page"><i>02</i>인물</a>
-      <a href="../system.html"><i>03</i>체계</a>
-      <a href="../reality.html"><i>04</i>현실</a>
-      <a href="../start.html"><i>05</i>시작</a>
-  </nav>
-  <div class="clock" aria-label="현실 시각과 벨라트 시각">
-    <span><i>REAL</i><b data-clock="real">--:--</b></span>
-    <span class="bt"><i>BELAT</i><b data-clock="belat">--:--</b></span>
-  </div>
-  <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
+<header class="hud">
+  <a class="logo" href="../home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
+  <nav class="tabs" aria-label="주 메뉴"><a href="../world.html"><kbd class="key">1</kbd><span>대륙</span></a><a href="../characters.html" aria-current="page"><kbd class="key">2</kbd><span>인물</span></a><a href="../system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="../reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="../start.html"><kbd class="key">5</kbd><span>시작</span></a></nav>
+  <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-bg" aria-hidden="true"></div>
+  <div class="menu-in">
+    <p class="lbl">MENU · 일시 정지</p>
+    <ol><li><a href="../world.html" data-bg="../images/bg-draft/147058076.webp"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="../characters.html" data-bg="../images/bg-draft/3469639875.webp" aria-current="page"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="../system.html" data-bg="../images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="../reality.html" data-bg="../images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="../start.html" data-bg="../images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li></ol>
+    <div class="menu-foot"><a href="../home.html">타이틀 화면</a><a href="../index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
+  </div>
+</div>
 <main id="main">
-<section class="chead">
-  <div class="chead-bg" data-tilt><img src="../images/sample/A.webp" alt="줄리엣" width="1280" height="883" class="bgimg" decoding="async" fetchpriority="high"></div>
-  <span class="chead-code" aria-hidden="true">A</span>
-  <div class="wrap">
-    <a class="back" href="../characters.html" data-rv><svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 8h-12M7 3 2 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg> 인물 목록</a>
-    <div class="chead-k" data-rv><span class="badge">이방인</span><span>랭킹 1위 · 파랑스 길드</span></div>
-    <h1 class="mega" data-rv style="--i:1"><span class="gl " data-t="줄리엣">줄리엣</span></h1>
-    <p class="real" data-rv style="--i:1">현실 · 설지은</p>
-    <p class="hook" data-rv style="--i:2">히든직 없이, 정규 루트만으로 서버 1위.</p>
-    <div class="chead-stat" data-rv style="--i:3"><span><i>LV</i><b>64</b></span><span><i>CLASS</i><b class="sm">월광검사</b></span><span><i>GRADE</i><span class="grade g3">에픽</span></span></div>
-  </div>
-</section>
-<section class="sec">
-  <div class="wrap cbody">
-    <div>
-      <div class="kick" data-rv><span class="no">01</span><span class="en">PROFILE</span><span class="ko">사람</span><i></i></div>
-      <div class="prose" data-rv><p>게임이 밥벌이가 된 지 6년째. 현실의 설지은은 파랑스 길드 법인 정직원이라, 출근하면 접속부터 한다. 길드 간판이긴 한데 지휘는 안 한다. 이름을 빌려주는 계약에 가깝달까.</p><p>사냥터를 막으라면 막고, 통행료를 걷으라면 걷는다. 옳아서가 아니라 업무니까. 그런 사람이 업무와 상관없이 매달리는 데가 딱 한 곳 있다. 라흐나 제3환. 이유는 아무한테도 말 안 한다.</p><p>말수 적고, 표정도 거의 그대로. 그래서 가끔 툭 던지는 한마디가 이상하게 오래 남는다.</p></div>
-      <blockquote class="cq" data-rv><span aria-hidden="true">“</span>……뭐 나왔어요?</blockquote>
-    </div>
-    <aside data-rv style="--i:1">
-      <dl class="data"><div><dt>레벨</dt><dd>Lv64</dd></div><div><dt>직업</dt><dd>월광검사 <span class="grade g3">에픽</span></dd></div><div><dt>소속</dt><dd>랭킹 1위 · 파랑스 길드</dd></div><div><dt>본명</dt><dd>설지은</dd></div><div><dt>나이</dt><dd>여 · 28</dd></div></dl>
-      <div class="looks"><dl class="data"><div><dt>게임</dt><dd>매우 긴 흑발 생머리, 흑안, 은백 판금 흉갑, 흰 망토, 금 코등이 장검</dd></div><div><dt>현실</dt><dd>낮은 포니테일, 청회색 눈, 소매 걷은 흰 셔츠, 사원증, 손목시계</dd></div><div><dt>말투</dt><dd>짧은 존댓말. 상대를 &quot;그쪽&quot;이라 부르고 한두 문장이면 끝. 당황하면 말끝이 흐려진다.</dd></div></dl></div>
-    </aside>
-  </div>
-</section>
-<section class="sec viewer-sec">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">02</span><span class="en">EXPRESSIONS</span><span class="ko">표정</span><i></i></div>
-    <div class="viewer">
-      <div class="stage"><img src="../images/CS/A_1.webp" alt="줄리엣" width="1280" height="828" class="fig" loading="lazy" decoding="async"><span class="st-hud" aria-hidden="true"></span></div>
-      <div class="side">
-        <div class="axis-sw" role="tablist" aria-label="게임과 현실"><button type="button" role="tab" data-axis="game" aria-selected="true">게임</button><button type="button" role="tab" data-axis="real" aria-selected="false">현실</button><i class="pill" aria-hidden="true"></i></div><div class="thumbs" data-axis="game"><button type="button" aria-pressed="true" data-src="../images/CS/A_1.webp" data-alt="줄리엣 첫등장"><img src="../images/CS/A_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span><i>01</i>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_2.webp" data-alt="줄리엣 평소"><img src="../images/CS/A_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>02</i>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_3.webp" data-alt="줄리엣 기쁨"><img src="../images/CS/A_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>03</i>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_4.webp" data-alt="줄리엣 슬픔"><img src="../images/CS/A_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>04</i>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_5.webp" data-alt="줄리엣 당황"><img src="../images/CS/A_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>05</i>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_6.webp" data-alt="줄리엣 매우당황"><img src="../images/CS/A_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>06</i>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_7.webp" data-alt="줄리엣 부끄러움"><img src="../images/CS/A_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>07</i>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_8.webp" data-alt="줄리엣 분노"><img src="../images/CS/A_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>08</i>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_9.webp" data-alt="줄리엣 공격"><img src="../images/CS/A_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>09</i>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_10.webp" data-alt="줄리엣 필살기"><img src="../images/CS/A_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>10</i>필살기</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_11.webp" data-alt="줄리엣 절망"><img src="../images/CS/A_11.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>11</i>절망</span></button></div><div class="thumbs" data-axis="real" hidden><button type="button" aria-pressed="true" data-src="../images/CS/A2_1.webp" data-alt="줄리엣 첫등장"><img src="../images/CS/A2_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span><i>01</i>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_2.webp" data-alt="줄리엣 평소"><img src="../images/CS/A2_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>02</i>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_3.webp" data-alt="줄리엣 기쁨"><img src="../images/CS/A2_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>03</i>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_4.webp" data-alt="줄리엣 슬픔"><img src="../images/CS/A2_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>04</i>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_5.webp" data-alt="줄리엣 당황"><img src="../images/CS/A2_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>05</i>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_6.webp" data-alt="줄리엣 매우당황"><img src="../images/CS/A2_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>06</i>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_7.webp" data-alt="줄리엣 부끄러움"><img src="../images/CS/A2_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>07</i>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_8.webp" data-alt="줄리엣 분노"><img src="../images/CS/A2_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>08</i>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_9.webp" data-alt="줄리엣 공격"><img src="../images/CS/A2_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>09</i>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_10.webp" data-alt="줄리엣 절망"><img src="../images/CS/A2_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span><i>10</i>절망</span></button></div>
-        <p class="hint">← → 키로도 넘어간다.</p>
-      </div>
+<section class="prof">
+  <div class="prof-stage">
+    <div class="stage"><img src="../images/CS/A_1.webp" alt="줄리엣" width="1280" height="828" class="fig" decoding="async" fetchpriority="high"></div>
+    <div class="exp">
+      <div class="exp-h"><span class="lbl">표정</span><div class="sw" role="tablist" aria-label="게임과 현실"><button type="button" role="tab" data-axis="game" aria-selected="true">게임</button><button type="button" role="tab" data-axis="real" aria-selected="false">현실</button></div><span class="exp-k"><kbd class="key">←</kbd><kbd class="key">→</kbd></span></div>
+      <div class="thumbs" data-axis="game"><button type="button" aria-pressed="true" data-src="../images/CS/A_1.webp" data-alt="줄리엣 첫등장"><img src="../images/CS/A_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_2.webp" data-alt="줄리엣 평소"><img src="../images/CS/A_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_3.webp" data-alt="줄리엣 기쁨"><img src="../images/CS/A_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_4.webp" data-alt="줄리엣 슬픔"><img src="../images/CS/A_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_5.webp" data-alt="줄리엣 당황"><img src="../images/CS/A_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_6.webp" data-alt="줄리엣 매우당황"><img src="../images/CS/A_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_7.webp" data-alt="줄리엣 부끄러움"><img src="../images/CS/A_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_8.webp" data-alt="줄리엣 분노"><img src="../images/CS/A_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_9.webp" data-alt="줄리엣 공격"><img src="../images/CS/A_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_10.webp" data-alt="줄리엣 필살기"><img src="../images/CS/A_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>필살기</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A_11.webp" data-alt="줄리엣 절망"><img src="../images/CS/A_11.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>절망</span></button></div><div class="thumbs" data-axis="real" hidden><button type="button" aria-pressed="true" data-src="../images/CS/A2_1.webp" data-alt="줄리엣 첫등장"><img src="../images/CS/A2_1.webp" alt="" width="1280" height="828" loading="lazy" decoding="async"><span>첫등장</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_2.webp" data-alt="줄리엣 평소"><img src="../images/CS/A2_2.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>평소</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_3.webp" data-alt="줄리엣 기쁨"><img src="../images/CS/A2_3.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>기쁨</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_4.webp" data-alt="줄리엣 슬픔"><img src="../images/CS/A2_4.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>슬픔</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_5.webp" data-alt="줄리엣 당황"><img src="../images/CS/A2_5.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_6.webp" data-alt="줄리엣 매우당황"><img src="../images/CS/A2_6.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>매우당황</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_7.webp" data-alt="줄리엣 부끄러움"><img src="../images/CS/A2_7.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>부끄러움</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_8.webp" data-alt="줄리엣 분노"><img src="../images/CS/A2_8.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>분노</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_9.webp" data-alt="줄리엣 공격"><img src="../images/CS/A2_9.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>공격</span></button><button type="button" aria-pressed="false" data-src="../images/CS/A2_10.webp" data-alt="줄리엣 절망"><img src="../images/CS/A2_10.webp" alt="" width="1280" height="621" loading="lazy" decoding="async"><span>절망</span></button></div>
     </div>
   </div>
+  <div class="prof-info">
+    <nav class="prof-nav" aria-label="다른 인물">
+      <a href="../characters.html" class="back"><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2.5M7 3.5 2.5 8 7 12.5" stroke="currentColor" stroke-width="1.8"/></svg> 캐릭터 선택</a>
+      <span><a href="marta.html" data-prev><kbd class="key">Q</kbd> 마르타</a><a href="ulsan.html" data-next>울산강펀치 <kbd class="key">E</kbd></a></span>
+    </nav>
+    <p class="sel-side"><span class="badge">이방인</span><span>랭킹 1위 · 파랑스 길드</span></p>
+    <h1 class="ttl">줄리엣</h1>
+    <p class="sel-real">현실 · 설지은</p>
+    <p class="prof-hook">히든직 없이, 정규 루트만으로 서버 1위.</p>
+    <dl class="stats"><div><dt>LV</dt><dd><b class="n">64</b></dd></div><div><dt>CLASS</dt><dd><b>월광검사</b></dd></div><div><dt>GRADE</dt><dd><span class="grade g3">에픽</span></dd></div><div><dt>AGE</dt><dd><b>여 · 28</b></dd></div></dl>
+    <div class="prose"><p>게임이 밥벌이가 된 지 6년째. 현실의 설지은은 파랑스 길드 법인 정직원이라, 출근하면 접속부터 한다. 길드 간판이긴 한데 지휘는 안 한다. 이름을 빌려주는 계약에 가깝달까.</p><p>사냥터를 막으라면 막고, 통행료를 걷으라면 걷는다. 옳아서가 아니라 업무니까. 그런 사람이 업무와 상관없이 매달리는 데가 딱 한 곳 있다. 라흐나 제3환. 이유는 아무한테도 말 안 한다.</p><p>말수 적고, 표정도 거의 그대로. 그래서 가끔 툭 던지는 한마디가 이상하게 오래 남는다.</p></div>
+    <blockquote class="cq"><p>“……뭐 나왔어요?”</p></blockquote>
+    <dl class="data looks"><div><dt>게임</dt><dd>매우 긴 흑발 생머리, 흑안, 은백 판금 흉갑, 흰 망토, 금 코등이 장검</dd></div><div><dt>현실</dt><dd>낮은 포니테일, 청회색 눈, 소매 걷은 흰 셔츠, 사원증, 손목시계</dd></div><div><dt>말투</dt><dd>짧은 존댓말. 상대를 &quot;그쪽&quot;이라 부르고 한두 문장이면 끝. 당황하면 말끝이 흐려진다.</dd></div></dl>
+  </div>
 </section>
-<nav class="pn" aria-label="다른 인물">
-  <a href="marta.html"><span class="duo"><img src="../images/sample/O.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="pn-tx"><small><svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 8h-12M7 3 2 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg> 이전</small><b>마르타</b></span></a>
-  <a href="ulsan.html"><span class="duo"><img src="../images/sample/B.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"></span><span class="pn-tx"><small>다음 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></small><b>울산강펀치</b></span></a>
-</nav>
 </main>
 <footer class="foot">
-  <div class="foot-big" aria-hidden="true">Ileon</div>
-  <div class="wrap foot-row">
-    <a class="brand" href="../home.html"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-    <nav aria-label="바닥글"><a href="../world.html"><i>01</i>대륙</a><a href="../characters.html"><i>02</i>인물</a><a href="../system.html"><i>03</i>체계</a><a href="../reality.html"><i>04</i>현실</a><a href="../start.html"><i>05</i>시작</a></nav>
-    <span class="foot-sys">현실 <b data-clock="real">--:--</b> / 벨라트 <b data-clock="belat">--:--</b></span>
+  <div class="foot-in">
+    <a class="logo" href="../home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
+    <nav aria-label="바닥글"><a href="../world.html">대륙</a><a href="../characters.html">인물</a><a href="../system.html">체계</a><a href="../reality.html">현실</a><a href="../start.html">시작</a></nav>
+    <p>로그아웃해도 대륙은 멈추지 않는다. <span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
 <script src="../assets/js/main.js"></script>

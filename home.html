@@ -8,207 +8,204 @@
 <meta property="og:title" content="FULL DIVE - ILEON">
 <meta property="og:description" content="다이브포드에 누우면 벨라트 대륙이 열린다. 죽어도 돌아오는 이방인이 되어, 당신이 한 일이 직업이 되는 세계. 일레온.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0a">
-<link rel="preload" href="assets/fonts/frak/unifrakturcook-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#07080a">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">본문으로</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="top">
-  <a class="brand" href="home.html" aria-label="일레온 홈"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-  <nav class="nav" id="nav" aria-label="주 메뉴">
-      <a href="world.html"><i>01</i>대륙</a>
-      <a href="characters.html"><i>02</i>인물</a>
-      <a href="system.html"><i>03</i>체계</a>
-      <a href="reality.html"><i>04</i>현실</a>
-      <a href="start.html"><i>05</i>시작</a>
-  </nav>
-  <div class="clock" aria-label="현실 시각과 벨라트 시각">
-    <span><i>REAL</i><b data-clock="real">--:--</b></span>
-    <span class="bt"><i>BELAT</i><b data-clock="belat">--:--</b></span>
-  </div>
-  <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
+<header class="hud">
+  <a class="logo" href="home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
+  <nav class="tabs" aria-label="주 메뉴"><a href="world.html"><kbd class="key">1</kbd><span>대륙</span></a><a href="characters.html"><kbd class="key">2</kbd><span>인물</span></a><a href="system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="start.html"><kbd class="key">5</kbd><span>시작</span></a></nav>
+  <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-bg" aria-hidden="true"></div>
+  <div class="menu-in">
+    <p class="lbl">MENU · 일시 정지</p>
+    <ol><li><a href="world.html" data-bg="images/bg-draft/147058076.webp"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="characters.html" data-bg="images/bg-draft/3469639875.webp"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="system.html" data-bg="images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="reality.html" data-bg="images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="start.html" data-bg="images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li></ol>
+    <div class="menu-foot"><a href="home.html">타이틀 화면</a><a href="index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
+  </div>
+</div>
 <main id="main">
-<section class="hero">
-  <div class="hero-bg" data-tilt><img src="images/bg-draft/3220923381.webp" alt="리아텔의 들판과 마을" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high"></div>
-  <div class="hero-scan" aria-hidden="true"></div>
-  <div class="hero-in">
-    <div class="hero-sys">
-      <span class="sysmsg" data-rv>벨라트 대륙에 오신 것을 환영합니다.</span>
-      <span class="sysmsg dim" data-rv style="--i:1">리아텔 · 귀환석 광장 · Lv1 무직</span>
+<section class="scene title">
+  <div class="bg drift"><img src="images/bg-draft/3220923381.webp" alt="리아텔의 들판과 마을" width="2048" height="585" decoding="async" fetchpriority="high"></div><div class="shade"></div>
+  <div class="title-in">
+    <p class="lbl">FULL DIVE · VRMMO · 벨라트 서버</p>
+    <h1 class="ttl xl"><span class="ln">죽어도</span><span class="ln">돌아온다<em>.</em></span></h1>
+    <p class="title-sub">당신은 이방인. 죽으면 레벨이 깎이고, 귀환석에서 다시 눈을 뜬다. 원주민은? <b>한 번이면 끝.</b></p>
+    <div class="btns"><a class="btn" href="start.html"><span>접속하기</span><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></a><a class="btn ghost" href="world.html"><span>대륙 둘러보기</span></a></div>
+  </div>
+  <aside class="unit pnl" aria-label="플레이어 상태">
+    <div class="pnl-h"><span>PLAYER</span><span>이방인</span></div>
+    <div class="pnl-b">
+      <div class="unit-top"><b>당신</b><span>Lv<em>1</em></span></div>
+      <div class="bar hp"><i></i><span>HP</span></div>
+      <dl class="data mini"><div><dt>직업</dt><dd>무직</dd></div><div><dt>위치</dt><dd>리아텔 · 귀환석 광장</dd></div><div><dt>사망</dt><dd>0회 <small>몇 번이든 돌아온다</small></dd></div></dl>
     </div>
-    <h1 class="mega hero-t"><span class="ln" data-rv style="--i:2"><span class="gl " data-t="죽어도">죽어도</span></span><span class="ln acid" data-rv style="--i:3"><span class="gl " data-t="돌아온다.">돌아온다.</span></span></h1>
-    <div class="hero-foot">
-      <p class="hero-sub" data-rv style="--i:4">당신은 이방인. 죽으면 레벨이 깎이고, 귀환석에서 다시 눈을 뜬다.<br>원주민은? <b>한 번이면 끝.</b></p>
-      <div class="btn-row" data-rv style="--i:5">
-        <a class="btn" href="start.html" data-mag><span>시작 모드 고르기</span><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a>
-        <a class="btn ghost" href="world.html" data-mag><span>대륙 둘러보기</span></a>
-      </div>
-    </div>
-    <div class="stamp" data-rv style="--i:6"><small>신화 등급 보유자</small><b>0</b><small>서비스 이래</small></div>
+  </aside>
+  <div class="chat" aria-label="월드 채팅">
+    <div class="chat-h"><span class="on">전체</span><span>월드</span><span>히든</span><span>정세</span></div>
+    <ul class="chat-b"><li><span class="ch ch-월드">[월드]</span> 라흐나 제3환, 아직 돌파한 이방인이 없습니다.</li><li><span class="ch ch-히든">[히든]</span> 잔영귀 · 전설. 서버 로그에는 직업명만 공개됩니다.</li><li><span class="ch ch-랭킹">[랭킹]</span> 1위 줄리엣 · Lv64 월광검사</li><li><span class="ch ch-히든">[히든]</span> 잿말잡이 · 일반. 히든직이라고 다 좋은 건 아닙니다.</li><li><span class="ch ch-정세">[정세]</span> 북부 국경, 카르시온과 하르덴이 전면전에 가장 가까워졌습니다.</li><li><span class="ch ch-월드">[월드]</span> 신화 등급 보유자, 서비스 이래 0명.</li><li><span class="ch ch-정세">[정세]</span> 칼데스가 이방인 축출을 내걸고 움직이고 있습니다.</li><li><span class="ch ch-월드">[월드]</span> 3차 전직자, 서버 전체 5명.</li></ul>
   </div>
-  <div class="rail" aria-label="월드 로그">
-    <span class="lb"><i></i>LIVE</span><div class="feed"><p><span class="ch ch-월드">[월드]</span><span>라흐나 제3환, 아직 돌파한 이방인이 없습니다.</span></p><p><span class="ch ch-히든">[히든]</span><span>잔영귀 · 전설. 서버 로그에는 직업명만 공개됩니다.</span></p><p><span class="ch ch-랭킹">[랭킹]</span><span>1위 줄리엣 · Lv64 월광검사</span></p><p><span class="ch ch-히든">[히든]</span><span>잿말잡이 · 일반. 히든직이라고 다 좋은 건 아닙니다.</span></p><p><span class="ch ch-정세">[정세]</span><span>북부 국경, 카르시온과 하르덴이 전면전에 가장 가까워졌습니다.</span></p><p><span class="ch ch-월드">[월드]</span><span>신화 등급 보유자, 서비스 이래 0명.</span></p><p><span class="ch ch-정세">[정세]</span><span>칼데스가 이방인 축출을 내걸고 움직이고 있습니다.</span></p><p><span class="ch ch-월드">[월드]</span><span>3차 전직자, 서버 전체 5명.</span></p></div>
-  </div>
-</section>
-<div class="mq " aria-hidden="true"><div class="mq-t"><span>행적을 읽는 세계</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>죽어도 돌아오는 자</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>원주민은 돌아오지 않는다</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>신화 등급 0명</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>현실 6시간, 대륙 하루</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>메인 스토리 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>행적을 읽는 세계</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>죽어도 돌아오는 자</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>원주민은 돌아오지 않는다</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>신화 등급 0명</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>현실 6시간, 대륙 하루</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>메인 스토리 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg></div></div>
-
-<section class="statement">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">00</span><span class="en">PREMISE</span><span class="ko">전제</span><i></i></div>
-    <p class="say-big"><span class="w">메인</span> <span class="w">스토리</span> <span class="w">없음.</span> <span class="w">결말도</span> <span class="w">없음.</span> <span class="w">당신이</span> <span class="w">한</span> <span class="w">짓이</span> <span class="w">직업이</span> <span class="w">되고,</span> <span class="w">대륙에서</span> <span class="w">터진</span> <span class="w">일이</span> <span class="w">그대로</span> <span class="w">역사가</span> <span class="w">된다.</span></p>
-  </div>
+  <a class="scroll-hint" href="#death"><span>SCROLL</span><i></i></a>
 </section>
 
-<section class="axes" aria-label="현실과 대륙">
-  <a class="axis real" href="reality.html">
-    <img src="images/bg-draft/2756317284.webp" alt="포드방" width="2048" height="585" loading="lazy" decoding="async">
-    <div class="tx">
-      <span class="k">2047 · 대한민국</span>
-      <h2 class="mega">몸은 여기.</h2>
+<section class="scene death" id="death" data-death>
+  <div class="bg"><img src="images/bg-draft/600473089.webp" alt="불타는 전장" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+  <div class="death-in">
+    <p class="lbl">SYSTEM</p>
+    <h2 class="death-t">사망했습니다</h2>
+    <p class="death-s"><span class="pen">레벨 하락</span><span class="cd">강제 로그아웃까지 <b data-cd>3</b></span></p>
+    <p class="death-r">포드 밖으로 튕겨 나옵니다. 다음 접속은 귀환석에서.</p>
+  </div>
+  <div class="death-vs">
+    <div><i>PLAYER</i><b>이방인</b><p>죽으면 레벨이 깎이고, 돌아온다. 몇 번이든.</p></div>
+    <div class="native"><i>NATIVE</i><b>원주민</b><p>이 화면이 없다. 한 번이면 끝.</p></div>
+  </div>
+  <blockquote class="death-q" data-rv><p>“죽어도 돌아오는 자에게 검을 가르치는 건, 삽을 쥐여주는 것과 다르지 않다.”</p><footer><a href="char/bernhardt.html">베른하르트 콜</a> · 카르시온 검술 교관</footer></blockquote>
+</section>
+
+<section class="scene clocks">
+  <div class="half real">
+    <div class="bg"><img src="images/bg-draft/2756317284.webp" alt="포드방" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+    <div class="half-in">
+      <p class="lbl">REAL · 2047 대한민국</p>
+      <b class="big-clk" data-clock="real-s">--:--:--</b>
+      <h2>몸은 여기, 포드 안에.</h2>
       <p>월정액, 포드 할부, 정비비. 로그아웃하면 저린 다리랑 커뮤 여론이 기다린다.</p>
-      <span class="clk"><b data-clock="real">--:--</b><small>REAL TIME</small></span>
     </div>
-  </a>
-  <a class="axis virt" href="world.html">
-    <img src="images/bg-draft/2187149464.webp" alt="카뎃트" width="2048" height="585" loading="lazy" decoding="async">
-    <div class="tx">
-      <span class="k">벨라트 · 여명기 이후 800년</span>
-      <h2 class="mega">나는 저기.</h2>
+  </div>
+  <div class="seam" aria-hidden="true"><b>×4</b></div>
+  <div class="half belat">
+    <div class="bg"><img src="images/bg-draft/2187149464.webp" alt="카뎃트" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+    <div class="half-in">
+      <p class="lbl">BELAT · 여명기 이후 800년</p>
+      <b class="big-clk" data-clock="belat-s">--:--:--</b>
+      <h2>나는 저기, 대륙 위에.</h2>
       <p>꺼 둔 사이에도 대륙은 굴러간다. 현실 여섯 시간이 여기선 하루.</p>
-      <span class="clk"><b data-clock="belat">--:--</b><small>BELAT TIME ×4</small></span>
-    </div>
-  </a>
-</section>
-
-<section class="quote-band">
-  <div class="qb-bg duo dark" data-par><img src="images/sample/F.webp" alt="베른하르트 콜" width="1280" height="883" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <blockquote data-rv>
-      <p>“죽어도 돌아오는 자에게 검을 가르치는 건, 삽을 쥐여주는 것과 다르지 않다.”</p>
-      <footer><a href="char/bernhardt.html">베른하르트 콜</a> · 카르시온 검술 교관 · Lv71</footer>
-    </blockquote>
-    <div class="vs" data-rv style="--i:1">
-      <div><span>PLAYER</span><b>이방인</b><p>죽으면 레벨이 깎이고, 귀환석에서 돌아온다.</p></div>
-      <i>VS</i>
-      <div><span>NATIVE</span><b>원주민</b><p>죽으면 끝. 다음은 없다.</p></div>
     </div>
   </div>
 </section>
 
-<section class="slab hidden-sec">
-  <img class="splat" src="assets/img/ink.png" alt="" aria-hidden="true" loading="lazy">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">01</span><span class="en">HIDDEN CLASS</span><span class="ko">히든직</span><i></i></div>
-    <div class="hs-top">
-      <h2 class="mega" data-rv>한 짓이<br>직업이 된다.</h2>
-      <p class="lead" data-rv style="--i:1">뭘 반복했는지, 어디 오래 머물렀는지, 누구랑 엮였는지. 시스템이 그걸 읽고 당신 하나만을 위한 직업을 만든다. 조건? <b>아무도 모른다.</b></p>
-    </div>
-    <div class="hs-grid">
-      <div class="zero" data-rv>
-        <b data-count="0">0</b>
-        <p>신화 등급 보유자.<br>서비스 이래, 지금까지.</p>
-        <div class="ladder"><span class="g1">일반</span><span class="g2">희귀</span><span class="g3">에픽</span><span class="g4">유니크</span><span class="g5">전설</span><span class="g6">신화</span></div>
-      </div>
-      <div class="logs"><div class="log" data-rv style="--i:0">
-        <span class="log-h"><i>SERVER LOG</i><i>#001</i></span>
-        <span class="log-m">새 직업이 발현되었습니다.</span>
-        <b data-scramble>파호권사(破虎拳士)</b>
-        <span class="log-g"><span class="grade g4">유니크</span><a href="char/herimong.html">헤리몽 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></span>
+<section class="scene hidden-cls" data-jobs>
+  <div class="bg"><img src="images/bg-draft/1039592727.webp" alt="균열 보스룸" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+  <div class="hc-art"><img src="images/sample/E.webp" alt="무명" width="1280" height="883" loading="lazy" decoding="async"></div>
+  <div class="hc-in">
+    <p class="lbl " data-rv>HIDDEN CLASS</p>
+    <h2 class="ttl" data-rv>한 짓이<br>직업이 된다.</h2>
+    <p class="body" data-rv>뭘 반복했는지, 어디 오래 머물렀는지, 누구랑 엮였는지. 시스템이 그걸 읽고 당신 하나만을 위한 직업을 만든다. 조건? 아무도 모른다.</p>
+    <div class="zero" data-rv><b>0</b><span>신화 등급 보유자<br>서비스 이래 지금까지</span></div>
+  </div>
+  <div class="sysmodal pnl" role="group" aria-label="히든직 발현 알림">
+    <div class="pnl-h"><span>SYSTEM · 알림</span><span data-pager>1 / 5</span></div>
+    <div class="pnl-b">
+      <p class="sm-m">새 직업이 발현되었습니다.</p>
+      <div class="job" data-k="0">
+        <b class="job-n" data-scramble>파호권사(破虎拳士)</b>
+        <div class="job-g"><span class="grade g4">유니크</span><a href="char/herimong.html">헤리몽 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8"/></svg></a></div>
         <p>자기보다 큰 짐승만 골라 맨손으로 잡았다. 방송 그림이 좋아서 계속했을 뿐인데.</p>
-      </div><div class="log" data-rv style="--i:1">
-        <span class="log-h"><i>SERVER LOG</i><i>#002</i></span>
-        <span class="log-m">새 직업이 발현되었습니다.</span>
-        <b data-scramble>잔영귀(殘影鬼)</b>
-        <span class="log-g"><span class="grade g5">전설</span><a href="char/mumyeong.html">무명 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></span>
+      </div><div class="job" data-k="1" hidden>
+        <b class="job-n" data-scramble>잔영귀(殘影鬼)</b>
+        <div class="job-g"><span class="grade g5">전설</span><a href="char/mumyeong.html">무명 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8"/></svg></a></div>
         <p>잿빛 회랑에서 이방인을 거듭 쓰러뜨리는 동안 한 번도 안 죽었다. 커뮤는 아직 조건을 못 맞혔다.</p>
-      </div><div class="log" data-rv style="--i:2">
-        <span class="log-h"><i>SERVER LOG</i><i>#003</i></span>
-        <span class="log-m">새 직업이 발현되었습니다.</span>
-        <b data-scramble>야장귀(夜匠鬼)</b>
-        <span class="log-g"><span class="grade g3">에픽</span></span>
+      </div><div class="job" data-k="2" hidden>
+        <b class="job-n" data-scramble>야장귀(夜匠鬼)</b>
+        <div class="job-g"><span class="grade g3">에픽</span><span>보유자 비공개</span></div>
         <p>밤에만 대장간을 돌린 사람.</p>
-      </div><div class="log" data-rv style="--i:3">
-        <span class="log-h"><i>SERVER LOG</i><i>#004</i></span>
-        <span class="log-m">새 직업이 발현되었습니다.</span>
-        <b data-scramble>폐서관(廢書官)</b>
-        <span class="log-g"><span class="grade g2">희귀</span></span>
+      </div><div class="job" data-k="3" hidden>
+        <b class="job-n" data-scramble>폐서관(廢書官)</b>
+        <div class="job-g"><span class="grade g2">희귀</span><span>보유자 비공개</span></div>
         <p>아무도 안 읽는 고문서를 묵묵히 필사한 사람.</p>
-      </div></div>
+      </div><div class="job" data-k="4" hidden>
+        <b class="job-n" data-scramble>잿말잡이</b>
+        <div class="job-g"><span class="grade g1">일반</span><span>보유자 비공개</span></div>
+        <p>잿빛 회랑에서 죽고 또 죽고, 그래도 계속 돌아온 사람. 히든직인데 일반 등급이라 커뮤 놀림감 1순위.</p>
+      </div>
+      <div class="sm-f"><span class="dots"><i class=on></i><i></i><i></i><i></i><i></i></span><button type="button" class="btn sm" data-next><span>다음</span></button></div>
     </div>
-    <a class="more" href="system.html#hidden" data-rv>히든직 더 보기 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a>
   </div>
 </section>
 
-<section class="sec cast">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">02</span><span class="en">CAST</span><span class="ko">인물</span><i></i></div>
-    <h2 class="mega" data-rv>기다려 주지<br>않는 사람들.</h2>
-    <p class="lead" data-rv style="--i:1">이방인 다섯, 원주민 열. 다들 사정이 있고, 다들 먼저 움직인다.</p>
-    <div class="pcs"><a class="pc" href="char/juliet.html" style="--i:0" data-rv>
-      <div class="pc-ph duo"><img src="images/sample/A.webp" alt="줄리엣" width="1280" height="883" loading="lazy" decoding="async"></div>
-      <span class="pc-no">P/01</span>
-      <span class="pc-tx"><small>설지은 · Lv64 · 월광검사</small><b>줄리엣</b><em>히든직 없이, 정규 루트만으로 서버 1위.</em></span>
-    </a><a class="pc" href="char/ulsan.html" style="--i:1" data-rv>
-      <div class="pc-ph duo"><img src="images/sample/B.webp" alt="울산강펀치" width="1280" height="883" loading="lazy" decoding="async"></div>
-      <span class="pc-no">P/02</span>
-      <span class="pc-tx"><small>마커스 리드 · Lv41 · 암기사</small><b>울산강펀치</b><em>접속 시간은 서버 최상위, 레벨은 41. 돈을 안 써서.</em></span>
-    </a><a class="pc" href="char/pinkyu.html" style="--i:2" data-rv>
-      <div class="pc-ph duo"><img src="images/sample/C.webp" alt="핑뀨꽁주" width="1280" height="883" loading="lazy" decoding="async"></div>
-      <span class="pc-no">P/03</span>
-      <span class="pc-tx"><small>정세라 · Lv28 · 대장장이</small><b>핑뀨꽁주</b><em>Lv28에 벌써 2차 전직. 생산직은 레벨 말고 실적으로 심사받거든.</em></span>
-    </a><a class="pc" href="char/herimong.html" style="--i:3" data-rv>
-      <div class="pc-ph duo"><img src="images/sample/D.webp" alt="헤리몽" width="1280" height="883" loading="lazy" decoding="async"></div>
-      <span class="pc-no">P/04</span>
-      <span class="pc-tx"><small>유하람 · Lv43 · 파호권사</small><b>헤리몽</b><em>방송 그림이 잘 나와서, 맨손으로 큰 짐승만 잡았다. 그게 직업이 됐다.</em></span>
-    </a><a class="pc" href="char/mumyeong.html" style="--i:4" data-rv>
-      <div class="pc-ph duo"><img src="images/sample/E.webp" alt="무명" width="1280" height="883" loading="lazy" decoding="async"></div>
-      <span class="pc-no">P/05</span>
-      <span class="pc-tx"><small>최나린 · Lv51 · 잔영귀</small><b>무명</b><em>잿빛 회랑에서 이방인을 거듭 쓰러뜨리는 동안, 단 한 번도 죽지 않았다.</em></span>
+<section class="scene event" data-event>
+  <div class="bg"><img src="images/bg-draft/3020643887.webp" alt="폐허" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+  <div class="alert" aria-hidden="true"><div class="alert-t"><span><svg class="ic" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 7v4M9 12.6v1.4" stroke="currentColor" stroke-width="1.6"/></svg> 대륙 공지</span><span>사변 발생</span><span>징집령</span><span>통행 봉쇄</span><span><svg class="ic" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 7v4M9 12.6v1.4" stroke="currentColor" stroke-width="1.6"/></svg> 대륙 공지</span><span>사변 발생</span><span>징집령</span><span>통행 봉쇄</span><span><svg class="ic" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 7v4M9 12.6v1.4" stroke="currentColor" stroke-width="1.6"/></svg> 대륙 공지</span><span>사변 발생</span><span>징집령</span><span>통행 봉쇄</span><span><svg class="ic" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 7v4M9 12.6v1.4" stroke="currentColor" stroke-width="1.6"/></svg> 대륙 공지</span><span>사변 발생</span><span>징집령</span><span>통행 봉쇄</span></div></div>
+  <div class="ev-in">
+    <p class="lbl " data-rv>WORLD EVENT · 사변</p>
+    <h2 class="ttl" data-rv>일어난 일이<br><span>곧 이야기.</span></h2>
+    <p class="body" data-rv>메인 스토리도 결말도 없다. 대륙 어딘가는 늘 끓고, 터지면 사변. 무너진 마을은 폐허로 남고, 죽은 원주민은 돌아오지 않는다.</p>
+  </div>
+  <div class="tracker pnl">
+    <div class="pnl-h"><span>사변 진행</span><span>되돌릴 수 없음</span></div>
+    <div class="pnl-b"><ol class="stages"><li><button type="button" data-k="0" aria-current="step"><i>01</i><b>전조</b><span class="fill"></span></button></li><li><button type="button" data-k="1"><i>02</i><b>발발</b><span class="fill"></span></button></li><li><button type="button" data-k="2"><i>03</i><b>국면</b><span class="fill"></span></button></li><li><button type="button" data-k="3"><i>04</i><b>결착</b><span class="fill"></span></button></li><li><button type="button" data-k="4"><i>05</i><b>여파</b><span class="fill"></span></button></li></ol><div class="stage-tx"><p data-k="0">공지는 없다. NPC 말투가 바뀌고, 물자가 사라지고, 시세가 튄다. 눈치 빠른 사람이 먼저 움직이지.</p><p data-k="1" hidden>대륙 공지, 징집령, 통행 봉쇄. 퀘스트가 한꺼번에 쏟아진다.</p><p data-k="2" hidden>전선과 거점 싸움. 거점 하나는 뒤집어도, 전쟁 전체를 혼자 바꾸진 못한다.</p><p data-k="3" hidden>승리, 패배, 교착. 당신 편이 이긴다는 보장은 없음.</p><p data-k="4" hidden>국경, 영지, 시세, 원주민의 목숨. 바뀐 건 안 돌아온다.</p></div></div>
+  </div>
+</section>
+
+<section class="scene cast">
+  <div class="cast-h">
+    <p class="lbl " data-rv>CHARACTER</p>
+    <h2 class="ttl" data-rv>기다려 주지 않는<br>열다섯.</h2>
+    <a class="more" href="characters.html" data-rv>캐릭터 선택 화면 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+  </div>
+  <div class="slant"><a class="sl" href="char/juliet.html" style="--i:0">
+      <span class="sl-img"><img src="images/sample/A.webp" alt="줄리엣" width="1280" height="883" loading="lazy" decoding="async"></span>
+      <span class="sl-tx"><i>P1</i><b>줄리엣</b><small>설지은 · Lv64 · 월광검사</small><em>히든직 없이, 정규 루트만으로 서버 1위.</em></span>
+    </a><a class="sl" href="char/ulsan.html" style="--i:1">
+      <span class="sl-img"><img src="images/sample/B.webp" alt="울산강펀치" width="1280" height="883" loading="lazy" decoding="async"></span>
+      <span class="sl-tx"><i>P2</i><b>울산강펀치</b><small>마커스 리드 · Lv41 · 암기사</small><em>접속 시간은 서버 최상위, 레벨은 41. 돈을 안 써서.</em></span>
+    </a><a class="sl" href="char/pinkyu.html" style="--i:2">
+      <span class="sl-img"><img src="images/sample/C.webp" alt="핑뀨꽁주" width="1280" height="883" loading="lazy" decoding="async"></span>
+      <span class="sl-tx"><i>P3</i><b>핑뀨꽁주</b><small>정세라 · Lv28 · 대장장이</small><em>Lv28에 벌써 2차 전직. 생산직은 레벨 말고 실적으로 심사받거든.</em></span>
+    </a><a class="sl" href="char/herimong.html" style="--i:3">
+      <span class="sl-img"><img src="images/sample/D.webp" alt="헤리몽" width="1280" height="883" loading="lazy" decoding="async"></span>
+      <span class="sl-tx"><i>P4</i><b>헤리몽</b><small>유하람 · Lv43 · 파호권사</small><em>방송 그림이 잘 나와서, 맨손으로 큰 짐승만 잡았다. 그게 직업이 됐다.</em></span>
+    </a><a class="sl" href="char/mumyeong.html" style="--i:4">
+      <span class="sl-img"><img src="images/sample/E.webp" alt="무명" width="1280" height="883" loading="lazy" decoding="async"></span>
+      <span class="sl-tx"><i>P5</i><b>무명</b><small>최나린 · Lv51 · 잔영귀</small><em>잿빛 회랑에서 이방인을 거듭 쓰러뜨리는 동안, 단 한 번도 죽지 않았다.</em></span>
     </a></div>
-    <div class="npc-row" data-rv><a href="char/bernhardt.html"><span class="duo"><img src="images/sample/F.webp" alt="베른하르트 콜" width="1280" height="883" loading="lazy" decoding="async"></span><b>베른하르트 콜</b></a><a href="char/isra.html"><span class="duo"><img src="images/sample/G.webp" alt="이스라" width="1280" height="883" loading="lazy" decoding="async"></span><b>이스라</b></a><a href="char/rohan.html"><span class="duo"><img src="images/sample/H.webp" alt="로한 델리엇" width="1280" height="883" loading="lazy" decoding="async"></span><b>로한 델리엇</b></a><a href="char/garsi.html"><span class="duo"><img src="images/sample/I.webp" alt="가르시 렌" width="1280" height="883" loading="lazy" decoding="async"></span><b>가르시 렌</b></a><a href="char/torbin.html"><span class="duo"><img src="images/sample/J.webp" alt="토르빈" width="1280" height="883" loading="lazy" decoding="async"></span><b>토르빈</b></a><a href="char/selia.html"><span class="duo"><img src="images/sample/K.webp" alt="셀리아" width="1280" height="883" loading="lazy" decoding="async"></span><b>셀리아</b></a><a href="char/yuan.html"><span class="duo"><img src="images/sample/L.webp" alt="유안" width="1280" height="883" loading="lazy" decoding="async"></span><b>유안</b></a><a href="char/neia.html"><span class="duo"><img src="images/sample/M.webp" alt="네이아" width="1280" height="883" loading="lazy" decoding="async"></span><b>네이아</b></a><a href="char/kasiel.html"><span class="duo"><img src="images/sample/N.webp" alt="카시엘" width="1280" height="883" loading="lazy" decoding="async"></span><b>카시엘</b></a><a href="char/marta.html"><span class="duo"><img src="images/sample/O.webp" alt="마르타" width="1280" height="883" loading="lazy" decoding="async"></span><b>마르타</b></a><a class="more" href="characters.html">열다섯 명 전부 <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></div>
-  </div>
-</section>
-<div class="mq red" aria-hidden="true"><div class="mq-t"><span>사변 발생</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>전조 · 발발 · 국면 · 결착 · 여파</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>되돌릴 수 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>당신 편이 이긴다는 보장 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>사변 발생</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>전조 · 발발 · 국면 · 결착 · 여파</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>되돌릴 수 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg><span>당신 편이 이긴다는 보장 없음</span><svg class="x" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1 1 9" stroke="currentColor" stroke-width="2"/></svg></div></div>
-
-<section class="sec timeline-sec">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">03</span><span class="en">WORLD EVENT</span><span class="ko">사변</span><i></i></div>
-    <h2 class="mega" data-rv>일어난 일이<br><span class="red">곧 이야기.</span></h2>
-    <p class="lead" data-rv style="--i:1">대륙 어딘가는 늘 끓는다. 터지면 사변. 무너진 마을은 폐허로 남고, 국경은 다시 그어지고, 죽은 원주민은 돌아오지 않는다.</p>
-    <ol class="flow" data-draw><li style="--i:0"><span>01</span><b>전조</b><p>공지는 없다. NPC 말투가 바뀌고, 물자가 사라지고, 시세가 튄다. 눈치 빠른 사람이 먼저 움직이지.</p></li><li style="--i:1"><span>02</span><b>발발</b><p>대륙 공지, 징집령, 통행 봉쇄. 퀘스트가 한꺼번에 쏟아진다.</p></li><li style="--i:2"><span>03</span><b>국면</b><p>전선과 거점 싸움. 거점 하나는 뒤집어도, 전쟁 전체를 혼자 바꾸진 못한다.</p></li><li style="--i:3"><span>04</span><b>결착</b><p>승리, 패배, 교착. 당신 편이 이긴다는 보장은 없음.</p></li><li style="--i:4"><span>05</span><b>여파</b><p>국경, 영지, 시세, 원주민의 목숨. 바뀐 건 안 돌아온다.</p></li></ol>
-  </div>
+  <div class="npcs"><span class="npcs-l">원주민 10</span><a href="char/bernhardt.html"><img src="images/sample/F.webp" alt="베른하르트 콜" width="1280" height="883" loading="lazy" decoding="async"><span>베른하르트 콜</span></a><a href="char/isra.html"><img src="images/sample/G.webp" alt="이스라" width="1280" height="883" loading="lazy" decoding="async"><span>이스라</span></a><a href="char/rohan.html"><img src="images/sample/H.webp" alt="로한 델리엇" width="1280" height="883" loading="lazy" decoding="async"><span>로한 델리엇</span></a><a href="char/garsi.html"><img src="images/sample/I.webp" alt="가르시 렌" width="1280" height="883" loading="lazy" decoding="async"><span>가르시 렌</span></a><a href="char/torbin.html"><img src="images/sample/J.webp" alt="토르빈" width="1280" height="883" loading="lazy" decoding="async"><span>토르빈</span></a><a href="char/selia.html"><img src="images/sample/K.webp" alt="셀리아" width="1280" height="883" loading="lazy" decoding="async"><span>셀리아</span></a><a href="char/yuan.html"><img src="images/sample/L.webp" alt="유안" width="1280" height="883" loading="lazy" decoding="async"><span>유안</span></a><a href="char/neia.html"><img src="images/sample/M.webp" alt="네이아" width="1280" height="883" loading="lazy" decoding="async"><span>네이아</span></a><a href="char/kasiel.html"><img src="images/sample/N.webp" alt="카시엘" width="1280" height="883" loading="lazy" decoding="async"><span>카시엘</span></a><a href="char/marta.html"><img src="images/sample/O.webp" alt="마르타" width="1280" height="883" loading="lazy" decoding="async"><span>마르타</span></a></div>
 </section>
 
-<section class="sec modes-sec">
-  <div class="wrap">
-    <div class="kick" data-rv><span class="no">04</span><span class="en">START</span><span class="ko">시작</span><i></i></div>
-    <h2 class="mega" data-rv>어디서<br>눈을 뜰래?</h2>
-    <div class="modes">
-      <a class="mode m1" href="start.html#newbie" data-rv><div class="duo"><img src="images/bg-draft/3220923381.webp" alt="리아텔" width="2048" height="585" loading="lazy" decoding="async"></div><div class="tx"><span class="sysmsg">리아텔 · 귀환석 광장</span><b>뉴비</b><p>Lv1, 무직. 견습 기사 유안이 덜그럭거리며 달려온다.</p></div><span class="mode-no">01</span></a>
-      <a class="mode m2" href="start.html#myth" data-rv style="--i:1"><div class="duo"><img src="images/bg-draft/1039592727.webp" alt="균열 보스룸" width="2048" height="585" loading="lazy" decoding="async"></div><div class="tx"><span class="sysmsg mag">신화 등급 직업이 발현되었습니다.</span><b>신화직업</b><p>균열의 보상에, 줄리엣보다 먼저 손이 닿았다.</p></div><span class="mode-no">02</span></a>
-      <a class="mode m3" href="start.html#free" data-rv style="--i:2"><div class="duo"><img src="images/bg-draft/2207724406.webp" alt="현실의 방" width="2048" height="585" loading="lazy" decoding="async"></div><div class="tx"><span class="sysmsg">접속 위치를 선택하십시오.</span><b>자유모드</b><p>원룸 절반을 차지한 포드. 어디로 들어갈진 아직.</p></div><span class="mode-no">03</span></a>
-    </div>
+<section class="scene newgame">
+  <div class="ng-h">
+    <p class="lbl " data-rv>NEW GAME</p>
+    <h2 class="ttl" data-rv>어디서<br>눈을 뜰래?</h2>
   </div>
+  <div class="slots"><a class="slot" href="start.html#newbie" data-rv>
+      <span class="slot-img"><img src="images/bg-draft/3220923381.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></span>
+      <span class="slot-no">SLOT<b>01</b></span>
+      <span class="slot-nm"><b>뉴비</b><small>견습 기사 유안이 덜그럭거리며 달려온다.</small></span>
+      <span class="slot-meta"><span>리아텔 · 귀환석 광장</span><span>Lv1 · 무직</span></span>
+      <span class="slot-go"><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span>시작</span></span>
+    </a><a class="slot myth" href="start.html#myth" data-rv>
+      <span class="slot-img"><img src="images/bg-draft/1039592727.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></span>
+      <span class="slot-no">SLOT<b>02</b></span>
+      <span class="slot-nm"><b>신화직업</b><small>균열의 보상에, 줄리엣보다 먼저 손이 닿았다.</small></span>
+      <span class="slot-meta"><span>잿빛 회랑 · 균열 보스룸</span><span>Lv1 · 신화</span></span>
+      <span class="slot-go"><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span>시작</span></span>
+    </a><a class="slot" href="start.html#free" data-rv>
+      <span class="slot-img"><img src="images/bg-draft/2207724406.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></span>
+      <span class="slot-no">SLOT<b>03</b></span>
+      <span class="slot-nm"><b>자유모드</b><small>원룸 절반을 차지한 포드. 어디로 들어갈진 아직.</small></span>
+      <span class="slot-meta"><span>현실 · 원룸</span><span>제한 없음</span></span>
+      <span class="slot-go"><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span>시작</span></span>
+    </a></div>
 </section>
-<section class="close">
-  <div class="close-bg" data-par><img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <span class="sysmsg" data-rv>다이브포드 연결 대기</span>
-    <h2 class="mega" data-rv style="--i:1"><span>대륙은 지금도</span><span class="acid">돌아가는 중.</span></h2>
-    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag><span>시작 모드 고르기</span><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></div>
+<section class="scene logout">
+  <div class="bg"><img src="images/bg-draft/3744689049.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></div><div class="shade"></div>
+  <div class="logout-in">
+    <p class="lbl " data-rv>LOGOUT</p>
+    <h2 class="ttl" data-rv>로그아웃해도<br><span>대륙은 멈추지 않는다.</span></h2>
+    <div class="btns" data-rv><a class="btn" href="start.html"><span>접속하기</span><svg class="ic" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></a><a class="btn ghost" href="characters.html"><span>캐릭터 보기</span></a></div>
   </div>
 </section>
 </main>
 <footer class="foot">
-  <div class="foot-big" aria-hidden="true">Ileon</div>
-  <div class="wrap foot-row">
-    <a class="brand" href="home.html"><b>Ileon</b><small>FULL<br>DIVE</small></a>
-    <nav aria-label="바닥글"><a href="world.html"><i>01</i>대륙</a><a href="characters.html"><i>02</i>인물</a><a href="system.html"><i>03</i>체계</a><a href="reality.html"><i>04</i>현실</a><a href="start.html"><i>05</i>시작</a></nav>
-    <span class="foot-sys">현실 <b data-clock="real">--:--</b> / 벨라트 <b data-clock="belat">--:--</b></span>
+  <div class="foot-in">
+    <a class="logo" href="home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
+    <p>로그아웃해도 대륙은 멈추지 않는다. <span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
