@@ -17,7 +17,7 @@
 - 사이트는 생성기로 만든다: `python3 _build/build.py` → 저장소 최상단 html 22개를 다시 쓴다.
   - `_build/data.py`: 인물 15인·지역·대립선·신앙·히든직 등 모든 문구와 데이터, 배경 원안 대응표(BGD), 크랙 링크(`CRACK`, 아직 빈 값).
   - `_build/build.py`: 페이지 틀. 표지(index), 홈, 대륙, 인물(+char/15개), 체계, 현실, 시작.
-  - `assets/css/style.css`, `assets/js/main.js`, 글꼴은 `assets/fonts`(Hahmlet·Nanum Gothic Coding·Pretendard 자체 포함).
+  - `assets/css/style.css`, `assets/js/main.js`, 글꼴은 `assets/fonts`(Pretendard·Barlow Condensed·Hahmlet·Nanum Gothic Coding 자체 포함).
 - html을 손으로 고치지 말고 data.py/build.py를 고친 뒤 빌드한다.
 
 ## 그림 (전부 저장소 images/, WebP 압축본)
@@ -28,13 +28,14 @@
 - `images/CS/` 인물 상황 그림 215장(게임 A~O_1~11, 현실 A2~E2_1~10). 표정 보기.
 - 배경 코드 ER=카르시온 수도 에르카시아, SL=미르젠 항구 도시 셀라운(작가님 확인).
 
-## 현재 디자인
+## 현재 디자인 (3차, 2026-10-06)
 
-- 밤 남색 바탕 + 청록 HUD 하나만 강조색. 마젠타는 히든직, 주황빨강은 사변, 등급색은 등급 칩에만.
-- 대륙·이름 제목은 Hahmlet, 본문 Pretendard, 시스템 문구는 Nanum Gothic Coding.
-- 인터랙션: 스크롤 등장, 히든직 이름 해독 효과, 포인터 스포트라이트, 자석 버튼, 홈 첫 화면 기울임, 문장 단어별 점등, 현실/대륙 확장 분할, 인물 아코디언, 사변 타임라인 그리기, 지역 탭, 인물 거르기, 표정 보기(← → 키), 페이지 전환(View Transitions), 스크롤 진행 막대, 현실/벨라트 4:1 시계.
-- 움직임 줄이기 설정이면 모든 효과 정지.
-- DESIGN.md는 직전(밤 남색 1차) 기준이라 최신 인터랙션 개편은 아직 반영 안 됨.
+- 사이트 전체가 일레온 게임 클라이언트. 표지=로딩, 홈=타이틀+장면, 인물=캐릭터 선택, 상세=프로필 창, 대륙=지역 이동, 체계=인쇄된 규칙서(종이), 현실=2047 기기 화면(밝은 유리), 시작=새 게임 슬롯. 자세한 기준은 DESIGN.md.
+- 먹색 + 신호 빨강 하나. 청록은 시스템·벨라트 시각, 보라는 히든직. 그림은 원색 그대로.
+- 글꼴: Pretendard 900(제목), Barlow Condensed(숫자·라벨), Nanum Gothic Coding(시스템), Hahmlet(대사·신 이름).
+- 조작: 1~5 탭 이동, ESC 메뉴, 지역 ↑↓, 표정 ← →, 인물 Q/E.
+- 폐기한 시안: 1차 밤 남색+청록, 2차 먹색+형광 노랑 진(작가님: "이전 디자인에서 타파 못 함, 완전히 갈아치워"). 같은 문법으로 돌아가지 말 것.
+- 참고 사이트(morkborg.com/preview, cyberpunk.net)와 figma.com 파일 받기는 이 환경 네트워크에서 막혀 있다. 열려면 환경 설정의 허용 도메인에 추가해야 한다.
 
 ## 지켜야 할 것 (PRODUCT.md, _설정/)
 
@@ -46,6 +47,7 @@
 ## 도구
 
 - 스킬: `.claude/skills/` 의 impeccable, emil-design-eng, design-taste-frontend.
+- Playwright MCP는 크롬 경로 문제로 안 뜬다. 대신 `npm root -g`의 playwright를 node로 직접 쓰고 executablePath는 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`. 로컬 확인은 `python3 -m http.server`로 띄워서(file://는 글꼴·마스크가 막힌다).
 - MCP: `.mcp.json`에 Playwright(헤드리스)를 프로젝트 범위로 등록. Figma는 claude.ai 커넥터로 연결됨.
 - 화면 점검: 로컬 파일을 Playwright로 열어 1440·390 폭으로 찍는다. 지연 로딩 그림은 eager로 바꾸고 스크롤한 뒤 찍어야 다 나온다.
 
