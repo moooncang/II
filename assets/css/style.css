@@ -839,3 +839,60 @@ body.os::after{opacity:.025}
   .cv-ring .r2,.cv-ring .r4{animation:spin 52s linear infinite reverse!important}
   .cv-ring .r5,.cv-sweep{animation:spin 12s linear infinite!important}
 }
+
+/* ── 모바일 마무리 ── */
+html{-webkit-tap-highlight-color:transparent}
+/* 장면 맞춤 스크롤은 마우스 휠에서만. 터치에서는 손가락을 그대로 따라간다 */
+@media (hover:none),(max-width:900px){html:has(body.home){scroll-snap-type:none}}
+/* 터치에서는 올려 둔 상태가 남아 판이 늘었다 줄었다 하지 않게 */
+@media (hover:none){
+  .rgs:hover .rg,.rgs .rg:hover,.slant:hover .sl,.slant .sl:hover{flex-grow:1}
+  .slot:hover,.ct:hover,.banners li:hover{transform:none}
+  .rg:hover .rg-img img,.sl:hover .sl-img img,.half:hover > .bg img{transform:none}
+}
+@media (max-width:900px){
+  body::after{display:none}
+  .esc .key{display:none}
+  .esc{padding:10px 12px;margin-right:-8px;font-size:15px;color:var(--fg)}
+  /* 흐림 효과는 스크롤을 무겁게 한다. 불투명한 판으로 대신 */
+  .pnl,.chat,.btn.ghost,.sel-stat > span,.scrolled .hud,.notis li,.card,.posts li,.os .foot{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .pnl{background:rgba(9,11,15,.93)}
+  .chat{background:rgba(7,8,10,.82)}
+  .sel-stat > span{background:rgba(9,11,15,.85)}
+  .notis li,.card,.posts li{background:rgba(255,255,255,.94)}
+  /* 화면 높이를 꽉 채우던 장면은 내용 높이로 */
+  .scene{min-height:0}
+  .title{min-height:100svh}
+  .regions{padding-top:calc(var(--hd) + 8px)}
+  .rg{min-height:76px}
+  .half{min-height:52svh}
+  .cast{padding:calc(var(--hd) + 8px) 0 40px}
+  .reward{min-height:86svh}
+  .newgame{padding:calc(var(--hd) + 8px) var(--gut) 40px}
+  .ng-h{margin-bottom:20px}
+  .logout{min-height:56svh;padding:80px var(--gut)}
+  .beyond{min-height:70svh}
+  .halak{min-height:88svh}
+  .board,.faith,.controls{padding-top:72px;padding-bottom:72px}
+  .apps,.feed,.contacts{padding-top:56px;padding-bottom:56px}
+  /* 안쪽에 또 스크롤이 생기지 않게 */
+  .log{max-height:none;overflow:visible}
+  .sel-roster .pnl-b{overflow:visible}
+  /* 현실: 고정된 흐린 배경 대신 첫 화면에만 */
+  .os-bg{position:absolute;inset:0 0 auto;height:100svh}
+  .os-bg img{filter:blur(18px) saturate(1.3) brightness(1.25)}
+  body.os{background:linear-gradient(180deg,#e4e7ee,#d9dde5 40%)}
+  /* 글자 크기 */
+  .tv-info .tx,.prose p{font-size:16px}
+  .faults li{padding:16px 0}
+}
+@media (max-width:560px){
+  .banners{grid-template-columns:1fr;gap:6px}
+  .banners li{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:18px 18px 34px;text-align:left;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 16px),0 100%)}
+  .banners li::before{display:none}
+  .banners b{writing-mode:horizontal-tb;font-size:30px;margin:0;letter-spacing:-.02em}
+  .banners i{margin:0}
+  .banners p{width:100%;margin-top:4px}
+}
+.replay{scroll-margin-top:calc(var(--hd) + 12px)}
+[id]{scroll-margin-top:calc(var(--hd) + 24px)}

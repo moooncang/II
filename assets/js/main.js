@@ -258,7 +258,11 @@
       panes.forEach(function (p) { p.hidden = p.dataset.m !== key; });
       if (push) history.replaceState(null, '', '#' + key);
     }
-    slotBtns.forEach(function (b) { b.addEventListener('click', function () { mode(b.dataset.m, true); }); });
+    slotBtns.forEach(function (b) { b.addEventListener('click', function () {
+      mode(b.dataset.m, true);
+      /* 좁은 화면에서는 슬롯 아래로 열린 첫 장면까지 내려 준다 */
+      if (innerWidth <= 900) { var pane = d.querySelector('.replay[data-m="' + b.dataset.m + '"]'); if (pane) pane.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+    }); });
     var mh = location.hash.slice(1);
     if (mh && panes.some(function (p) { return p.dataset.m === mh; })) mode(mh, false);
   }
