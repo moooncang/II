@@ -1,3 +1,5 @@
 .claude/skills/impeccable/scripts/bin/
 .claude/settings.local.json
 .impeccable/live/
+.impeccable/review/
+__pycache__/
