@@ -17,7 +17,7 @@
   /* ── 효과음: ElevenLabs로 만든 짧은 UI 소리. 첫 조작 뒤에만 울리고, 끄면 기억한다 ── */
   var sfx = (function () {
     var base = (d.currentScript && d.currentScript.src || '').replace(/js\/main\.js.*$/, 'sfx/');
-    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .28, reveal: .45 };
+    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, reveal: .45 };
     var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {};
     var on = true; try { on = localStorage.getItem('ileon-sfx') !== 'off'; } catch (e) {}
     var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
