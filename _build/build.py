@@ -4,6 +4,15 @@ import os, re, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from data import *
 
+# 그림은 저장소 images/ 의 WebP 압축본을 쓴다 (원본 코드 체계 그대로)
+UP = ""
+def bg(code): return f"{UP}images/B/{code}.webp"
+def cs(code, n): return f"{UP}images/CS/{code}_{n}.webp"
+def dims(src):
+    if "/B/" in src: return 2048, 585
+    if re.search(r"_1\.webp$", src): return 1280, 828
+    return 1280, 621
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SET = os.path.join(ROOT, "_설정")
 TITLE = "FULL DIVE - ILEON"
@@ -23,7 +32,8 @@ def grade(g): return f'<span class="grade {gk(g)}">{g}</span>' if g else ""
 def img(src, alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
     l = ' loading="lazy" decoding="async"' if lazy else ' decoding="async" fetchpriority="high"'
-    return f'<img src="{src}" alt="{E(alt)}"{c}{l}{extra}>'
+    w, h = dims(src)
+    return f'<img src="{src}" alt="{E(alt)}" width="{w}" height="{h}"{c}{l}{extra}>'
 
 
 def crack_btn(label="크랙에서 접속", cls="btn"):
@@ -142,7 +152,7 @@ def render_prologue(fname):
             continue
         m = re.match(r"!\[\]\((.+)\)", ln)
         if m:
-            url = m.group(1)
+            url = re.sub(r"https://cjivip\.uk/II/(B|CS)/([^.]+)\.png", lambda k: f"{UP}images/{k.group(1)}/{k.group(2)}.webp", m.group(1))
             if "/B/" in url:
                 out.append(f'<figure class="wide">{img(url, "배경")}</figure>')
             else:
@@ -345,12 +355,12 @@ def build_world():
         people = "".join(
             f'<a class="chip" href="char/{CMAP[p]["slug"]}.html">{img(cs(p, 2), "")}{E(CMAP[p]["name"])}</a>' for p in r["people"])
         s += f'''    <article class="region rv" id="{r["key"]}">
-      <div class="rimg">{img(bg(r["img"]), r["name"])}<span class="where">{E(r["where"])}</span></div>
+      <div class="rimg">{img(bg(r["img"]), r["name"])}</div>
       <div class="rbody">
-        <h3>{E(r["name"])}</h3>
-        <p>{E(r["text"])}</p>
-        {f'<dl class="rdata">{rows}</dl>' if rows else ""}
-        {f'<div class="rpeople">{people}</div>' if people else ""}
+        <div><h3>{E(r["name"])}</h3><span class="where">{E(r["where"])}</span>
+        <p>{E(r["text"])}</p></div>
+        <div>{f'<dl class="rdata">{rows}</dl>' if rows else ""}
+        {f'<div class="rpeople">{people}</div>' if people else ""}</div>
       </div>
     </article>
 '''
@@ -377,13 +387,15 @@ def build_world():
   </div>
 </section>
 
-<section class="plate" id="halak">
-  {img(cs("N", 1), "카시엘")}
-  <div class="wrap">
-    <h2 class="h2" style="color:#fff">할라크족과 칼데스</h2>
+<section class="sec sysband on-sys" id="halak">
+  <div class="wrap halak">
+    <figure class="card rv">{img(cs("N", 1), "카시엘 첫등장")}</figure>
+    <div>
+    <h2 class="h2">할라크족과 칼데스</h2>
     <p class="lead" style="max-width:34em">고대 흑룡의 피를 이은 장수 종족. 검은 굽은 뿔과 용의 금안을 지니고 수백 년을 산다. 인간 왕국보다 먼저 대륙에 있었다는 자부가 강하고, 라흐나 침강지 가장자리 고지대에 산다. 칼데스는 카시엘이 이끄는 그들의 군세다. 목적은 하나, 이방인을 대륙에서 몰아내는 것.</p>
     <p class="lead" style="max-width:34em">이방인은 죽어도 돌아오니 같은 봉인지를 주마다 들쑤신다. 그럴수록 봉인이 얇아진다. 카시엘이 이방인을 재앙이라 부르는 건 증오가 아니라 이 계산 때문이고, 본인이 대놓고 하는 말이다. 레이드라는 게임 행위가 곧바로 대륙의 정세로 이어진다.</p>
-    <p style="margin-top:24px"><a class="more" href="char/kasiel.html" style="color:var(--sys-hi)">카시엘 · Lv88 {ARROW_S}</a></p>
+    <p style="margin-top:24px"><a class="more" href="char/kasiel.html">카시엘 · Lv88 {ARROW_S}</a></p>
+    </div>
   </div>
 </section>
 
@@ -455,10 +467,10 @@ def build_characters():
 
 # ═════════════ 인물 상세 ═════════════
 def build_char(i, c):
-    up = "../"
+    global UP
+    up = UP = "../"
     player = c["side"] == "player"
     prev_c, next_c = C[i - 1], C[(i + 1) % len(C)]
-    bgp = bg(c["place"]) if c.get("place") else ""
     stat = f'<dt>레벨</dt><dd>Lv{c["lv"]}</dd>'
     if c["grade"]:
         stat += f'<dt>직업</dt><dd>{E(c["job"])} {grade(c["grade"])}{" · 히든" if c["hidden"] else ""}</dd>'
@@ -494,9 +506,11 @@ def build_char(i, c):
     s = head("characters.html", c["name"], up=up, desc=f'{c["name"]} — {c["hook"]}')
     s += f'''<section class="cd">
   <div class="cd-art">
-    {img(bgp, "", "bgplace") if bgp else ""}
-    {img(cs(c["code"], 1), c["name"] + " 첫등장", "fig", lazy=False)}
-    <span class="sysmsg axis-tag">{tagtxt}</span>
+    <div class="stage">
+      <div class="frame">{img(cs(c["code"], 1), c["name"] + " 첫등장", "fig", lazy=False)}</div>
+      <div class="expr-h"><span class="sysmsg axis-tag">{tagtxt}</span>{sw}</div>
+      {th}
+    </div>
   </div>
   <div class="cd-body">
     <span class="sysmsg">{sysline}</span>
@@ -509,18 +523,13 @@ def build_char(i, c):
     <div class="looks">{looks}</div>
   </div>
 </section>
-<section class="expr" aria-label="표정">
-  <div class="wrap">
-    <div class="expr-h"><h2>표정 · {len(EXPR)}종{" / 현실 10종" if player else ""}</h2>{sw}</div>
-    {th}
-  </div>
-</section>
 <nav class="pn" aria-label="다른 인물">
   <a href="{prev_c["slug"]}.html"><small>이전</small><b>{E(prev_c["name"])}</b></a>
   <a href="{next_c["slug"]}.html"><small>다음</small><b>{E(next_c["name"])}</b></a>
 </nav>
 '''
     s += foot(up)
+    UP = ""
     write(f"char/{c['slug']}.html", s)
 
 

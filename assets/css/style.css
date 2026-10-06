@@ -51,7 +51,7 @@ body{
   -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums;
   overflow-x:hidden;
 }
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ::selection{background:var(--sys);color:var(--sys-ink)}
@@ -558,3 +558,77 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width: 600px){.head-row{grid-template-columns:1fr;align-items:start}.head-row .more{justify-self:start}}
 .modehead .h2 .kv,.modehead .h2 .lead{font-weight:400;letter-spacing:-.008em;line-height:1.8}
 .modehead .h2 .lead{font-family:var(--f-body);font-size:17px}
+
+/* ═══ 실제 그림 비율 (배경 2048×585 띠 · 인물 1280×621, 첫등장 1280×828) ═══ */
+.hero .bgimg,.cover .bgimg,.axis img,.mode img{object-position:100% 50%}
+.cover .bgimg{transform-origin:100% 50%}
+
+/* 페이지 머리·그림 띠: 배경 띠를 자르지 않고 통째로, 글은 그 아래 군청 면에 */
+.phead,.plate{display:block;min-height:0;background:var(--sys-deep);color:#fff}
+.phead::before,.plate::before{content:none}
+.phead img,.plate > img{position:static;width:100%;height:auto;aspect-ratio:2048/585;object-fit:cover;display:block}
+.phead .wrap,.plate .wrap{padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(40px,5vw,72px)}
+.plate .h2{color:#fff}
+
+/* 지역: 띠 위, 본문 아래 두 단 */
+.region,.region:nth-child(even){grid-template-columns:1fr}
+.region:nth-child(even) .rimg{order:0}
+.rimg{aspect-ratio:2048/585}
+.rbody,.region:nth-child(even) .rbody{padding:clamp(20px,2.4vw,30px) 0 0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px clamp(28px,5vw,72px);align-self:start}
+.rbody h3{display:inline}
+.rbody .where{position:static;background:none;padding:0;margin-left:14px;font-family:var(--f-sys);font-size:13px;color:var(--ink-3);letter-spacing:0;white-space:nowrap}
+.rbody .rdata{margin-top:6px}
+@media (max-width: 760px){.rbody,.region:nth-child(even) .rbody{grid-template-columns:1fr}.rbody .where{display:block;margin:6px 0 0}}
+
+/* 홈 인용 */
+.vs{grid-template-columns:minmax(0,6fr) minmax(0,6fr)}
+.vs figure{aspect-ratio:1280/828}
+.vs figure img{object-position:center}
+.vs figure figcaption{top:auto}
+
+/* 할라크족 */
+.halak{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:center}
+.halak .card{background:var(--sys);aspect-ratio:1280/828;overflow:hidden}
+.halak .card img{width:100%;height:100%;object-fit:cover}
+@media (max-width: 860px){.halak{grid-template-columns:1fr}}
+
+/* 인물 카드: 가로 그림 그대로 */
+.pc .ph{aspect-ratio:1280/621}
+.pc img{object-position:center 30%}
+.who-strip{grid-auto-columns:clamp(250px,24vw,330px)}
+.roster,.roster.npc{grid-template-columns:repeat(3,minmax(0,1fr))}
+.roster .pc .cap{min-height:0}
+@media (max-width: 1000px){.roster,.roster.npc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 560px){.roster,.roster.npc{grid-template-columns:1fr}}
+
+/* 현실 얼굴: 3 + 2 */
+.faces{grid-template-columns:repeat(6,minmax(0,1fr))}
+.faces a{grid-column:span 2}
+.faces a:nth-child(n+4){grid-column:span 3}
+.faces .ph{aspect-ratio:1280/621}
+@media (max-width: 760px){.faces{grid-template-columns:1fr}.faces a,.faces a:nth-child(n+4){grid-column:auto}}
+
+/* 인물 상세: 왼쪽 무대(그림 + 표정), 오른쪽 기록 */
+.cd{grid-template-columns:minmax(0,7fr) minmax(0,5fr);min-height:0}
+.cd-art{background:var(--ground-2);overflow:visible;padding:clamp(20px,3vw,40px) clamp(16px,2.6vw,36px) clamp(28px,3vw,40px) var(--gut)}
+.cd-art .stage{position:sticky;top:calc(var(--head) + 20px)}
+.cd-art .frame{position:relative;aspect-ratio:1280/828;background:var(--ink);overflow:hidden}
+.cd-art .fig{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}
+.cd-art .axis-tag{position:static}
+.cd-art .expr-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 10px}
+.cd-art .thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cd-art .thumbs button img{aspect-ratio:1280/621;object-position:center 30%}
+.cd-body{padding:clamp(32px,4vw,64px) var(--gut) clamp(48px,6vw,80px) clamp(24px,3.4vw,52px)}
+@media (max-width: 900px){
+  .cd{grid-template-columns:1fr}
+  .cd-art{min-height:0;padding:16px var(--gut) 24px}
+  .cd-art .stage{position:static}
+  .cd-art .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* 크랙 출력 견본: 크랙처럼 그림을 통째로 */
+.sample figure{width:min(520px,100%)}
+.sample figure img{aspect-ratio:auto;height:auto;object-fit:initial}
+.sample figure.wide{width:100%}
+.sample figure.wide img{aspect-ratio:2048/585}
+@media (max-width: 760px){.vs{grid-template-columns:1fr}.vs figure{max-height:none}}
