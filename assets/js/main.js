@@ -17,8 +17,8 @@
   /* ── 효과음: ElevenLabs로 만든 짧은 UI 소리. 첫 조작 뒤에만 울리고, 끄면 기억한다 ── */
   var sfx = (function () {
     var base = (d.currentScript && d.currentScript.src || '').replace(/js\/main\.js.*$/, 'sfx/');
-    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, travel: .4, flip: .32, reveal: .45 };
-    var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {};
+    var VOL = { loading: .5, enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, travel: .4, flip: .32, reveal: .45 };
+    var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {}, live = {}, gone = {};
     var on = true; try { on = localStorage.getItem('ileon-sfx') !== 'off'; } catch (e) {}
     var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
     function load(n) {
@@ -32,16 +32,35 @@
     function wake() {
       if (!AC) return;
       if (!ctx) { ctx = new AC(); out = ctx.createGain(); out.gain.value = .8; out.connect(ctx.destination); Object.keys(VOL).forEach(decode); }
-      if (ctx.state === 'suspended') ctx.resume();
+      if (ctx.state === 'suspended') return ctx.resume();
     }
     ['pointerdown', 'keydown', 'touchstart'].forEach(function (t) { addEventListener(t, wake, { capture: true, passive: true }); });
-    function play(n, gap) {
-      if (!on || !ctx || ctx.state !== 'running' || d.hidden) return;
-      var now = performance.now(); if (now - (last[n] || 0) < (gap || 60)) return; last[n] = now;
-      decode(n).then(function (b) {
+    function play(n, gap, from) {
+      if (!on || !ctx || d.hidden) return;
+      /* 막 누른 순간이면 깨어나는 중인 소리판을 기다린다. 그 밖에 잠든 상태면 울리지 않는다 */
+      var ua = navigator.userActivation, waking = ctx.state === 'suspended' && (!ua || ua.isActive);
+      if (ctx.state !== 'running' && !waking) return;
+      var now = performance.now(); if (last[n] && now - last[n] < (gap == null ? 60 : gap)) return; last[n] = now;
+      (waking ? ctx.resume() : Promise.resolve()).then(function () { return decode(n); }).then(function (b) {
+        if (!last[n]) return;
         var s = ctx.createBufferSource(), g = ctx.createGain();
-        g.gain.value = VOL[n]; s.buffer = b; s.connect(g); g.connect(out); s.start();
+        g.gain.value = VOL[n]; s.buffer = b; s.connect(g); g.connect(out);
+        var off = from ? (performance.now() - from) / 1000 : 0;
+        if (off >= b.duration) return;
+        s.start(0, off); live[n] = { s: s, g: g };
       }).catch(function () {});
+    }
+    /* 재생 중인 소리를 짧게 줄이며 멈춘다 */
+    function stop(n) {
+      last[n] = 0; gone[n] = true; var l = live[n]; if (!l || !ctx) return; live[n] = null;
+      l.g.gain.setTargetAtTime(0, ctx.currentTime, .04); l.s.stop(ctx.currentTime + .2);
+    }
+    /* 조작 전에도 브라우저가 허락하면 바로 울린다. 막히면 조용히 넘어간다 */
+    function auto(n, from) {
+      if (!AC || !on) return;
+      wake();
+      var r = ctx.state === 'running' ? Promise.resolve() : ctx.resume();
+      r.then(function () { if (ctx.state === 'running' && !gone[n]) play(n, 0, from); }).catch(function () {});
     }
     function set(v) {
       on = v; try { localStorage.setItem('ileon-sfx', v ? 'on' : 'off'); } catch (e) {}
@@ -53,7 +72,7 @@
       b.addEventListener('click', function (e) { e.stopPropagation(); e.preventDefault(); set(!on); });
     });
     /* 표지에서는 첫 소리를 바로 낼 수 있게 미리 받아 둔다 */
-    if ($('[data-cover]')) load('enter');
+    if ($('[data-cover]')) { load('loading'); load('enter'); }
     /* 마우스로 훑을 때만 짧은 틱. 손가락 조작에는 붙이지 않는다 */
     if (fine) d.addEventListener('mouseover', function (e) {
       var t = e.target.closest && e.target.closest('.tabs a, .menu ol a, .tmenu a, .rg, .sl, .ng .slot, .tv-list button, .btn, .cw-btn, .esc, .snd');
@@ -65,7 +84,7 @@
       if (!t || t.closest('.snd, .cw-btn, .esc, .menu-x, [data-cover], .tv-list, .ng .slot, .thumbs, [data-jobs] [data-next], .cw-f')) return;
       play('click');
     });
-    return { play: play, toggle: function () { set(!on); } };
+    return { play: play, stop: stop, auto: auto, toggle: function () { set(!on); } };
   })();
 
   /* ── 시계: 현실과 벨라트(4배속) ── */
@@ -245,15 +264,26 @@
   if (cover) {
     var bar = $('.cv-bar i', cover), pct = $('[data-pct]', cover), logs = $$('.cv-log li', cover), go = $('[data-enter]', cover);
     var t0 = performance.now(), dur = reduce ? 1 : 2400, ready = false;
+    sfx.auto('loading', t0);
     (function load(t) {
+      if (ready) return;
       var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 2.2);
       bar.style.setProperty('--p', e); pct.textContent = Math.round(e * 100); var p2 = $('[data-pct2]', cover); if (p2) p2.textContent = Math.round(e * 100);
       logs.forEach(function (li, k) { if (e > (k + .6) / logs.length) li.classList.add('on'); });
       if (p < 1) requestAnimationFrame(load); else { ready = true; cover.classList.add('ready'); }
     })(t0);
+    /* 로딩 중에 누르면 바로 채우고 넘어간다 */
+    function skip() {
+      ready = true; sfx.stop('loading');
+      bar.style.setProperty('--p', 1); pct.textContent = 100; var p2 = $('[data-pct2]', cover); if (p2) p2.textContent = 100;
+      logs.forEach(function (li) { li.classList.add('on'); });
+      cover.classList.add('ready');
+    }
     function enter(e) {
-      if (!ready || cover.classList.contains('go')) return;
+      if (cover.classList.contains('go')) return;
       if (e) e.preventDefault();
+      if (!ready) skip();
+      else sfx.stop('loading');
       if (reduce) { location.href = go.href; return; }
       cover.classList.add('go'); sfx.play('enter');
       setTimeout(function () { location.href = go.href; }, 1150);
