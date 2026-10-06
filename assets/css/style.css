@@ -788,30 +788,54 @@ body.os::after{opacity:.025}
 .status .info{background:none;border:0;border-radius:0;color:#eafcff;font-size:14.5px;line-height:1.95;padding:12px 16px 14px;white-space:pre-wrap}
 .status .k{color:var(--hud);font-weight:700}
 
-/* 표지 HUD */
-.cv-ring{position:absolute;left:50%;top:46%;width:min(92vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%);color:var(--hud);opacity:.75;pointer-events:none;
-  filter:drop-shadow(0 0 12px rgba(92,229,255,.35));animation:ring-in 1.6s var(--ease) both;transition:transform 1.2s var(--ease),opacity .8s}
-.cv-ring svg{width:100%;height:100%;overflow:visible}
-.cv-ring g{transform-origin:300px 300px}
-.cv-ring .r1{animation:spin 70s linear infinite}
-.cv-ring .r2{animation:spin 42s linear infinite reverse}
-.cv-ring .r3{animation:spin 26s linear infinite}
-.cv-ring .r4{animation:spin 90s linear infinite reverse}
+/* 표지 HUD (푸른 계열) */
+.cover{--cv:#5ce5ff;--cv-2:#3a7bff}
+.cv-ring{position:absolute;left:50%;top:46%;width:min(92vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%);color:var(--cv);opacity:.85;pointer-events:none;
+  filter:drop-shadow(0 0 12px rgba(92,229,255,.4));animation:ring-in 1.8s var(--ease) both;transition:transform 1.2s var(--ease),opacity .8s}
+.cv-ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cv-ring g{transform-box:view-box;transform-origin:50% 50%}
+.cv-ring .r1{animation:spin 26s linear infinite}
+.cv-ring .r2{animation:spin 16s linear infinite reverse}
+.cv-ring .r3{animation:spin 9s cubic-bezier(.6,0,.4,1) infinite}
+.cv-ring .r4{animation:spin 34s linear infinite reverse}
+.cv-ring .r5{animation:spin 6s linear infinite}
+.cv-ring .tk{animation:tick 2.4s ease-in-out infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tick{50%{stroke-opacity:.15}}
 @keyframes ring-in{from{opacity:0;transform:translate(-50%,-50%) scale(.82) rotate(-30deg)}}
+.cv-sweep{position:absolute;inset:4%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg,rgba(58,123,255,0) 300deg,rgba(92,229,255,.22) 356deg,rgba(191,246,255,.5) 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);animation:spin 4.5s linear infinite}
+.cv-pulse{position:absolute;inset:24%;border-radius:50%;border:1px solid var(--cv);opacity:0;animation:pulse-r 3.6s cubic-bezier(.2,.6,.3,1) infinite}
+.cv-pulse.p2{animation-delay:1.8s;border-color:var(--cv-2)}
+@keyframes pulse-r{0%{opacity:.7;transform:scale(.8)}100%{opacity:0;transform:scale(1.55)}}
 .cover.go .cv-ring{transform:translate(-50%,-50%) scale(1.9);opacity:0}
-.cover.go .cv-ring g{animation-duration:2s}
+.cover.go .cv-ring g{animation-duration:1.4s}
 .cv-mid{z-index:1}
-.cv-logo b{text-shadow:0 0 40px rgba(92,229,255,.25)}
-.cv-frame i{position:absolute;width:34px;height:34px;border:2px solid var(--hud);opacity:.7}
-.cv-frame i:nth-child(1){left:calc(var(--gut) - 6px);top:58px;border-right:0;border-bottom:0}
-.cv-frame i:nth-child(2){right:calc(var(--gut) - 6px);top:58px;border-left:0;border-bottom:0}
-.cv-frame i:nth-child(3){left:calc(var(--gut) - 6px);bottom:150px;border-right:0;border-top:0}
-.cv-frame i:nth-child(4){right:calc(var(--gut) - 6px);bottom:150px;border-left:0;border-top:0}
-.cv-read{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:8px;font:700 12px var(--f-c);letter-spacing:.2em;color:rgba(92,229,255,.75)}
+.cv-logo b{animation:logo 1.4s var(--ease) both,glow 4s 1.4s ease-in-out infinite}
+@keyframes glow{0%,100%{text-shadow:0 0 30px rgba(92,229,255,.2)}50%{text-shadow:0 0 60px rgba(92,229,255,.5),0 0 2px rgba(191,246,255,.6)}}
+.cv-logo span{color:var(--cv)}
+.cv-frame i{position:absolute;width:34px;height:34px;border:2px solid var(--cv);opacity:.75;animation:corner 3s ease-in-out infinite}
+.cv-frame i:nth-child(1){left:calc(var(--gut) - 6px);top:58px;border-right:0;border-bottom:0;--dx:-6px;--dy:-6px}
+.cv-frame i:nth-child(2){right:calc(var(--gut) - 6px);top:58px;border-left:0;border-bottom:0;--dx:6px;--dy:-6px}
+.cv-frame i:nth-child(3){left:calc(var(--gut) - 6px);bottom:150px;border-right:0;border-top:0;--dx:-6px;--dy:6px}
+.cv-frame i:nth-child(4){right:calc(var(--gut) - 6px);bottom:150px;border-left:0;border-top:0;--dx:6px;--dy:6px}
+@keyframes corner{50%{transform:translate(var(--dx),var(--dy));opacity:.35}}
+.cv-read{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:8px;font:700 12px var(--f-c);letter-spacing:.2em;color:rgba(92,229,255,.8)}
+.cv-read span{animation:rise .8s var(--ease) both}
+.cv-read span:nth-child(2){animation-delay:.3s}.cv-read span:nth-child(3){animation-delay:.6s}
 .cv-read b{color:#fff}
-.cover .shade{background:radial-gradient(ellipse at center,rgba(5,30,38,.25),rgba(7,8,10,.88) 72%),repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px)}
-.cover::after{content:"";position:absolute;left:0;right:0;height:120px;top:-120px;z-index:0;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(92,229,255,.08),transparent);animation:scan 5s linear infinite}
+.cover .cv-bar i{background:linear-gradient(90deg,var(--cv-2),var(--cv));box-shadow:0 0 12px rgba(92,229,255,.6)}
+.cover .cv-log li.on::after{color:var(--cv)}
+.cover .shade{background:radial-gradient(ellipse at center,rgba(10,40,70,.3),rgba(7,8,10,.88) 72%),repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px)}
+.cover::after{content:"";position:absolute;left:0;right:0;height:140px;top:-140px;z-index:0;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(92,229,255,.1),transparent);animation:scan 5s linear infinite}
 @keyframes scan{to{top:100%}}
+.cover .cv-flash{background:radial-gradient(circle,#e8fbff,#5ce5ff 70%)}
+.cv-top span:first-child{color:var(--cv)}
 @media (max-width:760px){.cv-read{display:none}.cv-frame i:nth-child(3),.cv-frame i:nth-child(4){bottom:170px}}
 @media (prefers-reduced-motion:reduce){.cover::after{display:none}}
+/* 움직임 줄이기 설정에서도 표지 HUD 링은 느리게 돈다(어지럼을 주지 않는 회전만) */
+@media (prefers-reduced-motion:reduce){
+  .cv-ring .r1,.cv-ring .r3{animation:spin 40s linear infinite!important}
+  .cv-ring .r2,.cv-ring .r4{animation:spin 52s linear infinite reverse!important}
+  .cv-ring .r5,.cv-sweep{animation:spin 12s linear infinite!important}
+}
