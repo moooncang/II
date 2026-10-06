@@ -400,7 +400,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .expr .wrap{padding-top:28px;padding-bottom:36px}
 .expr-h{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
 .expr-h h2{font-family:var(--f-sys);font-size:14px;letter-spacing:0;font-weight:700}
-.axis-sw{display:inline-flex;background:var(--ground-2);padding:3px}
+.axis-sw{display:inline-flex;background:var(--ground-3);padding:3px}
 .axis-sw button{font-family:var(--f-sys);font-size:13px;letter-spacing:0;padding:7px 14px 6px;color:var(--ink-2)}
 .axis-sw button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
 .thumbs{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:4px}

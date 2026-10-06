@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T09:52:43+00:00",
+  "title": "Design System: FULL DIVE - ILEON",
+  "extensions": {
+    "colorMeta": {
+      "sys": {
+        "role": "primary",
+        "displayName": "서버 군청",
+        "canonical": "oklch(33% 0.155 266)",
+        "tonalRamp": [
+          "oklch(15% 0.082 266)",
+          "oklch(25% 0.107 266)",
+          "oklch(35% 0.133 266)",
+          "oklch(45% 0.155 266)",
+          "oklch(57% 0.155 266)",
+          "oklch(70% 0.146 266)",
+          "oklch(83% 0.113 266)",
+          "oklch(95% 0.082 266)"
+        ]
+      },
+      "sys-deep": {
+        "role": "primary",
+        "displayName": "깊은 군청",
+        "canonical": "oklch(25% 0.12 268)",
+        "tonalRamp": [
+          "oklch(15% 0.07 268)",
+          "oklch(25% 0.09 268)",
+          "oklch(35% 0.11 268)",
+          "oklch(45% 0.12 268)",
+          "oklch(57% 0.12 268)",
+          "oklch(70% 0.12 268)",
+          "oklch(83% 0.094 268)",
+          "oklch(95% 0.07 268)"
+        ]
+      },
+      "sys-line": {
+        "role": "primary",
+        "displayName": "군청 선",
+        "canonical": "oklch(44% 0.13 266)",
+        "tonalRamp": [
+          "oklch(15% 0.073 266)",
+          "oklch(25% 0.095 266)",
+          "oklch(35% 0.117 266)",
+          "oklch(45% 0.13 266)",
+          "oklch(57% 0.13 266)",
+          "oklch(70% 0.128 266)",
+          "oklch(83% 0.099 266)",
+          "oklch(95% 0.073 266)"
+        ]
+      },
+      "sys-hi": {
+        "role": "primary",
+        "displayName": "수신 청록",
+        "canonical": "oklch(86% 0.13 205)",
+        "tonalRamp": [
+          "oklch(15% 0.073 205)",
+          "oklch(25% 0.095 205)",
+          "oklch(35% 0.117 205)",
+          "oklch(45% 0.13 205)",
+          "oklch(57% 0.13 205)",
+          "oklch(70% 0.128 205)",
+          "oklch(83% 0.099 205)",
+          "oklch(95% 0.073 205)"
+        ]
+      },
+      "sys-ink": {
+        "role": "primary",
+        "displayName": "군청 위 글자",
+        "canonical": "oklch(96% 0.02 250)",
+        "tonalRamp": [
+          "oklch(15% 0.02 250)",
+          "oklch(25% 0.02 250)",
+          "oklch(35% 0.02 250)",
+          "oklch(45% 0.02 250)",
+          "oklch(57% 0.02 250)",
+          "oklch(70% 0.02 250)",
+          "oklch(83% 0.02 250)",
+          "oklch(95% 0.02 250)"
+        ]
+      },
+      "sys-ink-2": {
+        "role": "primary",
+        "displayName": "군청 위 보조 글자",
+        "canonical": "oklch(82% 0.06 256)",
+        "tonalRamp": [
+          "oklch(15% 0.05 256)",
+          "oklch(25% 0.06 256)",
+          "oklch(35% 0.06 256)",
+          "oklch(45% 0.06 256)",
+          "oklch(57% 0.06 256)",
+          "oklch(70% 0.06 256)",
+          "oklch(83% 0.06 256)",
+          "oklch(95% 0.05 256)"
+        ]
+      },
+      "signal": {
+        "role": "secondary",
+        "displayName": "사변 주홍",
+        "canonical": "oklch(57% 0.2 31)",
+        "tonalRamp": [
+          "oklch(15% 0.097 31)",
+          "oklch(25% 0.13 31)",
+          "oklch(35% 0.163 31)",
+          "oklch(45% 0.197 31)",
+          "oklch(57% 0.2 31)",
+          "oklch(70% 0.18 31)",
+          "oklch(83% 0.137 31)",
+          "oklch(95% 0.097 31)"
+        ]
+      },
+      "signal-lift": {
+        "role": "secondary",
+        "displayName": "밝은 주홍",
+        "canonical": "oklch(74% 0.16 35)",
+        "tonalRamp": [
+          "oklch(15% 0.083 35)",
+          "oklch(25% 0.11 35)",
+          "oklch(35% 0.137 35)",
+          "oklch(45% 0.16 35)",
+          "oklch(57% 0.16 35)",
+          "oklch(70% 0.15 35)",
+          "oklch(83% 0.115 35)",
+          "oklch(95% 0.083 35)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "포드 백광",
+        "canonical": "oklch(96.2% 0.009 228)",
+        "tonalRamp": [
+          "oklch(15% 0.009 228)",
+          "oklch(25% 0.009 228)",
+          "oklch(35% 0.009 228)",
+          "oklch(45% 0.009 228)",
+          "oklch(57% 0.009 228)",
+          "oklch(70% 0.009 228)",
+          "oklch(83% 0.009 228)",
+          "oklch(95% 0.009 228)"
+        ]
+      },
+      "ground-2": {
+        "role": "neutral",
+        "displayName": "옅은 광물",
+        "canonical": "oklch(92.6% 0.014 232)",
+        "tonalRamp": [
+          "oklch(15% 0.014 232)",
+          "oklch(25% 0.014 232)",
+          "oklch(35% 0.014 232)",
+          "oklch(45% 0.014 232)",
+          "oklch(57% 0.014 232)",
+          "oklch(70% 0.014 232)",
+          "oklch(83% 0.014 232)",
+          "oklch(95% 0.014 232)"
+        ]
+      },
+      "ground-3": {
+        "role": "neutral",
+        "displayName": "짙은 광물",
+        "canonical": "oklch(88.5% 0.018 236)",
+        "tonalRamp": [
+          "oklch(15% 0.018 236)",
+          "oklch(25% 0.018 236)",
+          "oklch(35% 0.018 236)",
+          "oklch(45% 0.018 236)",
+          "oklch(57% 0.018 236)",
+          "oklch(70% 0.018 236)",
+          "oklch(83% 0.018 236)",
+          "oklch(95% 0.018 236)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "심야 잉크",
+        "canonical": "oklch(21% 0.04 262)",
+        "tonalRamp": [
+          "oklch(15% 0.04 262)",
+          "oklch(25% 0.04 262)",
+          "oklch(35% 0.04 262)",
+          "oklch(45% 0.04 262)",
+          "oklch(57% 0.04 262)",
+          "oklch(70% 0.04 262)",
+          "oklch(83% 0.04 262)",
+          "oklch(95% 0.04 262)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "보조 잉크",
+        "canonical": "oklch(40% 0.035 258)",
+        "tonalRamp": [
+          "oklch(15% 0.035 258)",
+          "oklch(25% 0.035 258)",
+          "oklch(35% 0.035 258)",
+          "oklch(45% 0.035 258)",
+          "oklch(57% 0.035 258)",
+          "oklch(70% 0.035 258)",
+          "oklch(83% 0.035 258)",
+          "oklch(95% 0.035 258)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "흐린 잉크",
+        "canonical": "oklch(52% 0.03 255)",
+        "tonalRamp": [
+          "oklch(15% 0.03 255)",
+          "oklch(25% 0.03 255)",
+          "oklch(35% 0.03 255)",
+          "oklch(45% 0.03 255)",
+          "oklch(57% 0.03 255)",
+          "oklch(70% 0.03 255)",
+          "oklch(83% 0.03 255)",
+          "oklch(95% 0.03 255)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "선 (미사용)",
+        "canonical": "oklch(84% 0.02 240)",
+        "tonalRamp": [
+          "oklch(15% 0.02 240)",
+          "oklch(25% 0.02 240)",
+          "oklch(35% 0.02 240)",
+          "oklch(45% 0.02 240)",
+          "oklch(57% 0.02 240)",
+          "oklch(70% 0.02 240)",
+          "oklch(83% 0.02 240)",
+          "oklch(95% 0.02 240)"
+        ]
+      },
+      "veil-ink": {
+        "role": "neutral",
+        "displayName": "베일 위 글자",
+        "canonical": "oklch(90% 0.02 250)",
+        "tonalRamp": [
+          "oklch(15% 0.02 250)",
+          "oklch(25% 0.02 250)",
+          "oklch(35% 0.02 250)",
+          "oklch(45% 0.02 250)",
+          "oklch(57% 0.02 250)",
+          "oklch(70% 0.02 250)",
+          "oklch(83% 0.02 250)",
+          "oklch(95% 0.02 250)"
+        ]
+      },
+      "grade-1-common": {
+        "role": "tertiary",
+        "displayName": "일반 회청",
+        "canonical": "oklch(50% 0.015 250)",
+        "tonalRamp": [
+          "oklch(15% 0.015 250)",
+          "oklch(25% 0.015 250)",
+          "oklch(35% 0.015 250)",
+          "oklch(45% 0.015 250)",
+          "oklch(57% 0.015 250)",
+          "oklch(70% 0.015 250)",
+          "oklch(83% 0.015 250)",
+          "oklch(95% 0.015 250)"
+        ]
+      },
+      "grade-2-rare": {
+        "role": "tertiary",
+        "displayName": "희귀 청",
+        "canonical": "oklch(50% 0.15 248)",
+        "tonalRamp": [
+          "oklch(15% 0.08 248)",
+          "oklch(25% 0.105 248)",
+          "oklch(35% 0.13 248)",
+          "oklch(45% 0.15 248)",
+          "oklch(57% 0.15 248)",
+          "oklch(70% 0.142 248)",
+          "oklch(83% 0.11 248)",
+          "oklch(95% 0.08 248)"
+        ]
+      },
+      "grade-3-epic": {
+        "role": "tertiary",
+        "displayName": "에픽 보라",
+        "canonical": "oklch(48% 0.19 302)",
+        "tonalRamp": [
+          "oklch(15% 0.093 302)",
+          "oklch(25% 0.125 302)",
+          "oklch(35% 0.157 302)",
+          "oklch(45% 0.188 302)",
+          "oklch(57% 0.19 302)",
+          "oklch(70% 0.173 302)",
+          "oklch(83% 0.131 302)",
+          "oklch(95% 0.093 302)"
+        ]
+      },
+      "grade-4-unique": {
+        "role": "tertiary",
+        "displayName": "유니크 황토",
+        "canonical": "oklch(55% 0.12 78)",
+        "tonalRamp": [
+          "oklch(15% 0.07 78)",
+          "oklch(25% 0.09 78)",
+          "oklch(35% 0.11 78)",
+          "oklch(45% 0.12 78)",
+          "oklch(57% 0.12 78)",
+          "oklch(70% 0.12 78)",
+          "oklch(83% 0.094 78)",
+          "oklch(95% 0.07 78)"
+        ]
+      },
+      "grade-5-legend": {
+        "role": "tertiary",
+        "displayName": "전설 주황",
+        "canonical": "oklch(58% 0.18 48)",
+        "tonalRamp": [
+          "oklch(15% 0.09 48)",
+          "oklch(25% 0.12 48)",
+          "oklch(35% 0.15 48)",
+          "oklch(45% 0.18 48)",
+          "oklch(57% 0.18 48)",
+          "oklch(70% 0.165 48)",
+          "oklch(83% 0.126 48)",
+          "oklch(95% 0.09 48)"
+        ]
+      },
+      "grade-6-myth": {
+        "role": "tertiary",
+        "displayName": "신화 진홍",
+        "canonical": "oklch(54% 0.21 18)",
+        "tonalRamp": [
+          "oklch(15% 0.1 18)",
+          "oklch(25% 0.135 18)",
+          "oklch(35% 0.17 18)",
+          "oklch(45% 0.205 18)",
+          "oklch(57% 0.21 18)",
+          "oklch(70% 0.188 18)",
+          "oklch(83% 0.142 18)",
+          "oklch(95% 0.1 18)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-cover": {
+        "displayName": "표지 디스플레이",
+        "purpose": "표지의 ILEON 한 단어."
+      },
+      "display": {
+        "displayName": "히어로 디스플레이",
+        "purpose": "홈 히어로 '벨라트 대륙'."
+      },
+      "headline": {
+        "displayName": "페이지 머리",
+        "purpose": "페이지 h1, 인물 상세 이름."
+      },
+      "section": {
+        "displayName": "구획 제목",
+        "purpose": "구획 h2."
+      },
+      "quote": {
+        "displayName": "인물의 말",
+        "purpose": "인용과 대사."
+      },
+      "title": {
+        "displayName": "소제목",
+        "purpose": "h3, 히든직 이름, 블록 제목."
+      },
+      "lead": {
+        "displayName": "도입문",
+        "purpose": "제목 밑 도입 문단."
+      },
+      "body": {
+        "displayName": "본문",
+        "purpose": "해설 본문, keep-all 줄바꿈."
+      },
+      "system": {
+        "displayName": "시스템",
+        "purpose": "시스템 메시지, 로그, 데이터, 버튼."
+      },
+      "label": {
+        "displayName": "라벨",
+        "purpose": "등급 칩, 캡션, 메타, 시계."
+      }
+    },
+    "shadows": [
+      {
+        "name": "header-floor",
+        "value": "0 1px 0 var(--ground-2)",
+        "purpose": "반투명 헤더 바닥의 1px 톤."
+      },
+      {
+        "name": "menu-drop",
+        "value": "0 12px 24px -12px oklch(20% 0.04 262 / .25)",
+        "purpose": "모바일 펼침 메뉴만."
+      },
+      {
+        "name": "title-glow",
+        "value": "0 2px 30px oklch(15% 0.08 266 / .5)",
+        "purpose": "사진 위 히어로 제목 가독(text-shadow)."
+      },
+      {
+        "name": "inset-outline",
+        "value": "inset 0 0 0 1.5px currentColor",
+        "purpose": "대기 버튼, 빈 신화 칸, 선택 썸네일(2px 군청)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "모든 이동·전환의 단일 감속 곡선."
+      },
+      {
+        "name": "line-print",
+        "value": "160ms + 240ms × n",
+        "purpose": "시스템 메시지가 한 줄씩 켜지는 간격(표지 부팅 로그는 300ms + 420ms × n)."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity .9s, translateY(18px) 1.1s",
+        "purpose": "구획 등장."
+      },
+      {
+        "name": "rail-swap",
+        "value": "transform .7s, opacity .5s",
+        "purpose": "월드 로그 레일 줄 교체(아래에서 올라와 위로 빠짐)."
+      },
+      {
+        "name": "image-drift",
+        "value": "scale(1.03–1.05), .9–1.4s",
+        "purpose": "사진 hover 시 느린 확대."
+      },
+      {
+        "name": "blink",
+        "value": "1.6s steps(2) infinite",
+        "purpose": "레일 수신 점."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "menu",
+        "value": "880px"
+      },
+      {
+        "name": "two-col",
+        "value": "860px"
+      },
+      {
+        "name": "wide-grid",
+        "value": "900px"
+      },
+      {
+        "name": "axes",
+        "value": "760px"
+      },
+      {
+        "name": "grid-2",
+        "value": "600px"
+      },
+      {
+        "name": "grid-1",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-system",
+      "description": "서버 군청 직사각 버튼. 주 행동 하나에 씁니다.",
+      "html": "<a class=\"ds-btn\" href=\"#\">시작 모드 고르기 <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sys);font-weight:700;font-size:15.5px;letter-spacing:0;padding:15px 24px 14px;background:var(--sys);color:var(--sys-ink);text-decoration:none;border-radius:0;transition:background .25s,transform .25s var(--ease)} .ds-btn:hover{background:var(--sys-deep)} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:2px solid var(--sys);outline-offset:3px}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "사진·군청 면 위의 반전 버튼.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-light\" href=\"#\">접속 <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-dark{background:var(--sys-deep);padding:24px} .ds-btn-light{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sys);font-weight:700;font-size:15.5px;padding:15px 24px 14px;background:var(--sys-ink);color:var(--sys);text-decoration:none;transition:background .25s} .ds-btn-light:hover{background:#fff} .ds-btn-light:focus-visible{outline:2px solid var(--sys-hi);outline-offset:3px}"
+    },
+    {
+      "name": "Pending Button",
+      "kind": "button",
+      "refersTo": "button-system",
+      "description": "아직 링크가 없는 행동. 비어 있음을 정직하게 보여 줍니다.",
+      "html": "<a class=\"ds-btn-pending\" aria-disabled=\"true\">크랙에서 접속 (링크 준비 중)</a>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-btn-pending{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sys);font-weight:700;font-size:15.5px;padding:15px 24px 14px;background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px currentColor;opacity:.75;cursor:default}"
+    },
+    {
+      "name": "System Message",
+      "kind": "custom",
+      "refersTo": "system-message",
+      "description": "서버의 한 줄. 밝은 바탕과 군청 면 두 가지.",
+      "html": "<div class=\"ds-col\"><span class=\"ds-sysmsg\">벨라트 대륙에 오신 것을 환영합니다.</span><span class=\"ds-sysmsg\">시작 지점: 리아텔 · 귀환석 광장</span></div><div class=\"ds-col ds-onsys\"><span class=\"ds-sysmsg\">다이브포드 연결 대기</span></div>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-col{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px;background:var(--ground)} .ds-onsys{background:var(--sys)} .ds-sysmsg{font-family:var(--f-sys);font-size:14px;line-height:1.6;letter-spacing:0;display:inline-block;background:var(--ground-2);color:var(--ink);padding:3px 9px 2px} .ds-onsys .ds-sysmsg{background:var(--sys-deep);color:var(--sys-ink)}"
+    },
+    {
+      "name": "Log List",
+      "kind": "custom",
+      "refersTo": "log-line",
+      "description": "채널 태그 + 제목 + 설명의 로그 블록. 3px 틈으로 쌓입니다.",
+      "html": "<ul class=\"ds-log\"><li><span class=\"ds-ch ds-ch-w\">[월드]</span><span class=\"ds-t\">카뎃트 상단, 잿빛 회랑 보급로 재개</span><span class=\"ds-d\">원주민 상인들이 이방인 호위를 구합니다.</span></li><li><span class=\"ds-ch ds-ch-s\">[사변]</span><span class=\"ds-t\">라흐나 제3환 범람 전조</span><span class=\"ds-d\">대륙 규모로 번질 수 있습니다.</span></li><li><span class=\"ds-ch ds-ch-h\">[히든]</span><span class=\"ds-t\">행적 조건 충족 — 직업 발현</span><span class=\"ds-d\">그 사람만의 직업이 생깁니다.</span></li></ul>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-log{list-style:none;margin:0;padding:0;font-family:var(--f-sys);font-size:14.5px;line-height:1.65;letter-spacing:0} .ds-log li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;padding:13px 16px;background:var(--ground-2);color:var(--ink)} .ds-log li+li{margin-top:3px} .ds-d{grid-column:2;font-family:var(--f-body);font-size:15px;color:var(--ink-2)} .ds-ch{font-weight:700;white-space:nowrap} .ds-ch-w{color:var(--sys)} .ds-ch-s{color:var(--signal)} .ds-ch-h{color:var(--g3)}"
+    },
+    {
+      "name": "Grade Ladder",
+      "kind": "chip",
+      "refersTo": "grade-chip",
+      "description": "직업 등급 칩. 등급색은 여기서만 면으로 씁니다.",
+      "html": "<div class=\"ds-ladder\"><span style=\"--gc:oklch(50% 0.015 250)\">일반</span><span style=\"--gc:oklch(50% 0.15 248)\">희귀</span><span style=\"--gc:var(--g3)\">에픽</span><span style=\"--gc:var(--g4)\">유니크</span><span style=\"--gc:var(--g5)\">전설</span><span class=\"ds-empty\">신화 0명</span></div>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-ladder{display:flex;gap:3px;flex-wrap:wrap} .ds-ladder span{font-family:var(--f-sys);font-size:12.5px;font-weight:700;letter-spacing:0;padding:6px 10px 5px;color:#fff;background:var(--gc)} .ds-ladder .ds-empty{background:transparent;color:var(--g6);box-shadow:inset 0 0 0 1.5px var(--g6)}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "반투명 백광 헤더, 현재 페이지는 군청 + 2px 밑줄, 오른쪽 이중 시계.",
+      "html": "<header class=\"ds-top\"><b class=\"ds-brand\">ILEON</b><nav class=\"ds-nav\"><a href=\"#\">홈</a><a href=\"#\" aria-current=\"page\">대륙</a><a href=\"#\">인물</a><a href=\"#\">체계</a></nav><div class=\"ds-clock\"><span>현실 <b>23:40</b></span><span class=\"ds-bt\">벨라트 <b>14:40</b></span></div></header>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-top{display:flex;align-items:center;gap:32px;height:56px;padding:0 24px;background:color-mix(in oklch,var(--ground) 90%,transparent);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--ground-2);color:var(--ink)} .ds-brand{font-family:var(--f-world);font-weight:800;font-size:19px;letter-spacing:.02em} .ds-nav{display:flex;gap:26px;font-family:var(--f-body);font-size:14.5px;font-weight:600} .ds-nav a{color:var(--ink-2);text-decoration:none;padding:6px 0;position:relative} .ds-nav a:hover{color:var(--ink)} .ds-nav a:focus-visible{outline:2px solid var(--sys);outline-offset:3px} .ds-nav a[aria-current]{color:var(--sys)} .ds-nav a[aria-current]::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--sys)} .ds-clock{margin-left:auto;display:flex;gap:14px;font-family:var(--f-sys);font-size:12.5px;color:var(--ink-2)} .ds-clock b{color:var(--ink)} .ds-bt b{color:var(--sys)}"
+    },
+    {
+      "name": "Person Card",
+      "kind": "card",
+      "refersTo": "",
+      "description": "2:3 인물 사진 + 백광 캡션, 이방인은 군청 표시.",
+      "html": "<a class=\"ds-pc\" href=\"#\"><span class=\"ds-side\">이방인</span><div class=\"ds-ph\"></div><div class=\"ds-cap\"><b>무명</b><span>Lv64 · 랭킹 1위</span></div></a>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-pc{position:relative;display:block;width:190px;background:var(--ground-3);color:var(--ink);text-decoration:none;overflow:hidden} .ds-ph{aspect-ratio:2/3;background:linear-gradient(180deg,var(--ground-2),var(--ground-3));transition:transform .9s var(--ease)} .ds-pc:hover .ds-ph{transform:scale(1.04)} .ds-pc:focus-visible{outline:2px solid var(--sys);outline-offset:3px} .ds-cap{padding:10px 12px 12px;background:var(--ground)} .ds-cap b{display:block;font-family:var(--f-world);font-weight:700;font-size:18px;letter-spacing:-.02em;line-height:1.3} .ds-cap span{display:block;margin-top:3px;font-family:var(--f-sys);font-size:12px;color:var(--ink-3)} .ds-side{position:absolute;z-index:1;left:0;top:0;font-family:var(--f-sys);font-size:11.5px;padding:4px 8px 3px;background:var(--sys);color:var(--sys-ink)}"
+    },
+    {
+      "name": "Person Chip",
+      "kind": "chip",
+      "refersTo": "person-chip",
+      "description": "지역에 사는 인물로 가는 얼굴 칩.",
+      "html": "<a class=\"ds-chip\" href=\"#\"><i></i>유안</a>",
+      "css": ":host{--ground:oklch(96.2% 0.009 228);--ground-2:oklch(92.6% 0.014 232);--ground-3:oklch(88.5% 0.018 236);--ink:oklch(21% 0.04 262);--ink-2:oklch(40% 0.035 258);--ink-3:oklch(52% 0.03 255);--sys:oklch(33% 0.155 266);--sys-deep:oklch(25% 0.12 268);--sys-ink:oklch(96% 0.02 250);--sys-ink-2:oklch(82% 0.06 256);--sys-hi:oklch(86% 0.13 205);--signal:oklch(57% 0.2 31);--g3:oklch(48% 0.19 302);--g4:oklch(55% 0.12 78);--g5:oklch(58% 0.18 48);--g6:oklch(54% 0.21 18);--f-world:\"Hahmlet Variable\",\"Nanum Myeongjo\",serif;--f-sys:\"Nanum Gothic Coding\",ui-monospace,monospace;--f-body:\"Pretendard Variable\",Pretendard,sans-serif;--ease:cubic-bezier(.16,1,.3,1)} .ds-chip{display:inline-flex;align-items:center;gap:8px;padding:3px 12px 3px 3px;background:var(--ground-2);color:var(--ink);font-family:var(--f-body);font-size:14px;font-weight:600;text-decoration:none;transition:background .2s} .ds-chip i{width:30px;height:30px;background:var(--ground-3)} .ds-chip:hover{background:var(--ground-3)} .ds-chip:focus-visible{outline:2px solid var(--sys);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "서버가 말하는 세계",
+    "overview": "이 사이트는 일레온 서버 자체가 방문자에게 말을 거는 화면입니다. 시스템 메시지, 월드 브로드캐스트, 접속 로그가 페이지의 문법이고, 그 사이로 벨라트 대륙의 이름과 사람들이 굵은 명조로 떠오릅니다. 바탕은 포드 안 백색광에 가까운 차갑고 옅은 광물빛(크림도 어둠도 아님)이며, 서버가 직접 발언하는 구간만 깊은 군청 면이 띠 전체를 차지합니다.\n\n밀도는 중간입니다. 정보는 카드가 아니라 4px 틈으로 맞붙은 색 블록으로 쌓이고, 선·모서리 굴림·그림자 없이 바탕 톤 세 단계(ground → ground-2 → ground-3)만으로 층을 나눕니다. 그림(배경·인물)은 화면 끝까지 꽉 채워 깔고 군청 베일로 덮어 글자를 올립니다.\n\n움직임은 \"한 줄씩 인쇄\"입니다. 로그 줄이 순서대로 켜지고, 월드 로그 레일이 위로 밀려 바뀌고, 헤더의 이중 시계(현실 : 벨라트 = 1 : 4)가 매초 흐릅니다. 튀거나 튕기는 것은 없습니다.",
+    "keyCharacteristics": [
+      "차가운 광물빛 바탕 + 띠 전체를 차지하는 군청 시스템 면",
+      "두 서체 = 두 축: 코딩 고정폭(시스템·현실), 굵은 명조 Hahmlet(벨라트 대륙)",
+      "모서리 0, 테두리 없음, 4px 틈으로 붙는 블록",
+      "주홍은 사변 전용, 등급색은 등급 표시 전용",
+      "줄 단위로 켜지는 로그, 감속 곡선 하나"
+    ],
+    "rules": [
+      {
+        "name": "The 사변 독점 Rule",
+        "body": "주홍(`signal`, `signal-lift`)은 사변만의 색입니다. 경고, 오류, 장식, CTA에 빌려 쓰지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 등급은 칩 안에 Rule",
+        "body": "등급색 여섯은 직업 등급을 가리킬 때만 씁니다. 등급과 무관한 강조나 일러스트용 색으로 쓰지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 군청은 면이다 Rule",
+        "body": "군청은 글자 강조색이 아니라 띠 전체를 차지하는 면입니다. 밝은 바탕 위에서 군청 글자는 현재 위치 표시, 링크, [월드]·[랭킹] 채널 태그 정도로만 씁니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 두 목소리 두 축 Rule",
+        "body": "벨라트 대륙의 것은 Hahmlet, 서버와 현실의 것은 고정폭입니다. 같은 컴포넌트가 두 축을 다룰 때도 이 규칙을 따릅니다. 현실 쪽 축 패널의 큰 글자와 현실 페이지 h1은 고정폭 700으로 바뀝니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 고정폭은 자간 0 Rule",
+        "body": "나눔고딕코딩은 언제나 `letter-spacing: 0`으로 씁니다. 본문의 음수 자간을 물려받지 않습니다. 예외는 표지 \"FULL DIVE\"의 0.32em 하나뿐입니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 4px 틈 Rule",
+        "body": "블록끼리는 4px(로그 줄은 3px) 틈으로 붙고, 틈 사이로 바탕이 비칩니다. 블록 사이에 여백 대신 선을 긋지 않습니다.",
+        "section": "layout"
+      },
+      {
+        "name": "The 면으로 층을 Rule",
+        "body": "층은 그림자가 아니라 바탕 톤으로 나눕니다. 블록은 언제나 평평합니다.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** 서버가 하는 말은 고정폭 시스템 메시지나 로그 줄로 쓰고, 서버가 길게 발언하는 구간은 군청 밴드(`sys`) 전체로 칠하세요.",
+      "**Do** 벨라트 대륙의 이름·사람·말은 Hahmlet 700~800, 서버와 2047년 현실은 나눔고딕코딩으로 쓰세요.",
+      "**Do** 블록은 직각, 테두리 없이 옅은 광물(`ground-2`) 바탕으로 만들고 4px 틈으로 붙이세요.",
+      "**Do** 사진은 화면 끝까지 채우고 깊은 군청 베일 그라데이션을 덮어 글자를 올리세요.",
+      "**Do** 등장 움직임은 한 줄씩 켜거나 18px 아래에서 떠오르는 정도로 두고, 곡선은 `cubic-bezier(.16, 1, .3, 1)` 하나를 쓰세요. `prefers-reduced-motion`에서는 모두 즉시 보이게 하세요.",
+      "**Do** 아직 없는 링크나 자산은 대기 버튼(안쪽 윤곽, 75% 불투명)처럼 비어 있음을 정직하게 보여 주세요."
+    ],
+    "donts": [
+      "**Don't** 모서리를 굴리거나, 블록에 테두리·떠 있는 그림자를 더하지 마세요.",
+      "**Don't** 주홍을 사변 외의 목적(경고, 버튼, 장식)에 쓰지 마세요.",
+      "**Don't** 등급색을 등급 표시 밖에서 장식색으로 쓰지 마세요.",
+      "**Don't** 시스템 메시지를 구획 이름표처럼 쓰지 마세요. 서버가 실제로 할 법한 문장이나 게임 데이터만 담습니다.",
+      "**Don't** 금테 키아트 MMO 런처나 어두운 위키처럼 만들지 마세요. 바탕은 언제나 차갑고 옅은 광물빛입니다.",
+      "**Don't** 튕기거나 크기가 출렁이는 움직임을 쓰지 마세요."
+    ]
+  }
+}
