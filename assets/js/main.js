@@ -17,8 +17,8 @@
   /* ── 효과음: ElevenLabs로 만든 짧은 UI 소리. 첫 조작 뒤에만 울리고, 끄면 기억한다 ── */
   var sfx = (function () {
     var base = (d.currentScript && d.currentScript.src || '').replace(/js\/main\.js.*$/, 'sfx/');
-    var VOL = { loading: .5, enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .24, travel: .4, flip: .32, reveal: .45 };
-    var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {}, live = {}, gone = {};
+    var VOL = { loading: .5, enter: .7, hover: .14, click: .3, menu: .45, chat: .35, select: .24, travel: .4, flip: .32, reveal: .45 };
+    var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {}, live = {};
     var on = true; try { on = localStorage.getItem('ileon-sfx') !== 'off'; } catch (e) {}
     var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
     function load(n) {
@@ -52,15 +52,8 @@
     }
     /* 재생 중인 소리를 짧게 줄이며 멈춘다 */
     function stop(n) {
-      last[n] = 0; gone[n] = true; var l = live[n]; if (!l || !ctx) return; live[n] = null;
+      last[n] = 0; var l = live[n]; if (!l || !ctx) return; live[n] = null;
       l.g.gain.setTargetAtTime(0, ctx.currentTime, .04); l.s.stop(ctx.currentTime + .2);
-    }
-    /* 조작 전에도 브라우저가 허락하면 바로 울린다. 막히면 조용히 넘어간다 */
-    function auto(n, from) {
-      if (!AC || !on) return;
-      wake();
-      var r = ctx.state === 'running' ? Promise.resolve() : ctx.resume();
-      r.then(function () { if (ctx.state === 'running' && !gone[n]) play(n, 0, from); }).catch(function () {});
     }
     function set(v) {
       on = v; try { localStorage.setItem('ileon-sfx', v ? 'on' : 'off'); } catch (e) {}
@@ -84,7 +77,7 @@
       if (!t || t.closest('.snd, .cw-btn, .esc, .menu-x, [data-cover], .tv-list, .ng .slot, .thumbs, [data-jobs] [data-next], .cw-f')) return;
       play('click');
     });
-    return { play: play, stop: stop, auto: auto, toggle: function () { set(!on); } };
+    return { play: play, stop: stop, toggle: function () { set(!on); } };
   })();
 
   /* ── 시계: 현실과 벨라트(4배속) ── */
@@ -259,37 +252,38 @@
     whileVisible(jobsBox, function () { showJob(ji); auto(); if (!revealed) { revealed = true; sfx.play('reveal'); } }, function () { clearInterval(jt); }, .3);
   }
 
-  /* ── 표지: 로딩 → 접속 ── */
+  /* ── 표지: 눌러서 시작 → 로딩(소리) → 접속. 로딩 중에 누르면 건너뛴다 ── */
   var cover = $('[data-cover]');
   if (cover) {
-    var bar = $('.cv-bar i', cover), pct = $('[data-pct]', cover), logs = $$('.cv-log li', cover), go = $('[data-enter]', cover);
-    var t0 = performance.now(), dur = reduce ? 1 : 2400, ready = false;
-    sfx.auto('loading', t0);
-    (function load(t) {
-      if (ready) return;
-      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 2.2);
-      bar.style.setProperty('--p', e); pct.textContent = Math.round(e * 100); var p2 = $('[data-pct2]', cover); if (p2) p2.textContent = Math.round(e * 100);
+    var bar = $('.cv-bar i', cover), pct = $('[data-pct]', cover), p2 = $('[data-pct2]', cover), logs = $$('.cv-log li', cover), go = $('[data-enter]', cover);
+    var t0 = 0, dur = reduce ? 1 : 2400, state = 'idle';
+    cover.classList.add('idle');
+    function setP(e) {
+      bar.style.setProperty('--p', e); pct.textContent = Math.round(e * 100); if (p2) p2.textContent = Math.round(e * 100);
       logs.forEach(function (li, k) { if (e > (k + .6) / logs.length) li.classList.add('on'); });
-      if (p < 1) requestAnimationFrame(load); else { ready = true; cover.classList.add('ready'); }
-    })(t0);
-    /* 로딩 중에 누르면 바로 채우고 넘어간다 */
-    function skip() {
-      ready = true; sfx.stop('loading');
-      bar.style.setProperty('--p', 1); pct.textContent = 100; var p2 = $('[data-pct2]', cover); if (p2) p2.textContent = 100;
-      logs.forEach(function (li) { li.classList.add('on'); });
-      cover.classList.add('ready');
     }
-    function enter(e) {
-      if (cover.classList.contains('go')) return;
-      if (e) e.preventDefault();
-      if (!ready) skip();
-      else sfx.stop('loading');
+    function load(t) {
+      if (state !== 'loading') return;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 2.2);
+      setP(e);
+      if (p < 1) requestAnimationFrame(load); else { state = 'ready'; cover.classList.add('ready'); setTimeout(enter, reduce ? 0 : 420); }
+    }
+    function enter() {
+      if (state === 'go') return;
+      state = 'go'; sfx.stop('loading'); setP(1); cover.classList.add('ready');
       if (reduce) { location.href = go.href; return; }
       cover.classList.add('go'); sfx.play('enter');
       setTimeout(function () { location.href = go.href; }, 1150);
     }
-    cover.addEventListener('click', enter);
-    d.addEventListener('keydown', function (e) { if (!e.metaKey && !e.ctrlKey && !e.altKey && e.key !== 'Tab') enter(e); });
+    function press(e) {
+      if (e) e.preventDefault();
+      if (state === 'idle') {
+        state = 'loading'; cover.classList.remove('idle');
+        t0 = performance.now(); sfx.play('loading', 0); requestAnimationFrame(load);
+      } else if (state === 'loading') enter();
+    }
+    cover.addEventListener('click', press);
+    d.addEventListener('keydown', function (e) { if (!e.metaKey && !e.ctrlKey && !e.altKey && e.key !== 'Tab') press(e); });
   }
 
   /* ── 인물: 캐릭터 선택 ── */

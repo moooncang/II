@@ -252,7 +252,7 @@ def build_cover():
     <ol class="cv-log" aria-hidden="true">{"".join(f"<li>{E(t)}</li>" for t in logs)}</ol>
     <div class="cv-bar"><i></i></div>
     <div class="cv-pct"><span>LOADING</span><b data-pct>0</b></div>
-    <a class="cv-go" href="home.html" data-enter><span class="pc">아무 키나 누르거나 화면을 눌러 접속</span><span class="mo">화면을 눌러 접속</span></a>
+    <a class="cv-go" href="home.html" data-enter><span class="pc">아무 키나 누르거나 화면을 눌러 시작</span><span class="mo">화면을 눌러 시작</span></a>
   </div>
   <div class="cv-flash"></div>
 </main>

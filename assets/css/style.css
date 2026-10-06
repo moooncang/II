@@ -997,3 +997,8 @@ html{overflow-x:hidden;overflow-x:clip}
 .cv-top .snd b{color:var(--cv)}
 @media (max-width:900px){.hud .snd span{display:none}.hud .snd{padding:10px 6px}}
 @media (max-width:560px){.cv-top > span:nth-child(2){display:none}}
+/* 표지: 누르기 전에는 시작 안내만 깜빡인다 */
+.cover.idle{cursor:pointer}
+.cover.idle .cv-go{opacity:1;pointer-events:auto;animation:blink 1.6s ease-in-out infinite}
+.cover.idle .cv-pct,.cover.idle .cv-bar{opacity:.35}
+.cover.ready:not(.go) .cv-go{opacity:0}
