@@ -259,7 +259,7 @@ def build_home():
     npcs = [c for c in C if c["side"] == "npc"]
     acc = "".join(f'''<a class="acc-i" href="char/{c["slug"]}.html" style="--i:{k}">
       {img(smp(c["code"]), c["name"])}
-      <span class="acc-tx"><small>{E(c["real"])} · Lv{c["lv"]}</small><b>{E(c["name"])}</b><em>{E(c["hook"])}</em></span>
+      <span class="acc-tx"><small>{E(c["real"])} · Lv{c["lv"]}</small><b>{E(c["name"])}</b><em><span>{E(c["hook"])}</span></em></span>
     </a>''' for k, c in enumerate(players))
     faces = "".join(f'<a href="char/{c["slug"]}.html" title="{E(c["name"])}">{img(smp(c["code"]), c["name"])}<span>{E(c["name"])}</span></a>' for c in npcs)
     statement = "다이브포드에 누우면 여명기 이후 800년의 대륙이 열린다. 그곳에서 당신은 죽어도 돌아오는 이방인이다. 정해진 이야기는 없다. 당신이 한 일이 직업이 되고, 대륙에서 벌어진 일이 곧 역사가 된다."
