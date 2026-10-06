@@ -73,9 +73,8 @@
   }
 
   /* 인물 표정 · 게임/현실 */
-  var fig = d.querySelector('.cd-art .fig');
+  var fig = d.querySelector('.viewer .fig');
   if (fig) {
-    var tag = d.querySelector('.cd-art .axis-tag');
     function show(src, alt) {
       if (fig.getAttribute('src') === src) return;
       fig.classList.add('fade');
@@ -98,10 +97,19 @@
         var on = d.querySelector('.thumbs[data-axis="' + k + '"] button[aria-pressed="true"]') ||
                  d.querySelector('.thumbs[data-axis="' + k + '"] button');
         if (on) on.click();
-        if (tag) tag.textContent = k === 'real' ? '현실 · 2047 대한민국' : '게임 · 벨라트 대륙';
       });
     });
   }
+
+
+  /* 인물 거르기 */
+  $$('.filters button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.f;
+      $$('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      $$('.cards .card').forEach(function (c) { c.hidden = f !== 'all' && c.dataset.side !== f; if (!c.hidden) c.classList.add('in'); });
+    });
+  });
 
   /* 표지: 부팅 로그 → 접속 */
   var cover = d.querySelector('.cover');

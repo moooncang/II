@@ -8,16 +8,15 @@
 <meta property="og:title" content="체계 · FULL DIVE - ILEON">
 <meta property="og:description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#eef1f3">
-<link rel="preload" href="assets/css/style.css" as="style">
+<meta name="theme-color" content="#0a0f1d">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="home.html"><b>ILEON</b><span>FULL DIVE</span></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> 메뉴</button>
+    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b><span>FULL DIVE</span></a>
+    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> MENU</button>
     <ul class="nav" id="nav">
       <li><a href="world.html">대륙</a></li>
       <li><a href="characters.html">인물</a></li>
@@ -33,20 +32,18 @@
 </header>
 <main>
 <section class="phead">
-  <img src="images/B/TR.webp" alt="훈련장" width="2048" height="585" decoding="async" fetchpriority="high">
+  <img src="images/bg-draft/914807083.webp" alt="훈련장" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high">
   <div class="wrap">
     <span class="sysmsg">랭킹 1위 · Lv64</span>
     <h1>레벨이 아주 안 오르는 게임</h1>
     <p>서버 1위가 Lv64. 대부분은 Lv15 안쪽에서 접는다. 이 전제가 나머지를 전부 정한다. 스탯은 힘·민첩·지구력·감각 넷이고, 포인트를 나눠 주는 게 아니라 반복한 행동으로 오른다.</p>
   </div>
 </section>
-<nav class="toc" aria-label="이 페이지"><div class="wrap">
-  <a href="#level">레벨</a><a href="#class">전직</a><a href="#hidden">히든직</a><a href="#third">3차 전직자</a><a href="#dungeon">던전</a><a href="#incident">사변</a><a href="#quest">퀘스트</a>
-</div></nav>
-
+<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#level">레벨</a><a href="#class">전직</a><a href="#hidden">히든직</a><a href="#grade">등급</a><a href="#third">3차 전직자</a><a href="#dungeon">던전</a><a href="#incident">사변</a><a href="#quest">퀘스트</a></div></nav>
 <section class="sec" id="level">
   <div class="wrap">
-    <h2 class="h2">레벨 분포</h2>
+    <p class="lbl">LEVEL<em>레벨 분포</em></p>
+    <h2 class="h2">Lv1에서 Lv64까지</h2>
     <p class="lead">이방인 기준이다. 원주민 강자는 이 상한과 무관하다. 기사단장, 공작가, 할라크족 장로 같은 이들은 Lv70~90대이고, 랭킹 1위도 그들 앞에서는 아래다.</p>
     <div class="lvbar rv">
       <div class="track" aria-hidden="true"><span>1–15</span><span class="gap"></span><span>20–35</span><span class="gap"></span><span>40–50</span><span>55+</span><span class="top">64</span></div>
@@ -62,42 +59,39 @@
   </div>
 </section>
 
-<section class="sec" id="class">
+<section class="sec alt" id="class">
   <div class="wrap">
+    <p class="lbl">CLASS<em>전직</em></p>
     <h2 class="h2">전직은 세 번, 그리고 히든</h2>
-    <ul class="tiers">
-      <li class=""><span class="k">Lv10</span><b>1차</b><p>전직 NPC가 부여한다. 등급 일반.</p></li><li class=""><span class="k">Lv40 + 실적 심사</span><b>2차</b><p>등급 희귀. 2차 전직자는 길드가 영입하러 온다. 생산 계열은 레벨이 아니라 제작 실적으로 심사한다.</p></li><li class=""><span class="k">Lv60 + 시련 통과</span><b>3차</b><p>등급 에픽. 정규 루트는 여기서 끝난다. 서버 전체에 5명.</p></li><li class="h"><span class="k">레벨 무관</span><b>히든</b><p>조건을 채운 사람만. 취득하면 서버 공개 로그에 직업명만 뜬다.</p></li>
-    </ul>
-    <div class="split" style="margin-top:clamp(48px,6vw,80px)">
+    <div class="tiles" style="margin-top:32px"><div class="rv"><span class="k">Lv10</span><b>1차</b><p>전직 NPC가 부여한다. 등급 일반.</p></div><div class="rv"><span class="k">Lv40 + 실적 심사</span><b>2차</b><p>등급 희귀. 길드가 영입하러 온다. 생산 계열은 레벨이 아니라 제작 실적으로 심사한다.</p></div><div class="rv"><span class="k">Lv60 + 시련 통과</span><b>3차</b><p>등급 에픽. 정규 루트는 여기서 끝난다. 서버 전체에 5명.</p></div><div class="rv"><span class="k">레벨 무관</span><b>히든</b><p>조건을 채운 사람만. 취득하면 서버 공개 로그에 직업명만 뜬다.</p></div></div>
+    <div class="split" style="margin-top:clamp(48px,6vw,72px)">
       <div><h3 class="h3">계열 아홉</h3>
-      <p class="lead" style="margin-top:12px">정규직은 뼈대만 있다. 이름과 조건이 전부 공개돼 있어 공략만 보면 누구나 밟아 올라갈 수 있다.</p>
+      <p class="lead">정규직은 뼈대만 있다. 이름과 조건이 전부 공개돼 있어 공략만 보면 누구나 밟아 올라갈 수 있다.</p>
       <div class="classes"><span>검사</span><span>권사</span><span>창병</span><span>궁수</span><span>술사</span><span>교감자</span><span>치유사</span><span>공방 조수</span><span>유랑민</span></div></div>
       <div><h3 class="h3">정규 계보 예시</h3>
-      <div class="lines"><div><span>검사</span> <span class="grade g1">일반</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>쾌검사</span> <span class="grade g2">희귀</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>월광검사</span> <span class="grade g3">에픽</span></div><div><span>궁수</span> <span class="grade g1">일반</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>명궁</span> <span class="grade g2">희귀</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>낙성궁</span> <span class="grade g3">에픽</span></div><div><span>공방 조수</span> <span class="grade g1">일반</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>대장장이</span> <span class="grade g2">희귀</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>블랙스미스</span> <span class="grade g3">에픽</span></div><div><span>술사</span> <span class="grade g1">일반</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>해문술사</span> <span class="grade g2">희귀</span> <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>고문해자</span> <span class="grade g3">에픽</span></div></div>
+      <div class="lines"><div><span>검사</span> <span class="grade g1">일반</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>쾌검사</span> <span class="grade g2">희귀</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>월광검사</span> <span class="grade g3">에픽</span></div><div><span>궁수</span> <span class="grade g1">일반</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>명궁</span> <span class="grade g2">희귀</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>낙성궁</span> <span class="grade g3">에픽</span></div><div><span>공방 조수</span> <span class="grade g1">일반</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>대장장이</span> <span class="grade g2">희귀</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>블랙스미스</span> <span class="grade g3">에픽</span></div><div><span>술사</span> <span class="grade g1">일반</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>해문술사</span> <span class="grade g2">희귀</span> <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg> <span>고문해자</span> <span class="grade g3">에픽</span></div></div>
       <p class="cap-note">전부는 아니다.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec sysband on-sys" id="hidden">
+<section class="sec" id="hidden">
   <div class="wrap split">
     <div class="stick">
-      <h2 class="h2">히든직</h2>
-      <p class="lead">이 게임의 간판이고, 사람들이 붙어 있는 이유다. 시스템이 행적을 읽고 그 사람만을 위한 직업을 만든다. 같은 이름의 히든직을 둘이 가질 수 없다.</p>
+      <p class="lbl">HIDDEN CLASS<em>히든직</em></p>
+      <h2 class="h2">이 게임의 간판</h2>
+      <p class="lead">시스템이 행적을 읽고 그 사람만을 위한 직업을 만든다. 같은 이름의 히든직을 둘이 가질 수 없다.</p>
       <p class="lead">취득하면 서버 로그에 직업명만 뜨고 조건은 뜨지 않는다. 그래서 히든직이 하나 나올 때마다 커뮤가 조건을 추측하고, 대부분 틀린다.</p>
     </div>
-    <div>
-      <ul class="rows">
-        <li><b>파호권사(破虎拳士)<small>헤리몽</small></b><p><span class="grade g4">유니크</span> 맨손으로 자기보다 큰 짐승만 골라 잡은 기록. 방송 그림이 잘 나와서 반복했는데 직업이 됐다.</p></li><li><b>잔영귀(殘影鬼)<small>무명</small></b><p><span class="grade g5">전설</span> 잿빛 회랑에서 이방인을 거듭 처치하며 단 한 번도 죽지 않은 기록. 커뮤는 아직 조건을 못 맞혔다.</p></li><li><b>야장귀(夜匠鬼)<small>히든직 예시</small></b><p><span class="grade g3">에픽</span> 밤에만 대장간을 돌린 사람에게 붙은 이름.</p></li><li><b>폐서관(廢書官)<small>히든직 예시</small></b><p><span class="grade g2">희귀</span> 아무도 안 읽는 고문서를 계속 필사한 사람.</p></li><li><b>잿말잡이<small>히든직 예시</small></b><p><span class="grade g1">일반</span> 잿빛 회랑에서 몇 번이고 죽고도 계속 돌아온 사람. 히든직인데 등급이 일반이라 커뮤에서 놀림감이 됐다.</p></li>
-      </ul>
-    </div>
+    <ul class="rows"><li><b>파호권사(破虎拳士)<small>헤리몽</small></b><p><span class="grade g4">유니크</span> 맨손으로 자기보다 큰 짐승만 골라 잡은 기록. 방송 그림이 잘 나와서 반복했는데 직업이 됐다.</p></li><li><b>잔영귀(殘影鬼)<small>무명</small></b><p><span class="grade g5">전설</span> 잿빛 회랑에서 이방인을 거듭 처치하며 단 한 번도 죽지 않은 기록. 커뮤는 아직 조건을 못 맞혔다.</p></li><li><b>야장귀(夜匠鬼)<small>히든직 예시</small></b><p><span class="grade g3">에픽</span> 밤에만 대장간을 돌린 사람에게 붙은 이름.</p></li><li><b>폐서관(廢書官)<small>히든직 예시</small></b><p><span class="grade g2">희귀</span> 아무도 안 읽는 고문서를 계속 필사한 사람.</p></li><li><b>잿말잡이<small>히든직 예시</small></b><p><span class="grade g1">일반</span> 잿빛 회랑에서 몇 번이고 죽고도 계속 돌아온 사람. 히든직인데 등급이 일반이라 커뮤에서 놀림감이 됐다.</p></li></ul>
   </div>
 </section>
 
-<section class="sec" id="grade">
+<section class="sec alt" id="grade">
   <div class="wrap split">
-    <div class="stick"><h2 class="h2">등급은 잠재력이다</h2>
-    <p class="lead">일반 &lt; 희귀 &lt; 에픽 &lt; 유니크 &lt; 전설 &lt; 신화. 성장 상한과 스킬 계보의 희소성이지, 지금 당장의 강함이 아니다. 전설 등급을 Lv20에 얻어도 Lv64 에픽을 이기지 못한다.</p></div>
+    <div class="stick"><p class="lbl">GRADE<em>직업 등급</em></p><h2 class="h2">등급은 잠재력이다</h2>
+    <p class="lead">성장 상한과 스킬 계보의 희소성이지, 지금 당장의 강함이 아니다. 전설 등급을 Lv20에 얻어도 Lv64 에픽을 이기지 못한다.</p>
+    <div class="ladder"><span class="g1">일반</span><span class="g2">희귀</span><span class="g3">에픽</span><span class="g4">유니크</span><span class="g5">전설</span><span class="g6">신화</span></div></div>
     <ul class="rows">
       <li><b><span class="grade g1">일반</span> <span class="grade g2">희귀</span> <span class="grade g3">에픽</span></b><p>정규 루트의 1차·2차·3차. 유니크 위로는 정규 루트에 아예 없다.</p></li>
       <li><b><span class="grade g4">유니크</span></b><p>히든직부터. 히든직의 등급은 일반부터 신화까지 흩어져 있고, 조건이 까다로웠다고 등급이 높은 것도 아니다. 히든직을 얻었다고 좋아했다가 일반 등급인 걸 확인하고 하소연하는 게 흔한 풍경이다.</p></li>
@@ -107,19 +101,18 @@
   </div>
 </section>
 
-<section class="sec sysband on-sys" id="third">
+<section class="sec" id="third">
   <div class="wrap">
-    <h2 class="h2">3차 전직자, 서버 전체 5명</h2>
+    <p class="lbl">TOP 5<em>3차 전직자</em></p>
+    <h2 class="h2">서버 전체 5명</h2>
     <p class="lead">1위 줄리엣만 직접 등장한다. 나머지 넷은 서버 로그와 커뮤와 소문으로만 오르내린다. 대륙 최상단이 비어 있지 않다.</p>
-    <ol class="third">
-      <li><span class="r">랭킹 1위 · Lv64</span><b>줄리엣</b><span class="j">월광검사 · 여 28</span><p>랭킹 1위. 등장 인물.</p></li><li><span class="r">3차 · Lv63</span><b>녹턴</b><span class="j">고문해자 · 남 33</span><p>라흐나 제2환 공략을 설계했다. 전투가 아니라 해독으로 올라왔다.</p></li><li><span class="r">3차 · Lv62</span><b>덕배</b><span class="j">성문장 · 남 31</span><p>파랑스 길드. 5인 중 유일한 조직 충성파. 닉네임과 위상의 낙차가 커뮤 단골 소재.</p></li><li><span class="r">3차 · Lv61</span><b>에이프릴</b><span class="j">낙성궁 · 여 25</span><p>아엘린 명성 최상위. 숲 밖으로 나오지 않는다.</p></li><li><span class="r">3차 · Lv60</span><b>블루아워</b><span class="j">해로장 · 남 36</span><p>미르젠 상단 연합. 해상 루트를 사실상 독점한다.</p></li>
-    </ol>
+    <ol class="third"><li class="rv"><span class="r">RANK 1 · Lv64</span><b>줄리엣</b><span class="j">월광검사 · 에픽</span><p>랭킹 1위. 등장 인물.</p></li><li class="rv"><span class="r">Lv63</span><b>녹턴</b><span class="j">고문해자 · 에픽</span><p>라흐나 제2환 공략을 설계했다. 전투가 아니라 해독으로 올라왔다.</p></li><li class="rv"><span class="r">Lv62</span><b>덕배</b><span class="j">성문장 · 에픽</span><p>파랑스 길드. 5인 중 유일한 조직 충성파. 닉네임과 위상의 낙차가 커뮤 단골 소재.</p></li><li class="rv"><span class="r">Lv61</span><b>에이프릴</b><span class="j">낙성궁 · 에픽</span><p>아엘린 명성 최상위. 숲 밖으로 나오지 않는다.</p></li><li class="rv"><span class="r">Lv60</span><b>블루아워</b><span class="j">해로장 · 에픽</span><p>미르젠 상단 연합. 해상 루트를 사실상 독점한다.</p></li></ol>
   </div>
 </section>
 
-<section class="sec" id="dungeon">
+<section class="sec alt" id="dungeon">
   <div class="wrap split">
-    <div class="stick"><h2 class="h2">던전</h2>
+    <div class="stick"><p class="lbl">DUNGEON<em>던전</em></p><h2 class="h2">소굴에서 이계까지</h2>
     <p class="lead">필드보스는 주기적으로 나오고 시각이 대략 알려져 있어 길드들이 시간을 맞춰 모인다. 네임드는 낮은 확률로 일반 몬스터 자리에 대신 나온다. 순전히 운이다.</p></div>
     <ul class="rows">
       <li><b>소굴<small>3–5인 · 반복</small></b><p>1시간 안짝. 일상적인 수입원.</p></li>
@@ -131,52 +124,47 @@
   </div>
 </section>
 
-<section class="sec sysband on-sys" id="incident">
+<section class="sec" id="incident">
   <div class="wrap">
-    <h2 class="h2">사변</h2>
-    <p class="lead">정세가 터진 것. 정해진 일정 없이 터진다. 결과는 영구이고, 큰 사변은 결정적인 기여를 한 이방인의 이름과 함께 기록으로 남는다.</p>
-    <ol class="flow">
-      <li><span class="k">전조</span><p>공지 없이 흔적으로만. NPC 말투가 바뀌고, 물자를 사재기하고, 시세가 튀고, 피난민이 보이고, 커뮤에 목격담이 뜬다.</p></li><li><span class="k">발발</span><p>대륙 공지, 징집령, 통행 봉쇄. 퀘스트가 한꺼번에 쏟아진다.</p></li><li><span class="k">국면</span><p>전선과 거점 단위로 진행된다. 이방인 한 명이 거점 하나는 뒤집어도, 전쟁 전체를 혼자 바꾸지는 못한다.</p></li><li><span class="k">결착</span><p>승리, 패배, 교착, 부분 승리. 이쪽이 이긴다는 보장은 없다.</p></li><li><span class="k">여파</span><p>국경, 영지, 마을, 원주민의 생사, 사냥터 레벨대, 시세가 영구히 바뀐다. 큰 사변은 기록으로 남는다.</p></li>
-    </ol>
-  </div>
-</section>
-<section class="sec tight">
-  <div class="wrap">
-    <h3 class="h3">규모</h3>
+    <p class="lbl">WORLD EVENT<em>사변</em></p>
+    <h2 class="h2">정세가 터진 것</h2>
+    <p class="lead">정해진 일정 없이 터진다. 결과는 영구이고, 큰 사변은 결정적인 기여를 한 이방인의 이름과 함께 기록으로 남는다.</p>
+    <ol class="flow rv"><li><b>전조</b><p>공지 없이 흔적으로만. NPC 말투가 바뀌고, 물자를 사재기하고, 시세가 튀고, 피난민이 보이고, 커뮤에 목격담이 뜬다.</p></li><li><b>발발</b><p>대륙 공지, 징집령, 통행 봉쇄. 퀘스트가 한꺼번에 쏟아진다.</p></li><li><b>국면</b><p>전선과 거점 단위로 진행된다. 이방인 한 명이 거점 하나는 뒤집어도, 전쟁 전체를 혼자 바꾸지는 못한다.</p></li><li><b>결착</b><p>승리, 패배, 교착, 부분 승리. 이쪽이 이긴다는 보장은 없다.</p></li><li><b>여파</b><p>국경, 영지, 마을, 원주민의 생사, 사냥터 레벨대, 시세가 영구히 바뀐다. 큰 사변은 기록으로 남는다.</p></li></ol>
+    <h3 class="h3" style="margin-top:64px">규모</h3>
     <div class="scale"><div><b>개인</b><p>당신의 행적에서 생기는 연계·히든 사건. 당신에게만 열린다.</p></div><div><b>국지</b><p>마을 습격, 산적 소굴, 영지 경계 다툼.</p></div><div><b>지역</b><p>왕국 내전, 마수 이동, 역병, 균열 다발.</p></div><div><b>대륙</b><p>국가 간 전쟁, 라흐나 범람, 칼데스 원정. 서버 전체가 휘말린다.</p></div></div>
-    <p class="lead">참여는 자유다. 진영과 용병 계약, 징집, 약탈·밀수·피난민 호송 같은 독자 행동, 혹은 불참. 이방인의 행동이 사변을 부르기도 한다. 봉인지를 무리하게 돌면 범람이 가까워지고, 숲에서 벌목하면 아엘린이 날을 세운다.</p>
+    <p class="lead" style="margin-top:24px">참여는 자유다. 진영과 용병 계약, 징집, 약탈·밀수·피난민 호송 같은 독자 행동, 혹은 불참. 이방인의 행동이 사변을 부르기도 한다. 봉인지를 무리하게 돌면 범람이 가까워지고, 숲에서 벌목하면 아엘린이 날을 세운다.</p>
   </div>
 </section>
 
-<section class="sec" id="quest">
+<section class="sec alt" id="quest">
   <div class="wrap split">
     <div class="stick">
+      <p class="lbl">QUEST<em>퀘스트</em></p>
       <h2 class="h2">고정된 퀘스트 목록은 없다</h2>
-      <p class="lead">전부 정세와 사변, 사람의 사정에서 만들어진다. 의뢰자는 자기 이익이 먼저라 보상을 깎거나, 정보를 빼먹거나, 등을 돌릴 수 있다. 같은 퀘스트도 푸는 방식에 따라 결과가 갈리고, 그 결과가 다음 정세가 된다.</p>
-      <div class="sample" style="margin-top:28px">
+      <p class="lead">전부 정세와 사변, 사람의 사정에서 만들어진다. 의뢰자는 자기 이익이 먼저라 보상을 깎거나, 정보를 빼먹거나, 등을 돌릴 수 있다. 같은 퀘스트도 푸는 방식에 따라 결과가 갈린다.</p>
+      <div class="sample" style="margin-top:26px">
         <div class="qbox"><p class="q">퀘스트 : 견습 기사의 안내</p><p>유안을 따라 수비대 훈련장에서 기본 무기를 받고, 옛 수로의 큰쥐 5마리를 처치한다. 보상: 초심자 무기, 20골드</p><p class="opt">수락 | 거절</p></div>
       </div>
-      <p class="cap-note">퀘스트창 견본 · 뉴비 프롤로그에서</p>
+      <p class="cap-note">퀘스트창 견본 · 뉴비 프롤로그</p>
     </div>
-    <ul class="rows">
-      <li><b>의뢰</b><p>일회성. 게시판이나 NPC가 직접.</p></li><li><b>연계</b><p>앞의 결과에 따라 다음이 갈린다. 실패해도 끊기지 않는다.</p></li><li><b>세력</b><p>한쪽을 받으면 반대쪽이 닫힌다.</p></li><li><b>히든</b><p>행적·관계·관찰로만 열린다. 위키에 없다.</p></li><li><b>돌발</b><p>습격당하는 상단, 길가에 쓰러진 병사.</p></li><li><b>사변</b><p>징집·보급·정찰·방어·공성·피난 호송·탈환.</p></li><li><b>서버</b><p>서버 전체의 공동 목표. 기여도 순위가 매겨진다.</p></li><li><b>이방인 의뢰</b><p>플레이어가 플레이어에게 거는 일. 현상금, 대리 사냥, 호위, 제작 주문.</p></li>
-    </ul>
+    <ul class="rows"><li><b>의뢰</b><p>일회성. 게시판이나 NPC가 직접.</p></li><li><b>연계</b><p>앞의 결과에 따라 다음이 갈린다. 실패해도 끊기지 않는다.</p></li><li><b>세력</b><p>한쪽을 받으면 반대쪽이 닫힌다.</p></li><li><b>히든</b><p>행적·관계·관찰로만 열린다. 위키에 없다.</p></li><li><b>돌발</b><p>습격당하는 상단, 길가에 쓰러진 병사.</p></li><li><b>사변</b><p>징집·보급·정찰·방어·공성·피난 호송·탈환.</p></li><li><b>서버</b><p>서버 전체의 공동 목표. 기여도 순위가 매겨진다.</p></li><li><b>이방인 의뢰</b><p>플레이어가 플레이어에게 거는 일. 현상금, 대리 사냥, 호위, 제작 주문.</p></li></ul>
   </div>
 </section>
-<section class="close on-sys">
+<section class="close">
+  <img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
   <div class="wrap">
-    <p class="boot typing"><span class="sysmsg ln">다이브포드 연결 대기</span><br><span class="sysmsg ln">접속 위치 선택 — 리아텔 · 카뎃트 · 잿빛 회랑 · 라흐나</span><br></p>
-    <h2 class="h2">대륙은 지금도 돌아가고 있습니다.</h2>
+    <div class="boot typing"><span class="sysmsg ln">다이브포드 연결 대기</span><span class="sysmsg ln">접속 위치를 선택하십시오.</span></div>
+    <h2>대륙은 지금도<br>돌아가고 있습니다.</h2>
     <div class="btn-row">
-      <span class="btn light" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 접속 · 준비 중</span>
-      <a class="more" href="start.html">시작 모드 보기 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
+      <span class="btn" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 플레이 · 준비 중</span>
+      <a class="btn ghost" href="start.html">시작 모드 보기 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
     </div>
   </div>
 </section>
 </main>
 <footer class="foot">
   <div class="wrap">
-    <div><b>FULL DIVE - ILEON</b> · 일레온 · 문창놈의 크랙 채팅봇<br>수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
+    <div><b>FULL DIVE - ILEON</b><br>일레온 · 문창놈의 크랙 채팅봇 · 수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
     <nav aria-label="바닥글"><a href="world.html">대륙</a> <a href="characters.html">인물</a> <a href="system.html">체계</a> <a href="reality.html">현실</a> <a href="start.html">시작</a></nav>
   </div>
 </footer>

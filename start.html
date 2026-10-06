@@ -8,16 +8,15 @@
 <meta property="og:title" content="시작 · FULL DIVE - ILEON">
 <meta property="og:description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#eef1f3">
-<link rel="preload" href="assets/css/style.css" as="style">
+<meta name="theme-color" content="#0a0f1d">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="home.html"><b>ILEON</b><span>FULL DIVE</span></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> 메뉴</button>
+    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b><span>FULL DIVE</span></a>
+    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> MENU</button>
     <ul class="nav" id="nav">
       <li><a href="world.html">대륙</a></li>
       <li><a href="characters.html">인물</a></li>
@@ -33,22 +32,20 @@
 </header>
 <main>
 <section class="phead">
-  <img src="images/B/RI.webp" alt="리아텔" width="2048" height="585" decoding="async" fetchpriority="high">
+  <img src="images/bg-draft/3220923381.webp" alt="리아텔" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high">
   <div class="wrap">
     <span class="sysmsg">벨라트 대륙 — 접속 위치를 선택하십시오.</span>
     <h1>어디서 눈을 뜰까</h1>
     <p>시작 모드는 셋. 아래는 각 모드의 실제 첫 화면입니다. 크랙에서는 이 형식으로, 매 응답 맨 위의 배경 한 장과 함께 이야기가 이어집니다.</p>
-    <div class="btn-row" style="margin-top:26px"><span class="btn light" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 접속 · 준비 중</span></div>
   </div>
 </section>
-<nav class="toc" aria-label="이 페이지"><div class="wrap">
-  <a href="#newbie">뉴비</a><a href="#myth">신화직업</a><a href="#free">자유모드</a><a href="#how">플레이 방법</a>
-</div></nav>
+<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#newbie">뉴비</a><a href="#myth">신화직업</a><a href="#free">자유모드</a><a href="#how">플레이 방법</a></div></nav>
 <section class="sec" id="newbie">
   <div class="wrap modehead">
-    <div class="h2">뉴비<div class="kv"><span>시작 지점 · 리아텔 · 귀환석 광장</span><span>시작 상태 · Lv1 · 무직</span></div>
-    <p class="lead">처음 내려서는 이방인. 견습 기사 유안의 안내로 시작해, 옛 수로의 큰쥐부터 잡는다. 대륙을 처음부터 밟아 가고 싶다면.</p></div>
-    <div class="sample"><figure class="wide"><img src="images/B/RI.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="stick"><p class="lbl">MODE 1</p><h2>뉴비</h2>
+    <p class="lead">처음 내려서는 이방인. 견습 기사 유안의 안내로 시작해, 옛 수로의 큰쥐부터 잡는다. 대륙을 처음부터 밟아 가고 싶다면.</p>
+    <ul class="data"><li><span>시작 지점</span><span>리아텔 · 귀환석 광장</span></li><li><span>시작 상태</span><span>Lv1 · 무직</span></li></ul></div>
+    <div class="sample rv"><figure class="wide"><img src="images/B/RI.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <span class="sysmsg">벨라트 대륙에 오신 것을 환영합니다.</span>
 <span class="sysmsg">시작 지점: 리아텔 · 귀환석 광장</span>
 <p class="nar">발밑의 감각이 먼저 온다. 돌바닥의 냉기, 신발 밑창으로 올라오는 미세한 요철. 숨을 들이켜자 흙과 구운 빵 냄새가 같이 들어온다.</p>
@@ -72,11 +69,12 @@
 [관계] 유안 · 서먹</pre></div>
   </div>
 </section>
-<section class="sec" id="myth">
+<section class="sec alt" id="myth">
   <div class="wrap modehead">
-    <div class="h2">신화직업<div class="kv"><span>시작 지점 · 잿빛 회랑 · 균열 보스룸</span><span>시작 상태 · Lv1 · 신화</span></div>
-    <p class="lead">줄리엣과 둘이 균열의 파수꾼을 쓰러뜨렸고, 보상에 먼저 손이 닿았다. 서비스 이래 처음 나온 신화 등급 직업. 대가로 레벨은 1로 돌아간다. 무슨 직업인지는 시작하며 직접 밝힌다.</p></div>
-    <div class="sample"><figure class="wide"><img src="images/B/BS.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="stick"><p class="lbl">MODE 2</p><h2>신화직업</h2>
+    <p class="lead">줄리엣과 둘이 균열의 파수꾼을 쓰러뜨렸고, 보상에 먼저 손이 닿았다. 서비스 이래 처음 나온 신화 등급 직업. 대가로 레벨은 1로 돌아간다. 무슨 직업인지는 시작하며 직접 밝힌다.</p>
+    <ul class="data"><li><span>시작 지점</span><span>잿빛 회랑 · 균열 보스룸</span></li><li><span>시작 상태</span><span>Lv1 · 신화</span></li></ul></div>
+    <div class="sample rv"><figure class="wide"><img src="images/B/BS.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <p class="nar">보스룸 천장에서 돌가루가 떨어진다. 바닥에 쓰러진 거체가 한 번 더 경련하고는 회색 빛으로 흩어지기 시작했다. 잿빛 회랑 깊숙이 열렸던 균열, 그 가장 안쪽 방이다.</p>
 <span class="sysmsg">균열의 파수꾼을 처치했습니다.</span>
 <span class="sysmsg">서버 최초 돌파 — 보상이 지급됩니다.</span>
@@ -101,9 +99,10 @@
 </section>
 <section class="sec" id="free">
   <div class="wrap modehead">
-    <div class="h2">자유모드<div class="kv"><span>시작 지점 · 현실 · 원룸</span><span>시작 상태 · 제한 없음</span></div>
-    <p class="lead">현실의 방, 포드 접속 대기. 어디로 들어갈지, 누구로 들어갈지 정해진 게 없다. 설정 제한 없이 원하는 대로.</p></div>
-    <div class="sample"><figure class="wide"><img src="images/B/H.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="stick"><p class="lbl">MODE 3</p><h2>자유모드</h2>
+    <p class="lead">현실의 방, 포드 접속 대기. 어디로 들어갈지, 누구로 들어갈지 정해진 게 없다. 설정 제한 없이 원하는 대로.</p>
+    <ul class="data"><li><span>시작 지점</span><span>현실 · 원룸</span></li><li><span>시작 상태</span><span>제한 없음</span></li></ul></div>
+    <div class="sample rv"><figure class="wide"><img src="images/B/H.webp" alt="배경" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <p class="nar">밤 열한 시 사십 분. 원룸의 절반을 다이브포드가 차지하고 있다. 열린 덮개 안쪽으로 접속 대기등이 느리게 깜빡인다. 파랑, 꺼짐, 파랑.</p>
 <p class="nar">책상 위 모니터에는 커뮤니티 창이 켜진 채다. 새로고침할 때마다 글이 몇 개씩 올라온다. 어디서 균열이 열렸다더라, 어느 길드가 사냥터를 막았다더라, 누가 히든직을 땄다더라. 절반은 틀린 얘기일 것이다.</p>
 <p class="nar">창밖은 비가 그치고 아스팔트만 젖어 있다. 냉장고가 한 번 웅 하고 돌아간다.</p>
@@ -118,10 +117,10 @@
 [관계] └─</pre></div>
   </div>
 </section>
-<section class="sec sysband on-sys" id="how">
+<section class="sec" id="how">
   <div class="wrap">
-    <h2 class="h2">플레이 방법</h2>
-    <div class="how" style="margin-top:clamp(28px,4vw,48px)">
+    <p class="lbl">HOW TO PLAY<em>플레이 방법</em></p>
+    <div class="how">
       <div>
         <h3 class="h3">대화와 시스템</h3>
         <ul class="rows" style="margin-top:16px">
@@ -140,20 +139,21 @@
     </div>
   </div>
 </section>
-<section class="close on-sys">
+<section class="close">
+  <img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
   <div class="wrap">
-    <p class="boot typing"><span class="sysmsg ln">다이브포드 연결 대기</span><br><span class="sysmsg ln">접속 위치 선택 — 리아텔 · 카뎃트 · 잿빛 회랑 · 라흐나</span><br></p>
-    <h2 class="h2">대륙은 지금도 돌아가고 있습니다.</h2>
+    <div class="boot typing"><span class="sysmsg ln">다이브포드 연결 대기</span><span class="sysmsg ln">접속 위치를 선택하십시오.</span></div>
+    <h2>대륙은 지금도<br>돌아가고 있습니다.</h2>
     <div class="btn-row">
-      <span class="btn light" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 접속 · 준비 중</span>
-      <a class="more" href="start.html">시작 모드 보기 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
+      <span class="btn" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 플레이 · 준비 중</span>
+      <a class="btn ghost" href="start.html">시작 모드 보기 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
     </div>
   </div>
 </section>
 </main>
 <footer class="foot">
   <div class="wrap">
-    <div><b>FULL DIVE - ILEON</b> · 일레온 · 문창놈의 크랙 채팅봇<br>수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
+    <div><b>FULL DIVE - ILEON</b><br>일레온 · 문창놈의 크랙 채팅봇 · 수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
     <nav aria-label="바닥글"><a href="world.html">대륙</a> <a href="characters.html">인물</a> <a href="system.html">체계</a> <a href="reality.html">현실</a> <a href="start.html">시작</a></nav>
   </div>
 </footer>
