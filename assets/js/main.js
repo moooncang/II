@@ -86,10 +86,23 @@
 
   /* ── 홈: 월드 채팅 ── */
   var chat = $('.chat-b');
-  if (chat && !reduce) setInterval(function () {
-    var li = chat.firstElementChild; if (!li) return;
-    li.classList.remove('new'); chat.appendChild(li); void li.offsetWidth; li.classList.add('new');
-  }, 2600);
+  if (chat) {
+    var lines = $$('li', chat);
+    function rotate() {
+      for (var n = 0; n < lines.length; n++) {
+        var li = chat.firstElementChild; li.classList.remove('new'); chat.appendChild(li);
+        if (!li.hidden) { void li.offsetWidth; li.classList.add('new'); return; }
+      }
+    }
+    $$('.chat-h button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        $$('.chat-h button').forEach(function (x) { x.setAttribute('aria-selected', x === b); });
+        var f = b.dataset.ch;
+        lines.forEach(function (li) { li.hidden = f !== 'all' && li.dataset.ch !== f; li.classList.remove('new'); });
+      });
+    });
+    if (!reduce) setInterval(rotate, 2200);
+  }
 
   /* ── 홈: 히든직 알림 ── */
   var jobsBox = $('[data-jobs]');

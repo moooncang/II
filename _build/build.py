@@ -237,7 +237,8 @@ def build_cover():
 
 # ═════════════ 홈: 타이틀 화면과 장면들 ═════════════
 def build_home():
-    chat = "".join(f'<li><span class="ch ch-{c}">[{c}]</span> {E(t)}</li>' for c, t in WORLD_LOG)
+    TAB = {"월드": "world", "랭킹": "world", "히든": "hidden", "정세": "news", "거래": "trade", "파티": "party"}
+    chat = "".join(f'<li data-ch="{TAB.get(c, "etc")}" class="c-{TAB.get(c, "etc")}{" w" if c == "귓속말" else ""}"><span class="ch">[{c}]</span> {f"<b>{E(who)}</b> " if who else ""}<span class="msg">{E(t)}</span></li>' for c, who, t in CHAT)
     players = [c for c in C if c["side"] == "player"]
     npcs = [c for c in C if c["side"] == "npc"]
     menu = [("start.html", "새 게임", "NEW GAME"), ("world.html", "대륙", "WORLD"), ("characters.html", "캐릭터", "CHARACTER"),
@@ -283,7 +284,7 @@ def build_home():
     </div>
   </aside>
   <div class="chat" aria-label="월드 채팅">
-    <div class="chat-h"><span class="on">전체</span><span>월드</span><span>히든</span><span>정세</span></div>
+    <div class="chat-h" role="tablist" aria-label="채널">{"".join(f'<button type="button" role="tab" aria-selected="{"true" if k == "all" else "false"}" data-ch="{k}">{n}</button>' for k, n in (("all", "전체"), ("world", "월드"), ("hidden", "히든"), ("news", "정세"), ("trade", "거래"), ("party", "파티")))}</div>
     <ul class="chat-b">{chat}</ul>
   </div>
   <a class="scroll-hint" href="#regions"><span>SCROLL</span><i></i></a>

@@ -182,13 +182,20 @@ q{quotes:"“" "”"}
 @keyframes fill{from{transform:scaleX(0)}}
 .data.mini > div{grid-template-columns:3.2em 1fr;font-size:14px;padding:7px 0}
 .data.mini > div:last-child{border:0}
-.chat{position:absolute;left:var(--gut);bottom:26px;width:min(460px,calc(100% - 2 * var(--gut)));background:rgba(7,8,10,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--edge)}
-.chat-h{display:flex;gap:2px;padding:6px 8px 0;font-size:12px;font-weight:700;color:var(--fg-3)}
-.chat-h span{padding:3px 9px}
-.chat-h .on{color:var(--fg);background:rgba(255,255,255,.08)}
-.chat-b{list-style:none;height:calc(4 * 1.85em + 16px);overflow:hidden;padding:8px 12px;font:12.5px/1.85 var(--f-sys);color:var(--fg-2);display:flex;flex-direction:column;justify-content:flex-end}
+.chat{position:absolute;left:var(--gut);bottom:26px;width:min(500px,calc(100% - 2 * var(--gut)));background:rgba(7,8,10,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--edge)}
+.chat-h{display:flex;gap:2px;padding:6px 8px 0;font-size:12px;font-weight:700;color:var(--fg-3);overflow-x:auto;scrollbar-width:none}
+.chat-h::-webkit-scrollbar{display:none}
+.chat-h button{flex:none;padding:3px 10px;font-size:12px;font-weight:700;color:var(--fg-3);transition:color .2s,background .2s}
+.chat-h button:hover{color:var(--fg)}
+.chat-h button[aria-selected="true"]{color:var(--fg);background:rgba(255,255,255,.1);box-shadow:inset 0 -2px 0 var(--sig)}
+.chat-b{list-style:none;height:calc(5 * 1.85em + 16px);-webkit-mask-image:linear-gradient(transparent,#000 24%);mask-image:linear-gradient(transparent,#000 24%);overflow:hidden;padding:8px 12px;font:12.5px/1.85 var(--f-sys);color:var(--fg-2);display:flex;flex-direction:column;justify-content:flex-end}
 .chat-b li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:none}
 .chat-b li.new{animation:chat .45s var(--ease) both}
+.chat-b b{color:var(--fg);font-weight:700}
+.chat-b .ch{margin-right:2px}
+.c-world .ch{color:var(--hud)}.c-hidden .ch{color:var(--mag)}.c-news .ch{color:#ffb35c}.c-trade .ch{color:#7fe08f}.c-party .ch{color:#74b4ff}.c-etc .ch{color:var(--fg-3)}
+.c-hidden .msg{color:#e6c9ff}
+.chat-b li.w,.chat-b li.w b{color:#ff9fd6}
 @keyframes chat{from{opacity:0;transform:translateY(8px)}}
 .scroll-hint{position:absolute;right:var(--gut);bottom:30px;display:flex;align-items:center;gap:12px;font:700 12px var(--f-c);letter-spacing:.3em;color:var(--fg-3)}
 .scroll-hint i{width:1px;height:42px;background:var(--edge-2);position:relative;overflow:hidden}
