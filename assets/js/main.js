@@ -162,7 +162,7 @@
     var p = group.querySelector('.pill'), on = group.querySelector('[aria-selected="true"]');
     if (!p || !on) return;
     p.style.setProperty('--pl', on.offsetLeft + 'px');
-    p.style.setProperty('--pw', on.offsetWidth + 'px');
+    p.style.setProperty('--pw', on.offsetWidth);   /* 1px 폭을 scaleX로 늘린다 */
   }
   $$('.filters, .axis-sw').forEach(function (g) { pill(g); addEventListener('resize', function () { pill(g); }); });
   if (d.fonts) d.fonts.ready.then(function () { $$('.filters, .axis-sw').forEach(pill); });
