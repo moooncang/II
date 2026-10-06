@@ -4,52 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>시작 · FULL DIVE - ILEON</title>
-<meta name="description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
+<meta name="description" content="다이브포드에 누우면 벨라트 대륙이 열린다. 죽어도 돌아오는 이방인이 되어, 당신이 한 일이 직업이 되는 세계. 일레온.">
 <meta property="og:title" content="시작 · FULL DIVE - ILEON">
-<meta property="og:description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
+<meta property="og:description" content="다이브포드에 누우면 벨라트 대륙이 열린다. 죽어도 돌아오는 이방인이 되어, 당신이 한 일이 직업이 되는 세계. 일레온.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0a0f1d">
+<meta name="theme-color" content="#0b0b0a">
+<link rel="preload" href="assets/fonts/frak/unifrakturcook-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
+<a class="skip" href="#main">본문으로</a>
 <div class="progress" aria-hidden="true"></div>
 <header class="top">
-  <div class="wrap">
-    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
-    <ul class="nav" id="nav">
-      <li><a href="world.html">대륙</a></li>
-      <li><a href="characters.html">인물</a></li>
-      <li><a href="system.html">체계</a></li>
-      <li><a href="reality.html">현실</a></li>
-      <li><a href="start.html" aria-current="page">시작</a></li>
-    </ul>
-    <div class="clock" aria-label="현실 시각과 벨라트 시각">
-      <span class="rt"><i>현실</i><b data-clock="real">--:--</b></span>
-      <span class="bt"><i>벨라트</i><b data-clock="belat">--:--</b></span>
-    </div>
+  <a class="brand" href="home.html" aria-label="일레온 홈"><b>Ileon</b><small>FULL<br>DIVE</small></a>
+  <nav class="nav" id="nav" aria-label="주 메뉴">
+      <a href="world.html"><i>01</i>대륙</a>
+      <a href="characters.html"><i>02</i>인물</a>
+      <a href="system.html"><i>03</i>체계</a>
+      <a href="reality.html"><i>04</i>현실</a>
+      <a href="start.html" aria-current="page"><i>05</i>시작</a>
+  </nav>
+  <div class="clock" aria-label="현실 시각과 벨라트 시각">
+    <span><i>REAL</i><b data-clock="real">--:--</b></span>
+    <span class="bt"><i>BELAT</i><b data-clock="belat">--:--</b></span>
   </div>
+  <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
 </header>
-<main>
+<main id="main">
 <section class="phead">
   <div class="phead-bg" data-par><img src="images/bg-draft/3220923381.webp" alt="리아텔" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high"></div>
+  <span class="phead-no" aria-hidden="true">05</span>
   <div class="wrap">
-    <span class="sysmsg" data-rv>접속 위치를 선택하십시오.</span>
-    <h1 data-rv style="--i:1">어디서 눈을 뜰까</h1>
-    <p data-rv style="--i:2">시작 모드는 세 가지다. 아래는 각 모드의 실제 첫 장면이다. 매 응답마다 배경 한 장과 함께 이런 식으로 이야기가 이어진다.</p>
+    <div class="phead-k" data-rv><span>05</span><span>START</span><span class="sysmsg">접속 위치를 선택하십시오.</span></div>
+    <h1 class="mega" data-rv style="--i:1">어디서<br>눈을 뜰래?</h1>
+    <p data-rv style="--i:2">시작 모드는 셋. 아래는 각 모드의 실제 첫 장면이다. 응답마다 배경 한 장과 함께, 이런 식으로 이어진다.</p>
   </div>
 </section>
-<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#newbie">뉴비</a><a href="#myth">신화직업</a><a href="#free">자유모드</a><a href="#how">플레이 방법</a></div></nav>
-<section class="sec" id="newbie">
+<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#newbie"><i>01</i>뉴비</a><a href="#myth"><i>02</i>신화직업</a><a href="#free"><i>03</i>자유모드</a><a href="#how"><i>04</i>플레이 방법</a></div></nav>
+<section class="sec mode-sec" id="newbie">
   <div class="wrap modehead">
     <div class="stick">
       <span class="num" data-rv>01</span>
-      <h2 data-rv>뉴비</h2>
-      <p class="lead" data-rv style="--i:1">처음 대륙에 내려서는 이방인. 견습 기사 유안의 안내를 받고, 옛 수로의 큰쥐부터 잡는다. 대륙을 처음부터 천천히 밟아 가고 싶다면.</p>
+      <h2 class="mega" data-rv>뉴비</h2>
+      <p class="lead" data-rv style="--i:1">처음 대륙에 내려선 이방인. 견습 기사 유안의 안내를 받고, 옛 수로 큰쥐부터. 대륙을 처음부터 천천히 밟고 싶다면.</p>
       <div data-rv style="--i:2"><dl class="data"><div><dt>시작 지점</dt><dd>리아텔 · 귀환석 광장</dd></div><div><dt>시작 상태</dt><dd>Lv1 · 무직</dd></div></dl></div>
     </div>
-    <div class="sample" data-rv><figure class="wide"><img src="images/B/RI.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="sample" data-rv><div class="sample-bar"><span>크랙 출력 견본</span><i></i><i></i><i></i></div><figure class="wide"><img src="images/B/RI.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <span class="sysmsg">벨라트 대륙에 오신 것을 환영합니다.</span>
 <span class="sysmsg">시작 지점: 리아텔 · 귀환석 광장</span>
 <p class="nar">발밑의 감각이 먼저 온다. 돌바닥의 냉기, 신발 밑창으로 올라오는 미세한 요철. 숨을 들이켜자 흙과 구운 빵 냄새가 같이 들어온다.</p>
@@ -73,15 +74,15 @@
 [관계] 유안 · 서먹</pre></div>
   </div>
 </section>
-<section class="sec alt" id="myth">
+<section class="sec mode-sec myth" id="myth">
   <div class="wrap modehead">
     <div class="stick">
       <span class="num" data-rv>02</span>
-      <h2 data-rv>신화직업</h2>
-      <p class="lead" data-rv style="--i:1">줄리엣과 둘이서 균열의 파수꾼을 쓰러뜨렸고, 보상에 먼저 손이 닿았다. 서비스 이래 처음 나온 신화 등급 직업. 대가로 레벨은 1이 된다. 그게 어떤 직업인지는, 시작하면서 당신이 밝힌다.</p>
+      <h2 class="mega" data-rv>신화직업</h2>
+      <p class="lead" data-rv style="--i:1">줄리엣과 둘이서 균열의 파수꾼을 쓰러뜨렸고, 보상에 먼저 손이 닿았다. 서비스 이래 첫 신화 등급 직업. 대가로 레벨은 1. 무슨 직업인지는, 시작하면서 당신이 밝힌다.</p>
       <div data-rv style="--i:2"><dl class="data"><div><dt>시작 지점</dt><dd>잿빛 회랑 · 균열 보스룸</dd></div><div><dt>시작 상태</dt><dd>Lv1 · 신화</dd></div></dl></div>
     </div>
-    <div class="sample" data-rv><figure class="wide"><img src="images/B/BS.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="sample" data-rv><div class="sample-bar"><span>크랙 출력 견본</span><i></i><i></i><i></i></div><figure class="wide"><img src="images/B/BS.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <p class="nar">보스룸 천장에서 돌가루가 떨어진다. 바닥에 쓰러진 거체가 한 번 더 경련하고는 회색 빛으로 흩어지기 시작했다. 잿빛 회랑 깊숙이 열렸던 균열, 그 가장 안쪽 방이다.</p>
 <span class="sysmsg">균열의 파수꾼을 처치했습니다.</span>
 <span class="sysmsg">서버 최초 돌파 - 보상이 지급됩니다.</span>
@@ -104,15 +105,15 @@
 [관계] 줄리엣 · 안면</pre></div>
   </div>
 </section>
-<section class="sec" id="free">
+<section class="sec mode-sec" id="free">
   <div class="wrap modehead">
     <div class="stick">
       <span class="num" data-rv>03</span>
-      <h2 data-rv>자유모드</h2>
-      <p class="lead" data-rv style="--i:1">밤 열한 시 사십 분, 포드 앞. 어디로 들어갈지, 누구로 살아갈지 정해진 게 없다. 원하는 대로 시작하면 된다.</p>
+      <h2 class="mega" data-rv>자유모드</h2>
+      <p class="lead" data-rv style="--i:1">밤 열한 시 사십 분, 포드 앞. 어디로 들어갈지, 누구로 살지 아무것도 안 정해졌다. 원하는 대로.</p>
       <div data-rv style="--i:2"><dl class="data"><div><dt>시작 지점</dt><dd>현실 · 원룸</dd></div><div><dt>시작 상태</dt><dd>제한 없음</dd></div></dl></div>
     </div>
-    <div class="sample" data-rv><figure class="wide"><img src="images/B/H.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
+    <div class="sample" data-rv><div class="sample-bar"><span>크랙 출력 견본</span><i></i><i></i><i></i></div><figure class="wide"><img src="images/B/H.webp" alt="" width="2048" height="585" loading="lazy" decoding="async"></figure>
 <p class="nar">밤 열한 시 사십 분. 원룸의 절반을 다이브포드가 차지하고 있다. 열린 덮개 안쪽으로 접속 대기등이 느리게 깜빡인다. 파랑, 꺼짐, 파랑.</p>
 <p class="nar">책상 위 모니터에는 커뮤니티 창이 켜진 채다. 새로고침할 때마다 글이 몇 개씩 올라온다. 어디서 균열이 열렸다더라, 어느 길드가 사냥터를 막았다더라, 누가 히든직을 땄다더라. 절반은 틀린 얘기일 것이다.</p>
 <p class="nar">창밖은 비가 그치고 아스팔트만 젖어 있다. 냉장고가 한 번 웅 하고 돌아간다.</p>
@@ -127,19 +128,20 @@
 [관계] └─</pre></div>
   </div>
 </section>
-<section class="sec" id="how">
+<section class="slab" id="how">
   <div class="wrap">
-    <h2 class="h2" data-rv>이렇게 플레이한다</h2>
+    <div class="kick" data-rv><span class="no">04</span><span class="en">HOW TO PLAY</span><span class="ko">플레이 방법</span><i></i></div>
+    <h2 class="mega" data-rv>이렇게<br>논다.</h2>
     <div class="how">
       <div class="howgrid">
-        <div class="spot" data-rv><code>`문장`</code><p>월드 메시지, 레벨업, 전직 같은 시스템 메시지.</p></div>
-        <div class="spot" data-rv style="--i:1"><code>&gt;문장</code><p>귓속말과 길드챗, 파티챗. 풀다이브라 평소엔 목소리로 대화하고, 채팅은 거든다.</p></div>
-        <div class="spot" data-rv style="--i:2"><code>!인터넷 - 내용</code><p>궁금한 걸 찾아본다. 커뮤, 위키, 방송, 기사가 원문 그대로 나온다.</p></div>
-        <div class="spot" data-rv style="--i:3"><code>판정</code><p>모든 행동은 시도다. 성공, 대가를 치른 성공, 실패. 레벨이 10 이상 차이 나면 거의 일방적이다. 죽으면 레벨이 깎이고 현실로 튕겨 나온다.</p></div>
+        <div data-rv><code>`문장`</code><p>월드 메시지, 레벨업, 전직 같은 시스템 메시지.</p></div>
+        <div data-rv style="--i:1"><code>&gt;문장</code><p>귓속말, 길드챗, 파티챗. 풀다이브라 평소엔 목소리로 말하고, 채팅은 거들 뿐.</p></div>
+        <div data-rv style="--i:2"><code>!인터넷 - 내용</code><p>궁금한 건 찾아본다. 커뮤, 위키, 방송, 기사가 원문 그대로.</p></div>
+        <div data-rv style="--i:3"><code>판정</code><p>모든 행동은 시도. 성공, 대가를 치른 성공, 실패. 레벨 10 이상 차이면 거의 일방적. 죽으면 레벨이 깎이고 현실로 튕겨 나온다.</p></div>
       </div>
       <div data-rv style="--i:1">
         <h3 class="h3">단축어</h3>
-        <dl class="data"><div><dt>/장기기억용요약</dt><dd>게임 일차별 요약. 그날의 현실 장면까지 함께.</dd></div><div><dt>/상세정보</dt><dd>지금 캐릭터의 상세 정보창.</dd></div><div><dt>/퀘스트목록</dt><dd>진행 중인 퀘스트 정리.</dd></div><div><dt>/관계도</dt><dd>얽힌 사람들과 관계 단계.</dd></div><div><dt>/대륙정세</dt><dd>지금 대륙에서 끓고 있는 곳.</dd></div><div><dt>/주변지도</dt><dd>지금 있는 곳의 주변.</dd></div><div><dt>/서버랭킹</dt><dd>서버 랭킹.</dd></div></dl>
+        <dl class="data"><div><dt>/장기기억용요약</dt><dd>게임 일차별 요약. 그날의 현실 장면까지.</dd></div><div><dt>/상세정보</dt><dd>지금 캐릭터의 상세 정보창.</dd></div><div><dt>/퀘스트목록</dt><dd>진행 중인 퀘스트 정리.</dd></div><div><dt>/관계도</dt><dd>얽힌 사람들과 관계 단계.</dd></div><div><dt>/대륙정세</dt><dd>지금 대륙에서 끓고 있는 곳.</dd></div><div><dt>/주변지도</dt><dd>지금 있는 곳의 주변.</dd></div><div><dt>/서버랭킹</dt><dd>서버 랭킹.</dd></div></dl>
       </div>
     </div>
   </div>
@@ -148,15 +150,17 @@
   <div class="close-bg" data-par><img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <span class="sysmsg" data-rv>다이브포드 연결 대기</span>
-    <h2 data-rv style="--i:1">대륙은 지금도<br>돌아가고 있다.</h2>
-    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag>시작 모드 고르기 <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a></div>
+    <h2 class="mega" data-rv style="--i:1"><span>대륙은 지금도</span><span class="acid">돌아가는 중.</span></h2>
+    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag><span>시작 모드 고르기</span><svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></a></div>
   </div>
 </section>
 </main>
 <footer class="foot">
-  <div class="wrap">
-    <a class="brand" href="home.html"><i></i><b>ILEON</b></a>
-    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
+  <div class="foot-big" aria-hidden="true">Ileon</div>
+  <div class="wrap foot-row">
+    <a class="brand" href="home.html"><b>Ileon</b><small>FULL<br>DIVE</small></a>
+    <nav aria-label="바닥글"><a href="world.html"><i>01</i>대륙</a><a href="characters.html"><i>02</i>인물</a><a href="system.html"><i>03</i>체계</a><a href="reality.html"><i>04</i>현실</a><a href="start.html"><i>05</i>시작</a></nav>
+    <span class="foot-sys">현실 <b data-clock="real">--:--</b> / 벨라트 <b data-clock="belat">--:--</b></span>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>

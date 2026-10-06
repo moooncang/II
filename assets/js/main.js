@@ -30,9 +30,14 @@
 
   /* 메뉴 */
   var mb = d.querySelector('.menu'), nav = d.querySelector('.nav');
-  if (mb && nav) mb.addEventListener('click', function () {
-    var o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o);
-  });
+  if (mb && nav) {
+    mb.addEventListener('click', function () {
+      var o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o);
+    });
+    d.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); mb.focus(); }
+    });
+  }
 
   /* 월드 로그 */
   $$('.rail .feed').forEach(function (f) {
@@ -70,30 +75,47 @@
   /* 등장 */
   var targets = $$('[data-rv], [data-draw], [data-scramble]');
   if ('IntersectionObserver' in window && !reduce) {
+    /* 큰 제목은 clip-path로 가려져 있어 면적이 0이다. 대신 감싼 상자를 지켜본다. */
+    var proxy = new Map();
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
-        var el = e.target; io.unobserve(el);
-        el.classList.add('in');
-        if (el.hasAttribute('data-scramble')) setTimeout(function () { scramble(el); }, 250);
+        var watched = e.target; io.unobserve(watched);
+        proxy.get(watched).forEach(function (el) {
+          el.classList.add('in');
+          if (el.hasAttribute('data-scramble')) setTimeout(function () { scramble(el); }, 250);
+        });
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: .08 });
-    targets.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+    targets.forEach(function (el) {
+      var w = el.classList.contains('mega') ? el.parentElement : el;
+      if (!proxy.has(w)) { proxy.set(w, []); io.observe(w); }
+      proxy.get(w).push(el);
+    });
   } else {
     targets.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* 포인터 따라오는 빛 (카드·버튼) */
-  if (fine && !reduce) {
-    d.addEventListener('pointermove', function (e) {
-      var t = e.target.closest && e.target.closest('.spot, .btn');
-      if (!t) return;
-      var r = t.getBoundingClientRect();
-      var x = e.clientX - r.left, y = e.clientY - r.top;
-      if (t.classList.contains('btn')) { t.style.setProperty('--bx', x + 'px'); t.style.setProperty('--by', y + 'px'); }
-      else { t.style.setProperty('--mx', x + 'px'); t.style.setProperty('--my', y + 'px'); }
-    }, { passive: true });
+  /* 글리치: 처음 보일 때 한 번, 올렸을 때, 그리고 가끔 저절로 */
+  var gls = $$('.gl');
+  function glitch(el) {
+    if (reduce || el.classList.contains('go')) return;
+    el.classList.add('go');
+    setTimeout(function () { el.classList.remove('go'); }, 520);
+  }
+  if (gls.length && !reduce) {
+    gls.forEach(function (el, k) {
+      setTimeout(function () { glitch(el); }, 700 + k * 160);
+      var host = el.closest('a, h1, h2') || el;
+      host.addEventListener('pointerenter', function () { glitch(el); });
+    });
+    setInterval(function () {
+      var vis = gls.filter(function (el) { var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
+      if (vis.length) glitch(vis[(Math.random() * vis.length) | 0]);
+    }, 4200);
+  }
 
+  if (fine && !reduce) {
     /* 자석 버튼 */
     $$('[data-mag]').forEach(function (b) {
       b.addEventListener('pointermove', function (e) {
