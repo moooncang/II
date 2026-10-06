@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>대륙 · FULL DIVE - ILEON</title>
-<meta name="description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
+<meta name="description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
 <meta property="og:title" content="대륙 · FULL DIVE - ILEON">
-<meta property="og:description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
+<meta property="og:description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0f1d">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b><span>FULL DIVE</span></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> MENU</button>
+    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b></a>
+    <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
     <ul class="nav" id="nav">
       <li><a href="world.html" aria-current="page">대륙</a></li>
       <li><a href="characters.html">인물</a></li>
@@ -24,114 +25,124 @@
       <li><a href="reality.html">현실</a></li>
       <li><a href="start.html">시작</a></li>
     </ul>
-    <div class="clock" aria-label="현실 시각과 벨라트 시각(4배속)">
-      <span class="rt"><i>현실 </i><b data-clock="real">--:--</b></span>
-      <span class="bt"><i>벨라트 </i><b data-clock="belat">--:--</b></span>
+    <div class="clock" aria-label="현실 시각과 벨라트 시각">
+      <span class="rt"><i>현실</i><b data-clock="real">--:--</b></span>
+      <span class="bt"><i>벨라트</i><b data-clock="belat">--:--</b></span>
     </div>
   </div>
 </header>
 <main>
 <section class="phead">
-  <img src="images/bg-draft/147058076.webp" alt="에르카시아" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high">
+  <div class="phead-bg" data-par><img src="images/bg-draft/147058076.webp" alt="에르카시아" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high"></div>
   <div class="wrap">
-    <span class="sysmsg">서버 · 벨라트 대륙</span>
-    <h1>벨라트 대륙</h1>
-    <p>고대 마법 문명이 무너지고 800년. 마법은 새로 만들지 못하고, 유적에서 나온 고대의 것을 되살려 쓴다. 대륙 어딘가는 늘 끓고 있다.</p>
+    
+    <h1 data-rv style="--i:1">벨라트 대륙</h1>
+    <p data-rv style="--i:2">고대 마법 문명이 무너지고 800년. 새 마법은 만들어지지 않고, 사람들은 유적에서 찾아낸 옛것을 되살려 쓴다.</p>
   </div>
 </section>
-<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#regions">지역</a><a href="#faults">대립선</a><a href="#threats">위협원</a><a href="#halak">할라크족과 칼데스</a><a href="#gods">신앙</a><a href="#beyond">이계</a></div></nav>
+<nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#regions">지역</a><a href="#faults">대립선</a><a href="#threats">위협</a><a href="#halak">할라크족</a><a href="#gods">신앙</a><a href="#beyond">이계</a></div></nav>
 <section class="sec" id="regions">
   <div class="wrap">
-    <p class="lbl">REGIONS<em>지역 10</em></p>
-    <div class="head-row"><div><h2 class="h2">제국 하나, 왕국 셋, 그리고 여섯 곳</h2>
-    <p class="lead">지역마다 레벨대가 이어져 있어서, 사냥터를 옮기는 것 자체가 진행이 된다. 종족은 인간, 드워프, 엘프, 유목민, 그리고 할라크족.</p></div></div>
-    <div class="regions"><article class="region rv" id="riatel">
-  <div class="ph"><img src="images/bg-draft/3220923381.webp" alt="리아텔" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>리아텔</h3><span class="where">중부 평야 · 시작 권역</span>
-    <p>이방인이 처음 내려서는 곳. 귀환석 광장에 새 이방인이 나타나고, 죽은 이방인이 돌아온다. 왕권이 약해 영주끼리 영지를 다투고, 계승 문제가 터지면 내전이다.</p>
-    <ul class="data"><li><span>사냥터</span><span>옛 수로<em>1–8</em> · 하르넨 들판<em>8–15</em> · 늑대 골짜기<em>15–22</em></span></li><li><span>던전</span><span>옛 수로 (소굴)<em>1–10</em> · 무너진 예배당 (소굴)<em>12–20</em></span></li><li><span>신앙</span><span>베레스</span></li></ul>
+    <h2 class="h2" data-rv>제국 하나, 왕국 셋, 그리고 여섯 곳</h2>
+    <p class="lead" data-rv style="--i:1">지역마다 레벨대가 이어져 있어서, 사냥터를 옮겨 가는 것 자체가 성장이 된다.</p>
+    <div class="rtabs" role="tablist" aria-label="지역" data-rv style="--i:2"><button type="button" role="tab" aria-selected="true" data-r="riatel">리아텔</button><button type="button" role="tab" aria-selected="false" data-r="kadet">카뎃트</button><button type="button" role="tab" aria-selected="false" data-r="karsion">카르시온</button><button type="button" role="tab" aria-selected="false" data-r="harden">하르덴</button><button type="button" role="tab" aria-selected="false" data-r="tulgard">툴가르드</button><button type="button" role="tab" aria-selected="false" data-r="mirzen">미르젠</button><button type="button" role="tab" aria-selected="false" data-r="ashen">잿빛 회랑</button><button type="button" role="tab" aria-selected="false" data-r="aelin">아엘린</button><button type="button" role="tab" aria-selected="false" data-r="shehar">셰하르</button><button type="button" role="tab" aria-selected="false" data-r="rahna">라흐나</button></div>
+    <div class="rstage" data-rv style="--i:2"><article class="rpane" id="riatel" data-r="riatel">
+  <div class="rp-img"><img src="images/bg-draft/3220923381.webp" alt="리아텔" width="2048" height="585" decoding="async" fetchpriority="high"></div>
+  <div class="rp-tx">
+    <span class="where">중부 평야 · 시작 권역</span>
+    <h3>리아텔</h3>
+    <p>모든 이방인이 처음 눈을 뜨는 곳이다. 귀환석 광장에 새 이방인이 내려서고, 죽은 이방인이 돌아온다. 왕권이 약해 영주들이 땅을 다투고 있어서, 계승 문제가 터지면 곧장 내전이다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>옛 수로 <em>1-8</em> · 하르넨 들판 <em>8-15</em> · 늑대 골짜기 <em>15-22</em></dd></div><div><dt>던전</dt><dd>옛 수로 <em>1-10</em> · 무너진 예배당 <em>12-20</em></dd></div><div><dt>신앙</dt><dd>베레스</dd></div></dl>
     <div class="people"><a class="chip" href="char/rohan.html"><img src="images/sample/H.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">로한 델리엇</a><a class="chip" href="char/yuan.html"><img src="images/sample/L.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">유안</a></div>
   </div>
 </article>
-<article class="region rv" id="kadet">
-  <div class="ph"><img src="images/bg-draft/2187149464.webp" alt="카뎃트" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>카뎃트</h3><span class="where">중립 자유도시</span>
-    <p>대륙의 허브. 경매장과 용병, 정보상이 모이고 성 안에서는 PK가 불가능하다. 파티를 구하는 이방인도, 소문도 결국 여기로 흘러든다.</p>
+<article class="rpane" id="kadet" data-r="kadet" hidden>
+  <div class="rp-img"><img src="images/bg-draft/2187149464.webp" alt="카뎃트" width="2048" height="585" decoding="async" fetchpriority="high"></div>
+  <div class="rp-tx">
+    <span class="where">중립 자유도시</span>
+    <h3>카뎃트</h3>
+    <p>경매장과 용병단, 정보상이 모여드는 대륙의 허브다. 성 안에서는 PK가 막혀 있다. 파티를 구하는 이방인도, 떠도는 소문도 결국 이곳으로 흘러든다.</p>
     
     <div class="people"><a class="chip" href="char/selia.html"><img src="images/sample/K.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">셀리아</a><a class="chip" href="char/garsi.html"><img src="images/sample/I.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">가르시 렌</a><a class="chip" href="char/marta.html"><img src="images/sample/O.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">마르타</a><a class="chip" href="char/ulsan.html"><img src="images/sample/B.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">울산강펀치</a></div>
   </div>
 </article>
-<article class="region rv" id="karsion">
-  <div class="ph"><img src="images/bg-draft/147058076.webp" alt="카르시온" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>카르시온</h3><span class="where">동반부 제국 · 수도 에르카시아</span>
-    <p>황제와 5대 공작가의 제국. 등록하면 특혜를 받지만 다른 나라 명성이 깎인다. 최상위 전직이 여기 있다. 공작가의 계승 경쟁은 터지면 정변이다.</p>
-    <ul class="data"><li><span>사냥터</span><span>흑철 관문 외곽<em>40–48</em> · 고사목 지대<em>45–52</em></span></li><li><span>던전</span><span>흑철 지하감옥 (유적)<em>42–52</em></span></li><li><span>신앙</span><span>솔마르</span></li></ul>
+<article class="rpane" id="karsion" data-r="karsion" hidden>
+  <div class="rp-img"><img src="images/bg-draft/147058076.webp" alt="카르시온" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">동반부 제국 · 수도 에르카시아</span>
+    <h3>카르시온</h3>
+    <p>황제와 5대 공작가의 제국. 등록하면 특혜를 받는 대신 다른 나라에서의 명성이 깎인다. 가장 높은 전직이 이곳에 있고, 공작가의 계승 경쟁은 언제든 정변이 될 수 있다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>흑철 관문 외곽 <em>40-48</em> · 고사목 지대 <em>45-52</em></dd></div><div><dt>던전</dt><dd>흑철 지하감옥 <em>42-52</em></dd></div><div><dt>신앙</dt><dd>솔마르</dd></div></dl>
     <div class="people"><a class="chip" href="char/bernhardt.html"><img src="images/sample/F.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">베른하르트 콜</a></div>
   </div>
 </article>
-<article class="region rv" id="harden">
-  <div class="ph"><img src="images/bg-draft/1708646847.webp" alt="하르덴" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>하르덴</h3><span class="where">북방 산악 · 씨족 연합</span>
-    <p>철광의 땅. 제국은 병합을, 씨족 연합은 독립을 원한다. 북부 국경은 전면전에 가장 가까운 선이다. 겨울에는 마수가 남하한다.</p>
-    <ul class="data"><li><span>사냥터</span><span>서리치 갱도 입구<em>22–30</em> · 눈보라 능선<em>30–38</em></span></li><li><span>던전</span><span>서리치 갱도 (유적)<em>25–35</em></span></li><li><span>신앙</span><span>하눔</span></li></ul>
+<article class="rpane" id="harden" data-r="harden" hidden>
+  <div class="rp-img"><img src="images/bg-draft/1708646847.webp" alt="하르덴" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">북방 산악 · 씨족 연합</span>
+    <h3>하르덴</h3>
+    <p>철광의 땅이다. 제국은 병합을, 씨족 연합은 독립을 원하고, 북부 국경은 전면전에 가장 가까운 선이 되어 있다. 겨울이면 마수가 남쪽으로 내려온다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>서리치 갱도 입구 <em>22-30</em> · 눈보라 능선 <em>30-38</em></dd></div><div><dt>던전</dt><dd>서리치 갱도 <em>25-35</em></dd></div><div><dt>신앙</dt><dd>하눔</dd></div></dl>
     
   </div>
 </article>
-<article class="region rv" id="tulgard">
-  <div class="ph"><img src="images/bg-draft/1552419496.webp" alt="툴가르드" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>툴가르드</h3><span class="where">하르덴 지하 · 드워프</span>
-    <p>대륙 최상위의 제작이 이뤄지는 곳. 친밀도가 없으면 문 앞까지다.</p>
-    <ul class="data"><li><span>신앙</span><span>하눔</span></li></ul>
+<article class="rpane" id="tulgard" data-r="tulgard" hidden>
+  <div class="rp-img"><img src="images/bg-draft/1552419496.webp" alt="툴가르드" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">하르덴 지하 · 드워프</span>
+    <h3>툴가르드</h3>
+    <p>대륙 최고의 물건이 만들어지는 지하 도시. 친밀도가 없으면 문 앞에서 돌아서야 한다.</p>
+    <dl class="data"><div><dt>신앙</dt><dd>하눔</dd></div></dl>
     <div class="people"><a class="chip" href="char/torbin.html"><img src="images/sample/J.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">토르빈</a><a class="chip" href="char/pinkyu.html"><img src="images/sample/C.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">핑뀨꽁주</a></div>
   </div>
 </article>
-<article class="region rv" id="mirzen">
-  <div class="ph"><img src="images/bg-draft/586217741.webp" alt="미르젠" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>미르젠</h3><span class="where">남서 해안 · 항구 도시 셀라운</span>
-    <p>상단 연합이 실세이고 작위를 사고판다. 제국의 해상 관세를 두고 봉쇄와 해전이 오가고, 그 틈에서 밀수와 해적이 자란다.</p>
-    <ul class="data"><li><span>사냥터</span><span>소금 습지<em>25–33</em> · 난파 해안<em>33–40</em></span></li><li><span>던전</span><span>가라앉은 항로 (유적)<em>30–40</em></span></li><li><span>신앙</span><span>넬리아</span></li></ul>
+<article class="rpane" id="mirzen" data-r="mirzen" hidden>
+  <div class="rp-img"><img src="images/bg-draft/586217741.webp" alt="미르젠" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">남서 해안 · 항구 도시 셀라운</span>
+    <h3>미르젠</h3>
+    <p>상단 연합이 실권을 쥐고, 작위도 돈으로 사고판다. 제국의 해상 관세를 두고 봉쇄와 해전이 오가는 사이, 밀수와 해적이 자란다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>소금 습지 <em>25-33</em> · 난파 해안 <em>33-40</em></dd></div><div><dt>던전</dt><dd>가라앉은 항로 <em>30-40</em></dd></div><div><dt>신앙</dt><dd>넬리아</dd></div></dl>
     
   </div>
 </article>
-<article class="region rv" id="ashen">
-  <div class="ph"><img src="images/bg-draft/333477692.webp" alt="잿빛 회랑" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>잿빛 회랑</h3><span class="where">제국과 왕국 사이 · 무법 지대</span>
-    <p>레벨 대비 효율이 대륙 최상. 대신 PK가 열려 있다. 도적단이 길을 쥐고 있다. 무명이 목격되는 곳도 여기뿐이다.</p>
-    <ul class="data"><li><span>사냥터</span><span>무너진 가도<em>35–45</em></span></li><li><span>던전</span><span>도살장 터 (소굴 · PK 허용)<em>35–45</em></span></li></ul>
+<article class="rpane" id="ashen" data-r="ashen" hidden>
+  <div class="rp-img"><img src="images/bg-draft/333477692.webp" alt="잿빛 회랑" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">제국과 왕국 사이 · 무법 지대</span>
+    <h3>잿빛 회랑</h3>
+    <p>레벨 대비 효율이 대륙에서 가장 좋은 곳. 대신 PK가 열려 있고, 길목은 도적단이 쥐고 있다. 무명이 목격되는 곳도 오직 여기뿐이다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>무너진 가도 <em>35-45</em></dd></div><div><dt>던전</dt><dd>도살장 터 <em>35-45</em></dd></div></dl>
     <div class="people"><a class="chip" href="char/isra.html"><img src="images/sample/G.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">이스라</a><a class="chip" href="char/mumyeong.html"><img src="images/sample/E.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">무명</a></div>
   </div>
 </article>
-<article class="region rv" id="aelin">
-  <div class="ph"><img src="images/bg-draft/1370742527.webp" alt="아엘린" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>아엘린</h3><span class="where">서부 · 엘프령</span>
-    <p>명성이 있어야 들어간다. 벌목이나 수렵 이력이 있으면 안 된다. 벌목하는 이방인이 늘수록 숲 경계가 날카로워진다.</p>
-    <ul class="data"><li><span>사냥터</span><span>안개 수림<em>48–55</em></span></li><li><span>던전</span><span>뿌리의 방 (유적)<em>50–58</em></span></li><li><span>신앙</span><span>이웬</span></li></ul>
+<article class="rpane" id="aelin" data-r="aelin" hidden>
+  <div class="rp-img"><img src="images/bg-draft/1370742527.webp" alt="아엘린" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">서부 · 엘프령</span>
+    <h3>아엘린</h3>
+    <p>명성이 있어야 들어갈 수 있고, 벌목이나 수렵 이력이 있으면 들어갈 수 없다. 나무를 베는 이방인이 늘수록 숲의 경계는 날카로워진다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>안개 수림 <em>48-55</em></dd></div><div><dt>던전</dt><dd>뿌리의 방 <em>50-58</em></dd></div><div><dt>신앙</dt><dd>이웬</dd></div></dl>
     <div class="people"><a class="chip" href="char/neia.html"><img src="images/sample/M.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">네이아</a></div>
   </div>
 </article>
-<article class="region rv" id="shehar">
-  <div class="ph"><img src="images/bg-draft/3597414014.webp" alt="셰하르" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>셰하르</h3><span class="where">남동 사막 · 유목</span>
-    <p>거점이 계속 움직인다. 건기마다 물과 체온, 오아시스를 두고 부족끼리 다툰다.</p>
-    <ul class="data"><li><span>사냥터</span><span>열사 분지<em>50–58</em></span></li><li><span>던전</span><span>모래 아래 신전 (유적)<em>52–60</em></span></li></ul>
+<article class="rpane" id="shehar" data-r="shehar" hidden>
+  <div class="rp-img"><img src="images/bg-draft/3597414014.webp" alt="셰하르" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">남동 사막 · 유목</span>
+    <h3>셰하르</h3>
+    <p>부족의 거점이 쉬지 않고 옮겨 다닌다. 건기가 오면 물과 체온, 그리고 오아시스를 두고 부족끼리 맞선다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>열사 분지 <em>50-58</em></dd></div><div><dt>던전</dt><dd>모래 아래 신전 <em>52-60</em></dd></div></dl>
     
   </div>
 </article>
-<article class="region rv" id="rahna">
-  <div class="ph"><img src="images/bg-draft/2831885871.webp" alt="라흐나" width="2048" height="585" loading="lazy" decoding="async"></div>
-  <div class="tx">
-    <h3>라흐나</h3><span class="where">북동 침강지</span>
-    <p>봉인지 레이드와 고대 유물의 땅. 길드가 입구를 점거한다. 봉인이 약해지면 마물이 넘쳐 나온다. 제3환은 아직 아무도 돌파하지 못했다.</p>
-    <ul class="data"><li><span>사냥터</span><span>침강 외곽<em>55–62</em></span></li><li><span>던전</span><span>라흐나 제1환 · 제2환 (봉인지 · 20인 이상)<em>58–64</em> · 라흐나 제3환 (봉인지 · 미돌파)<em>—</em></span></li></ul>
+<article class="rpane" id="rahna" data-r="rahna" hidden>
+  <div class="rp-img"><img src="images/bg-draft/2831885871.webp" alt="라흐나" width="2048" height="585" loading="lazy" decoding="async"></div>
+  <div class="rp-tx">
+    <span class="where">북동 침강지</span>
+    <h3>라흐나</h3>
+    <p>봉인지 레이드와 고대 유물의 땅. 입구는 길드들이 점거하고 있다. 봉인이 약해지면 마물이 넘쳐 나오고, 가장 깊은 제3환은 아직 누구도 넘지 못했다.</p>
+    <dl class="data"><div><dt>사냥터</dt><dd>침강 외곽 <em>55-62</em></dd></div><div><dt>던전</dt><dd>라흐나 제1환 · 제2환 <em>58-64</em> · 라흐나 제3환 <em>?</em></dd></div></dl>
     <div class="people"><a class="chip" href="char/kasiel.html"><img src="images/sample/N.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">카시엘</a><a class="chip" href="char/juliet.html"><img src="images/sample/A.webp" alt="" width="1280" height="883" loading="lazy" decoding="async">줄리엣</a></div>
   </div>
 </article>
@@ -140,68 +151,62 @@
 </section>
 
 <section class="sec alt" id="faults">
-  <div class="wrap split">
-    <div class="stick"><p class="lbl">FAULT LINES<em>대립선</em></p><h2 class="h2">전쟁의 씨앗, 여덟 줄</h2>
-    <p class="lead">대립선이 끓다가 터지면 사변이 된다. 운영사는 사변을 직접 쓰지 않는다고 홍보한다. 그래서 사변이 터질 때마다 커뮤는 "이거 운영 각본이냐 아니냐"로 한 번씩 싸운다.</p></div>
-    <ul class="rows"><li><b><span class="idx">01</span>카르시온 ↔ 하르덴</b><p>북부 국경의 철광. 제국은 병합을, 씨족 연합은 독립을 원한다. 전면전에 가장 가까운 선.</p></li><li><b><span class="idx">02</span>리아텔 영주 할거</b><p>왕권이 약해 영주끼리 영지를 다툰다. 계승 문제가 터지면 내전. 로한 델리엇이 한 축.</p></li><li><b><span class="idx">03</span>미르젠 상단 ↔ 제국 해상 관세</b><p>봉쇄·해전·상단 간 다툼. 밀수와 해적이 그 틈에서 자란다.</p></li><li><b><span class="idx">04</span>아엘린 ↔ 개척민·벌목꾼</b><p>숲 경계 분쟁. 벌목하는 이방인이 늘수록 날카로워진다.</p></li><li><b><span class="idx">05</span>셰하르 부족 간</b><p>건기마다 오아시스 쟁탈.</p></li><li><b><span class="idx">06</span>카르시온 내부</b><p>5대 공작가의 계승 경쟁. 터지면 정변.</p></li><li><b><span class="idx">07</span>칼데스 ↔ 대륙</b><p>카시엘이 이끄는 할라크족 군세. 이방인 축출을 명분으로 한 원정.</p></li><li><b><span class="idx">08</span>길드 ↔ 길드</b><p>사냥터·영지·공성. 플레이어끼리의 전쟁. 파랑스가 최대 세력.</p></li></ul>
+  <div class="wrap">
+    <p class="lbl">FAULT LINES</p>
+    <h2 class="h2" data-rv>전쟁의 씨앗, 여덟 줄</h2>
+    <p class="lead" data-rv style="--i:1">이 선들이 끓다가 터지면 사변이 된다. 운영사는 사변을 직접 쓰지 않는다고 말하고, 커뮤는 사변이 터질 때마다 "이거 운영 각본 아니냐"로 한 번씩 싸운다.</p>
+    <div class="faults"><div class="spot" data-rv style="--i:0"><b>카르시온 ↔ 하르덴</b><p>북부 국경의 철광을 두고, 제국은 병합을 씨족 연합은 독립을 원한다. 전면전에 가장 가까운 선.</p></div><div class="spot" data-rv style="--i:1"><b>리아텔 영주 할거</b><p>약한 왕권 아래 영주들이 땅을 다툰다. 계승 문제가 터지면 내전이고, 로한 델리엇이 그 한 축이다.</p></div><div class="spot" data-rv style="--i:2"><b>미르젠 상단 ↔ 제국 관세</b><p>봉쇄와 해전, 상단끼리의 다툼. 그 틈에서 밀수와 해적이 자란다.</p></div><div class="spot" data-rv style="--i:3"><b>아엘린 ↔ 개척민</b><p>숲의 경계를 둘러싼 분쟁. 벌목하는 이방인이 늘수록 날이 선다.</p></div><div class="spot" data-rv style="--i:0"><b>셰하르 부족들</b><p>건기마다 오아시스를 차지하려는 싸움이 벌어진다.</p></div><div class="spot" data-rv style="--i:1"><b>카르시온 공작가</b><p>5대 공작가의 계승 경쟁. 터지는 순간 정변이 된다.</p></div><div class="spot" data-rv style="--i:2"><b>칼데스 ↔ 대륙</b><p>카시엘이 이끄는 할라크족 군세의 원정. 명분은 이방인 축출이다.</p></div><div class="spot" data-rv style="--i:3"><b>길드 ↔ 길드</b><p>사냥터와 영지, 공성을 둘러싼 플레이어끼리의 전쟁. 가장 큰 세력은 파랑스다.</p></div></div>
   </div>
 </section>
 
 <section class="sec" id="threats">
-  <div class="wrap">
-    <p class="lbl">THREATS<em>위협원</em></p>
-    <h2 class="h2">침공의 근원</h2>
-    <p class="lead">전쟁이 사람 사이의 일이라면, 이쪽은 대륙 바깥과 아래에서 온다.</p>
-    <div class="tiles" style="margin-top:32px"><div class="rv"><b>라흐나 침강지</b><p>봉인지가 약해지면 마물이 넘쳐 나온다. 범람. 대륙 최대의 침공원.</p></div><div class="rv"><b>균열</b><p>무작위로 열린다. 아무도 닫지 않으면 넓어지고, 결국 마물이 밖으로 쏟아진다.</p></div><div class="rv"><b>마수 이동</b><p>하르덴의 겨울 남하, 셰하르의 건기 이동.</p></div><div class="rv"><b>유적 폭주</b><p>무리한 발굴이 잠든 고대 유물을 깨운다.</p></div></div>
+  <div class="wrap split">
+    <div class="stick"><h2 class="h2" data-rv>사람 바깥에서 오는 것들</h2>
+    <p class="lead" data-rv style="--i:1">전쟁이 사람 사이의 일이라면, 침공은 대륙의 바깥과 아래에서 온다.</p></div>
+    <ol class="threats"><li data-rv style="--i:0"><b>라흐나 침강지</b><p>봉인지가 약해지면 마물이 넘쳐 나온다. 대륙 최대의 침공원.</p></li><li data-rv style="--i:1"><b>균열</b><p>아무 데서나 열린다. 아무도 닫지 않으면 점점 넓어지다가, 결국 마물이 쏟아진다.</p></li><li data-rv style="--i:2"><b>마수 이동</b><p>겨울의 하르덴에서는 남쪽으로, 건기의 셰하르에서는 물을 따라 움직인다.</p></li><li data-rv style="--i:3"><b>유적 폭주</b><p>무리한 발굴이 잠들어 있던 고대 유물을 깨운다.</p></li></ol>
   </div>
 </section>
 
-<section class="sec alt" id="halak">
-  <div class="wrap feature">
-    <figure class="hud rv"><img src="images/sample/N.webp" alt="카시엘" width="1280" height="883" loading="lazy" decoding="async"></figure>
-    <div class="rv">
-      <p class="lbl">HALAK · KALDES<em>할라크족과 칼데스</em></p>
+<section class="feature-band" id="halak">
+  <div class="fb-img" data-par><img src="images/sample/N.webp" alt="카시엘" width="1280" height="883" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <div class="fb-tx" data-rv>
       <h2 class="h2">이방인을 재앙이라 부르는 자들</h2>
-      <p class="lead">고대 흑룡의 피를 이은 장수 종족. 검은 굽은 뿔과 용의 금안을 지니고 수백 년을 산다. 인간 왕국보다 먼저 대륙에 있었다는 자부가 강하고, 라흐나 침강지 가장자리 고지대에 산다. 칼데스는 카시엘이 이끄는 그들의 군세다.</p>
-      <p class="lead">이방인은 죽어도 돌아오니 같은 봉인지를 주마다 들쑤신다. 그럴수록 봉인이 얇아진다. 카시엘이 이방인을 재앙이라 부르는 건 증오가 아니라 이 계산 때문이고, 본인이 대놓고 하는 말이다.</p>
-      <p style="margin-top:24px"><a class="more" href="char/kasiel.html">카시엘 · Lv88 <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a></p>
+      <p>할라크족은 고대 흑룡의 피를 이은 장수 종족이다. 검은 굽은 뿔과 금빛 눈으로 수백 년을 살고, 라흐나 침강지 가장자리 고지대에 터를 잡았다. 인간 왕국보다 먼저 이 대륙에 있었다는 자부가 강하다.</p>
+      <p>그들의 군세 칼데스를 이끄는 카시엘은 이방인을 대륙에서 몰아내려 한다. 죽어도 돌아오는 이방인이 매주 봉인지를 들쑤시고, 그럴수록 봉인이 얇아진다고 보기 때문이다. 그는 이 말을 숨기지 않는다.</p>
+      <a class="more" href="char/kasiel.html">카시엘 · Lv88 <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
     </div>
   </div>
 </section>
 
 <section class="sec" id="gods">
   <div class="wrap">
-    <p class="lbl">FAITH<em>신앙</em></p>
-    <h2 class="h2">신들은 침묵하지 않는다</h2>
-    <p class="lead">다만 땅에 내려오지도 않는다. 신탁과 축복은 반드시 신전의 신관을 거쳐서 온다. 한 신의 신관에게 신뢰를 얻으면 다른 신전에서 냉대받는 일도 있다.</p>
-    <div class="gods" style="margin-top:32px"><div class="rv"><b>솔마르</b><i>빛 · 맹세</i><p>카르시온 제국이 가장 크게 모신다. 기사 서약과 계약의 증인.</p></div><div class="rv"><b>베레스</b><i>대지 · 수확</i><p>리아텔 농촌의 신. 기근·흉작 사변 때 신전이 붐빈다.</p></div><div class="rv"><b>하눔</b><i>불 · 대장간</i><p>하르덴 씨족과 툴가르드 드워프가 모신다.</p></div><div class="rv"><b>넬리아</b><i>바다 · 교역</i><p>미르젠 상단의 신. 출항 전 축복이 관례.</p></div><div class="rv"><b>이웬</b><i>숲 · 생명</i><p>아엘린 엘프와 치유사들이 모신다.</p></div><div class="rv"><b>모르가</b><i>죽음 · 안식</i><p>원주민의 장례를 맡는다. 신관들은 이방인을 &#x27;안식을 모르는 자&#x27;라 부르며 가장 껄끄러워한다.</p></div></div>
+    <h2 class="h2" data-rv>신들은 침묵하지 않는다</h2>
+    <p class="lead" data-rv style="--i:1">다만 직접 내려오지도 않는다. 신탁과 축복은 반드시 신관을 거쳐 온다. 한 신전에서 신뢰를 얻으면, 다른 신전에서는 냉대를 받기도 한다.</p>
+    <div class="gods"><div class="spot" data-rv style="--i:0"><b>솔마르</b><i>빛 · 맹세</i><p>카르시온 제국이 가장 크게 모시는 신. 기사의 서약과 계약을 지켜본다.</p></div><div class="spot" data-rv style="--i:1"><b>베레스</b><i>대지 · 수확</i><p>리아텔 농촌의 신. 기근이나 흉작이 들면 신전이 붐빈다.</p></div><div class="spot" data-rv style="--i:2"><b>하눔</b><i>불 · 대장간</i><p>하르덴의 씨족과 툴가르드의 드워프가 모신다.</p></div><div class="spot" data-rv style="--i:0"><b>넬리아</b><i>바다 · 교역</i><p>미르젠 상단의 신. 배가 나가기 전에 축복을 받는 것이 관례다.</p></div><div class="spot" data-rv style="--i:1"><b>이웬</b><i>숲 · 생명</i><p>아엘린의 엘프와 치유사들이 모신다.</p></div><div class="spot" data-rv style="--i:2"><b>모르가</b><i>죽음 · 안식</i><p>원주민의 장례를 맡는다. 신관들은 이방인을 &#x27;안식을 모르는 자&#x27;라 부르며 가장 껄끄러워한다.</p></div></div>
   </div>
 </section>
 
 <section class="band" id="beyond">
-  <img src="images/bg-draft/1630025392.webp" alt="이계" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
-  <div class="wrap">
-    <p class="lbl">BEYOND THE RIFT<em>이계</em></p>
+  <div class="band-bg" data-par><img src="images/bg-draft/1630025392.webp" alt="이계" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
+  <div class="wrap" data-rv>
     <h2>균열 너머, 이계</h2>
-    <p>균열은 예고 없이 열리고 일정 시간 뒤 닫힌다. 깊은 균열 너머에는 다른 세계가 이어져 있다. 마계나 천계 같은 구분 없이 하나의 '이계'로 부른다. 벨라트 대륙 밖, 최고 난도의 무대.</p>
+    <p>균열은 예고 없이 열렸다가 닫힌다. 깊은 균열 너머에는 대륙 밖의 다른 세계가 이어져 있다. 마계나 천계 같은 구분 없이, 그저 이계라고 부른다. 가장 어려운 무대다.</p>
   </div>
 </section>
 <section class="close">
-  <img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
+  <div class="close-bg" data-par><img src="images/bg-draft/2831885871.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
   <div class="wrap">
-    <div class="boot typing"><span class="sysmsg ln">다이브포드 연결 대기</span><span class="sysmsg ln">접속 위치를 선택하십시오.</span></div>
-    <h2>대륙은 지금도<br>돌아가고 있습니다.</h2>
-    <div class="btn-row">
-      <span class="btn" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 플레이 · 준비 중</span>
-      <a class="btn ghost" href="start.html">시작 모드 보기 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
-    </div>
+    <span class="sysmsg" data-rv>다이브포드 연결 대기</span>
+    <h2 data-rv style="--i:1">대륙은 지금도<br>돌아가고 있다.</h2>
+    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag>시작 모드 고르기 <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a></div>
   </div>
 </section>
 </main>
 <footer class="foot">
   <div class="wrap">
-    <div><b>FULL DIVE - ILEON</b><br>일레온 · 문창놈의 크랙 채팅봇 · 수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
-    <nav aria-label="바닥글"><a href="world.html">대륙</a> <a href="characters.html">인물</a> <a href="system.html">체계</a> <a href="reality.html">현실</a> <a href="start.html">시작</a></nav>
+    <a class="brand" href="home.html"><i></i><b>ILEON</b></a>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>

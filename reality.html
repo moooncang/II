@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>현실 · FULL DIVE - ILEON</title>
-<meta name="description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
+<meta name="description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
 <meta property="og:title" content="현실 · FULL DIVE - ILEON">
-<meta property="og:description" content="2047년 대한민국의 다이브포드에서, 여명기 이후 800년의 벨라트 대륙으로. 행적을 읽는 세계 「FULL DIVE - ILEON」(일레온). 문창놈의 크랙 채팅봇.">
+<meta property="og:description" content="다이브포드에 누우면, 여명기 이후 800년의 벨라트 대륙이 열린다. 행적을 읽는 세계, 일레온.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0f1d">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b><span>FULL DIVE</span></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6"/></svg> MENU</button>
+    <a class="brand" href="home.html" aria-label="일레온 홈"><i></i><b>ILEON</b></a>
+    <button class="menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><b class="sr">메뉴</b></button>
     <ul class="nav" id="nav">
       <li><a href="world.html">대륙</a></li>
       <li><a href="characters.html">인물</a></li>
@@ -24,108 +25,98 @@
       <li><a href="reality.html" aria-current="page">현실</a></li>
       <li><a href="start.html">시작</a></li>
     </ul>
-    <div class="clock" aria-label="현실 시각과 벨라트 시각(4배속)">
-      <span class="rt"><i>현실 </i><b data-clock="real">--:--</b></span>
-      <span class="bt"><i>벨라트 </i><b data-clock="belat">--:--</b></span>
+    <div class="clock" aria-label="현실 시각과 벨라트 시각">
+      <span class="rt"><i>현실</i><b data-clock="real">--:--</b></span>
+      <span class="bt"><i>벨라트</i><b data-clock="belat">--:--</b></span>
     </div>
   </div>
 </header>
 <main>
 <section class="phead">
-  <img src="images/bg-draft/3744689049.webp" alt="2047년의 도시" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high">
+  <div class="phead-bg" data-par><img src="images/bg-draft/3744689049.webp" alt="2047년의 도시" width="2048" height="585" class="bgimg" decoding="async" fetchpriority="high"></div>
   <div class="wrap">
-    <span class="sysmsg">현실 · <span data-clock="date">2047</span> · <span data-clock="real">--:--</span></span>
-    <h1>2047, 대한민국</h1>
-    <p>일레온의 정식 무대는 두 개다. 대륙만이 아니라, 포드에 누운 사람이 사는 이쪽도. 현실은 사건을 결판내는 곳이 아니라, 정산하고 준비하는 곳이다.</p>
+    <span class="sysmsg" data-rv>현실 · <span data-clock="date">2047</span> · <span data-clock="real">--:--</span></span>
+    <h1 data-rv style="--i:1">2047, 대한민국</h1>
+    <p data-rv style="--i:2">일레온의 무대는 대륙만이 아니다. 포드에 누운 사람이 사는 이쪽도 이야기의 일부다. 일이 결판나는 곳은 아니지만, 정산하고 다음을 준비하는 곳.</p>
   </div>
 </section>
 <nav class="toc" aria-label="이 페이지"><div class="wrap"><a href="#pod">다이브포드</a><a href="#money">돈</a><a href="#account">계정</a><a href="#opinion">여론</a><a href="#faces">포드 밖의 얼굴</a></div></nav>
 <section class="sec" id="pod">
-  <div class="wrap split">
-    <div class="stick"><p class="lbl">DIVE POD<em>다이브포드</em></p><h2 class="h2">누우면 열린다</h2>
-    <p class="lead">풀수면 VR. 누우면 머리 받침이 내려오고, 시야가 어두워지고, 귓가에 익숙한 안내음이 깔린다.</p></div>
-    <ul class="rows">
-      <li><b>등급<small>보급형 ~ 프로용</small></b><p>등급 차이는 감각 해상도, 반응 지연, 접속 한계로 드러난다. 울산강펀치는 보급형 최저가를 쓰고, 무명은 PK로 번 돈으로 프로용을 샀다.</p></li>
-      <li><b>포드방<small>공용 시설</small></b><p>포드방은 공용 시설이다. 집에 포드가 없어도 일레온에 들어갈 수 있다.</p></li>
-      <li><b>정비<small>기한</small></b><p>정비 기한을 넘기면 감각이 늦게 따라온다.</p></li>
-      <li><b>이탈<small>로그아웃</small></b><p>탈수, 저린 다리, 시간 감각의 오차. 연속 접속이 쌓이면 컨디션이 떨어지고, 자고 먹어야 돌아온다.</p></li>
-    </ul>
+  <div class="wrap pod">
+    <div>
+      <h2 class="h2" data-rv>누우면 열린다</h2>
+      <p class="lead" data-rv style="--i:1">풀수면 VR, 다이브포드. 머리 받침이 천천히 내려오고, 시야가 어두워지고, 귓가에 익숙한 안내음이 깔린다.</p>
+    </div>
+    <div class="podgrid">
+      <div class="spot" data-rv><b>등급</b><p>보급형부터 프로용까지. 등급이 갈리는 건 감각 해상도와 반응 속도, 접속 한계다. 울산강펀치는 보급형 최저가를 쓰고, 무명은 PK로 번 돈으로 프로용을 샀다.</p></div>
+      <div class="spot" data-rv style="--i:1"><b>포드방</b><p>집에 포드가 없어도 괜찮다. 공용 포드방이 있다.</p></div>
+      <div class="spot" data-rv style="--i:2"><b>정비</b><p>정비 기한을 넘기면 감각이 한 박자씩 늦게 따라온다.</p></div>
+      <div class="spot" data-rv style="--i:3"><b>로그아웃</b><p>목이 마르고, 다리가 저리고, 시간 감각이 어긋난다. 오래 접속할수록 컨디션이 떨어지고, 자고 먹어야 돌아온다.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="band" id="money">
-  <img src="images/bg-draft/2756317284.webp" alt="포드방" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
-  <div class="wrap">
-    <p class="lbl">MONEY<em>돈</em></p>
-    <h2>게임 돈과 현실 돈</h2>
-    <p>월정액, 할부, 전기세, 정비비는 실제로 나간다. 골드는 환전할 수 있지만 수수료가 붙고 출금은 늦다. 이걸로 먹고사는 층이 있다. 현실의 돈과 게임 속 선택은 같은 대가 구조로 묶여 있다.</p>
+  <div class="band-bg" data-par><img src="images/bg-draft/2756317284.webp" alt="포드방" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
+  <div class="wrap" data-rv>
+    <h2>게임의 돈, 현실의 돈</h2>
+    <p>월정액과 할부, 전기세와 정비비는 진짜로 빠져나간다. 골드는 환전할 수 있지만 수수료가 붙고 출금은 느리다. 그래도 이걸로 먹고사는 사람들이 있다.</p>
   </div>
 </section>
 
 <section class="sec" id="account">
   <div class="wrap split">
-    <div class="stick"><p class="lbl">ACCOUNT<em>계정</em></p><h2 class="h2">1인 1계정</h2>
-    <p class="lead">부계정은 만들 수 없다. 새로 시작하려면 지금 캐릭터를 지워야 한다. 핵과 매크로는 존재하지 않는다.</p></div>
-    <div>
-      <ul class="data"><li><span>캐삭</span><span>히든직과 레벨을 쌓은 캐릭터를 버리는 일은 드물다. 커뮤에서 "캐삭"은 큰 사건이다.</span></li><li><span>운영</span><span>운영사가 하는 일은 점검, 밸런스 패치, 시즌 이벤트뿐이다. 사변은 대륙이 만든다.</span></li></ul>
-      <pre class="info" style="margin-top:28px">[현실] 3월 14일 (목) 23:40
+    <div class="stick"><h2 class="h2" data-rv>캐릭터는 하나뿐</h2>
+    <p class="lead" data-rv style="--i:1">부계정은 없다. 새로 시작하려면 지금의 캐릭터를 지워야 한다. 그래서 히든직과 레벨을 쌓은 캐릭터를 버리는 일은 드물고, 커뮤에서 "캐삭"은 큰 사건이 된다. 핵이나 매크로는 존재하지 않는다.</p></div>
+    <div data-rv style="--i:1">
+      <pre class="info">[현실] 3월 14일 (목) 23:40
 [잔고] 미정 | 다음 결제 미정
 [포드] 미정
 [컨디션] 양호
 [관계] └─</pre>
-      <p class="cap-note">현실 정보창 견본 · 자유모드 프롤로그</p>
+      <p class="hint">현실 장면에서는 정보창도 이렇게 바뀐다.</p>
     </div>
   </div>
 </section>
 
-<section class="sec alt" id="opinion">
-  <div class="wrap split">
-    <div class="stick">
-      <p class="lbl">OPINION<em>여론</em></p>
-      <h2 class="h2">커뮤는 늘 반 박자 늦고, 절반은 틀린다</h2>
-      <p class="lead">커뮤, 공략 위키, 스트림챗, 기사. 여론은 세계 안에서 늘 돌아가고, 반드시 무언가를 바꾼다. 사냥 효율이 떨어지고, 시세가 오르고, 최초 보상을 놓치고, 파티 모집이 어려워진다.</p>
-    </div>
-    <div>
-      <ol class="flow" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:8px">
-        <li><b>감지</b><p>누가 무언가를 봤다. 목격담 한 줄.</p></li>
-        <li><b>확산</b><p>커뮤와 방송을 타고 퍼진다.</p></li>
-        <li><b>변질</b><p>하지 않은 일이 그 사람의 일이 된다.</p></li>
-        <li><b>잔향</b><p>잠잠해진 뒤에도 남는다.</p></li>
-      </ol>
-      <p class="cap-note" style="margin-top:28px">게임 안에서 <span style="color:var(--hud)">!인터넷 - 궁금한 내용</span>을 입력하면, 그 내용을 찾아보는 장면으로 커뮤·위키·방송·기사 원문이 나온다.</p>
-    </div>
+<section class="sec alt timeline-sec" id="opinion">
+  <div class="wrap">
+    <h2 class="h2" data-rv>커뮤는 늘 반 박자 늦고,<br>절반은 틀린다</h2>
+    <p class="lead" data-rv style="--i:1">커뮤와 공략 위키, 스트림챗, 기사. 여론은 세계 안에서 쉬지 않고 돌아가고, 반드시 무언가를 바꾼다. 사냥 효율이 떨어지거나, 시세가 오르거나, 파티를 구하기 어려워진다.</p>
+    <ol class="flow four" data-draw>
+      <li style="--i:0"><b>감지</b><p>누군가 무언가를 봤다. 목격담 한 줄.</p></li>
+      <li style="--i:1"><b>확산</b><p>커뮤와 방송을 타고 번진다.</p></li>
+      <li style="--i:2"><b>변질</b><p>하지 않은 일이, 그 사람이 한 일이 된다.</p></li>
+      <li style="--i:3"><b>잔향</b><p>잠잠해진 뒤에도 무언가는 남는다.</p></li>
+    </ol>
   </div>
 </section>
 
 <section class="sec" id="faces">
   <div class="wrap">
-    <p class="lbl">OUTSIDE THE POD<em>포드 밖의 얼굴</em></p>
-    <div class="head-row"><div><h2 class="h2">닉네임 아래의 사람들</h2>
-    <p class="lead">이방인 다섯의 현실. 그림에 올리면 게임 속 모습으로 바뀝니다.</p></div></div>
-    <div class="faces"><a class="rv" href="char/juliet.html"><div class="ph"><img src="images/sample/A2.webp" alt="설지은" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/A.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
-      <div class="cap"><b>설지은</b><span>줄리엣 · 길드 법인 정직원</span></div></a><a class="rv" href="char/ulsan.html"><div class="ph"><img src="images/sample/B2.webp" alt="마커스 리드" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/B.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
-      <div class="cap"><b>마커스 리드</b><span>울산강펀치 · 울산 공단 하청</span></div></a><a class="rv" href="char/pinkyu.html"><div class="ph"><img src="images/sample/C2.webp" alt="정세라" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/C.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
-      <div class="cap"><b>정세라</b><span>핑뀨꽁주 · 공방 운영</span></div></a><a class="rv" href="char/herimong.html"><div class="ph"><img src="images/sample/D2.webp" alt="유하람" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/D.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
-      <div class="cap"><b>유하람</b><span>헤리몽 · 공략 방송인</span></div></a><a class="rv" href="char/mumyeong.html"><div class="ph"><img src="images/sample/E2.webp" alt="최나린" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/E.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
-      <div class="cap"><b>최나린</b><span>무명 · 집 밖에 나가지 않는다</span></div></a></div>
+    <h2 class="h2" data-rv>닉네임 아래의 사람들</h2>
+    <p class="lead" data-rv style="--i:1">이방인 다섯의 현실. 그림에 마우스를 올리면 게임 속 모습이 보인다.</p>
+    <div class="faces"><a class="face spot" href="char/juliet.html" data-rv style="--i:0"><div class="ph"><img src="images/sample/A2.webp" alt="설지은" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/A.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
+      <div class="cap"><b>설지은</b><span>길드 법인 정직원</span><small>게임에서는 줄리엣</small></div></a><a class="face spot" href="char/ulsan.html" data-rv style="--i:1"><div class="ph"><img src="images/sample/B2.webp" alt="마커스 리드" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/B.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
+      <div class="cap"><b>마커스 리드</b><span>울산 공단 하청</span><small>게임에서는 울산강펀치</small></div></a><a class="face spot" href="char/pinkyu.html" data-rv style="--i:2"><div class="ph"><img src="images/sample/C2.webp" alt="정세라" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/C.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
+      <div class="cap"><b>정세라</b><span>공방 운영</span><small>게임에서는 핑뀨꽁주</small></div></a><a class="face spot" href="char/herimong.html" data-rv style="--i:3"><div class="ph"><img src="images/sample/D2.webp" alt="유하람" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/D.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
+      <div class="cap"><b>유하람</b><span>공략 방송인</span><small>게임에서는 헤리몽</small></div></a><a class="face spot" href="char/mumyeong.html" data-rv style="--i:4"><div class="ph"><img src="images/sample/E2.webp" alt="최나린" width="1280" height="883" loading="lazy" decoding="async"><img src="images/sample/E.webp" alt="" width="1280" height="883" class="g" loading="lazy" decoding="async"></div>
+      <div class="cap"><b>최나린</b><span>집 밖에 나가지 않는다</span><small>게임에서는 무명</small></div></a></div>
   </div>
 </section>
 <section class="close">
-  <img src="images/bg-draft/3744689049.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async">
+  <div class="close-bg" data-par><img src="images/bg-draft/3744689049.webp" alt="" width="2048" height="585" class="bgimg" loading="lazy" decoding="async"></div>
   <div class="wrap">
-    <div class="boot typing"><span class="sysmsg ln">포드 정비 기한 확인</span><span class="sysmsg ln">다이브포드 연결 대기</span></div>
-    <h2>로그아웃해도<br>대륙은 멈추지 않습니다.</h2>
-    <div class="btn-row">
-      <span class="btn" aria-disabled="true" title="크랙 작품 링크는 준비 중입니다">크랙에서 플레이 · 준비 중</span>
-      <a class="btn ghost" href="start.html">시작 모드 보기 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
-    </div>
+    <span class="sysmsg" data-rv>포드 정비 기한 확인</span>
+    <h2 data-rv style="--i:1">로그아웃해도<br>대륙은 멈추지 않는다.</h2>
+    <div class="btn-row" data-rv style="--i:2"><a class="btn" href="start.html" data-mag>시작 모드 고르기 <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a></div>
   </div>
 </section>
 </main>
 <footer class="foot">
   <div class="wrap">
-    <div><b>FULL DIVE - ILEON</b><br>일레온 · 문창놈의 크랙 채팅봇 · 수록 그림은 전부 생성물이며 무단 전재를 금합니다.</div>
-    <nav aria-label="바닥글"><a href="world.html">대륙</a> <a href="characters.html">인물</a> <a href="system.html">체계</a> <a href="reality.html">현실</a> <a href="start.html">시작</a></nav>
+    <a class="brand" href="home.html"><i></i><b>ILEON</b></a>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
