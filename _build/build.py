@@ -60,8 +60,8 @@ def head(page, title, up="", desc=DESC):
 {nav}
     </ul>
     <div class="clock" aria-label="현실 시각과 벨라트 시각(4배속)">
-      <span class="rt">현실 <b data-clock="real">--:--</b></span>
-      <span class="bt">벨라트 <b data-clock="belat">--:--</b></span>
+      <span class="rt"><i>현실 </i><b data-clock="real">--:--</b></span>
+      <span class="bt"><i>벨라트 </i><b data-clock="belat">--:--</b></span>
     </div>
   </div>
 </header>
@@ -236,14 +236,12 @@ def build_home():
 <section class="axes" aria-label="두 개의 축">
   <a class="axis real" href="reality.html">
     {img(bg("P"), "포드방")}
-    <span class="when">현실 · <span data-clock="date">2047</span></span>
     <h2 class="big">몸은 여기,<br>포드 안에.</h2>
     <p>2047년 대한민국. 월정액과 할부, 전기세와 정비비를 내고 다이브포드에 눕는다. 로그아웃하면 저린 다리와 커뮤의 여론이 기다린다.</p>
     <p class="clockbig"><small>현실 시각</small><span data-clock="real">--:--</span></p>
   </a>
   <a class="axis virt" href="world.html">
     {img(bg("KD"), "카뎃트")}
-    <span class="when">게임 · 벨라트 대륙</span>
     <h2 class="big">나는 저기,<br>대륙 위에.</h2>
     <p>제국 하나, 왕국 셋, 자유도시와 무법 지대와 엘프의 숲. 로그아웃해 있는 동안에도 대륙의 시간은 똑같이 흐른다.</p>
     <p class="clockbig"><small>벨라트 시각</small><span data-clock="belat">--:--</span></p>
@@ -324,7 +322,6 @@ def build_world():
     s += f'''<section class="phead">
   {img(bg("KD"), "카뎃트", lazy=False)}
   <div class="wrap">
-    <span class="sysmsg">서버: 벨라트 대륙 · 여명기 이후 800년</span>
     <h1>벨라트 대륙</h1>
     <p>고대 마법 문명이 무너지고 800년. 마법은 새로 만들지 못하고, 유적에서 나온 고대의 것을 되살려 쓴다. 대륙 어딘가는 늘 끓고 있다.</p>
   </div>
@@ -421,7 +418,7 @@ def roster_card(c):
     sub = c["real"] if c.get("real") else c["role"].split(" · ")[0]
     return f'''<a class="pc rv" href="char/{c["slug"]}.html">
   {tag}<div class="ph">{img(cs(c["code"], 2), c["name"])}</div>
-  <div class="cap"><span class="nm">{E(c["name"])}</span><span class="sub">{E(sub)} · {c["sex"]}{c["age"]}</span>
+  <div class="cap"><span class="nm">{E(c["name"])}</span><span class="sub">{E(sub)} · {c["sex"]} {c["age"]}</span>
   <span class="lvl">{lvl} · {E(c["job"].split("(")[0])} {g}</span></div>
 </a>'''
 
@@ -433,7 +430,6 @@ def build_characters():
     s += f'''<section class="phead">
   {img(bg("T"), "주점", lazy=False)}
   <div class="wrap">
-    <span class="sysmsg">/접속자 — 등록 인물 15</span>
     <h1>열다섯 사람</h1>
     <p>이방인 다섯은 게임 밖에도 삶이 있다. 원주민 열은 죽으면 돌아오지 않는다. 누구나 동행할 수 있고, 원주민과는 신전에서 서약해 결혼할 수도 있다. 다만 원주민은 망설인다. "넌 언젠가 안 돌아올 거잖아."</p>
   </div>
@@ -615,7 +611,7 @@ def build_system():
     <h2 class="h2">3차 전직자, 서버 전체 5명</h2>
     <p class="lead">1위 줄리엣만 직접 등장한다. 나머지 넷은 서버 로그와 커뮤와 소문으로만 오르내린다. 대륙 최상단이 비어 있지 않다.</p>
     <ol class="third">
-      {"".join(f'<li><span class="r">{"랭킹 1위 · " if k == 0 else "3차 · "}Lv{lv}</span><b>{E(n)}</b><span class="j">{E(j)} · {sx}{a}</span><p>{E(t)}</p></li>' for k, (n, a, sx, lv, j, t) in enumerate(THIRD))}
+      {"".join(f'<li><span class="r">{"랭킹 1위 · " if k == 0 else "3차 · "}Lv{lv}</span><b>{E(n)}</b><span class="j">{E(j)} · {sx} {a}</span><p>{E(t)}</p></li>' for k, (n, a, sx, lv, j, t) in enumerate(THIRD))}
     </ol>
   </div>
 </section>
@@ -637,7 +633,7 @@ def build_system():
 <section class="sec sysband on-sys" id="incident">
   <div class="wrap">
     <h2 class="h2">사변</h2>
-    <p class="lead">정세가 터진 것. 정해진 일정 없이 터진다. 결과는 영구이고, 큰 사변은 대륙 연대기에 기록되며 결정적인 기여를 한 이방인의 이름이 함께 남는다. 커뮤에서는 "연대기 등재"라고 부른다.</p>
+    <p class="lead">정세가 터진 것. 정해진 일정 없이 터진다. 결과는 영구이고, 큰 사변은 결정적인 기여를 한 이방인의 이름과 함께 기록으로 남는다.</p>
     <ol class="flow">
       {"".join(f'<li><span class="k">{k}</span><p>{E(t)}</p></li>' for k, t in INCIDENT_FLOW)}
     </ol>
