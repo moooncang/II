@@ -10,7 +10,7 @@ from data import *
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SET = os.path.join(ROOT, "_설정")
 TITLE = "FULL DIVE - ILEON"
-DESC = "다이브포드에 누우면 벨라트 대륙이 열린다. 죽어도 돌아오는 이방인이 되어, 당신이 한 일이 직업이 되는 세계. 일레온."
+DESC = "FULL DIVE - ILEON · 일레온 · 벨라트 대륙"
 E = html.escape
 
 UP = ""
@@ -101,7 +101,7 @@ def foot(up=""):
   <div class="foot-in">
     <a class="logo" href="{up}home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
     <nav aria-label="바닥글">{links}</nav>
-    <p>로그아웃해도 대륙은 멈추지 않는다. <span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
+    <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
 <script src="{up}assets/js/main.js"></script>
@@ -109,13 +109,14 @@ def foot(up=""):
 </html>'''
 
 
-def logout_scene(code="CT", l1="로그아웃해도", l2="대륙은 멈추지 않는다."):
+def logout_scene(code="CT", *_):
+    """페이지 끝: 문장 없이 타이틀과 접속 버튼만."""
     return f'''<section class="scene logout">
   <div class="bg">{img(bgd(code), "")}</div><div class="shade"></div>
   <div class="logout-in">
-    {lbl("LOGOUT")}
-    <h2 class="ttl" data-rv>{E(l1)}<br><span>{E(l2)}</span></h2>
-    <div class="btns" data-rv>{cta()}<a class="btn ghost" href="{UP}characters.html"><span>캐릭터 보기</span></a></div>
+    <p class="wm-k" data-rv>FULL DIVE</p>
+    <p class="wm" data-rv aria-hidden="true">ILEON</p>
+    <div class="btns" data-rv>{cta()}</div>
   </div>
 </section>
 '''
@@ -220,66 +221,58 @@ def build_home():
     chat = "".join(f'<li><span class="ch ch-{c}">[{c}]</span> {E(t)}</li>' for c, t in WORLD_LOG)
     players = [c for c in C if c["side"] == "player"]
     npcs = [c for c in C if c["side"] == "npc"]
+    menu = [("start.html", "새 게임", "NEW GAME"), ("world.html", "대륙", "WORLD"), ("characters.html", "캐릭터", "CHARACTER"),
+            ("system.html", "규칙서", "RULES"), ("reality.html", "현실", "REALITY")]
+    tmenu = "".join(f'<li><a href="{h}"{" class=\"on\"" if k == 0 else ""}><i>{PLAY}</i><b>{t}</b><small>{en}</small></a></li>' for k, (h, t, en) in enumerate(menu))
+    regions = "".join(f'''<a class="rg" href="world.html#{r["key"]}" style="--i:{k}">
+      <span class="rg-img">{img(bgd(r["img"]), r["name"])}</span>
+      <span class="rg-tx"><i>{k + 1:02d}</i><b>{E(r["name"])}</b><small>{E(r["where"])}</small></span>
+    </a>''' for k, r in enumerate(REGIONS))
     jobs = "".join(f'''<div class="job" data-k="{k}"{"" if k == 0 else " hidden"}>
         <b class="job-n" data-scramble>{E(n)}</b>
-        <div class="job-g">{grade(g)}{f'<a href="char/{CMAP["D" if w == "헤리몽" else "E"]["slug"]}.html">{E(w)} {ARROW}</a>' if w else '<span>보유자 비공개</span>'}</div>
-        <p>{E(t)}</p>
+        <div class="job-g">{grade(g)}{f'<a href="char/{CMAP["D" if w == "헤리몽" else "E"]["slug"]}.html">{E(w)} {ARROW}</a>' if w else ""}</div>
       </div>''' for k, (n, g, t, w) in enumerate(HIDDEN))
-    stages = "".join(f'<li><button type="button" data-k="{k}"{" aria-current=\"step\"" if k == 0 else ""}><i>0{k + 1}</i><b>{n}</b><span class="fill"></span></button></li>' for k, (n, t) in enumerate(INCIDENT_FLOW))
-    stage_tx = "".join(f'<p data-k="{k}"{"" if k == 0 else " hidden"}>{E(t)}</p>' for k, (n, t) in enumerate(INCIDENT_FLOW))
     slant = "".join(f'''<a class="sl" href="char/{c["slug"]}.html" style="--i:{k}">
       <span class="sl-img">{img(smp(c["code"]), c["name"])}</span>
-      <span class="sl-tx"><i>P{k + 1}</i><b>{E(c["name"])}</b><small>{E(c["real"])} · Lv{c["lv"]} · {E(c["job"].split("(")[0])}</small><em>{E(c["hook"])}</em></span>
+      <span class="sl-tx"><i>P{k + 1}</i><b>{E(c["name"])}</b><small>Lv{c["lv"]} · {E(c["job"].split("(")[0])}</small></span>
     </a>''' for k, c in enumerate(players))
     faces = "".join(f'<a href="char/{c["slug"]}.html">{img(smp(c["code"]), c["name"])}<span>{E(c["name"])}</span></a>' for c in npcs)
-    slots = [("newbie", "뉴비", "RI", "리아텔 · 귀환석 광장", "Lv1 · 무직", "견습 기사 유안이 덜그럭거리며 달려온다."),
-             ("myth", "신화직업", "BS", "잿빛 회랑 · 균열 보스룸", "Lv1 · 신화", "균열의 보상에, 줄리엣보다 먼저 손이 닿았다."),
-             ("free", "자유모드", "H", "현실 · 원룸", "제한 없음", "원룸 절반을 차지한 포드. 어디로 들어갈진 아직.")]
+    slots = [("newbie", "뉴비", "RI", "리아텔 · 귀환석 광장", "Lv1 · 무직"),
+             ("myth", "신화직업", "BS", "잿빛 회랑 · 균열 보스룸", "Lv1 · 신화"),
+             ("free", "자유모드", "H", "현실 · 원룸", "제한 없음")]
     slot_html = "".join(f'''<a class="slot{" myth" if k == "myth" else ""}" href="start.html#{k}" data-rv>
       <span class="slot-img">{img(bgd(b), "")}</span>
       <span class="slot-no">SLOT<b>0{n + 1}</b></span>
-      <span class="slot-nm"><b>{E(nm)}</b><small>{E(t)}</small></span>
-      <span class="slot-meta"><span>{E(where)}</span><span>{E(lv)}</span></span>
+      <span class="slot-nm"><b>{E(nm)}</b><small>{E(where)}</small></span>
+      <span class="slot-meta"><span>{E(lv)}</span></span>
       <span class="slot-go">{PLAY}<span>시작</span></span>
-    </a>''' for n, (k, nm, b, where, lv, t) in enumerate(slots))
+    </a>''' for n, (k, nm, b, where, lv) in enumerate(slots))
 
     s = head("home.html", TITLE, body="home")
     s += f'''<section class="scene title">
   <div class="bg drift">{img(bgd("RI"), "리아텔의 들판과 마을", lazy=False)}</div><div class="shade"></div>
   <div class="title-in">
-    <p class="lbl">FULL DIVE · VRMMO · 벨라트 서버</p>
-    <h1 class="ttl xl"><span class="ln">죽어도</span><span class="ln">돌아온다<em>.</em></span></h1>
-    <p class="title-sub">당신은 이방인. 죽으면 레벨이 깎이고, 귀환석에서 다시 눈을 뜬다. 원주민은? <b>한 번이면 끝.</b></p>
-    <div class="btns">{cta()}<a class="btn ghost" href="world.html"><span>대륙 둘러보기</span></a></div>
+    <h1 class="tlogo"><span>FULL DIVE</span><b>ILEON</b><small>일레온</small></h1>
+    <nav aria-label="타이틀 메뉴"><ul class="tmenu">{tmenu}</ul></nav>
   </div>
   <aside class="unit pnl" aria-label="플레이어 상태">
     <div class="pnl-h"><span>PLAYER</span><span>이방인</span></div>
     <div class="pnl-b">
       <div class="unit-top"><b>당신</b><span>Lv<em>1</em></span></div>
       <div class="bar hp"><i></i><span>HP</span></div>
-      <dl class="data mini"><div><dt>직업</dt><dd>무직</dd></div><div><dt>위치</dt><dd>리아텔 · 귀환석 광장</dd></div><div><dt>사망</dt><dd>0회 <small>몇 번이든 돌아온다</small></dd></div></dl>
+      <dl class="data mini"><div><dt>직업</dt><dd>무직</dd></div><div><dt>위치</dt><dd>리아텔 · 귀환석 광장</dd></div></dl>
     </div>
   </aside>
   <div class="chat" aria-label="월드 채팅">
     <div class="chat-h"><span class="on">전체</span><span>월드</span><span>히든</span><span>정세</span></div>
     <ul class="chat-b">{chat}</ul>
   </div>
-  <a class="scroll-hint" href="#death"><span>SCROLL</span><i></i></a>
+  <a class="scroll-hint" href="#regions"><span>SCROLL</span><i></i></a>
 </section>
 
-<section class="scene death" id="death" data-death>
-  <div class="bg">{img(bgd("B"), "불타는 전장")}</div><div class="shade"></div>
-  <div class="death-in">
-    <p class="lbl">SYSTEM</p>
-    <h2 class="death-t">사망했습니다</h2>
-    <p class="death-s"><span class="pen">레벨 하락</span><span class="cd">강제 로그아웃까지 <b data-cd>3</b></span></p>
-    <p class="death-r">포드 밖으로 튕겨 나옵니다. 다음 접속은 귀환석에서.</p>
-  </div>
-  <div class="death-vs">
-    <div><i>PLAYER</i><b>이방인</b><p>죽으면 레벨이 깎이고, 돌아온다. 몇 번이든.</p></div>
-    <div class="native"><i>NATIVE</i><b>원주민</b><p>이 화면이 없다. 한 번이면 끝.</p></div>
-  </div>
-  <blockquote class="death-q" data-rv><p>“죽어도 돌아오는 자에게 검을 가르치는 건, 삽을 쥐여주는 것과 다르지 않다.”</p><footer><a href="char/bernhardt.html">베른하르트 콜</a> · 카르시온 검술 교관</footer></blockquote>
+<section class="scene regions" id="regions">
+  <div class="rg-h"><p class="lbl">WORLD · 벨라트 대륙</p><a class="more" href="world.html">지역 이동 {ARROW}</a></div>
+  <div class="rgs">{regions}</div>
 </section>
 
 <section class="scene clocks">
@@ -288,8 +281,6 @@ def build_home():
     <div class="half-in">
       <p class="lbl">REAL · 2047 대한민국</p>
       <b class="big-clk" data-clock="real-s">--:--:--</b>
-      <h2>몸은 여기, 포드 안에.</h2>
-      <p>월정액, 포드 할부, 정비비. 로그아웃하면 저린 다리랑 커뮤 여론이 기다린다.</p>
     </div>
   </div>
   <div class="seam" aria-hidden="true"><b>×4</b></div>
@@ -298,64 +289,33 @@ def build_home():
     <div class="half-in">
       <p class="lbl">BELAT · 여명기 이후 800년</p>
       <b class="big-clk" data-clock="belat-s">--:--:--</b>
-      <h2>나는 저기, 대륙 위에.</h2>
-      <p>꺼 둔 사이에도 대륙은 굴러간다. 현실 여섯 시간이 여기선 하루.</p>
     </div>
-  </div>
-</section>
-
-<section class="scene hidden-cls" data-jobs>
-  <div class="bg">{img(bgd("BS"), "균열 보스룸")}</div><div class="shade"></div>
-  <div class="hc-art">{img(smp("E"), "무명")}</div>
-  <div class="hc-in">
-    {lbl("HIDDEN CLASS")}
-    <h2 class="ttl" data-rv>한 짓이<br>직업이 된다.</h2>
-    <p class="body" data-rv>뭘 반복했는지, 어디 오래 머물렀는지, 누구랑 엮였는지. 시스템이 그걸 읽고 당신 하나만을 위한 직업을 만든다. 조건? 아무도 모른다.</p>
-    <div class="zero" data-rv><b>0</b><span>신화 등급 보유자<br>서비스 이래 지금까지</span></div>
-  </div>
-  <div class="sysmodal pnl" role="group" aria-label="히든직 발현 알림">
-    <div class="pnl-h"><span>SYSTEM · 알림</span><span data-pager>1 / {len(HIDDEN)}</span></div>
-    <div class="pnl-b">
-      <p class="sm-m">새 직업이 발현되었습니다.</p>
-      {jobs}
-      <div class="sm-f"><span class="dots">{"".join(f"<i{' class=on' if k == 0 else ''}></i>" for k in range(len(HIDDEN)))}</span><button type="button" class="btn sm" data-next><span>다음</span></button></div>
-    </div>
-  </div>
-</section>
-
-<section class="scene event" data-event>
-  <div class="bg">{img(bgd("RU"), "폐허")}</div><div class="shade"></div>
-  <div class="alert" aria-hidden="true"><div class="alert-t">{"".join(f"<span>{WARN} 대륙 공지</span><span>사변 발생</span><span>징집령</span><span>통행 봉쇄</span>" for _ in range(4))}</div></div>
-  <div class="ev-in">
-    {lbl("WORLD EVENT · 사변")}
-    <h2 class="ttl" data-rv>일어난 일이<br><span>곧 이야기.</span></h2>
-    <p class="body" data-rv>메인 스토리도 결말도 없다. 대륙 어딘가는 늘 끓고, 터지면 사변. 무너진 마을은 폐허로 남고, 죽은 원주민은 돌아오지 않는다.</p>
-  </div>
-  <div class="tracker pnl">
-    <div class="pnl-h"><span>사변 진행</span><span>되돌릴 수 없음</span></div>
-    <div class="pnl-b"><ol class="stages">{stages}</ol><div class="stage-tx">{stage_tx}</div></div>
   </div>
 </section>
 
 <section class="scene cast">
-  <div class="cast-h">
-    {lbl("CHARACTER")}
-    <h2 class="ttl" data-rv>기다려 주지 않는<br>열다섯.</h2>
-    <a class="more" href="characters.html" data-rv>캐릭터 선택 화면 {ARROW}</a>
-  </div>
+  <div class="cast-h"><p class="lbl">CHARACTER · 15</p><a class="more" href="characters.html">캐릭터 선택 {ARROW}</a></div>
   <div class="slant">{slant}</div>
-  <div class="npcs"><span class="npcs-l">원주민 10</span>{faces}</div>
+  <div class="npcs">{faces}</div>
+</section>
+
+<section class="scene reward" data-jobs>
+  <div class="bg">{img(bgd("BS"), "균열 보스룸")}</div><div class="shade"></div>
+  <div class="hc-art">{img(smp("E"), "무명")}</div>
+  <div class="reward-in">
+    <p class="sm-m"><span>SYSTEM</span>새 직업이 발현되었습니다.</p>
+    {jobs}
+    <div class="sm-f"><span class="dots">{"".join(f"<i{' class=on' if k == 0 else ''}></i>" for k in range(len(HIDDEN)))}</span><button type="button" class="btn sm ghost" data-next><span>다음</span></button><span class="pager" data-pager>1 / {len(HIDDEN)}</span></div>
+  </div>
+  <div class="zero"><span>HIDDEN · 신화</span><b>0</b></div>
 </section>
 
 <section class="scene newgame">
-  <div class="ng-h">
-    {lbl("NEW GAME")}
-    <h2 class="ttl" data-rv>어디서<br>눈을 뜰래?</h2>
-  </div>
+  <div class="ng-h"><p class="lbl">NEW GAME</p></div>
   <div class="slots">{slot_html}</div>
 </section>
 '''
-    s += logout_scene()
+    s += logout_scene("CT")
     s += foot()
     write("home.html", s)
 
@@ -387,7 +347,6 @@ def build_world():
   <div class="tv-head">
     <p class="lbl">WORLD MAP · 지역 이동</p>
     <h1 class="ttl">벨라트 대륙</h1>
-    <p class="body">고대 마법 문명이 무너진 지 800년. 새 마법은 없다. 다들 유적에서 파낸 옛것을 고쳐 쓰는 중.</p>
   </div>
   <ol class="tv-list" aria-label="지역">{lst}</ol>
   <div class="tv-panel pnl">
@@ -399,12 +358,11 @@ def build_world():
 <section class="board">
   <div class="board-h">
     {lbl("FAULT LINES · 대륙 정세")}
-    <h2 class="ttl" data-rv>전쟁의 씨앗,<br>여덟 줄.</h2>
-    <p class="body" data-rv>끓다가 터지면 사변. 운영사는 사변을 직접 안 쓴다는데, 커뮤는 터질 때마다 "이거 운영 각본 아님?"으로 한바탕 싸운다.</p>
+    <h2 class="ttl" data-rv>대륙 정세</h2>
   </div>
   <ol class="faults">{faults}</ol>
   <div class="threats-wrap">
-    <h3 class="sub-t" data-rv>사람 바깥에서 오는 것들</h3>
+    <h3 class="sub-t" data-rv>침공</h3>
     <ul class="threats">{threats}</ul>
   </div>
 </section>
@@ -413,9 +371,7 @@ def build_world():
   <div class="bg">{img(smp("N"), "카시엘")}</div><div class="shade"></div>
   <div class="halak-in">
     {lbl("HALAK · 할라크족")}
-    <h2 class="ttl" data-rv>이방인을 <span>재앙</span>이라<br>부르는 자들.</h2>
-    <p class="body" data-rv>고대 흑룡의 피를 이은 장수 종족. 검은 굽은 뿔에 금빛 눈, 수백 년을 산다. 라흐나 침강지 가장자리 고지대가 터전이고, 인간 왕국보다 먼저 이 땅에 있었다는 자부심이 세다.</p>
-    <p class="body" data-rv>군세 칼데스를 이끄는 카시엘의 목표는 하나. 이방인을 대륙에서 몰아내는 것. 죽어도 돌아오는 자들이 매주 봉인지를 들쑤시고, 그럴수록 봉인이 얇아진다는 계산이다. 숨기지도 않는다.</p>
+    <h2 class="ttl" data-rv>할라크족<br><span>칼데스</span></h2>
     <a class="more" href="char/kasiel.html" data-rv>카시엘 · Lv88 {ARROW}</a>
   </div>
 </section>
@@ -423,8 +379,7 @@ def build_world():
 <section class="faith">
   <div class="faith-h">
     {lbl("FAITH · 신앙")}
-    <h2 class="ttl" data-rv>신은 침묵하지 않는다.</h2>
-    <p class="body" data-rv>직접 내려오지도 않지만. 신탁도 축복도 꼭 신관을 거친다. 한 신전에서 신뢰를 얻으면, 다른 신전에선 찬밥이 되기도 하고.</p>
+    <h2 class="ttl" data-rv>여섯 신</h2>
   </div>
   <ol class="banners">{gods}</ol>
 </section>
@@ -433,8 +388,7 @@ def build_world():
   <div class="bg">{img(bgd("OW"), "이계")}</div><div class="shade"></div>
   <div class="beyond-in">
     {lbl("BEYOND · 이계")}
-    <h2 class="ttl" data-rv>균열 너머.</h2>
-    <p class="body" data-rv>예고 없이 열렸다 닫히는 균열. 깊은 데로 들어가면 대륙 밖 다른 세계가 이어져 있다. 마계니 천계니 하는 구분은 없다. 그냥 이계. 가장 어려운 무대.</p>
+    <h2 class="ttl" data-rv>이계</h2>
   </div>
 </section>
 '''
@@ -473,7 +427,6 @@ def build_characters():
         <button type="button" role="tab" aria-selected="false" data-f="npc">원주민 {len(C) - len(players)}</button>
       </div>
       <ol class="roster">{roster}</ol>
-      <p class="sel-note">원주민은 함께 다니길 망설인다. <q>넌 언젠가 안 돌아올 거잖아.</q></p>
     </div>
   </div>
   <div class="sel-info" aria-live="polite">
@@ -557,22 +510,21 @@ def build_system():
     s = head("system.html", "체계", body="paper")
 
     def ch(n, k, title, sub):
-        return f'<header class="ch-h" id="{k}"><span class="ch-n" aria-hidden="true">{n}</span><div><p class="ch-k">제{n}장</p><h2>{title}</h2><p class="ch-sub">{sub}</p></div></header>'
+        return f'<header class="ch-h" id="{k}"><span class="ch-n" aria-hidden="true">{n}</span><div><p class="ch-k">제{n}장</p><h2>{title}</h2></div></header>'
 
     s += f'''<article class="book">
 <section class="b-cover">
   <div class="b-cover-img">{img(bgd("TR"), "훈련장", lazy=False)}</div>
   <div class="b-cover-tx">
     <p class="b-k">이방인을 위한 규칙서 · 벨라트 서버</p>
-    <h1>느리게<br>오른다.</h1>
-    <p class="b-lead">서버 1위가 Lv64. 대부분은 Lv15 언저리에서 접는다. 스탯은 힘, 민첩, 지구력, 감각. 포인트 찍는 거 없다. <b>반복한 만큼 오른다.</b></p>
+    <h1>규칙서</h1>
   </div>
   <nav class="b-toc" aria-label="차례"><p>차례</p><ol>{toc}</ol></nav>
   <span class="stamp">Lv64<small>현재 정점</small></span>
 </section>
 
 <section class="b-ch">
-  {ch(1, "level", "Lv1에서 Lv64까지", "이방인 기준 얘기. 원주민 강자들은 이 상한 밖에 있다. 기사단장, 공작가, 할라크족 장로는 Lv70에서 90대. 랭킹 1위도 그 앞에선 아래.")}
+  {ch(1, "level", "레벨", "이방인 기준 얘기. 원주민 강자들은 이 상한 밖에 있다. 기사단장, 공작가, 할라크족 장로는 Lv70에서 90대. 랭킹 1위도 그 앞에선 아래.")}
   <div class="ladder" data-rv>
     <div class="lad-bar"><span style="--w:15">1-15</span><span class="gap" style="--w:5"></span><span style="--w:15">20-35</span><span class="gap" style="--w:5"></span><span style="--w:10">40-50</span><span style="--w:9">55+</span><span class="peak" style="--w:5">64</span></div>
     <ol>
@@ -586,7 +538,7 @@ def build_system():
 </section>
 
 <section class="b-ch">
-  {ch(2, "class", "전직은 세 번, 그리고 히든", "정규직은 뼈대만 있다. 이름도 조건도 다 공개돼서, 공략만 보면 누구나 밟아 올라간다.")}
+  {ch(2, "class", "전직", "정규직은 뼈대만 있다. 이름도 조건도 다 공개돼서, 공략만 보면 누구나 밟아 올라간다.")}
   <table class="tbl" data-rv>
     <thead><tr><th>차수</th><th>조건</th><th>등급</th><th>메모</th></tr></thead>
     <tbody>{"".join(f'<tr{" class=hid" if a == "히든" else ""}><th>{E(a)}</th><td>{E(b)}</td><td>{E(g)}</td><td>{E(t)}</td></tr>' for a, b, g, t in tiers)}</tbody>
@@ -598,7 +550,7 @@ def build_system():
 </section>
 
 <section class="b-ch inv">
-  {ch(3, "hidden", "이 게임의 간판, 히든직", "시스템이 행적을 읽고 그 사람만의 직업을 만든다. 같은 이름은 둘이 못 가진다. 서버 로그엔 직업명만 뜨니까, 하나 나올 때마다 커뮤는 조건을 추측하고, 대개 틀린다.")}
+  {ch(3, "hidden", "히든직", "시스템이 행적을 읽고 그 사람만의 직업을 만든다. 같은 이름은 둘이 못 가진다. 서버 로그엔 직업명만 뜨니까, 하나 나올 때마다 커뮤는 조건을 추측하고, 대개 틀린다.")}
   <dl class="entries">{"".join(f'<div data-rv><dt><b>{E(n)}</b><span>{E(g)}</span></dt><dd>{E(t)}{f" <em>보유 · {E(w)}</em>" if w else ""}</dd></div>' for n, g, t, w in HIDDEN)}</dl>
   <div class="grades" data-rv>
     <ol>{"".join(f"<li>{g}</li>" for g in GRADES)}</ol>
@@ -608,7 +560,7 @@ def build_system():
 </section>
 
 <section class="b-ch">
-  {ch(4, "top", "서버 꼭대기의 다섯", "3차 전직자, 서버 전체에 다섯. 나머지 넷은 서버 로그와 커뮤 소문으로만 오르내린다.")}
+  {ch(4, "top", "3차 전직자", "3차 전직자, 서버 전체에 다섯. 나머지 넷은 서버 로그와 커뮤 소문으로만 오르내린다.")}
   <table class="tbl rank" data-rv>
     <thead><tr><th>#</th><th>이름</th><th>레벨</th><th>직업</th><th>메모</th></tr></thead>
     <tbody>{"".join(f'<tr><td class="r">{k + 1}</td><th>{E(n)}</th><td>Lv{lv}</td><td>{E(j)}</td><td>{E(t)}</td></tr>' for k, (n, a, sx, lv, j, t) in enumerate(THIRD))}</tbody>
@@ -616,7 +568,7 @@ def build_system():
 </section>
 
 <section class="b-ch">
-  {ch(5, "dungeon", "소굴에서 이계까지", "필드보스는 나오는 시각이 대충 알려져 있어서, 길드들이 시간 맞춰 몰려든다. 네임드는 일반 몬스터 자리에 아주 가끔. 그건 순전히 운.")}
+  {ch(5, "dungeon", "던전", "필드보스는 나오는 시각이 대충 알려져 있어서, 길드들이 시간 맞춰 몰려든다. 네임드는 일반 몬스터 자리에 아주 가끔. 그건 순전히 운.")}
   <table class="tbl" data-rv>
     <thead><tr><th>종류</th><th>인원 · 주기</th><th>메모</th></tr></thead>
     <tbody>
@@ -630,21 +582,19 @@ def build_system():
 </section>
 
 <section class="b-ch">
-  {ch(6, "incident", "사변은 이렇게 흘러간다", "일정은 없다. 결과는 영구히 남고, 큰 사변엔 결정적 역할을 한 이방인 이름이 같이 기록된다.")}
+  {ch(6, "incident", "사변", "일정은 없다. 결과는 영구히 남고, 큰 사변엔 결정적 역할을 한 이방인 이름이 같이 기록된다.")}
   <ol class="flow" data-rv>{"".join(f'<li><span>{k + 1}</span><b>{n}</b><p>{E(t)}</p></li>' for k, (n, t) in enumerate(INCIDENT_FLOW))}</ol>
-  <div class="cols2">
+  <div class="cols2 one">
     <div data-rv><h3>규모</h3><dl class="scale">{"".join(f"<div><dt>{n}</dt><dd>{E(t)}</dd></div>" for n, t in INCIDENT_SCALE)}</dl></div>
-    <div data-rv><h3>참여</h3><p>참여는 자유. 용병 계약, 징집, 약탈, 밀수, 피난민 호송, 아예 빠지기까지. 그리고 당신이 사변을 부르기도 한다. 봉인지를 무리하게 돌면 범람이 가까워지고, 숲에서 나무를 베면 아엘린이 날을 세운다.</p></div>
   </div>
 </section>
 
 <section class="b-ch">
-  {ch(7, "quest", "미리 정해진 퀘스트는 없다", "정세와 사변, 사람의 사정에서 생겨난다. 의뢰자는 자기 이익이 먼저라 보상을 깎고, 정보를 빼고, 등을 돌리기도 한다. 어떻게 푸느냐에 따라 결과가 갈리고, 그 결과가 다음 정세가 된다.")}
+  {ch(7, "quest", "퀘스트", "정세와 사변, 사람의 사정에서 생겨난다. 의뢰자는 자기 이익이 먼저라 보상을 깎고, 정보를 빼고, 등을 돌리기도 한다. 어떻게 푸느냐에 따라 결과가 갈리고, 그 결과가 다음 정세가 된다.")}
   <div class="cols2 q">
     <dl class="qk" data-rv>{"".join(f"<div><dt>{E(a)}</dt><dd>{E(b)}</dd></div>" for a, b in QUEST_KINDS)}</dl>
     <div class="qcard" data-rv><p class="qc-k">예시</p><p class="q">퀘스트 : 견습 기사의 안내</p><p>유안을 따라 수비대 훈련장에서 기본 무기를 받고, 옛 수로의 큰쥐 5마리를 처치한다.</p><p class="rw">보상 · 초심자 무기, 20골드</p><p class="opt">수락 | 거절</p></div>
   </div>
-  <p class="b-end">규칙서 끝. 나머지는 대륙에서.</p>
 </section>
 </article>
 '''
@@ -667,45 +617,41 @@ def build_reality():
 <section class="lock">
   <p class="lock-date" data-clock="date-long">2047년</p>
   <b class="lock-time" data-clock="real">--:--</b>
-  <h1 class="lock-t">2047, 대한민국.<br><span>몸은 여기, 포드 안에.</span></h1>
+  <h1 class="lock-t">2047, 대한민국</h1>
   <ul class="notis">
     <li data-rv><span class="app pod">P</span><div><b>다이브포드</b><p>정비 기한을 넘기면 감각이 한 박자씩 늦게 따라옵니다.</p></div><time>지금</time></li>
     <li data-rv><span class="app pay">₩</span><div><b>자동 결제</b><p>월정액, 포드 할부, 전기세, 정비비가 이번 달에도 빠져나갑니다.</p></div><time>오늘</time></li>
     <li data-rv><span class="app com">C</span><div><b>커뮤</b><p>새 히든직이 서버 로그에 떴습니다. 조건 추측 글이 올라오는 중.</p></div><time>방금</time></li>
   </ul>
-  <p class="lock-sub">무대는 대륙만이 아니다. 결판이 나는 곳은 아니지만, 정산하고 다음을 준비하는 곳.</p>
 </section>
 
 <section class="apps">
   <div class="apps-h">
     <p class="lbl">DIVE POD</p>
-    <h2>누우면 열린다.</h2>
-    <p>풀수면 VR, 다이브포드. 머리 받침이 천천히 내려오고, 시야가 어두워지고, 귓가에 익숙한 안내음.</p>
+    <h2>다이브포드</h2>
   </div>
   <div class="cards">
     <article class="card wide" data-rv>
       <p class="c-k">포드 등급</p>
       <div class="tiers"><span>보급형</span><i></i><span>프로용</span></div>
       <div class="tier-ex"><span><b>울산강펀치</b> 보급형 최저가</span><span><b>무명</b> PK로 번 돈으로 산 프로용</span></div>
-      <p>등급이 가르는 건 감각 해상도, 반응 속도, 접속 한계.</p>
     </article>
-    <article class="card" data-rv><p class="c-k">포드방</p><b class="c-b">집에 없어도 된다.</b><p>공용 포드방이 있으니까.</p></article>
-    <article class="card warn" data-rv><p class="c-k">정비</p><b class="c-b">기한 확인 필요</b><p>넘기면 감각이 한 박자씩 늦게 따라온다.</p></article>
+    <article class="card" data-rv><p class="c-k">포드방</p><b class="c-b">공용</b></article>
+    <article class="card warn" data-rv><p class="c-k">정비</p><b class="c-b">기한 확인 필요</b></article>
     <article class="card" data-rv>
       <p class="c-k">로그아웃 직후</p>
       <ul class="cond"><li>목이 마르다</li><li>다리가 저리다</li><li>시간 감각이 어긋난다</li></ul>
-      <p>오래 있을수록 컨디션은 떨어지고, 자고 먹어야 돌아온다.</p>
+      
     </article>
     <article class="card wallet" data-rv>
       <p class="c-k">지갑</p>
       <ul class="bills"><li>월정액<span>자동 결제</span></li><li>포드 할부<span>자동 결제</span></li><li>전기세<span>자동 결제</span></li><li>정비비<span>자동 결제</span></li></ul>
       <div class="xchg"><span>골드</span><i>→</i><span>원</span><small>수수료 있음 · 출금 느림</small></div>
-      <p>그래도 이걸로 먹고사는 사람이 있다.</p>
     </article>
     <article class="card acct" data-rv>
       <p class="c-k">계정</p>
       <div class="slot1"><b>캐릭터 슬롯</b><span>1 / 1</span></div>
-      <p>부계정 없음. 새로 하려면 지금 캐릭터를 지워야 한다. 그래서 커뮤에서 "캐삭"은 사건이 된다. 핵이나 매크로? 존재하지 않는다.</p>
+      <ul class="cond"><li>부계정 없음</li><li>핵·매크로 없음</li></ul>
       <button type="button" class="danger" disabled>캐릭터 삭제</button>
     </article>
     <article class="card info-c" data-rv>
@@ -722,8 +668,7 @@ def build_reality():
 <section class="feed">
   <div class="apps-h">
     <p class="lbl">COMMUNITY</p>
-    <h2>커뮤는 늘 반 박자 늦고,<br>절반은 틀린다.</h2>
-    <p>커뮤, 공략 위키, 스트림챗, 기사. 여론은 쉬지 않고 돌고, 반드시 뭔가를 바꾼다. 사냥 효율이 떨어지거나, 시세가 뛰거나, 파티 구하기가 어려워지거나.</p>
+    <h2>커뮤</h2>
   </div>
   <ol class="posts">
     <li data-rv><span class="tag">감지</span><p>누가 뭔가를 봤다. 목격담 한 줄.</p></li>
@@ -736,8 +681,7 @@ def build_reality():
 <section class="contacts">
   <div class="apps-h">
     <p class="lbl">CONTACTS</p>
-    <h2>닉네임 아래의 사람들.</h2>
-    <p>이방인 다섯의 현실. 올리면 게임 속 모습.</p>
+    <h2>연락처</h2>
   </div>
   <div class="cts">{contacts}</div>
 </section>
@@ -766,7 +710,6 @@ def build_start():
       <div class="rp-meta">
         <p class="lbl">SLOT 0{k + 1}</p>
         <h2 class="ttl">{E(name)}</h2>
-        <p class="body">{E(desc)}</p>
         {rows([("시작 지점", E(where)), ("시작 상태", E(lv))])}
         {cta()}
       </div>
@@ -781,8 +724,7 @@ def build_start():
   <div class="bg">{img(bgd("CP"), "", lazy=False)}</div><div class="shade"></div>
   <div class="ng-top">
     <p class="lbl">NEW GAME · 시작 모드 선택</p>
-    <h1 class="ttl">어디서 눈을 뜰래?</h1>
-    <p class="body">시작 모드는 셋. 슬롯을 고르면 그 모드의 실제 첫 장면이 열린다. 응답마다 배경 한 장과 함께, 이런 식으로 이어진다.</p>
+    <h1 class="ttl">새 게임</h1>
   </div>
   <div class="slots" role="tablist" aria-label="시작 모드">{slots}</div>
 </section>
@@ -791,7 +733,7 @@ def build_start():
 <section class="controls">
   <div class="ctl-h">
     <p class="lbl">KEY GUIDE · 조작</p>
-    <h2 class="ttl">이렇게 논다.</h2>
+    <h2 class="ttl">조작</h2>
   </div>
   <div class="ctl-grid">
     {"".join(f'<div class="ctl" data-rv><kbd class="cap">{a}</kbd><b>{b}</b><p>{c}</p></div>' for a, b, c in keys)}

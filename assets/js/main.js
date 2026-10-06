@@ -91,21 +91,6 @@
     li.classList.remove('new'); chat.appendChild(li); void li.offsetWidth; li.classList.add('new');
   }, 2600);
 
-  /* ── 홈: 사망 화면 ── */
-  var death = $('[data-death]');
-  if (death) {
-    var cd = $('[data-cd]', death), dt = [];
-    function clearD() { dt.forEach(clearTimeout); dt = []; }
-    function runDeath() {
-      clearD(); death.classList.remove('done'); cd.textContent = '3';
-      requestAnimationFrame(function () { death.classList.add('on'); });
-      if (reduce) { cd.textContent = '0'; death.classList.add('done'); return; }
-      [2, 1, 0].forEach(function (n, k) { dt.push(setTimeout(function () { cd.textContent = n; if (!n) death.classList.add('done'); }, 1600 + k * 1000)); });
-      dt.push(setTimeout(function () { death.classList.remove('on', 'done'); dt.push(setTimeout(runDeath, 1400)); }, 9000));
-    }
-    whileVisible(death, runDeath, function () { clearD(); death.classList.remove('on', 'done'); }, .35);
-  }
-
   /* ── 홈: 히든직 알림 ── */
   var jobsBox = $('[data-jobs]');
   if (jobsBox) {
@@ -119,26 +104,7 @@
     }
     function auto() { clearInterval(jt); if (!reduce) jt = setInterval(function () { showJob(ji + 1); }, 4800); }
     $('[data-next]', jobsBox).addEventListener('click', function () { showJob(ji + 1); auto(); });
-    whileVisible(jobsBox, function () { showJob(ji); auto(); }, function () { clearInterval(jt); });
-  }
-
-  /* ── 홈: 사변 진행 ── */
-  var ev = $('[data-event]');
-  if (ev) {
-    var sb = $$('.stages button', ev), stx = $$('.stage-tx p', ev), si = 0, st = 0;
-    function stage(n, run) {
-      si = n; clearTimeout(st);
-      sb.forEach(function (b, k) {
-        b.toggleAttribute('aria-current', k === si);
-        b.classList.toggle('done', k < si);
-        var f = $('.fill', b); f.style.animation = 'none'; void f.offsetWidth; f.style.animation = '';
-      });
-      stx.forEach(function (p, k) { p.hidden = k !== si; });
-      if (run && !reduce) st = setTimeout(function () { stage((si + 1) % sb.length, true); }, 4600);
-    }
-    $('.stages', ev).classList.toggle('paused', reduce);
-    sb.forEach(function (b, k) { b.addEventListener('click', function () { stage(k, true); }); });
-    whileVisible(ev, function () { stage(si, true); }, function () { clearTimeout(st); });
+    whileVisible(jobsBox, function () { showJob(ji); auto(); }, function () { clearInterval(jt); }, .3);
   }
 
   /* ── 표지: 로딩 → 접속 ── */
