@@ -151,7 +151,8 @@ def render_prologue(fname):
             while i < len(lines) and not lines[i].startswith("```"):
                 buf.append(lines[i]); i += 1
             i += 1
-            out.append(f'<pre class="info">{E(chr(10).join(buf))}</pre>')
+            body = re.sub(r"^(\[[^\]]+\])", r'<span class="k">\1</span>', E(chr(10).join(buf)), flags=re.M)
+            out.append(f'<div class="status"><p class="status-h"><span>STATUS</span><span>상태창</span></p><pre class="info">{body}</pre></div>')
             continue
         m = re.match(r"!\[\]\((.+)\)", ln)
         if m:
@@ -177,6 +178,21 @@ def render_prologue(fname):
 
 
 # ═════════════ 표지: 로딩 화면 ═════════════
+RING = '''<svg viewBox="0 0 600 600" fill="none" aria-hidden="true">
+  <g class="r1"><circle cx="300" cy="300" r="292" stroke="currentColor" stroke-opacity=".18"/>
+    <circle cx="300" cy="300" r="292" stroke="currentColor" stroke-opacity=".7" stroke-width="2" stroke-dasharray="1 11"/>
+    <path d="M300 8a292 292 0 0 1 206 85" stroke="var(--sig)" stroke-width="3"/></g>
+  <g class="r2"><circle cx="300" cy="300" r="250" stroke="currentColor" stroke-opacity=".4" stroke-width="10" stroke-dasharray="2 6"/>
+    <path d="M50 300a250 250 0 0 1 250-250" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M550 300a250 250 0 0 1-250 250" stroke="currentColor" stroke-width="2.5"/></g>
+  <g class="r3"><circle cx="300" cy="300" r="214" stroke="currentColor" stroke-opacity=".22"/>
+    <path d="M300 86a214 214 0 0 1 151 63M149 451A214 214 0 0 1 86 300" stroke="currentColor" stroke-opacity=".85" stroke-width="5"/>
+    <circle cx="300" cy="86" r="5" fill="currentColor"/><circle cx="300" cy="514" r="5" fill="var(--sig)"/></g>
+  <g class="r4"><circle cx="300" cy="300" r="186" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="40 8 4 8"/></g>
+  <path d="M300 0v26M300 574v26M0 300h26M574 300h26" stroke="currentColor" stroke-opacity=".6" stroke-width="2"/>
+</svg>'''
+
+
 def build_cover():
     logs = ["다이브포드 연결", "머리 받침 고정", "감각 해상도 확인", "벨라트 서버 응답", "접속 위치 · 리아텔 귀환석 광장"]
     s = f'''<!doctype html>
@@ -198,6 +214,9 @@ def build_cover():
 <main class="cover" data-cover>
   <div class="bg">{img(bgd("P"), "", lazy=False)}</div><div class="shade"></div>
   <div class="cv-top"><span>FULL DIVE · VRMMO</span><span>2047 · 대한민국</span></div>
+  <div class="cv-ring">{RING}</div>
+  <div class="cv-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="cv-read" aria-hidden="true"><span>SYNC <b data-pct2>0</b>%</span><span>SENSE RES · HIGH</span><span>SERVER · BELAT</span></div>
   <div class="cv-mid">
     <h1 class="cv-logo"><span>FULL DIVE</span><b>ILEON</b></h1>
     <p class="cv-kr">일레온 · 행적을 읽는 세계</p>

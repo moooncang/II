@@ -114,7 +114,7 @@
     var t0 = performance.now(), dur = reduce ? 1 : 2400, ready = false;
     (function load(t) {
       var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 2.2);
-      bar.style.setProperty('--p', e); pct.textContent = Math.round(e * 100);
+      bar.style.setProperty('--p', e); pct.textContent = Math.round(e * 100); var p2 = $('[data-pct2]', cover); if (p2) p2.textContent = Math.round(e * 100);
       logs.forEach(function (li, k) { if (e > (k + .6) / logs.length) li.classList.add('on'); });
       if (p < 1) requestAnimationFrame(load); else { ready = true; cover.classList.add('ready'); }
     })(t0);
