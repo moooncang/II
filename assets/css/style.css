@@ -957,3 +957,26 @@ html{overflow-x:hidden;overflow-x:clip}
   .cw-f input{font-size:16px}
 }
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 홈 인물: 이방인 5 + 원주민 10 두 줄 */
+.slant-l{padding:0 calc(var(--gut) + 40px);margin:34px 0 -24px;font:700 12px var(--f-c);letter-spacing:.24em;color:var(--fg-3)}
+.slant-l b{font:italic 900 18px var(--f-c);color:var(--fg);margin-left:6px;letter-spacing:0}
+.slant.sub{height:clamp(220px,30vh,320px);gap:6px}
+.slant.sub .sl-tx{padding:0 14px 14px 22px}
+.slant.sub .sl-tx b{font-size:clamp(15px,1.25vw,20px)}
+.slant.sub .sl-tx small{opacity:0;transition:opacity .25s}
+.slant.sub .sl:hover .sl-tx small,.slant.sub .sl:focus-visible .sl-tx small{opacity:1}
+.slant.sub .sl-img img{filter:saturate(.6) brightness(.6)}
+.slant.sub .sl:hover .sl-img img{filter:none}
+.slant .sl{animation:sl-in .8s var(--ease) both;animation-delay:calc(var(--i) * 50ms)}
+@keyframes sl-in{from{opacity:0;clip-path:inset(100% 0 0 0)}}
+@media (max-width:860px){
+  .slant-l{padding:0 var(--gut);margin:26px 0 -28px}
+  .slant.sub{flex-direction:row;height:auto;overflow-x:auto;gap:6px;padding:0 var(--gut) 4px;scroll-snap-type:x mandatory;scrollbar-width:none;touch-action:pan-x pan-y}
+  .slant.sub::-webkit-scrollbar{display:none}
+  .slant.sub .sl{flex:none;width:132px;height:184px;scroll-snap-align:start}
+  .slant.sub .sl-tx{padding:0 10px 10px}
+  .slant.sub .sl-tx small{opacity:1;white-space:normal;line-height:1.3}
+}
+@media (prefers-reduced-motion:reduce){.slant .sl{animation:none}}
+.cast .slant:not(.sub){height:clamp(300px,42vh,520px)}@media (max-width:860px){.cast .slant:not(.sub){height:auto}}

@@ -280,7 +280,10 @@ def build_home():
       <span class="sl-img">{img(smp(c["code"]), c["name"])}</span>
       <span class="sl-tx"><i>P{k + 1}</i><b>{E(c["name"])}</b><small>Lv{c["lv"]} · {E(c["job"].split("(")[0])}</small></span>
     </a>''' for k, c in enumerate(players))
-    faces = "".join(f'<a href="char/{c["slug"]}.html">{img(smp(c["code"]), c["name"])}<span>{E(c["name"])}</span></a>' for c in npcs)
+    faces = "".join(f'''<a class="sl" href="char/{c["slug"]}.html" style="--i:{k}">
+      <span class="sl-img">{img(smp(c["code"]), c["name"])}</span>
+      <span class="sl-tx"><i>N{k + 1}</i><b>{E(c["name"])}</b><small>Lv{c["lv"]} · {E(c["job"])}</small></span>
+    </a>''' for k, c in enumerate(npcs))
     slots = [("newbie", "뉴비", "RI", "리아텔 · 귀환석 광장", "Lv1 · 무직"),
              ("myth", "신화직업", "BS", "잿빛 회랑 · 균열 보스룸", "Lv1 · 신화"),
              ("free", "자유모드", "H", "현실 · 원룸", "제한 없음")]
@@ -338,8 +341,10 @@ def build_home():
 
 <section class="scene cast">
   <div class="cast-h"><p class="lbl">CHARACTER · 15</p><a class="more" href="characters.html">캐릭터 선택 {ARROW}</a></div>
+  <p class="slant-l">이방인 <b>5</b></p>
   <div class="slant">{slant}</div>
-  <div class="npcs">{faces}</div>
+  <p class="slant-l">원주민 <b>10</b></p>
+  <div class="slant sub">{faces}</div>
 </section>
 
 <section class="scene reward" data-jobs>
