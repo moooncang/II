@@ -41,6 +41,7 @@ def img(src, alt="", cls="", lazy=True):
     w, h = dims(src)
     return f'<img src="{src}" alt="{E(alt)}" width="{w}" height="{h}"{c}{l}>'
 def key(k): return f'<kbd class="key">{E(k)}</kbd>'
+SND = '<button class="snd" type="button" aria-pressed="true" aria-label="효과음 켜고 끄기 (M)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path class="w" d="M13 7a4 4 0 0 1 0 6M15.5 4.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M13.5 7.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>SFX</span><b>ON</b></button>'
 def lbl(t, cls=""): return f'<p class="lbl {cls}" data-rv>{t}</p>'
 def rows(items, cls="data"):
     return f'<dl class="{cls}">' + "".join(f"<div><dt>{E(a)}</dt><dd>{b}</dd></div>" for a, b in items) + "</dl>"
@@ -80,6 +81,7 @@ def head(page, title, up="", desc=DESC, body=""):
   <a class="logo" href="{up}home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
   <nav class="tabs" aria-label="주 메뉴">{tabs}</nav>
   <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  {SND}
   <button class="esc" type="button" aria-expanded="false" aria-controls="menu">{key("ESC")}<span>메뉴</span></button>
 </header>
 <div class="menu" id="menu" hidden>
@@ -238,7 +240,7 @@ def build_cover():
 <body class="cover-body">
 <main class="cover" data-cover>
   <div class="bg">{img(bgd("P"), "", lazy=False)}</div><div class="shade"></div>
-  <div class="cv-top"><span>FULL DIVE · VRMMO</span><span>2047 · 대한민국</span></div>
+  <div class="cv-top"><span>FULL DIVE · VRMMO</span><span>2047 · 대한민국</span>{SND}</div>
   <div class="cv-ring"><span class="cv-sweep"></span><span class="cv-pulse"></span><span class="cv-pulse p2"></span>{RING}</div>
   <div class="cv-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="cv-read" aria-hidden="true"><span>SYNC <b data-pct2>0</b>%</span><span>SENSE RES · HIGH</span><span>SERVER · BELAT</span></div>

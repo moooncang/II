@@ -980,3 +980,20 @@ html{overflow-x:hidden;overflow-x:clip}
 }
 @media (prefers-reduced-motion:reduce){.slant .sl{animation:none}}
 .cast .slant:not(.sub){height:clamp(300px,42vh,520px)}@media (max-width:860px){.cast .slant:not(.sub){height:auto}}
+
+/* 효과음 켜고 끄기 */
+.snd{display:flex;align-items:center;gap:6px;padding:8px 6px;font:700 12px/1 var(--f-c);letter-spacing:.14em;color:var(--fg-3);transition:color .2s}
+.snd svg{width:18px;height:18px}
+.snd b{min-width:2.4em;text-align:left;font-weight:700;color:var(--hud)}
+.snd .x{display:none}
+.snd[aria-pressed="false"] .w{display:none}
+.snd[aria-pressed="false"] .x{display:inline}
+.snd[aria-pressed="false"] b{color:var(--fg-3)}
+.snd:hover{color:var(--fg)}
+.paper .snd b,.os .snd b{color:inherit}
+.cv-top{justify-content:flex-start;gap:24px;align-items:center}
+.cv-top > span:first-child{margin-right:auto}
+.cv-top .snd{margin:-8px -6px -8px 0;color:var(--fg-2)}
+.cv-top .snd b{color:var(--cv)}
+@media (max-width:900px){.hud .snd span{display:none}.hud .snd{padding:10px 6px}}
+@media (max-width:560px){.cv-top > span:nth-child(2){display:none}}

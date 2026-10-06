@@ -14,6 +14,60 @@
     new IntersectionObserver(function (es) { es[0].isIntersecting ? on() : off && off(); }, { threshold: th || .4 }).observe(el);
   }
 
+  /* ── 효과음: ElevenLabs로 만든 짧은 UI 소리. 첫 조작 뒤에만 울리고, 끄면 기억한다 ── */
+  var sfx = (function () {
+    var base = (d.currentScript && d.currentScript.src || '').replace(/js\/main\.js.*$/, 'sfx/');
+    var VOL = { enter: .7, hover: .16, click: .3, menu: .45, chat: .35, select: .28, reveal: .45 };
+    var AC = window.AudioContext || window.webkitAudioContext, ctx, out, raw = {}, buf = {}, last = {};
+    var on = true; try { on = localStorage.getItem('ileon-sfx') !== 'off'; } catch (e) {}
+    var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    function load(n) {
+      if (!raw[n]) raw[n] = fetch(base + n + '.mp3').then(function (r) { return r.ok ? r.arrayBuffer() : Promise.reject(); });
+      return raw[n];
+    }
+    function decode(n) {
+      if (!buf[n]) buf[n] = load(n).then(function (a) { return new Promise(function (ok, no) { ctx.decodeAudioData(a.slice(0), ok, no); }); });
+      return buf[n];
+    }
+    function wake() {
+      if (!AC) return;
+      if (!ctx) { ctx = new AC(); out = ctx.createGain(); out.gain.value = .8; out.connect(ctx.destination); Object.keys(VOL).forEach(decode); }
+      if (ctx.state === 'suspended') ctx.resume();
+    }
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (t) { addEventListener(t, wake, { capture: true, passive: true }); });
+    function play(n, gap) {
+      if (!on || !ctx || ctx.state !== 'running' || d.hidden) return;
+      var now = performance.now(); if (now - (last[n] || 0) < (gap || 60)) return; last[n] = now;
+      decode(n).then(function (b) {
+        var s = ctx.createBufferSource(), g = ctx.createGain();
+        g.gain.value = VOL[n]; s.buffer = b; s.connect(g); g.connect(out); s.start();
+      }).catch(function () {});
+    }
+    function set(v) {
+      on = v; try { localStorage.setItem('ileon-sfx', v ? 'on' : 'off'); } catch (e) {}
+      $$('.snd').forEach(function (b) { b.setAttribute('aria-pressed', v); $('b', b).textContent = v ? 'ON' : 'OFF'; });
+      if (v) { wake(); play('click'); }
+    }
+    $$('.snd').forEach(function (b) {
+      b.setAttribute('aria-pressed', on); $('b', b).textContent = on ? 'ON' : 'OFF';
+      b.addEventListener('click', function (e) { e.stopPropagation(); e.preventDefault(); set(!on); });
+    });
+    /* 표지에서는 첫 소리를 바로 낼 수 있게 미리 받아 둔다 */
+    if ($('[data-cover]')) load('enter');
+    /* 마우스로 훑을 때만 짧은 틱. 손가락 조작에는 붙이지 않는다 */
+    if (fine) d.addEventListener('mouseover', function (e) {
+      var t = e.target.closest && e.target.closest('.tabs a, .menu ol a, .tmenu a, .rg, .sl, .ng .slot, .tv-list button, .btn, .cw-btn, .esc, .snd');
+      if (t && !t.contains(e.relatedTarget)) play('hover', 70);
+    });
+    /* 버튼과 링크는 누를 때 확인음. 따로 소리를 정한 곳은 건너뛴다 */
+    d.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('a[href], button');
+      if (!t || t.closest('.snd, .cw-btn, .esc, .menu-x, [data-cover], .tv-list, .ng .slot, .thumbs, [data-jobs] [data-next], .cw-f')) return;
+      play('click');
+    });
+    return { play: play, toggle: function () { set(!on); } };
+  })();
+
   /* ── 시계: 현실과 벨라트(4배속) ── */
   var DAYS = ['일', '월', '화', '수', '목', '금', '토'];
   function tick() {
@@ -41,6 +95,7 @@
     if (!cw) return;
     cw.hidden = !o; cwBtn.setAttribute('aria-expanded', o); cwBtn.classList.toggle('on', o);
     root.classList.toggle('cw-open', o);
+    sfx.play(o ? 'chat' : 'click');
     if (o) { unread = 0; badge(); cwList.scrollTop = cwList.scrollHeight; if (!touchDev) $('#cw-in').focus(); }
     else cwBtn.focus({ preventScroll: true });
   }
@@ -84,7 +139,7 @@
       var msg = d.createElement('span'); msg.className = 'msg'; msg.textContent = t;
       li.append(ch, ' ', who, ' ', msg);
       cwList.scrollTop = cwList.scrollHeight; push(li, false); cwList.scrollTop = cwList.scrollHeight;
-      inp.value = '';
+      inp.value = ''; sfx.play('chat');
     });
     cw.addEventListener('keydown', function (e) { if (e.key === 'Escape') { openChat(false); e.stopPropagation(); } });
   }
@@ -99,7 +154,9 @@
   var menu = $('.menu'), escBtn = $('.esc'), menuBg = $('.menu-bg');
   function openMenu(o) {
     if (!menu) return;
+    if (menu.hidden === !o) return;
     menu.hidden = !o; menu.classList.toggle('open', o);
+    sfx.play(o ? 'menu' : 'click');
     if (escBtn) escBtn.setAttribute('aria-expanded', o);
     d.body.style.overflow = o ? 'hidden' : '';
     if (o) { var c = $('ol a[aria-current]', menu) || $('ol a', menu); if (c) { c.focus(); setBg(c); } }
@@ -116,7 +173,8 @@
       if (e.key === 'Escape' && cw && !cw.hidden) { openChat(false); e.preventDefault(); return; }
       if (e.key === 'Escape') { openMenu(menu.hidden); e.preventDefault(); return; }
       if (e.key === 'Enter' && cw && cw.hidden && menu.hidden && !/A|BUTTON/.test(d.activeElement.tagName) && !$('[data-cover]')) { openChat(true); e.preventDefault(); return; }
-      if (/^[1-5]$/.test(e.key) && navLinks[+e.key - 1]) location.href = navLinks[+e.key - 1].href;
+      if (/^[1-5]$/.test(e.key) && navLinks[+e.key - 1]) { sfx.play('click'); location.href = navLinks[+e.key - 1].href; }
+      if (e.key === 'm' || e.key === 'M') sfx.toggle();
     });
   }
 
@@ -177,8 +235,9 @@
       scramble($('.job-n', jobs[ji]));
     }
     function auto() { clearInterval(jt); if (!reduce) jt = setInterval(function () { showJob(ji + 1); }, 4800); }
-    $('[data-next]', jobsBox).addEventListener('click', function () { showJob(ji + 1); auto(); });
-    whileVisible(jobsBox, function () { showJob(ji); auto(); }, function () { clearInterval(jt); }, .3);
+    $('[data-next]', jobsBox).addEventListener('click', function () { showJob(ji + 1); auto(); sfx.play('reveal'); });
+    var revealed = false;
+    whileVisible(jobsBox, function () { showJob(ji); auto(); if (!revealed) { revealed = true; sfx.play('reveal'); } }, function () { clearInterval(jt); }, .3);
   }
 
   /* ── 표지: 로딩 → 접속 ── */
@@ -196,7 +255,7 @@
       if (!ready || cover.classList.contains('go')) return;
       if (e) e.preventDefault();
       if (reduce) { location.href = go.href; return; }
-      cover.classList.add('go');
+      cover.classList.add('go'); sfx.play('enter');
       setTimeout(function () { location.href = go.href; }, 1150);
     }
     cover.addEventListener('click', enter);
@@ -213,6 +272,7 @@
       if (!a || a === cur) return;
       var c = JSON.parse(a.dataset.c);
       if (cur) cur.classList.remove('on'); a.classList.add('on'); cur = a;
+      sfx.play('select', 90);
       F.fName.textContent = c.name; F.fHook.textContent = c.hook; F.fLv.textContent = c.lv; F.fJob.textContent = c.job;
       F.fRole.textContent = c.role; F.fLink.href = a.getAttribute('href');
       F.fSide.textContent = c.side === 'player' ? '이방인' : '원주민'; F.fSide.classList.toggle('npc', c.side !== 'player');
@@ -261,7 +321,7 @@
     $$('.thumbs button').forEach(function (b) {
       b.addEventListener('click', function () {
         $$('button', b.parentNode).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-        setFig(b.dataset.src, b.dataset.alt);
+        setFig(b.dataset.src, b.dataset.alt); sfx.play('select');
         b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
       });
     });
@@ -296,7 +356,7 @@
       tinf.forEach(function (x) { x.hidden = x.dataset.r !== key; });
       var cb = tb.filter(function (b) { return b.dataset.r === key; })[0];
       if (cb && cb.parentNode.parentNode.scrollWidth > cb.parentNode.parentNode.clientWidth) cb.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
-      if (push) history.replaceState(null, '', '#' + key);
+      if (push) { history.replaceState(null, '', '#' + key); sfx.play('select'); }
     }
     tb.forEach(function (b) { b.addEventListener('click', function () { go2(b.dataset.r, true); }); });
     var inView = false;
@@ -317,7 +377,7 @@
     function mode(key, push) {
       slotBtns.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.m === key); });
       panes.forEach(function (p) { p.hidden = p.dataset.m !== key; });
-      if (push) history.replaceState(null, '', '#' + key);
+      if (push) { history.replaceState(null, '', '#' + key); sfx.play('select'); }
     }
     slotBtns.forEach(function (b) { b.addEventListener('click', function () {
       mode(b.dataset.m, true);
