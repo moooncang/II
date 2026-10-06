@@ -28,9 +28,66 @@
       'date': '2047.' + pad(now.getMonth() + 1) + '.' + pad(now.getDate()),
       'date-long': '2047년 ' + (now.getMonth() + 1) + '월 ' + now.getDate() + '일 ' + DAYS[now.getDay()] + '요일'
     };
-    $$('[data-clock]').forEach(function (e) { var v = map[e.dataset.clock]; if (v && e.textContent !== v) e.textContent = v; });
+    clocks.forEach(function (e) { var v = map[e.dataset.clock]; if (v && e.textContent !== v) e.textContent = v; });
   }
-  tick(); setInterval(tick, 250);
+  var clocks = $$('[data-clock]'), scrolling = 0;
+  addEventListener('scroll', function () { clearTimeout(scrolling); scrolling = setTimeout(function () { scrolling = 0; }, 160); }, { passive: true });
+  tick(); setInterval(function () { if (!scrolling) tick(); }, $('[data-clock="belat-s"]') ? 250 : 1000);
+
+
+  /* ── 채팅창: 오른쪽 아래 버튼으로 열고 닫는다 ── */
+  var cw = $('#cw'), cwBtn = $('.cw-btn');
+  function openChat(o) {
+    if (!cw) return;
+    cw.hidden = !o; cwBtn.setAttribute('aria-expanded', o); cwBtn.classList.toggle('on', o);
+    root.classList.toggle('cw-open', o);
+    if (o) { unread = 0; badge(); cwList.scrollTop = cwList.scrollHeight; if (!touchDev) $('#cw-in').focus(); }
+    else cwBtn.focus({ preventScroll: true });
+  }
+  if (cw) {
+    var cwList = $('.cw-b', cw), src = $$('li', $('#cw-src').content), si = 0, unread = 0, filter = 'all';
+    var touchDev = matchMedia('(hover: none)').matches;
+    var nBadge = $('.cw-n', cwBtn);
+    function badge() { nBadge.hidden = !unread; nBadge.textContent = unread > 9 ? '9+' : unread; }
+    function push(li, quiet) {
+      li = li.cloneNode(true);
+      li.hidden = filter !== 'all' && li.dataset.ch !== filter;
+      var stick = cwList.scrollHeight - cwList.scrollTop - cwList.clientHeight < 40;
+      cwList.appendChild(li);
+      if (!quiet) li.classList.add('new');
+      while (cwList.children.length > 80) cwList.removeChild(cwList.firstElementChild);
+      if (stick) cwList.scrollTop = cwList.scrollHeight;
+    }
+    function next(quiet) { push(src[si % src.length], quiet); si++; }
+    for (var k = 0; k < 8; k++) next(true);
+    setInterval(function () {
+      if (d.hidden) return;
+      next(false);
+      if (cw.hidden) { unread++; badge(); }
+    }, 3400);
+    cwBtn.addEventListener('click', function () { openChat(cw.hidden); });
+    $('.cw-x', cw).addEventListener('click', function () { openChat(false); });
+    $$('.cw-tabs button', cw).forEach(function (b) {
+      b.addEventListener('click', function () {
+        $$('.cw-tabs button', cw).forEach(function (x) { x.setAttribute('aria-selected', x === b); });
+        filter = b.dataset.ch;
+        $$('li', cwList).forEach(function (li) { li.hidden = filter !== 'all' && li.dataset.ch !== filter; });
+        cwList.scrollTop = cwList.scrollHeight;
+      });
+    });
+    $('.cw-f', cw).addEventListener('submit', function (e) {
+      e.preventDefault();
+      var inp = $('#cw-in'), t = inp.value.trim(); if (!t) return;
+      var li = d.createElement('li'); li.className = 'c-me'; li.dataset.ch = 'etc';
+      var ch = d.createElement('span'); ch.className = 'ch'; ch.textContent = '[일반]';
+      var who = d.createElement('b'); who.textContent = '당신';
+      var msg = d.createElement('span'); msg.className = 'msg'; msg.textContent = t;
+      li.append(ch, ' ', who, ' ', msg);
+      cwList.scrollTop = cwList.scrollHeight; push(li, false); cwList.scrollTop = cwList.scrollHeight;
+      inp.value = '';
+    });
+    cw.addEventListener('keydown', function (e) { if (e.key === 'Escape') { openChat(false); e.stopPropagation(); } });
+  }
 
   /* ── 상단 HUD ── */
   var sentinel = d.createElement('div');
@@ -56,14 +113,18 @@
     var navLinks = $$('.tabs a');
     d.addEventListener('keydown', function (e) {
       if (typing() || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'Escape' && cw && !cw.hidden) { openChat(false); e.preventDefault(); return; }
       if (e.key === 'Escape') { openMenu(menu.hidden); e.preventDefault(); return; }
+      if (e.key === 'Enter' && cw && cw.hidden && menu.hidden && !/A|BUTTON/.test(d.activeElement.tagName) && !$('[data-cover]')) { openChat(true); e.preventDefault(); return; }
       if (/^[1-5]$/.test(e.key) && navLinks[+e.key - 1]) location.href = navLinks[+e.key - 1].href;
     });
   }
 
   /* ── 등장 ── */
   var rv = $$('[data-rv]');
-  if ('IntersectionObserver' in window && !reduce) {
+  var touch = matchMedia('(hover: none), (max-width: 900px)').matches;
+  if (touch) root.classList.add('touch');
+  if ('IntersectionObserver' in window && !reduce && !touch) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });

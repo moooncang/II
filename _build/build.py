@@ -94,6 +94,29 @@ def head(page, title, up="", desc=DESC, body=""):
 '''
 
 
+CH_TAB = {"월드": "world", "랭킹": "world", "히든": "hidden", "정세": "news", "거래": "trade", "파티": "party"}
+CH_TABS = (("all", "전체"), ("world", "월드"), ("hidden", "히든"), ("news", "정세"), ("trade", "거래"), ("party", "파티"))
+def chat_li(c, who, t):
+    k = CH_TAB.get(c, "etc")
+    return f'<li data-ch="{k}" class="c-{k}{" w" if c == "귓속말" else ""}"><span class="ch">[{c}]</span> {f"<b>{E(who)}</b> " if who else ""}<span class="msg">{E(t)}</span></li>'
+def chat_tabs(cls="chat-h"):
+    return f'<div class="{cls}" role="tablist" aria-label="채널">' + "".join(f'<button type="button" role="tab" aria-selected="{"true" if k == "all" else "false"}" data-ch="{k}">{n}</button>' for k, n in CH_TABS) + "</div>"
+
+
+def chat_widget():
+    """모든 페이지 오른쪽 아래의 채팅 버튼과 창. 대화는 시간이 지나며 하나씩 올라온다."""
+    src = "".join(chat_li(*x) for x in CHAT)
+    return f'''<button class="cw-btn" type="button" aria-expanded="false" aria-controls="cw"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 3h14v9H7l-4 3v-3H2z" stroke="currentColor" stroke-width="1.6"/></svg><span>채팅</span><kbd class="key">Enter</kbd><i class="cw-n" hidden>0</i></button>
+<section class="cw" id="cw" aria-label="월드 채팅" hidden>
+  <div class="cw-h"><span><i></i>월드 채팅</span><button type="button" class="cw-x" aria-label="채팅 닫기">×</button></div>
+  {chat_tabs("cw-tabs")}
+  <ul class="cw-b" aria-live="polite"></ul>
+  <form class="cw-f"><label class="sr" for="cw-in">메시지</label><span class="cw-c">[일반]</span><input id="cw-in" type="text" maxlength="80" autocomplete="off" placeholder="메시지 입력"><button type="submit">보내기</button></form>
+  <template id="cw-src">{src}</template>
+</section>
+'''
+
+
 def foot(up=""):
     links = "".join(f'<a href="{up}{h}">{t}</a>' for h, t, en in NAV)
     return f'''</main>
@@ -104,7 +127,7 @@ def foot(up=""):
     <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
-<script src="{up}assets/js/main.js"></script>
+{chat_widget()}<script src="{up}assets/js/main.js"></script>
 </body>
 </html>'''
 
@@ -239,8 +262,7 @@ def build_cover():
 
 # ═════════════ 홈: 타이틀 화면과 장면들 ═════════════
 def build_home():
-    TAB = {"월드": "world", "랭킹": "world", "히든": "hidden", "정세": "news", "거래": "trade", "파티": "party"}
-    chat = "".join(f'<li data-ch="{TAB.get(c, "etc")}" class="c-{TAB.get(c, "etc")}{" w" if c == "귓속말" else ""}"><span class="ch">[{c}]</span> {f"<b>{E(who)}</b> " if who else ""}<span class="msg">{E(t)}</span></li>' for c, who, t in CHAT)
+    chat = "".join(chat_li(*x) for x in CHAT)
     players = [c for c in C if c["side"] == "player"]
     npcs = [c for c in C if c["side"] == "npc"]
     menu = [("start.html", "새 게임", "NEW GAME"), ("world.html", "대륙", "WORLD"), ("characters.html", "캐릭터", "CHARACTER"),
@@ -286,10 +308,9 @@ def build_home():
     </div>
   </aside>
   <div class="chat" aria-label="월드 채팅">
-    <div class="chat-h" role="tablist" aria-label="채널">{"".join(f'<button type="button" role="tab" aria-selected="{"true" if k == "all" else "false"}" data-ch="{k}">{n}</button>' for k, n in (("all", "전체"), ("world", "월드"), ("hidden", "히든"), ("news", "정세"), ("trade", "거래"), ("party", "파티")))}</div>
+    {chat_tabs()}
     <ul class="chat-b">{chat}</ul>
   </div>
-  <a class="scroll-hint" href="#regions"><span>SCROLL</span><i></i></a>
 </section>
 
 <section class="scene regions" id="regions">
