@@ -83,6 +83,7 @@ def head(page, title, up="", desc=DESC, body=""):
   <a class="logo" href="{up}home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
   <nav class="tabs" aria-label="주 메뉴">{tabs}</nav>
   <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <div class="hbgm" data-bgm><button type="button" class="hbgm-b" data-bgm-toggle aria-pressed="false" aria-label="배경음악 켜고 끄기 (B)"><span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span><span class="hbgm-k">BGM</span></button><a href="{up}music.html" class="hbgm-n" data-bgm-name>RISE AGAIN</a></div>
   {SND}
   <button class="esc" type="button" aria-expanded="false" aria-controls="menu">{key("ESC")}<span>메뉴</span></button>
 </header>
@@ -107,22 +108,10 @@ def chat_tabs(cls="chat-h"):
     return f'<div class="{cls}" role="tablist" aria-label="채널">' + "".join(f'<button type="button" role="tab" aria-selected="{"true" if k == "all" else "false"}" data-ch="{k}">{n}</button>' for k, n in CH_TABS) + "</div>"
 
 
-def chat_widget():
-    """모든 페이지 오른쪽 아래의 채팅 버튼과 창. 대화는 시간이 지나며 하나씩 올라온다."""
-    src = "".join(chat_li(*x) for x in CHAT)
-    return f'''<button class="cw-btn" type="button" aria-expanded="false" aria-controls="cw"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 3h14v9H7l-4 3v-3H2z" stroke="currentColor" stroke-width="1.6"/></svg><span>채팅</span><kbd class="key">Enter</kbd><i class="cw-n" hidden>0</i></button>
-<section class="cw" id="cw" aria-label="월드 채팅" hidden>
-  <div class="cw-h"><span><i></i>월드 채팅</span><button type="button" class="cw-x" aria-label="채팅 닫기">×</button></div>
-  {chat_tabs("cw-tabs")}
-  <ul class="cw-b" aria-live="polite"></ul>
-  <form class="cw-f"><label class="sr" for="cw-in">메시지</label><span class="cw-c">[일반]</span><input id="cw-in" type="text" maxlength="80" autocomplete="off" placeholder="메시지 입력"><button type="submit">보내기</button></form>
-  <template id="cw-src">{src}</template>
-</section>
-'''
-
-
 PLAY_I = '<svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>'
 PAUSE_I = '<svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg>'
+def bgm_data():
+    return '<script type="application/json" id="bgm-data">' + json.dumps([dict(id=i, n=n, t=t, g=g, d=d) for i, n, t, g, d in BGM], ensure_ascii=False) + '</script>\n'
 def mmss(n): return f"{n // 60}:{n % 60:02d}"
 def foot(up=""):
     links = "".join(f'<a href="{up}{h}">{t}</a>' for h, t, en in NAV)
@@ -134,7 +123,7 @@ def foot(up=""):
     <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
-{chat_widget()}<script src="{up}assets/js/main.js"></script>
+{bgm_data()}<script src="{up}assets/js/main.js"></script>
 </body>
 </html>'''
 
@@ -261,7 +250,7 @@ def build_cover():
   </div>
   <div class="cv-flash"></div>
 </main>
-<script src="assets/js/main.js"></script>
+{bgm_data()}<script src="assets/js/main.js"></script>
 </body>
 </html>'''
     write("index.html", s)
@@ -801,7 +790,6 @@ def build_music():
     <button type="button" class="mu-b" data-mu-next aria-label="다음 곡">{NEXT_I}</button>
     <i class="mu-mbar"><i data-mu-mbar></i></i>
   </div>
-  <script type="application/json" id="mu-data">{json.dumps(tracks, ensure_ascii=False)}</script>
 </section>
 '''
     s += foot()
