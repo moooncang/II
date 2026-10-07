@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>사운드트랙 · FULL DIVE - ILEON</title>
+<meta name="description" content="FULL DIVE - ILEON · 일레온 · 벨라트 대륙">
+<meta property="og:title" content="사운드트랙 · FULL DIVE - ILEON">
+<meta property="og:description" content="FULL DIVE - ILEON · 일레온 · 벨라트 대륙">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07080a">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body class="music-page">
+<a class="skip" href="#main">본문으로</a>
+<header class="hud">
+  <a class="logo" href="home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
+  <nav class="tabs" aria-label="주 메뉴"><a href="world.html"><kbd class="key">1</kbd><span>대륙</span></a><a href="characters.html"><kbd class="key">2</kbd><span>인물</span></a><a href="system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="start.html"><kbd class="key">5</kbd><span>시작</span></a><a href="music.html" aria-current="page"><kbd class="key">6</kbd><span>음악</span></a></nav>
+  <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
+  <button class="snd" type="button" aria-pressed="true" aria-label="효과음 켜고 끄기 (M)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path class="w" d="M13 7a4 4 0 0 1 0 6M15.5 4.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M13.5 7.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>SFX</span><b>ON</b></button>
+  <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-bg" aria-hidden="true"></div>
+  <div class="menu-in">
+    <p class="lbl">MENU · 일시 정지</p>
+    <ol><li><a href="world.html" data-bg="images/bg-draft/147058076.webp"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="characters.html" data-bg="images/bg-draft/3469639875.webp"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="system.html" data-bg="images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="reality.html" data-bg="images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="start.html" data-bg="images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li><li><a href="music.html" data-bg="images/bgm/main.webp" aria-current="page"><i>06</i><b>음악</b><small>SOUNDTRACK</small></a></li></ol>
+    <div class="menu-foot"><a href="home.html">타이틀 화면</a><a href="index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
+  </div>
+</div>
+<main id="main">
+<section class="mu" data-music>
+  <div class="mu-bg" aria-hidden="true"><img src="images/bgm/s/main.webp" alt="" data-mu-bg></div>
+  <div class="mu-in">
+    <div class="mu-stage">
+      <div class="mu-head"><p class="lbl">SOUNDTRACK · 20</p><p class="mu-keys"><kbd class="key">Space</kbd> 재생 <kbd class="key">←</kbd><kbd class="key">→</kbd> 곡</p></div>
+      <figure class="mu-art">
+        <img src="images/bgm/main.webp" alt="RISE AGAIN" width="1920" height="1080" decoding="async" fetchpriority="high" data-mu-art>
+        <canvas class="mu-vis" aria-hidden="true"></canvas>
+        <span class="mu-fr" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </figure>
+      <div class="mu-now">
+        <p class="mu-k"><b data-mu-no>01</b><span>/ 20</span><em data-mu-g>테마</em></p>
+        <h1 class="mu-name" data-mu-name>RISE AGAIN</h1>
+        <p class="mu-en" data-mu-en>Rise Again x Rise Again (Mashup)</p>
+      </div>
+      <div class="mu-ctl">
+        <div class="mu-btns">
+          <button type="button" class="mu-b" data-mu-prev aria-label="이전 곡"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.5h2v11H3zM14 2.5v11L6 8z" fill="currentColor"/></svg></button>
+          <button type="button" class="mu-pp" data-mu-pp aria-pressed="false" aria-label="재생"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg></button>
+          <button type="button" class="mu-b" data-mu-next aria-label="다음 곡"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11 2.5h2v11h-2zM2 2.5v11L10 8z" fill="currentColor"/></svg></button>
+          <button type="button" class="mu-b mu-rep" data-mu-rep aria-pressed="false" aria-label="한 곡 반복"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6.5V5h8.5l-2-2M13 9.5V11H4.5l2 2" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="8" y="9.6" text-anchor="middle" font-size="5" font-weight="800" fill="currentColor">1</text></svg></button>
+        </div>
+        <div class="mu-seek"><span data-mu-cur>0:00</span><input type="range" min="0" max="1000" value="0" step="1" aria-label="재생 위치" data-mu-seek><span data-mu-dur>2:22</span></div>
+        <label class="mu-vol"><span class="sr">음량</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2.5l3.5-3v10L4.5 10H2z" fill="currentColor"/><path d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.5a6.3 6.3 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><input type="range" min="0" max="100" value="70" data-mu-vol></label>
+      </div>
+    </div>
+    <div class="mu-list"><section class="mu-grp"><h2 class="mu-gh"><span>테마</span><i>1</i></h2><ol><li><button type="button" data-mu-id="main" aria-current="true">
+          <span class="mu-no">01</span>
+          <span class="mu-th"><img src="images/bgm/s/main.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>RISE AGAIN</b><small>Rise Again x Rise Again (Mashup)</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:22</i>
+        </button></li></ol></section><section class="mu-grp"><h2 class="mu-gh"><span>지역</span><i>10</i></h2><ol><li><button type="button" data-mu-id="riatel">
+          <span class="mu-no">02</span>
+          <span class="mu-th"><img src="images/bgm/s/riatel.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>리아텔</b><small>Morning Fields</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:05</i>
+        </button></li><li><button type="button" data-mu-id="kadet">
+          <span class="mu-no">03</span>
+          <span class="mu-th"><img src="images/bgm/s/kadet.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>카뎃트</b><small>Bazaar Call and Response</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:13</i>
+        </button></li><li><button type="button" data-mu-id="karsion">
+          <span class="mu-no">04</span>
+          <span class="mu-th"><img src="images/bgm/s/karsion.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>카르시온</b><small>Imperial Chamber Overture</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>1:44</i>
+        </button></li><li><button type="button" data-mu-id="harden">
+          <span class="mu-no">05</span>
+          <span class="mu-th"><img src="images/bgm/s/harden.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>하르덴</b><small>Fjellvindens Melodi</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:37</i>
+        </button></li><li><button type="button" data-mu-id="tulgard">
+          <span class="mu-no">06</span>
+          <span class="mu-th"><img src="images/bgm/s/tulgard.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>툴가르드</b><small>The Forge&#x27;s steady beat</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:43</i>
+        </button></li><li><button type="button" data-mu-id="mirzen">
+          <span class="mu-no">07</span>
+          <span class="mu-th"><img src="images/bgm/s/mirzen.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>미르젠</b><small>Salt Air Shanty</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>1:34</i>
+        </button></li><li><button type="button" data-mu-id="ashen">
+          <span class="mu-no">08</span>
+          <span class="mu-th"><img src="images/bgm/s/ashen.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>잿빛 회랑</b><small>Dusty Frontier</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:05</i>
+        </button></li><li><button type="button" data-mu-id="aelin">
+          <span class="mu-no">09</span>
+          <span class="mu-th"><img src="images/bgm/s/aelin.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>아엘린</b><small>Misty Lydian Woods</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:23</i>
+        </button></li><li><button type="button" data-mu-id="shehar">
+          <span class="mu-no">10</span>
+          <span class="mu-th"><img src="images/bgm/s/shehar.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>셰하르</b><small>Heat Shimmer Pad</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:13</i>
+        </button></li><li><button type="button" data-mu-id="rahna">
+          <span class="mu-no">11</span>
+          <span class="mu-th"><img src="images/bgm/s/rahna.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>라흐나</b><small>Subterranean Pressure</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:28</i>
+        </button></li></ol></section><section class="mu-grp"><h2 class="mu-gh"><span>장면</span><i>6</i></h2><ol><li><button type="button" data-mu-id="inn">
+          <span class="mu-no">12</span>
+          <span class="mu-th"><img src="images/bgm/s/inn.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>여관</b><small>Firelight at the Tavern</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:20</i>
+        </button></li><li><button type="button" data-mu-id="temple">
+          <span class="mu-no">13</span>
+          <span class="mu-th"><img src="images/bgm/s/temple.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>신전</b><small>Dorian Hymn</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:13</i>
+        </button></li><li><button type="button" data-mu-id="battle">
+          <span class="mu-no">14</span>
+          <span class="mu-th"><img src="images/bgm/s/battle.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>전투</b><small>Tense Kinetic</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:15</i>
+        </button></li><li><button type="button" data-mu-id="bossroom">
+          <span class="mu-no">15</span>
+          <span class="mu-th"><img src="images/bgm/s/bossroom.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>보스룸</b><small>Unyielding Ostinato</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>1:53</i>
+        </button></li><li><button type="button" data-mu-id="incident">
+          <span class="mu-no">16</span>
+          <span class="mu-th"><img src="images/bgm/s/incident.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>사변</b><small>The Inevitable March</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:10</i>
+        </button></li><li><button type="button" data-mu-id="otherworld">
+          <span class="mu-no">17</span>
+          <span class="mu-th"><img src="images/bgm/s/otherworld.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>이계</b><small>Physics Beyond Our Stars</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:03</i>
+        </button></li></ol></section><section class="mu-grp"><h2 class="mu-gh"><span>현실</span><i>3</i></h2><ol><li><button type="button" data-mu-id="pod">
+          <span class="mu-no">18</span>
+          <span class="mu-th"><img src="images/bgm/s/pod.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>포드방</b><small>Server Room Hum</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:58</i>
+        </button></li><li><button type="button" data-mu-id="room">
+          <span class="mu-no">19</span>
+          <span class="mu-th"><img src="images/bgm/s/room.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>방</b><small>Rain on Window</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>2:32</i>
+        </button></li><li><button type="button" data-mu-id="city">
+          <span class="mu-no">20</span>
+          <span class="mu-th"><img src="images/bgm/s/city.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="mu-tt"><b>도시</b><small>Neon After Rain</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>3:08</i>
+        </button></li></ol></section></div>
+  </div>
+  <div class="mu-mini" data-mu-mini hidden>
+    <img src="images/bgm/s/main.webp" alt="" data-mu-mimg>
+    <span><b data-mu-mname>RISE AGAIN</b><small data-mu-men>Rise Again x Rise Again (Mashup)</small></span>
+    <button type="button" class="mu-pp" data-mu-pp aria-pressed="false" aria-label="재생"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg></button>
+    <button type="button" class="mu-b" data-mu-next aria-label="다음 곡"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11 2.5h2v11h-2zM2 2.5v11L10 8z" fill="currentColor"/></svg></button>
+    <i class="mu-mbar"><i data-mu-mbar></i></i>
+  </div>
+  <script type="application/json" id="mu-data">[{"id": "main", "n": "RISE AGAIN", "t": "Rise Again x Rise Again (Mashup)", "g": "테마", "d": 142}, {"id": "riatel", "n": "리아텔", "t": "Morning Fields", "g": "지역", "d": 185}, {"id": "kadet", "n": "카뎃트", "t": "Bazaar Call and Response", "g": "지역", "d": 133}, {"id": "karsion", "n": "카르시온", "t": "Imperial Chamber Overture", "g": "지역", "d": 104}, {"id": "harden", "n": "하르덴", "t": "Fjellvindens Melodi", "g": "지역", "d": 157}, {"id": "tulgard", "n": "툴가르드", "t": "The Forge's steady beat", "g": "지역", "d": 163}, {"id": "mirzen", "n": "미르젠", "t": "Salt Air Shanty", "g": "지역", "d": 94}, {"id": "ashen", "n": "잿빛 회랑", "t": "Dusty Frontier", "g": "지역", "d": 185}, {"id": "aelin", "n": "아엘린", "t": "Misty Lydian Woods", "g": "지역", "d": 203}, {"id": "shehar", "n": "셰하르", "t": "Heat Shimmer Pad", "g": "지역", "d": 193}, {"id": "rahna", "n": "라흐나", "t": "Subterranean Pressure", "g": "지역", "d": 208}, {"id": "inn", "n": "여관", "t": "Firelight at the Tavern", "g": "장면", "d": 140}, {"id": "temple", "n": "신전", "t": "Dorian Hymn", "g": "장면", "d": 193}, {"id": "battle", "n": "전투", "t": "Tense Kinetic", "g": "장면", "d": 135}, {"id": "bossroom", "n": "보스룸", "t": "Unyielding Ostinato", "g": "장면", "d": 113}, {"id": "incident", "n": "사변", "t": "The Inevitable March", "g": "장면", "d": 130}, {"id": "otherworld", "n": "이계", "t": "Physics Beyond Our Stars", "g": "장면", "d": 183}, {"id": "pod", "n": "포드방", "t": "Server Room Hum", "g": "현실", "d": 178}, {"id": "room", "n": "방", "t": "Rain on Window", "g": "현실", "d": 152}, {"id": "city", "n": "도시", "t": "Neon After Rain", "g": "현실", "d": 188}]</script>
+</section>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <a class="logo" href="home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a><a href="music.html">음악</a></nav>
+    <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
+  </div>
+</footer>
+<button class="cw-btn" type="button" aria-expanded="false" aria-controls="cw"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 3h14v9H7l-4 3v-3H2z" stroke="currentColor" stroke-width="1.6"/></svg><span>채팅</span><kbd class="key">Enter</kbd><i class="cw-n" hidden>0</i></button>
+<section class="cw" id="cw" aria-label="월드 채팅" hidden>
+  <div class="cw-h"><span><i></i>월드 채팅</span><button type="button" class="cw-x" aria-label="채팅 닫기">×</button></div>
+  <div class="cw-tabs" role="tablist" aria-label="채널"><button type="button" role="tab" aria-selected="true" data-ch="all">전체</button><button type="button" role="tab" aria-selected="false" data-ch="world">월드</button><button type="button" role="tab" aria-selected="false" data-ch="hidden">히든</button><button type="button" role="tab" aria-selected="false" data-ch="news">정세</button><button type="button" role="tab" aria-selected="false" data-ch="trade">거래</button><button type="button" role="tab" aria-selected="false" data-ch="party">파티</button></div>
+  <ul class="cw-b" aria-live="polite"></ul>
+  <form class="cw-f"><label class="sr" for="cw-in">메시지</label><span class="cw-c">[일반]</span><input id="cw-in" type="text" maxlength="80" autocomplete="off" placeholder="메시지 입력"><button type="submit">보내기</button></form>
+  <template id="cw-src"><li data-ch="world" class="c-world"><span class="ch">[월드]</span> <span class="msg">라흐나 제3환, 아직 돌파한 이방인이 없습니다.</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <b>헤리몽</b> <span class="msg">여러분~ 오늘은 맨손으로 곰 잡는 방송 켭니다!! 링크 고정</span></li><li data-ch="trade" class="c-trade"><span class="ch">[거래]</span> <b>울산강펀치</b> <span class="msg">포션 삽니다 형님들. 시세보다 싸게. 진짜 싸게</span></li><li data-ch="hidden" class="c-hidden"><span class="ch">[히든]</span> <span class="msg">잔영귀 · 전설. 서버 로그에는 직업명만 공개됩니다.</span></li><li data-ch="party" class="c-party"><span class="ch">[파티]</span> <span class="msg">잿빛 회랑 무너진 가도 Lv35+ 구함. PK 각오하신 분만</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <span class="msg">무명 오늘도 회랑에서 봤다는 사람 있음?</span></li><li data-ch="world" class="c-world"><span class="ch">[랭킹]</span> <span class="msg">1위 줄리엣 · Lv64 월광검사</span></li><li data-ch="trade" class="c-trade"><span class="ch">[거래]</span> <b>핑뀨꽁주</b> <span class="msg">강화 의뢰 받습니다. 견적 먼저, 기한은 지킵니다.</span></li><li data-ch="news" class="c-news"><span class="ch">[정세]</span> <span class="msg">북부 국경, 카르시온과 하르덴이 전면전에 가장 가까워졌습니다.</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <span class="msg">카뎃트 여관 갔다가 또 굶었냐는 소리 들음ㅋㅋ</span></li><li data-ch="party" class="c-party"><span class="ch">[파티]</span> <span class="msg">라흐나 제1환 20인 공대, 딜러 두 자리 남음</span></li><li data-ch="hidden" class="c-hidden"><span class="ch">[히든]</span> <span class="msg">잿말잡이 · 일반. 히든직이라고 다 좋은 건 아닙니다.</span></li><li data-ch="etc" class="c-etc w"><span class="ch">[귓속말]</span> <b>울산강펀치</b> <span class="msg">형님 그 골목 통행료 안 내는 길 압니다. 1골드</span></li><li data-ch="world" class="c-world"><span class="ch">[월드]</span> <span class="msg">신화 등급 보유자, 서비스 이래 0명.</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <span class="msg">사변 또 터짐? 이거 운영 각본 아님?</span></li><li data-ch="news" class="c-news"><span class="ch">[정세]</span> <span class="msg">칼데스가 이방인 축출을 내걸고 움직이고 있습니다.</span></li><li data-ch="trade" class="c-trade"><span class="ch">[거래]</span> <span class="msg">툴가르드 친밀도 있는 대장장이 구합니다</span></li><li data-ch="hidden" class="c-hidden"><span class="ch">[히든]</span> <span class="msg">파호권사 · 유니크. 서버 로그에 직업명이 올라왔습니다.</span></li><li data-ch="party" class="c-party"><span class="ch">[파티]</span> <span class="msg">옛 수로 큰쥐 같이 잡을 뉴비 구해요 Lv1~8</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <span class="msg">아엘린 들어가려다 벌목 이력 걸려서 컷당함</span></li><li data-ch="world" class="c-world"><span class="ch">[월드]</span> <span class="msg">3차 전직자, 서버 전체 5명.</span></li><li data-ch="news" class="c-news"><span class="ch">[정세]</span> <span class="msg">미르젠 앞바다, 제국 관세를 두고 봉쇄가 이어지고 있습니다.</span></li><li data-ch="etc" class="c-etc"><span class="ch">[일반]</span> <b>헤리몽</b> <span class="msg">히든피스 찾았다 여러분!! 바로 공개 갑니다~</span></li><li data-ch="trade" class="c-trade"><span class="ch">[거래]</span> <span class="msg">잿빛 회랑 도살장 터 드랍템 팝니다. 카뎃트 경매장 대신 직거래</span></li></template>
+</section>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

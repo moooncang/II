@@ -14,7 +14,7 @@
 - 저장소: https://github.com/moooncang/II (main). `site-build` 브랜치도 main과 같이 맞춰 둔다.
 - 배포: GitHub Pages(main, 루트). `.nojekyll` 있음. 주소: https://moooncang.github.io/II/
   - Pages 켜기는 작가님이 설정에서 직접 했다(이 환경의 GitHub API로는 Pages 설정 불가).
-- 사이트는 생성기로 만든다: `python3 _build/build.py` → 저장소 최상단 html 22개를 다시 쓴다.
+- 사이트는 생성기로 만든다: `python3 _build/build.py` → 저장소 최상단 html 23개를 다시 쓴다.
   - `_build/data.py`: 인물 15인·지역·대립선·신앙·히든직 등 모든 문구와 데이터, 배경 원안 대응표(BGD), 크랙 링크(`CRACK`, 아직 빈 값).
   - `_build/build.py`: 페이지 틀. 표지(index), 홈, 대륙, 인물(+char/15개), 체계, 현실, 시작.
   - `assets/css/style.css`, `assets/js/main.js`, 글꼴은 `assets/fonts`(Pretendard·Barlow Condensed·Hahmlet·Nanum Gothic Coding 자체 포함).
@@ -33,10 +33,10 @@
 - 사이트 전체가 일레온 게임 클라이언트. 표지=로딩, 홈=타이틀+장면, 인물=캐릭터 선택, 상세=프로필 창, 대륙=지역 이동, 체계=인쇄된 규칙서(종이), 현실=2047 기기 화면(밝은 유리), 시작=새 게임 슬롯. 자세한 기준은 DESIGN.md.
 - 먹색 + 신호 빨강 하나. 청록은 시스템·벨라트 시각, 보라는 히든직. 그림은 원색 그대로.
 - 글꼴: Pretendard 900(제목), Barlow Condensed(숫자·라벨), Nanum Gothic Coding(시스템), Hahmlet(대사·신 이름).
-- 조작: 1~5 탭 이동, ESC 메뉴, Enter 채팅, M 효과음, B 배경음악, 지역 ↑↓, 표정 ← →, 인물 Q/E.
+- 조작: 1~6 탭 이동, ESC 메뉴, Enter 채팅, M 효과음, 지역 ↑↓, 표정 ← →, 인물 Q/E.
 - 채팅: 모든 페이지 오른쪽 아래 채팅 버튼(`chat_widget`). 대화 원본은 `data.py`의 `CHAT`. 닫혀 있으면 새 대화 수가 빨간 배지로, 입력하면 '당신'으로 올라간다(저장 없음).
 - 효과음: `assets/sfx/` 10개(loading·enter·hover·click·menu·chat·select·travel·flip·reveal, mp3). ElevenLabs 커넥터(text to sound v2)로 만들고 ffmpeg로 자르고 맞춤. 작업 흐름 이름 'ILEON site SFX'. `main.js`의 `sfx`가 Web Audio로 재생, 첫 클릭·키 입력 뒤에만 울린다. 상단과 표지의 SFX 버튼이나 M 키로 끄고 켜며 localStorage(`ileon-sfx`)에 기억. 표지는 '눌러서 시작' 대기 → 누르면 로딩바와 로딩음(브라우저 자동재생 막힘 때문에 이 순서) → 다 차면 자동 접속. 로딩 중 누르면 바로 채우고 접속. 호버 틱은 마우스에서만, 채팅은 열 때와 보낼 때만(자동 메시지엔 소리 없음), 히든직은 처음 보일 때와 다음 버튼.
-- 배경음악: 작가님이 올린 `assets/bgm/{id}.mp3` 20곡과 표지 `images/bgm/{id}.webp`(작은 것 `images/bgm/s/`). 목록은 `data.py`의 `BGM`(이름은 표지 글자, 영문은 파일 태그). 왼쪽 아래 플레이어(`bgm_widget`, 목록 열기), 홈의 사운드트랙 칸, 대륙 지역 정보의 지역 BGM 버튼. 표지에서 시작을 누르면 테마(RISE AGAIN)가 켜지고, 곡과 위치를 localStorage(`ileon-bgm`)에 저장해 페이지를 옮겨도 이어진다. 자동 재생이 막히면 첫 클릭에 이어 튼다. 듣는 중에 대륙에서 지역을 고르면 그 지역 곡으로 바뀐다. B 키로 켜고 끔.
+- 음악 페이지(`music.html`, 탭 6 '음악', 홈 타이틀 메뉴 '사운드트랙'): 작가님이 올린 `assets/bgm/{id}.mp3` 20곡과 표지 `images/bgm/{id}.webp`(목록용 작은 것 `images/bgm/s/`). 목록 순서·이름은 `data.py`의 `BGM`(이름은 표지 글자, 영문은 파일 태그). 큰 표지 + 소리 막대(Web Audio) + 재생·이전·다음·한 곡 반복·위치·음량, 묶음(테마/지역/장면/현실) 목록. Space 재생, ← → 곡. 마지막 곡·위치·음량은 localStorage(`ileon-bgm`). 음악은 이 페이지에서만 나온다(떠 있는 플레이어, 홈 칸, 대륙 버튼은 작가님 요청으로 뺐다). 모바일은 조작부가 화면 밖이면 아래에 작은 재생 막대.
 - 모바일: 터치에서는 등장 효과·장면 맞춤 스크롤·흐림·배경 움직임을 끈다(`.touch`, `(hover:none)`). 안쪽 이중 스크롤 금지.
 - 폐기한 시안: 1차 밤 남색+청록, 2차 먹색+형광 노랑 진(작가님: "이전 디자인에서 타파 못 함, 완전히 갈아치워"). 같은 문법으로 돌아가지 말 것.
 - 참고 사이트(morkborg.com/preview, cyberpunk.net)와 figma.com 파일 받기는 이 환경 네트워크에서 막혀 있다. 열려면 환경 설정의 허용 도메인에 추가해야 한다.

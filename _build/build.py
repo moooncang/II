@@ -21,12 +21,13 @@ def dims(src):
     if "/B/" in src or "/bg-draft/" in src: return 2048, 585
     if "/sample/" in src: return 1280, 883
     if "/bgm/s/" in src: return 640, 360
+    if "/bgm/" in src: return 1920, 1080
     if re.search(r"_1\.webp$", src): return 1280, 828
     return 1280, 621
 
 NAV = [("world.html", "대륙", "WORLD"), ("characters.html", "인물", "CHARACTER"), ("system.html", "체계", "RULES"),
-       ("reality.html", "현실", "REALITY"), ("start.html", "시작", "NEW GAME")]
-NAV_BG = {"world.html": "ER", "characters.html": "T", "system.html": "TR", "reality.html": "CT", "start.html": "RI"}
+       ("reality.html", "현실", "REALITY"), ("start.html", "시작", "NEW GAME"), ("music.html", "음악", "SOUNDTRACK")]
+NAV_BG = {"world.html": "ER", "characters.html": "T", "system.html": "TR", "reality.html": "CT", "start.html": "RI", "music.html": "images/bgm/main.webp"}
 
 ARROW = '<svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.8"/></svg>'
 BACK = '<svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2.5M7 3.5 2.5 8 7 12.5" stroke="currentColor" stroke-width="1.8"/></svg>'
@@ -60,7 +61,7 @@ def head(page, title, up="", desc=DESC, body=""):
     tabs = "".join(
         f'<a href="{up}{h}"{" aria-current=\"page\"" if h == page else ""}>{key(str(k + 1))}<span>{t}</span></a>' for k, (h, t, en) in enumerate(NAV))
     menu = "".join(
-        f'<li><a href="{up}{h}" data-bg="{up}{"images/bg-draft/" + BGD[NAV_BG[h]] + ".webp"}"{" aria-current=\"page\"" if h == page else ""}><i>0{k + 1}</i><b>{t}</b><small>{en}</small></a></li>' for k, (h, t, en) in enumerate(NAV))
+        f'<li><a href="{up}{h}" data-bg="{up}{NAV_BG[h] if "/" in NAV_BG[h] else "images/bg-draft/" + BGD[NAV_BG[h]] + ".webp"}"{" aria-current=\"page\"" if h == page else ""}><i>0{k + 1}</i><b>{t}</b><small>{en}</small></a></li>' for k, (h, t, en) in enumerate(NAV))
     full = title if title == TITLE else f"{title} · {TITLE}"
     return f'''<!doctype html>
 <html lang="ko">
@@ -123,25 +124,6 @@ def chat_widget():
 PLAY_I = '<svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>'
 PAUSE_I = '<svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg>'
 def mmss(n): return f"{n // 60}:{n % 60:02d}"
-def bgm_json():
-    return json.dumps([dict(id=i, n=n, t=t, g=g) for i, n, t, g, d in BGM], ensure_ascii=False)
-def bgm_widget(up=""):
-    """모든 페이지 왼쪽 아래의 배경음악 플레이어와 사운드트랙 목록."""
-    i0, n0, t0, g0, d0 = BGM[0]
-    items = "".join(f'''<li><button type="button" data-bgm-id="{i}"><img src="{up}images/bgm/s/{i}.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>{E(n)}</b><small>{E(t)}</small></span><i>{E(g)} · {mmss(d)}</i></button></li>''' for i, n, t, g, d in BGM)
-    return f'''<div class="bp" data-bgm>
-  <button type="button" class="bp-cv" data-bgm-list aria-expanded="false" aria-controls="bpl" aria-label="사운드트랙 목록 열기"><img src="{up}images/bgm/s/{i0}.webp" alt="" width="640" height="360" decoding="async" data-bgm-img></button>
-  <button type="button" class="bp-tx" data-bgm-list aria-hidden="true" tabindex="-1"><i>BGM<span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span></i><b data-bgm-name>{E(n0)}</b><small data-bgm-title>{E(t0)}</small></button>
-  <button type="button" class="bp-pp" data-bgm-toggle aria-pressed="false" aria-label="배경음악 재생 (B)">{PLAY_I}{PAUSE_I}</button>
-</div>
-<section class="bpl" id="bpl" aria-label="사운드트랙" hidden>
-  <div class="cw-h"><span><i></i>SOUNDTRACK · {len(BGM)}</span><button type="button" class="cw-x" data-bgm-close aria-label="목록 닫기">×</button></div>
-  <ol class="bpl-b">{items}</ol>
-</section>
-<script type="application/json" id="bgm-data">{bgm_json()}</script>
-'''
-
-
 def foot(up=""):
     links = "".join(f'<a href="{up}{h}">{t}</a>' for h, t, en in NAV)
     return f'''</main>
@@ -152,7 +134,7 @@ def foot(up=""):
     <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
-{bgm_widget(up)}{chat_widget()}<script src="{up}assets/js/main.js"></script>
+{chat_widget()}<script src="{up}assets/js/main.js"></script>
 </body>
 </html>'''
 
@@ -279,7 +261,6 @@ def build_cover():
   </div>
   <div class="cv-flash"></div>
 </main>
-<script type="application/json" id="bgm-data">{bgm_json()}</script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>'''
@@ -292,7 +273,7 @@ def build_home():
     players = [c for c in C if c["side"] == "player"]
     npcs = [c for c in C if c["side"] == "npc"]
     menu = [("start.html", "새 게임", "NEW GAME"), ("world.html", "대륙", "WORLD"), ("characters.html", "캐릭터", "CHARACTER"),
-            ("system.html", "규칙서", "RULES"), ("reality.html", "현실", "REALITY")]
+            ("system.html", "규칙서", "RULES"), ("reality.html", "현실", "REALITY"), ("music.html", "사운드트랙", "SOUNDTRACK")]
     tmenu = "".join(f'<li><a href="{h}"{" class=\"on\"" if k == 0 else ""}><i>{PLAY}</i><b>{t}</b><small>{en}</small></a></li>' for k, (h, t, en) in enumerate(menu))
     regions = "".join(f'''<a class="rg" href="world.html#{r["key"]}" style="--i:{k}">
       <span class="rg-img">{img(bgd(r["img"]), r["name"])}</span>
@@ -384,11 +365,6 @@ def build_home():
   <div class="zero"><span>HIDDEN · 신화</span><b>0</b></div>
 </section>
 
-<section class="ost">
-  <div class="ost-h"><p class="lbl">SOUNDTRACK · {len(BGM)}</p><h2 class="ttl">사운드트랙</h2></div>
-  <ol class="ost-g">{"".join(f'''<li><button type="button" data-bgm-id="{i}"><span class="ost-img">{img(f"images/bgm/s/{i}.webp", n)}<span class="ost-pp">{PLAY_I}{PAUSE_I}</span></span><span class="ost-tx"><b>{E(t)}</b><i>{E(g)} · {mmss(d)}</i></span></button></li>''' for i, n, t, g, d in BGM)}</ol>
-</section>
-
 <section class="scene newgame">
   <div class="ng-h"><p class="lbl">NEW GAME</p></div>
   <div class="slots">{slot_html}</div>
@@ -414,7 +390,6 @@ def build_world():
         infos += f'''<article class="tv-info" data-r="{r["key"]}"{"" if k == 0 else " hidden"}>
       <p class="where">{E(r["where"])}</p>
       <h2>{E(r["name"])}</h2>
-      {(lambda b: f'<button type="button" class="tv-bgm" data-bgm-id="{b[0]}">{PLAY_I}{PAUSE_I}<span>지역 BGM</span><b>{E(b[2])}</b></button>' if b else "")(next((x for x in BGM if x[0] == r["key"]), None))}
       <p class="tx">{E(r["text"])}</p>
       {rows(items) if items else ""}
       {f'<div class="people">{people}</div>' if people else ""}
@@ -771,6 +746,68 @@ def build_reality():
 
 
 # ═════════════ 시작: 새 게임 ═════════════
+# ═════════════ 음악: 사운드트랙 플레이어 ═════════════
+PREV_I = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.5h2v11H3zM14 2.5v11L6 8z" fill="currentColor"/></svg>'
+NEXT_I = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11 2.5h2v11h-2zM2 2.5v11L10 8z" fill="currentColor"/></svg>'
+REP_I = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6.5V5h8.5l-2-2M13 9.5V11H4.5l2 2" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="8" y="9.6" text-anchor="middle" font-size="5" font-weight="800" fill="currentColor">1</text></svg>'
+VOL_I = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2.5l3.5-3v10L4.5 10H2z" fill="currentColor"/><path d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.5a6.3 6.3 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>'
+def build_music():
+    tracks = [dict(id=i, n=n, t=t, g=g, d=d) for i, n, t, g, d in BGM]
+    first = tracks[0]
+    groups = []
+    for g in ("테마", "지역", "장면", "현실"):
+        rows_ = [(k, x) for k, x in enumerate(tracks) if x["g"] == g]
+        li = "".join(f'''<li><button type="button" data-mu-id="{x["id"]}"{" aria-current=\"true\"" if k == 0 else ""}>
+          <span class="mu-no">{k + 1:02d}</span>
+          <span class="mu-th">{img(f"images/bgm/s/{x['id']}.webp", "")}</span>
+          <span class="mu-tt"><b>{E(x["n"])}</b><small>{E(x["t"])}</small></span>
+          <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <i>{mmss(x["d"])}</i>
+        </button></li>''' for k, x in rows_)
+        groups.append(f'<section class="mu-grp"><h2 class="mu-gh"><span>{g}</span><i>{len(rows_)}</i></h2><ol>{li}</ol></section>')
+    s = head("music.html", "사운드트랙", body="music-page")
+    s += f'''<section class="mu" data-music>
+  <div class="mu-bg" aria-hidden="true"><img src="images/bgm/s/{first["id"]}.webp" alt="" data-mu-bg></div>
+  <div class="mu-in">
+    <div class="mu-stage">
+      <div class="mu-head"><p class="lbl">SOUNDTRACK · {len(tracks)}</p><p class="mu-keys">{key("Space")} 재생 {key("←")}{key("→")} 곡</p></div>
+      <figure class="mu-art">
+        <img src="images/bgm/{first["id"]}.webp" alt="{E(first["n"])}" width="1920" height="1080" decoding="async" fetchpriority="high" data-mu-art>
+        <canvas class="mu-vis" aria-hidden="true"></canvas>
+        <span class="mu-fr" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </figure>
+      <div class="mu-now">
+        <p class="mu-k"><b data-mu-no>01</b><span>/ {len(tracks)}</span><em data-mu-g>{E(first["g"])}</em></p>
+        <h1 class="mu-name" data-mu-name>{E(first["n"])}</h1>
+        <p class="mu-en" data-mu-en>{E(first["t"])}</p>
+      </div>
+      <div class="mu-ctl">
+        <div class="mu-btns">
+          <button type="button" class="mu-b" data-mu-prev aria-label="이전 곡">{PREV_I}</button>
+          <button type="button" class="mu-pp" data-mu-pp aria-pressed="false" aria-label="재생">{PLAY_I}{PAUSE_I}</button>
+          <button type="button" class="mu-b" data-mu-next aria-label="다음 곡">{NEXT_I}</button>
+          <button type="button" class="mu-b mu-rep" data-mu-rep aria-pressed="false" aria-label="한 곡 반복">{REP_I}</button>
+        </div>
+        <div class="mu-seek"><span data-mu-cur>0:00</span><input type="range" min="0" max="1000" value="0" step="1" aria-label="재생 위치" data-mu-seek><span data-mu-dur>{mmss(first["d"])}</span></div>
+        <label class="mu-vol"><span class="sr">음량</span>{VOL_I}<input type="range" min="0" max="100" value="70" data-mu-vol></label>
+      </div>
+    </div>
+    <div class="mu-list">{"".join(groups)}</div>
+  </div>
+  <div class="mu-mini" data-mu-mini hidden>
+    <img src="images/bgm/s/{first["id"]}.webp" alt="" data-mu-mimg>
+    <span><b data-mu-mname>{E(first["n"])}</b><small data-mu-men>{E(first["t"])}</small></span>
+    <button type="button" class="mu-pp" data-mu-pp aria-pressed="false" aria-label="재생">{PLAY_I}{PAUSE_I}</button>
+    <button type="button" class="mu-b" data-mu-next aria-label="다음 곡">{NEXT_I}</button>
+    <i class="mu-mbar"><i data-mu-mbar></i></i>
+  </div>
+  <script type="application/json" id="mu-data">{json.dumps(tracks, ensure_ascii=False)}</script>
+</section>
+'''
+    s += foot()
+    write("music.html", s)
+
+
 def build_start():
     modes = [
         ("newbie", "뉴비", "일레온 프롤로그(뉴비).md", "RI", "리아텔 · 귀환석 광장", "Lv1 · 무직",
@@ -830,5 +867,5 @@ if __name__ == "__main__":
     build_cover(); build_home(); build_world(); build_characters()
     for i, c in enumerate(C):
         build_char(i, c)
-    build_system(); build_reality(); build_start()
-    print("ok:", 7 + len(C), "pages")
+    build_system(); build_reality(); build_start(); build_music()
+    print("ok:", 8 + len(C), "pages")

@@ -16,7 +16,7 @@
 <a class="skip" href="#main">본문으로</a>
 <header class="hud">
   <a class="logo" href="home.html" aria-label="일레온 타이틀 화면"><b>ILEON</b><span class="srv"><i></i>벨라트 서버</span></a>
-  <nav class="tabs" aria-label="주 메뉴"><a href="world.html" aria-current="page"><kbd class="key">1</kbd><span>대륙</span></a><a href="characters.html"><kbd class="key">2</kbd><span>인물</span></a><a href="system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="start.html"><kbd class="key">5</kbd><span>시작</span></a></nav>
+  <nav class="tabs" aria-label="주 메뉴"><a href="world.html" aria-current="page"><kbd class="key">1</kbd><span>대륙</span></a><a href="characters.html"><kbd class="key">2</kbd><span>인물</span></a><a href="system.html"><kbd class="key">3</kbd><span>체계</span></a><a href="reality.html"><kbd class="key">4</kbd><span>현실</span></a><a href="start.html"><kbd class="key">5</kbd><span>시작</span></a><a href="music.html"><kbd class="key">6</kbd><span>음악</span></a></nav>
   <div class="clk" aria-label="현실 시각과 벨라트 시각"><span><i>REAL</i><b data-clock="real">--:--</b></span><span class="b"><i>BELAT</i><b data-clock="belat">--:--</b></span></div>
   <button class="snd" type="button" aria-pressed="true" aria-label="효과음 켜고 끄기 (M)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path class="w" d="M13 7a4 4 0 0 1 0 6M15.5 4.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M13.5 7.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>SFX</span><b>ON</b></button>
   <button class="esc" type="button" aria-expanded="false" aria-controls="menu"><kbd class="key">ESC</kbd><span>메뉴</span></button>
@@ -25,7 +25,7 @@
   <div class="menu-bg" aria-hidden="true"></div>
   <div class="menu-in">
     <p class="lbl">MENU · 일시 정지</p>
-    <ol><li><a href="world.html" data-bg="images/bg-draft/147058076.webp" aria-current="page"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="characters.html" data-bg="images/bg-draft/3469639875.webp"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="system.html" data-bg="images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="reality.html" data-bg="images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="start.html" data-bg="images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li></ol>
+    <ol><li><a href="world.html" data-bg="images/bg-draft/147058076.webp" aria-current="page"><i>01</i><b>대륙</b><small>WORLD</small></a></li><li><a href="characters.html" data-bg="images/bg-draft/3469639875.webp"><i>02</i><b>인물</b><small>CHARACTER</small></a></li><li><a href="system.html" data-bg="images/bg-draft/914807083.webp"><i>03</i><b>체계</b><small>RULES</small></a></li><li><a href="reality.html" data-bg="images/bg-draft/3744689049.webp"><i>04</i><b>현실</b><small>REALITY</small></a></li><li><a href="start.html" data-bg="images/bg-draft/3220923381.webp"><i>05</i><b>시작</b><small>NEW GAME</small></a></li><li><a href="music.html" data-bg="images/bgm/main.webp"><i>06</i><b>음악</b><small>SOUNDTRACK</small></a></li></ol>
     <div class="menu-foot"><a href="home.html">타이틀 화면</a><a href="index.html">로그아웃</a><button type="button" class="menu-x"><kbd class="key">ESC</kbd> 돌아가기</button></div>
   </div>
 </div>
@@ -42,70 +42,60 @@
     <div class="pnl-b"><article class="tv-info" data-r="riatel">
       <p class="where">중부 평야 · 시작 권역</p>
       <h2>리아텔</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="riatel"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Morning Fields</b></button>
       <p class="tx">모든 이방인이 처음 눈 뜨는 곳. 귀환석 광장으로 새 이방인이 내려오고, 죽은 이방인이 돌아온다. 왕권이 약해서 영주들끼리 땅싸움 중이고, 계승 문제 하나 터지면 바로 내전.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>옛 수로 <em>Lv1-8</em> · 하르넨 들판 <em>Lv8-15</em> · 늑대 골짜기 <em>Lv15-22</em></dd></div><div><dt>던전</dt><dd>옛 수로 <em>Lv1-10</em> · 무너진 예배당 <em>Lv12-20</em></dd></div><div><dt>신앙</dt><dd>베레스</dd></div></dl>
       <div class="people"><a class="chip" href="char/rohan.html"><img src="images/sample/H.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>로한 델리엇</span></a><a class="chip" href="char/yuan.html"><img src="images/sample/L.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>유안</span></a></div>
     </article><article class="tv-info" data-r="kadet" hidden>
       <p class="where">중립 자유도시</p>
       <h2>카뎃트</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="kadet"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Bazaar Call and Response</b></button>
       <p class="tx">경매장, 용병단, 정보상. 대륙의 소문은 결국 다 여기로 흘러든다. 성 안에선 PK 금지. 파티 구할 땐 일단 여기부터.</p>
       
       <div class="people"><a class="chip" href="char/selia.html"><img src="images/sample/K.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>셀리아</span></a><a class="chip" href="char/garsi.html"><img src="images/sample/I.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>가르시 렌</span></a><a class="chip" href="char/marta.html"><img src="images/sample/O.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>마르타</span></a><a class="chip" href="char/ulsan.html"><img src="images/sample/B.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>울산강펀치</span></a></div>
     </article><article class="tv-info" data-r="karsion" hidden>
       <p class="where">동반부 제국 · 수도 에르카시아</p>
       <h2>카르시온</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="karsion"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Imperial Chamber Overture</b></button>
       <p class="tx">황제와 5대 공작가의 제국. 등록하면 특혜, 대신 다른 나라 명성은 깎인다. 제일 높은 전직이 여기 있고, 공작가 계승 다툼은 언제 정변이 돼도 이상하지 않다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>흑철 관문 외곽 <em>Lv40-48</em> · 고사목 지대 <em>Lv45-52</em></dd></div><div><dt>던전</dt><dd>흑철 지하감옥 <em>Lv42-52</em></dd></div><div><dt>신앙</dt><dd>솔마르</dd></div></dl>
       <div class="people"><a class="chip" href="char/bernhardt.html"><img src="images/sample/F.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>베른하르트 콜</span></a></div>
     </article><article class="tv-info" data-r="harden" hidden>
       <p class="where">북방 산악 · 씨족 연합</p>
       <h2>하르덴</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="harden"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Fjellvindens Melodi</b></button>
       <p class="tx">철광의 땅. 제국은 병합을, 씨족 연합은 독립을 원한다. 북부 국경은 전면전 직전이고, 겨울엔 마수까지 남쪽으로 내려온다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>서리치 갱도 입구 <em>Lv22-30</em> · 눈보라 능선 <em>Lv30-38</em></dd></div><div><dt>던전</dt><dd>서리치 갱도 <em>Lv25-35</em></dd></div><div><dt>신앙</dt><dd>하눔</dd></div></dl>
       
     </article><article class="tv-info" data-r="tulgard" hidden>
       <p class="where">하르덴 지하 · 드워프</p>
       <h2>툴가르드</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="tulgard"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>The Forge&#x27;s steady beat</b></button>
       <p class="tx">대륙 최고의 물건이 나오는 지하 도시. 친밀도가 없으면? 문 앞에서 돌아서야지.</p>
       <dl class="data"><div><dt>신앙</dt><dd>하눔</dd></div></dl>
       <div class="people"><a class="chip" href="char/torbin.html"><img src="images/sample/J.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>토르빈</span></a><a class="chip" href="char/pinkyu.html"><img src="images/sample/C.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>핑뀨꽁주</span></a></div>
     </article><article class="tv-info" data-r="mirzen" hidden>
       <p class="where">남서 해안 · 항구 도시 셀라운</p>
       <h2>미르젠</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="mirzen"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Salt Air Shanty</b></button>
       <p class="tx">돈이면 작위도 산다. 실권은 상단 연합. 제국 관세를 두고 봉쇄와 해전이 오가는 틈에, 밀수꾼과 해적이 큰다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>소금 습지 <em>Lv25-33</em> · 난파 해안 <em>Lv33-40</em></dd></div><div><dt>던전</dt><dd>가라앉은 항로 <em>Lv30-40</em></dd></div><div><dt>신앙</dt><dd>넬리아</dd></div></dl>
       
     </article><article class="tv-info" data-r="ashen" hidden>
       <p class="where">제국과 왕국 사이 · 무법 지대</p>
       <h2>잿빛 회랑</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="ashen"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Dusty Frontier</b></button>
       <p class="tx">레벨 대비 효율, 대륙 최고. 대신 PK가 열려 있고 길목은 도적단 차지. 무명이 목격되는 곳도 여기뿐이다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>무너진 가도 <em>Lv35-45</em></dd></div><div><dt>던전</dt><dd>도살장 터 <em>Lv35-45</em></dd></div></dl>
       <div class="people"><a class="chip" href="char/isra.html"><img src="images/sample/G.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>이스라</span></a><a class="chip" href="char/mumyeong.html"><img src="images/sample/E.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>무명</span></a></div>
     </article><article class="tv-info" data-r="aelin" hidden>
       <p class="where">서부 · 엘프령</p>
       <h2>아엘린</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="aelin"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Misty Lydian Woods</b></button>
       <p class="tx">명성이 없으면 못 들어가고, 벌목이나 수렵 이력이 있으면 더 못 들어간다. 나무 베는 이방인이 늘수록 숲은 날이 선다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>안개 수림 <em>Lv48-55</em></dd></div><div><dt>던전</dt><dd>뿌리의 방 <em>Lv50-58</em></dd></div><div><dt>신앙</dt><dd>이웬</dd></div></dl>
       <div class="people"><a class="chip" href="char/neia.html"><img src="images/sample/M.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>네이아</span></a></div>
     </article><article class="tv-info" data-r="shehar" hidden>
       <p class="where">남동 사막 · 유목</p>
       <h2>셰하르</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="shehar"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Heat Shimmer Pad</b></button>
       <p class="tx">부족 거점이 쉬지 않고 옮겨 다닌다. 건기가 오면 물, 체온, 오아시스를 두고 부족끼리 맞붙고.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>열사 분지 <em>Lv50-58</em></dd></div><div><dt>던전</dt><dd>모래 아래 신전 <em>Lv52-60</em></dd></div></dl>
       
     </article><article class="tv-info" data-r="rahna" hidden>
       <p class="where">북동 침강지</p>
       <h2>라흐나</h2>
-      <button type="button" class="tv-bgm" data-bgm-id="rahna"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg><span>지역 BGM</span><b>Subterranean Pressure</b></button>
       <p class="tx">봉인지 레이드와 고대 유물의 땅. 입구는 길드들이 점거 중. 봉인이 약해지면 마물이 넘쳐 나온다. 가장 깊은 제3환? 아직 아무도 못 넘었다.</p>
       <dl class="data"><div><dt>사냥터</dt><dd>침강 외곽 <em>Lv55-62</em></dd></div><div><dt>던전</dt><dd>라흐나 제1환 · 제2환 <em>Lv58-64</em> · 라흐나 제3환 <em>?</em></dd></div></dl>
       <div class="people"><a class="chip" href="char/kasiel.html"><img src="images/sample/N.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>카시엘</span></a><a class="chip" href="char/juliet.html"><img src="images/sample/A.webp" alt="" width="1280" height="883" loading="lazy" decoding="async"><span>줄리엣</span></a></div>
@@ -161,20 +151,10 @@
 <footer class="foot">
   <div class="foot-in">
     <a class="logo" href="home.html"><b>ILEON</b><span class="srv"><i></i>FULL DIVE</span></a>
-    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a></nav>
+    <nav aria-label="바닥글"><a href="world.html">대륙</a><a href="characters.html">인물</a><a href="system.html">체계</a><a href="reality.html">현실</a><a href="start.html">시작</a><a href="music.html">음악</a></nav>
     <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
-<div class="bp" data-bgm>
-  <button type="button" class="bp-cv" data-bgm-list aria-expanded="false" aria-controls="bpl" aria-label="사운드트랙 목록 열기"><img src="images/bgm/s/main.webp" alt="" width="640" height="360" decoding="async" data-bgm-img></button>
-  <button type="button" class="bp-tx" data-bgm-list aria-hidden="true" tabindex="-1"><i>BGM<span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span></i><b data-bgm-name>RISE AGAIN</b><small data-bgm-title>Rise Again x Rise Again (Mashup)</small></button>
-  <button type="button" class="bp-pp" data-bgm-toggle aria-pressed="false" aria-label="배경음악 재생 (B)"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg></button>
-</div>
-<section class="bpl" id="bpl" aria-label="사운드트랙" hidden>
-  <div class="cw-h"><span><i></i>SOUNDTRACK · 20</span><button type="button" class="cw-x" data-bgm-close aria-label="목록 닫기">×</button></div>
-  <ol class="bpl-b"><li><button type="button" data-bgm-id="main"><img src="images/bgm/s/main.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>RISE AGAIN</b><small>Rise Again x Rise Again (Mashup)</small></span><i>테마 · 2:22</i></button></li><li><button type="button" data-bgm-id="riatel"><img src="images/bgm/s/riatel.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>리아텔</b><small>Morning Fields</small></span><i>지역 · 3:05</i></button></li><li><button type="button" data-bgm-id="kadet"><img src="images/bgm/s/kadet.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>카뎃트</b><small>Bazaar Call and Response</small></span><i>지역 · 2:13</i></button></li><li><button type="button" data-bgm-id="karsion"><img src="images/bgm/s/karsion.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>카르시온</b><small>Imperial Chamber Overture</small></span><i>지역 · 1:44</i></button></li><li><button type="button" data-bgm-id="harden"><img src="images/bgm/s/harden.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>하르덴</b><small>Fjellvindens Melodi</small></span><i>지역 · 2:37</i></button></li><li><button type="button" data-bgm-id="tulgard"><img src="images/bgm/s/tulgard.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>툴가르드</b><small>The Forge&#x27;s steady beat</small></span><i>지역 · 2:43</i></button></li><li><button type="button" data-bgm-id="mirzen"><img src="images/bgm/s/mirzen.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>미르젠</b><small>Salt Air Shanty</small></span><i>지역 · 1:34</i></button></li><li><button type="button" data-bgm-id="ashen"><img src="images/bgm/s/ashen.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>잿빛 회랑</b><small>Dusty Frontier</small></span><i>지역 · 3:05</i></button></li><li><button type="button" data-bgm-id="aelin"><img src="images/bgm/s/aelin.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>아엘린</b><small>Misty Lydian Woods</small></span><i>지역 · 3:23</i></button></li><li><button type="button" data-bgm-id="shehar"><img src="images/bgm/s/shehar.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>셰하르</b><small>Heat Shimmer Pad</small></span><i>지역 · 3:13</i></button></li><li><button type="button" data-bgm-id="rahna"><img src="images/bgm/s/rahna.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>라흐나</b><small>Subterranean Pressure</small></span><i>지역 · 3:28</i></button></li><li><button type="button" data-bgm-id="inn"><img src="images/bgm/s/inn.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>여관</b><small>Firelight at the Tavern</small></span><i>장면 · 2:20</i></button></li><li><button type="button" data-bgm-id="temple"><img src="images/bgm/s/temple.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>신전</b><small>Dorian Hymn</small></span><i>장면 · 3:13</i></button></li><li><button type="button" data-bgm-id="battle"><img src="images/bgm/s/battle.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>전투</b><small>Tense Kinetic</small></span><i>장면 · 2:15</i></button></li><li><button type="button" data-bgm-id="bossroom"><img src="images/bgm/s/bossroom.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>보스룸</b><small>Unyielding Ostinato</small></span><i>장면 · 1:53</i></button></li><li><button type="button" data-bgm-id="incident"><img src="images/bgm/s/incident.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>사변</b><small>The Inevitable March</small></span><i>장면 · 2:10</i></button></li><li><button type="button" data-bgm-id="otherworld"><img src="images/bgm/s/otherworld.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>이계</b><small>Physics Beyond Our Stars</small></span><i>장면 · 3:03</i></button></li><li><button type="button" data-bgm-id="pod"><img src="images/bgm/s/pod.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>포드방</b><small>Server Room Hum</small></span><i>현실 · 2:58</i></button></li><li><button type="button" data-bgm-id="room"><img src="images/bgm/s/room.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>방</b><small>Rain on Window</small></span><i>현실 · 2:32</i></button></li><li><button type="button" data-bgm-id="city"><img src="images/bgm/s/city.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>도시</b><small>Neon After Rain</small></span><i>현실 · 3:08</i></button></li></ol>
-</section>
-<script type="application/json" id="bgm-data">[{"id": "main", "n": "RISE AGAIN", "t": "Rise Again x Rise Again (Mashup)", "g": "테마"}, {"id": "riatel", "n": "리아텔", "t": "Morning Fields", "g": "지역"}, {"id": "kadet", "n": "카뎃트", "t": "Bazaar Call and Response", "g": "지역"}, {"id": "karsion", "n": "카르시온", "t": "Imperial Chamber Overture", "g": "지역"}, {"id": "harden", "n": "하르덴", "t": "Fjellvindens Melodi", "g": "지역"}, {"id": "tulgard", "n": "툴가르드", "t": "The Forge's steady beat", "g": "지역"}, {"id": "mirzen", "n": "미르젠", "t": "Salt Air Shanty", "g": "지역"}, {"id": "ashen", "n": "잿빛 회랑", "t": "Dusty Frontier", "g": "지역"}, {"id": "aelin", "n": "아엘린", "t": "Misty Lydian Woods", "g": "지역"}, {"id": "shehar", "n": "셰하르", "t": "Heat Shimmer Pad", "g": "지역"}, {"id": "rahna", "n": "라흐나", "t": "Subterranean Pressure", "g": "지역"}, {"id": "inn", "n": "여관", "t": "Firelight at the Tavern", "g": "장면"}, {"id": "temple", "n": "신전", "t": "Dorian Hymn", "g": "장면"}, {"id": "battle", "n": "전투", "t": "Tense Kinetic", "g": "장면"}, {"id": "bossroom", "n": "보스룸", "t": "Unyielding Ostinato", "g": "장면"}, {"id": "incident", "n": "사변", "t": "The Inevitable March", "g": "장면"}, {"id": "otherworld", "n": "이계", "t": "Physics Beyond Our Stars", "g": "장면"}, {"id": "pod", "n": "포드방", "t": "Server Room Hum", "g": "현실"}, {"id": "room", "n": "방", "t": "Rain on Window", "g": "현실"}, {"id": "city", "n": "도시", "t": "Neon After Rain", "g": "현실"}]</script>
 <button class="cw-btn" type="button" aria-expanded="false" aria-controls="cw"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 3h14v9H7l-4 3v-3H2z" stroke="currentColor" stroke-width="1.6"/></svg><span>채팅</span><kbd class="key">Enter</kbd><i class="cw-n" hidden>0</i></button>
 <section class="cw" id="cw" aria-label="월드 채팅" hidden>
   <div class="cw-h"><span><i></i>월드 채팅</span><button type="button" class="cw-x" aria-label="채팅 닫기">×</button></div>
