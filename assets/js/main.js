@@ -12,6 +12,7 @@
   function typing() { var a = d.activeElement; return a && /INPUT|TEXTAREA|SELECT/.test(a.tagName); }
   var SCRIPT = (d.currentScript && d.currentScript.src) || '';
   var SITE = SCRIPT.replace(/assets\/js\/main\.js.*$/, '');
+  var CSS0 = (function () { var l = d.querySelector('link[rel="stylesheet"]'); return l ? l.href : ''; })();
 
   /* ── 페이지 수명: 페이지를 떠날 때 이 페이지가 붙인 것을 모두 걷어낸다 ── */
   var P = null;
@@ -233,9 +234,9 @@
       var doc = new DOMParser().parseFromString(html, 'text/html');
       if (!doc.body || !doc.querySelector('script[src*="main.js"]')) throw 0;
       /* 사이트가 새로 올라왔으면(파일 꼬리 다름) 통째로 새로 불러 최신을 쓴다 */
-      var ns = doc.querySelector('link[rel="stylesheet"]'), cs = $('link[rel="stylesheet"]');
+      var ns = doc.querySelector('link[rel="stylesheet"]');
       var nj = doc.querySelector('script[src*="main.js"]');
-      if ((ns && cs && new URL(ns.getAttribute('href'), u.href).href !== cs.href) || (nj && new URL(nj.getAttribute('src'), u.href).href !== SCRIPT)) throw 0;
+      if ((ns && CSS0 && new URL(ns.getAttribute('href'), u.href).href !== CSS0) || (nj && new URL(nj.getAttribute('src'), u.href).href !== SCRIPT)) throw 0;
       if (!pop) history.pushState({ y: 0 }, '', u.href);
       var swap = function () {
         d.title = doc.title;
