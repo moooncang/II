@@ -141,7 +141,12 @@ def logout_scene(code="CT", *_):
 '''
 
 
+import hashlib
+def _ver(rel):
+    with open(os.path.join(ROOT, rel), "rb") as f: return hashlib.md5(f.read()).hexdigest()[:8]
 def write(name, s):
+    # 파일이 바뀌면 주소 꼬리(?v=)가 바뀌어 브라우저가 옛 파일을 쓰지 않는다
+    s = s.replace("assets/css/style.css\"", "assets/css/style.css?v=" + _ver("assets/css/style.css") + "\"").replace("assets/js/main.js\"", "assets/js/main.js?v=" + _ver("assets/js/main.js") + "\"")
     assert "—" not in s and "–" not in s, f"em/en dash in {name}"
     p = os.path.join(ROOT, name)
     os.makedirs(os.path.dirname(p), exist_ok=True)

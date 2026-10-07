@@ -232,6 +232,10 @@
       if (n !== busy) return;
       var doc = new DOMParser().parseFromString(html, 'text/html');
       if (!doc.body || !doc.querySelector('script[src*="main.js"]')) throw 0;
+      /* 사이트가 새로 올라왔으면(파일 꼬리 다름) 통째로 새로 불러 최신을 쓴다 */
+      var ns = doc.querySelector('link[rel="stylesheet"]'), cs = $('link[rel="stylesheet"]');
+      var nj = doc.querySelector('script[src*="main.js"]');
+      if ((ns && cs && new URL(ns.getAttribute('href'), u.href).href !== cs.href) || (nj && new URL(nj.getAttribute('src'), u.href).href !== SCRIPT)) throw 0;
       if (!pop) history.pushState({ y: 0 }, '', u.href);
       var swap = function () {
         d.title = doc.title;
