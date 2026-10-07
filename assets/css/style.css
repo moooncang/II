@@ -1081,3 +1081,8 @@ html{overflow-x:hidden;overflow-x:clip}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:ease}
 .leaving{cursor:progress}
 main:focus{outline:none}
+/* 홈 타이틀: 채팅 판은 오른쪽 아래(왼쪽 메뉴와 겹치지 않게) */
+@media (min-width:641px){.title .chat{left:auto;right:var(--gut);width:min(480px,calc(100% - 2 * var(--gut)))}}
+@media (min-width:641px) and (max-width:1000px){.title .chat{width:min(420px,52%)}}
+.title .scroll-hint{right:auto;left:50%;transform:translateX(-50%)}
+@media (max-width:1000px){.title .scroll-hint{display:none}}
