@@ -791,27 +791,28 @@ body.os::after{opacity:.025}
 /* 표지 HUD (푸른 계열) */
 .cover{--cv:#5ce5ff;--cv-2:#3a7bff}
 .cv-ring{position:absolute;left:50%;top:46%;width:min(92vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%);color:var(--cv);opacity:.85;pointer-events:none;
-  filter:drop-shadow(0 0 12px rgba(92,229,255,.4));animation:ring-in 1.8s var(--ease) both;transition:transform 1.2s var(--ease),opacity .8s}
-.cv-ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  animation:ring-in 1.8s var(--ease) both;transition:transform 1.2s var(--ease),opacity .8s}
+.cv-ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;will-change:transform}
+.cv-ring::before{content:"";position:absolute;inset:-6%;border-radius:50%;background:radial-gradient(circle,transparent 44%,rgba(92,229,255,.07) 58%,rgba(92,229,255,.12) 66%,transparent 72%)}
 .cv-ring g{transform-box:view-box;transform-origin:50% 50%}
 .cv-ring .r1{animation:spin 26s linear infinite}
 .cv-ring .r2{animation:spin 16s linear infinite reverse}
 .cv-ring .r3{animation:spin 9s cubic-bezier(.6,0,.4,1) infinite}
 .cv-ring .r4{animation:spin 34s linear infinite reverse}
 .cv-ring .r5{animation:spin 6s linear infinite}
-.cv-ring .tk{animation:tick 2.4s ease-in-out infinite}
+.cv-ring .tk{animation:tick 2.4s ease-in-out infinite;will-change:opacity}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes tick{50%{stroke-opacity:.15}}
+@keyframes tick{50%{opacity:.25}}
 @keyframes ring-in{from{opacity:0;transform:translate(-50%,-50%) scale(.82) rotate(-30deg)}}
 .cv-sweep{position:absolute;inset:4%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg,rgba(58,123,255,0) 300deg,rgba(92,229,255,.22) 356deg,rgba(191,246,255,.5) 360deg);
-  -webkit-mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);animation:spin 4.5s linear infinite}
+  -webkit-mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);mask:radial-gradient(circle,transparent 46%,#000 47%,#000 70%,transparent 71%);animation:spin 4.5s linear infinite;will-change:transform}
 .cv-pulse{position:absolute;inset:24%;border-radius:50%;border:1px solid var(--cv);opacity:0;animation:pulse-r 3.6s cubic-bezier(.2,.6,.3,1) infinite}
 .cv-pulse.p2{animation-delay:1.8s;border-color:var(--cv-2)}
 @keyframes pulse-r{0%{opacity:.7;transform:scale(.8)}100%{opacity:0;transform:scale(1.55)}}
 .cover.go .cv-ring{transform:translate(-50%,-50%) scale(1.9);opacity:0}
-.cover.go .cv-ring g{animation-duration:1.4s}
+.cover.go .cv-ring svg{animation-duration:1.4s}
 .cv-mid{z-index:1}
-.cv-logo b{animation:logo 1.4s var(--ease) both,glow 4s 1.4s ease-in-out infinite}
+.cv-logo b{animation:logo 1.4s var(--ease) both;text-shadow:0 0 44px rgba(92,229,255,.32)}
 @keyframes glow{0%,100%{text-shadow:0 0 30px rgba(92,229,255,.2)}50%{text-shadow:0 0 60px rgba(92,229,255,.5),0 0 2px rgba(191,246,255,.6)}}
 .cv-logo span{color:var(--cv)}
 .cv-frame i{position:absolute;width:34px;height:34px;border:2px solid var(--cv);opacity:.75;animation:corner 3s ease-in-out infinite}
@@ -827,8 +828,8 @@ body.os::after{opacity:.025}
 .cover .cv-bar i{background:linear-gradient(90deg,var(--cv-2),var(--cv));box-shadow:0 0 12px rgba(92,229,255,.6)}
 .cover .cv-log li.on::after{color:var(--cv)}
 .cover .shade{background:radial-gradient(ellipse at center,rgba(10,40,70,.3),rgba(7,8,10,.88) 72%),repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px)}
-.cover::after{content:"";position:absolute;left:0;right:0;height:140px;top:-140px;z-index:0;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(92,229,255,.1),transparent);animation:scan 5s linear infinite}
-@keyframes scan{to{top:100%}}
+.cover::after{content:"";position:absolute;left:0;right:0;height:140px;top:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(92,229,255,.1),transparent);transform:translateY(-140px);animation:scan2 5s linear infinite;will-change:transform}
+@keyframes scan2{to{transform:translateY(100vh)}}
 .cover .cv-flash{background:radial-gradient(circle,#e8fbff,#5ce5ff 70%)}
 .cv-top span:first-child{color:var(--cv)}
 @media (max-width:760px){.cv-read{display:none}.cv-frame i:nth-child(3),.cv-frame i:nth-child(4){bottom:170px}}
@@ -1076,3 +1077,7 @@ html{overflow-x:hidden;overflow-x:clip}
 @media (prefers-reduced-motion:reduce){.bgm-on .hbgm-b .eq b{animation:none;height:7px}}
 @media (max-width:1240px){.hbgm-n{display:none}}
 @media (max-width:900px){.hbgm-k{display:none}.hbgm-b{padding:10px 6px}}
+/* 페이지 전환: 본문만 바꿔 끼울 때 짧게 겹쳐 넘긴다 */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:ease}
+.leaving{cursor:progress}
+main:focus{outline:none}

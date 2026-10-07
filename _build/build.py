@@ -197,21 +197,23 @@ def render_prologue(fname):
 
 
 # ═════════════ 표지: 로딩 화면 ═════════════
-RING = '''<svg viewBox="0 0 600 600" fill="none" aria-hidden="true">
-  <g class="r1"><circle cx="300" cy="300" r="292" stroke="currentColor" stroke-opacity=".18"/>
+_RL = [
+    ("r1", '''<circle cx="300" cy="300" r="292" stroke="currentColor" stroke-opacity=".18"/>
     <circle cx="300" cy="300" r="292" stroke="currentColor" stroke-opacity=".7" stroke-width="2" stroke-dasharray="1 11"/>
     <path d="M300 8a292 292 0 0 1 206 85" stroke="#3a7bff" stroke-width="3"/>
-    <path d="M300 592a292 292 0 0 1-206-85" stroke="#3a7bff" stroke-opacity=".6" stroke-width="2"/></g>
-  <g class="r2"><circle cx="300" cy="300" r="250" stroke="currentColor" stroke-opacity=".4" stroke-width="10" stroke-dasharray="2 6"/>
+    <path d="M300 592a292 292 0 0 1-206-85" stroke="#3a7bff" stroke-opacity=".6" stroke-width="2"/>'''),
+    ("r2", '''<circle cx="300" cy="300" r="250" stroke="currentColor" stroke-opacity=".4" stroke-width="10" stroke-dasharray="2 6"/>
     <path d="M50 300a250 250 0 0 1 250-250" stroke="currentColor" stroke-width="2.5"/>
-    <path d="M550 300a250 250 0 0 1-250 250" stroke="currentColor" stroke-width="2.5"/></g>
-  <g class="r3"><circle cx="300" cy="300" r="214" stroke="currentColor" stroke-opacity=".22"/>
+    <path d="M550 300a250 250 0 0 1-250 250" stroke="currentColor" stroke-width="2.5"/>'''),
+    ("r3", '''<circle cx="300" cy="300" r="214" stroke="currentColor" stroke-opacity=".22"/>
     <path d="M300 86a214 214 0 0 1 151 63M149 451A214 214 0 0 1 86 300" stroke="currentColor" stroke-opacity=".85" stroke-width="5"/>
-    <circle cx="300" cy="86" r="5" fill="currentColor"/><circle cx="300" cy="514" r="5" fill="#3a7bff"/></g>
-  <g class="r4"><circle cx="300" cy="300" r="186" stroke="#3a7bff" stroke-opacity=".45" stroke-dasharray="40 8 4 8"/></g>
-  <g class="r5"><circle cx="300" cy="27" r="4" fill="#bff6ff"/></g>
-  <path class="tk" d="M300 0v26M300 574v26M0 300h26M574 300h26" stroke="currentColor" stroke-opacity=".6" stroke-width="2"/>
-</svg>'''
+    <circle cx="300" cy="86" r="5" fill="currentColor"/><circle cx="300" cy="514" r="5" fill="#3a7bff"/>'''),
+    ("r4", '<circle cx="300" cy="300" r="186" stroke="#3a7bff" stroke-opacity=".45" stroke-dasharray="40 8 4 8"/>'),
+    ("r5", '<circle cx="300" cy="27" r="4" fill="#bff6ff"/>'),
+    ("tk", '<path d="M300 0v26M300 574v26M0 300h26M574 300h26" stroke="currentColor" stroke-opacity=".6" stroke-width="2"/>'),
+]
+# 고리마다 따로 된 SVG: 각 판을 통째로 돌려서 그래픽 카드가 그리게 한다(다시 그리지 않음)
+RING = "".join(f'<svg class="{c}" viewBox="0 0 600 600" fill="none" aria-hidden="true">{b}</svg>' for c, b in _RL)
 
 
 def build_cover():
