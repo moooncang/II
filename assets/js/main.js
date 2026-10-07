@@ -74,10 +74,100 @@
     /* 버튼과 링크는 누를 때 확인음. 따로 소리를 정한 곳은 건너뛴다 */
     d.addEventListener('click', function (e) {
       var t = e.target.closest && e.target.closest('a[href], button');
-      if (!t || t.closest('.snd, .cw-btn, .esc, .menu-x, [data-cover], .tv-list, .ng .slot, .thumbs, [data-jobs] [data-next], .cw-f')) return;
+      if (!t || t.closest('[data-bgm-id], .bp, .bpl, .snd, .cw-btn, .esc, .menu-x, [data-cover], .tv-list, .ng .slot, .thumbs, [data-jobs] [data-next], .cw-f')) return;
       play('click');
     });
     return { play: play, stop: stop, toggle: function () { set(!on); } };
+  })();
+
+  /* ── 배경음악: 페이지를 옮겨도 이어 듣도록 곡과 위치를 기억한다. 표지에서 시작을 누르면 테마곡이 켜진다 ── */
+  var bgm = (function () {
+    var root_ = (d.currentScript && d.currentScript.src || '').replace(/assets\/js\/main\.js.*$/, '');
+    var data = $('#bgm-data'), list = data ? JSON.parse(data.textContent) : [], byId = {};
+    list.forEach(function (x) { byId[x.id] = x; });
+    var box = $('[data-bgm]'), pl = $('#bpl'), a = new Audio(), cur = null, want = false, fadeT = 0, VOL = .42;
+    a.loop = true; a.preload = 'none'; a.volume = 0;
+    var st = {}; try { st = JSON.parse(localStorage.getItem('ileon-bgm')) || {}; } catch (e) {}
+    function save() {
+      if (cur) { st.id = cur; if (a.currentTime) st.t = a.currentTime; }
+      try { localStorage.setItem('ileon-bgm', JSON.stringify(st)); } catch (e) {}
+    }
+    function fade(to, ms, done) {
+      cancelAnimationFrame(fadeT);
+      var from = a.volume, t0 = performance.now();
+      (function step(t) {
+        var p = Math.min(1, (t - t0) / ms); a.volume = Math.max(0, Math.min(1, from + (to - from) * p));
+        if (p < 1) fadeT = requestAnimationFrame(step); else if (done) done();
+      })(t0);
+    }
+    function ui() {
+      var x = byId[cur] || list[0]; if (!x) return;
+      var playing = want && !a.paused;
+      root.classList.toggle('bgm-on', playing);
+      if (box) {
+        $('[data-bgm-name]', box).textContent = x.n; $('[data-bgm-title]', box).textContent = x.t;
+        var im = $('[data-bgm-img]', box), src = root_ + 'images/bgm/s/' + x.id + '.webp';
+        if (im.getAttribute('src') !== src) im.src = src;
+        var tg = $('[data-bgm-toggle]', box); tg.setAttribute('aria-pressed', playing); tg.setAttribute('aria-label', (playing ? '배경음악 멈춤' : '배경음악 재생') + ' (B)');
+        box.classList.toggle('wait', want && a.paused);
+      }
+      $$('[data-bgm-id]').forEach(function (b) {
+        var me = b.dataset.bgmId === x.id;
+        b.toggleAttribute('aria-current', me && !!cur);
+        b.classList.toggle('playing', me && playing);
+      });
+    }
+    function load(id, t) {
+      if (!byId[id] || cur === id) return;
+      cur = id; a.src = root_ + 'assets/bgm/' + id + '.mp3';
+      if (t) a.addEventListener('loadedmetadata', function () { try { a.currentTime = t % (a.duration || 1e9); } catch (e) {} }, { once: true });
+    }
+    function start() {
+      want = true; st.on = true; save();
+      var p = a.play();
+      if (p && p.catch) p.catch(function () { ui(); });
+      fade(VOL, 900);
+    }
+    /* 곡을 고르면 지금 곡을 줄이고 새 곡을 올린다 */
+    function play(id) {
+      if (cur && id !== cur && !a.paused) {
+        fade(0, 350, function () { load(id); st.t = 0; start(); });
+      } else { if (id) load(id); start(); }
+      ui();
+    }
+    function pause() {
+      want = false; st.on = false; save();
+      fade(0, 300, function () { a.pause(); ui(); });
+      ui();
+    }
+    function toggle() { if (want && !a.paused) pause(); else play(cur || (list[0] && list[0].id)); }
+    ['play', 'pause', 'playing'].forEach(function (t) { a.addEventListener(t, ui); });
+    /* 브라우저가 자동 재생을 막았으면 첫 조작에서 이어 튼다 */
+    ['pointerdown', 'keydown'].forEach(function (t) {
+      addEventListener(t, function () { if (want && a.paused && cur) { var p = a.play(); if (p && p.catch) p.catch(function () {}); fade(VOL, 900); } }, { capture: true, passive: true });
+    });
+    addEventListener('pagehide', save);
+    d.addEventListener('visibilitychange', function () { if (d.hidden) save(); });
+    setInterval(function () { if (!a.paused) save(); }, 3000);
+    /* 이전 페이지에서 듣던 곡을 이어서 */
+    if (st.id && byId[st.id]) { load(st.id, st.t); if (st.on && !$('[data-cover]')) start(); }
+    if (box) {
+      $('[data-bgm-toggle]', box).addEventListener('click', toggle);
+      function openList(o) {
+        pl.hidden = !o; root.classList.toggle('bpl-open', o);
+        $$('[data-bgm-list]', box).forEach(function (b) { b.setAttribute('aria-expanded', o); });
+        if (o) { var c = $('[aria-current]', pl); if (c) c.scrollIntoView({ block: 'nearest' }); }
+      }
+      $$('[data-bgm-list]', box).forEach(function (b) { b.addEventListener('click', function () { openList(pl.hidden); }); });
+      $('[data-bgm-close]', pl).addEventListener('click', function () { openList(false); });
+      pl.addEventListener('keydown', function (e) { if (e.key === 'Escape') { openList(false); e.stopPropagation(); } });
+    }
+    d.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[data-bgm-id]'); if (!b) return;
+      if (b.dataset.bgmId === cur && want && !a.paused) pause(); else play(b.dataset.bgmId);
+    });
+    ui();
+    return { play: play, toggle: toggle, playing: function () { return want && !a.paused; }, start: function (id) { if (st.on !== false) { load(id); st.t = 0; start(); } } };
   })();
 
   /* ── 시계: 현실과 벨라트(4배속) ── */
@@ -187,6 +277,7 @@
       if (e.key === 'Enter' && cw && cw.hidden && menu.hidden && !/A|BUTTON/.test(d.activeElement.tagName) && !$('[data-cover]')) { openChat(true); e.preventDefault(); return; }
       if (/^[1-5]$/.test(e.key) && navLinks[+e.key - 1]) { sfx.play('click'); location.href = navLinks[+e.key - 1].href; }
       if (e.key === 'm' || e.key === 'M') sfx.toggle();
+      if (e.key === 'b' || e.key === 'B') bgm.toggle();
     });
   }
 
@@ -279,7 +370,7 @@
       if (e) e.preventDefault();
       if (state === 'idle') {
         state = 'loading'; cover.classList.remove('idle');
-        t0 = performance.now(); sfx.play('loading', 0); requestAnimationFrame(load);
+        t0 = performance.now(); sfx.play('loading', 0); bgm.start('main'); requestAnimationFrame(load);
       } else if (state === 'loading') enter();
     }
     cover.addEventListener('click', press);
@@ -380,7 +471,7 @@
       tinf.forEach(function (x) { x.hidden = x.dataset.r !== key; });
       var cb = tb.filter(function (b) { return b.dataset.r === key; })[0];
       if (cb && cb.parentNode.parentNode.scrollWidth > cb.parentNode.parentNode.clientWidth) cb.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
-      if (push) { history.replaceState(null, '', '#' + key); sfx.play('travel', 120); }
+      if (push) { history.replaceState(null, '', '#' + key); sfx.play('travel', 120); if (bgm.playing()) bgm.play(key); }
     }
     tb.forEach(function (b) { b.addEventListener('click', function () { go2(b.dataset.r, true); }); });
     var inView = false;

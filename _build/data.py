@@ -323,3 +323,27 @@ BGD = {
  "SN": "3381874043", "ST": "4021149916", "SW": "2059690656", "T": "3469639875", "TG": "1552419496",
  "TP": "1974612001", "TR": "914807083", "V": "3103761882",
 }
+
+# 배경음악: assets/bgm/{id}.mp3, 표지 images/bgm/{id}.webp (작은 것 images/bgm/s/). 이름은 표지에 적힌 대로, 영문은 파일 태그 제목
+BGM = [
+    ("main", "RISE AGAIN", "Rise Again x Rise Again (Mashup)", "테마", 142),
+    ("riatel", "리아텔", "Morning Fields", "지역", 185),
+    ("kadet", "카뎃트", "Bazaar Call and Response", "지역", 133),
+    ("karsion", "카르시온", "Imperial Chamber Overture", "지역", 104),
+    ("harden", "하르덴", "Fjellvindens Melodi", "지역", 157),
+    ("tulgard", "툴가르드", "The Forge's steady beat", "지역", 163),
+    ("mirzen", "미르젠", "Salt Air Shanty", "지역", 94),
+    ("ashen", "잿빛 회랑", "Dusty Frontier", "지역", 185),
+    ("aelin", "아엘린", "Misty Lydian Woods", "지역", 203),
+    ("shehar", "셰하르", "Heat Shimmer Pad", "지역", 193),
+    ("rahna", "라흐나", "Subterranean Pressure", "지역", 208),
+    ("inn", "여관", "Firelight at the Tavern", "장면", 140),
+    ("temple", "신전", "Dorian Hymn", "장면", 193),
+    ("battle", "전투", "Tense Kinetic", "장면", 135),
+    ("bossroom", "보스룸", "Unyielding Ostinato", "장면", 113),
+    ("incident", "사변", "The Inevitable March", "장면", 130),
+    ("otherworld", "이계", "Physics Beyond Our Stars", "장면", 183),
+    ("pod", "포드방", "Server Room Hum", "현실", 178),
+    ("room", "방", "Rain on Window", "현실", 152),
+    ("city", "도시", "Neon After Rain", "현실", 188),
+]

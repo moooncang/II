@@ -20,6 +20,7 @@ def smp(code): return f"{UP}images/sample/{code}.webp"
 def dims(src):
     if "/B/" in src or "/bg-draft/" in src: return 2048, 585
     if "/sample/" in src: return 1280, 883
+    if "/bgm/s/" in src: return 640, 360
     if re.search(r"_1\.webp$", src): return 1280, 828
     return 1280, 621
 
@@ -119,6 +120,28 @@ def chat_widget():
 '''
 
 
+PLAY_I = '<svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>'
+PAUSE_I = '<svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z" fill="currentColor"/></svg>'
+def mmss(n): return f"{n // 60}:{n % 60:02d}"
+def bgm_json():
+    return json.dumps([dict(id=i, n=n, t=t, g=g) for i, n, t, g, d in BGM], ensure_ascii=False)
+def bgm_widget(up=""):
+    """모든 페이지 왼쪽 아래의 배경음악 플레이어와 사운드트랙 목록."""
+    i0, n0, t0, g0, d0 = BGM[0]
+    items = "".join(f'''<li><button type="button" data-bgm-id="{i}"><img src="{up}images/bgm/s/{i}.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span><b>{E(n)}</b><small>{E(t)}</small></span><i>{E(g)} · {mmss(d)}</i></button></li>''' for i, n, t, g, d in BGM)
+    return f'''<div class="bp" data-bgm>
+  <button type="button" class="bp-cv" data-bgm-list aria-expanded="false" aria-controls="bpl" aria-label="사운드트랙 목록 열기"><img src="{up}images/bgm/s/{i0}.webp" alt="" width="640" height="360" decoding="async" data-bgm-img></button>
+  <button type="button" class="bp-tx" data-bgm-list aria-hidden="true" tabindex="-1"><i>BGM<span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span></i><b data-bgm-name>{E(n0)}</b><small data-bgm-title>{E(t0)}</small></button>
+  <button type="button" class="bp-pp" data-bgm-toggle aria-pressed="false" aria-label="배경음악 재생 (B)">{PLAY_I}{PAUSE_I}</button>
+</div>
+<section class="bpl" id="bpl" aria-label="사운드트랙" hidden>
+  <div class="cw-h"><span><i></i>SOUNDTRACK · {len(BGM)}</span><button type="button" class="cw-x" data-bgm-close aria-label="목록 닫기">×</button></div>
+  <ol class="bpl-b">{items}</ol>
+</section>
+<script type="application/json" id="bgm-data">{bgm_json()}</script>
+'''
+
+
 def foot(up=""):
     links = "".join(f'<a href="{up}{h}">{t}</a>' for h, t, en in NAV)
     return f'''</main>
@@ -129,7 +152,7 @@ def foot(up=""):
     <p><span>현실 <b data-clock="real">--:--</b> · 벨라트 <b data-clock="belat">--:--</b></span></p>
   </div>
 </footer>
-{chat_widget()}<script src="{up}assets/js/main.js"></script>
+{bgm_widget(up)}{chat_widget()}<script src="{up}assets/js/main.js"></script>
 </body>
 </html>'''
 
@@ -256,6 +279,7 @@ def build_cover():
   </div>
   <div class="cv-flash"></div>
 </main>
+<script type="application/json" id="bgm-data">{bgm_json()}</script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>'''
@@ -360,6 +384,11 @@ def build_home():
   <div class="zero"><span>HIDDEN · 신화</span><b>0</b></div>
 </section>
 
+<section class="ost">
+  <div class="ost-h"><p class="lbl">SOUNDTRACK · {len(BGM)}</p><h2 class="ttl">사운드트랙</h2></div>
+  <ol class="ost-g">{"".join(f'''<li><button type="button" data-bgm-id="{i}"><span class="ost-img">{img(f"images/bgm/s/{i}.webp", n)}<span class="ost-pp">{PLAY_I}{PAUSE_I}</span></span><span class="ost-tx"><b>{E(t)}</b><i>{E(g)} · {mmss(d)}</i></span></button></li>''' for i, n, t, g, d in BGM)}</ol>
+</section>
+
 <section class="scene newgame">
   <div class="ng-h"><p class="lbl">NEW GAME</p></div>
   <div class="slots">{slot_html}</div>
@@ -385,6 +414,7 @@ def build_world():
         infos += f'''<article class="tv-info" data-r="{r["key"]}"{"" if k == 0 else " hidden"}>
       <p class="where">{E(r["where"])}</p>
       <h2>{E(r["name"])}</h2>
+      {(lambda b: f'<button type="button" class="tv-bgm" data-bgm-id="{b[0]}">{PLAY_I}{PAUSE_I}<span>지역 BGM</span><b>{E(b[2])}</b></button>' if b else "")(next((x for x in BGM if x[0] == r["key"]), None))}
       <p class="tx">{E(r["text"])}</p>
       {rows(items) if items else ""}
       {f'<div class="people">{people}</div>' if people else ""}
