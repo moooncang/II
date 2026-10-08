@@ -175,7 +175,7 @@ def render_prologue(fname):
             while i < len(lines) and not lines[i].startswith("```"):
                 buf.append(lines[i]); i += 1
             i += 1
-            body = re.sub(r"^(\[[^\]]+\])", r'<span class="k">\1</span>', E(chr(10).join(buf)), flags=re.M)
+            body = re.sub(r"(^|\s)(\[[^\]]+\])", r'\1<span class="k">\2</span>', E(chr(10).join(buf)), flags=re.M)
             out.append(f'<div class="status"><p class="status-h"><span>STATUS</span><span>상태창</span></p><pre class="info">{body}</pre></div>')
             continue
         m = re.match(r"!\[\]\((.+)\)", ln)

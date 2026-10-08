@@ -1086,3 +1086,4 @@ main:focus{outline:none}
 @media (min-width:641px) and (max-width:1000px){.title .chat{width:min(420px,52%)}}
 .title .scroll-hint{right:auto;left:50%;transform:translateX(-50%)}
 @media (max-width:1000px){.title .scroll-hint{display:none}}
+@media (max-width:640px){.status .info{font-size:12.5px;line-height:1.85;padding:10px 12px 12px;letter-spacing:-.01em}}
